@@ -1,1 +1,108 @@
-<p>feed works!</p>
+<div class="feed">
+
+  <h1>Feed</h1>
+
+  @for (gato of gatos; track gato.nome) {
+
+
+  <div class="feed-bloco">
+
+    <!-- PARTE DE CIMA -->
+    <section class="feed-topo">
+
+      <!-- DOIS CARDS PEQUENOS -->
+      <div class="cards-laterais">
+
+        <div class="card card-pequeno">
+          <img
+            [src]="gato.imagem"
+            [alt]="gato.nome"
+          >
+
+          <div class="info-gato">
+            <span>{{ gato.cidade }}</span>
+            <p>{{ gato.nome }} - {{ gato.idade }} anos</p>
+          </div>
+        </div>
+
+
+        <div class="card card-pequeno">
+          <img
+            [src]="gato.imagem"
+            [alt]="gato.nome"
+          >
+
+          <div class="info-gato">
+            <span>{{ gato.cidade }}</span>
+            <p>{{ gato.nome }} - {{ gato.idade }} anos</p>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- CARD GRANDE -->
+      <div class="card card-grande">
+
+        <img
+          [src]="gato.imagem"
+          [alt]="gato.nome"
+        >
+
+        <div class="info-gato info-gato-grande">
+          <span>{{ gato.cidade }}</span>
+          <p>{{ gato.nome }} - {{ gato.idade }} anos</p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- TRÊS CARDS INFERIORES -->
+    <section class="feed-inferiores">
+
+      <div class="card card-inferior">
+        <img
+          [src]="gato.imagem"
+          [alt]="gato.nome"
+        >
+
+        <div class="info-gato">
+          <span>{{ gato.cidade }}</span>
+          <p>{{ gato.nome }} - {{ gato.idade }} anos</p>
+        </div>
+      </div>
+
+
+      <div class="card card-inferior">
+        <img
+          [src]="gato.imagem"
+          [alt]="gato.nome"
+        >
+
+        <div class="info-gato">
+          <span>{{ gato.cidade }}</span>
+          <p>{{ gato.nome }} - {{ gato.idade }} anos</p>
+        </div>
+      </div>
+
+
+      <div class="card card-inferior">
+        <img
+          [src]="gato.imagem"
+          [alt]="gato.nome"
+        >
+
+        <div class="info-gato">
+          <span>{{ gato.cidade }}</span>
+          <p>{{ gato.nome }} - {{ gato.idade }} anos</p>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  }
+
+</div>
