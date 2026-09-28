@@ -1,0 +1,65 @@
+  @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+*{
+    align-items: center;
+}
+.cabeca-menu {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+    box-sizing: border-box;
+    font-family: Inter;
+    background: #fff;
+
+
+}
+
+/* Logo */
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.logo-icone { width: 22px; height: 26px; }
+.Catts { font-size: 16px; font-weight: 700; color: #0b0b0c; }
+
+/* Menu */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.menu-function {
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #9a9a9f;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s, color 0.15s;
+}
+.menu-function:hover { color: #f3f3f5;
+    border-radius: 24px;
+    border: 1.5px solid #FFF;
+    background: #000D15;
+ }
+.menu-function.active {
+  background: #0b0b0c;
+  color: #fff;
+
+}
+
+/* Avatar sobreposto ao Doar */
+.item-doar { position: relative; }
+
+
+/* Botão ghost, colado na direita */
+.botao-direita { margin-left: auto; }
+

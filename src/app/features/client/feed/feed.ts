@@ -1,7 +1,8 @@
 import { Component, HostListener} from "@angular/core";
+import { ClientNavBar } from "../../../layoyt/client-nav-bar/client-nav-bar";
 
 @Component({
-  imports: [],
+  imports: [ClientNavBar],
   selector: "app-feed",
   styleUrl: "./feed.css",
   templateUrl: "./feed.html",

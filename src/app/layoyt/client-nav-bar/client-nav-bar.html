@@ -1,83 +1,19 @@
-<style>
-    .cabeca-menu {
-        margin:208px;
-        margin-top: 64px;
-        margin-right: 258px;
-
-    }
-    .header {
-        display: flex;
-        align-items: center;
-    }
-    header.cabeca-menu {
-        width: 814px;
-        height: 48px;
-    }
-    .logo-icone {
-        width: 29px;
-        height: 29px;
-        aspect-ratio: 1/1;  
-    }
-
-   .Catts{
-    width: 59px;
-    height: 13px;
-    color: #000;
-    font-size: 15px;
-    font-weight: 600;
-    font-family: Inter;
-    margin-left: 10px;
-   }
-   .menu-item { 
-    width: 199px;
-    height: 26px;
-    display: flex;  
-    justify-content: center;
-    flex-shrink: 0;
-    margin-left: 32px;
-    gap:16px;
-   }
-   a.menu-function {
-    color: #666;
-    width: 36px;
-    height: 10px;
-    font-family: Inter;
-    font-size: 12px;
-    font-weight: 600;
-   }
-
-   .botao-ghost { margin-left: auto; }
-
-
-</style>
-
-
-
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 <header class="cabeca-menu">
-    <div class="header">
-
-    <img  class="logo-icone" src="/logocachorro.svg" />
+  <a routerLink="/" class="marca">
+    <img class="logo-icone" src="/logocachorro.svg" alt="" />
     <span class="Catts">@Catts</span>
+  </a>
 
-        <nav class="menu-item">
-            <a routerLink=""  class="menu-function">Feed</a>
-            <a routerLink="" class="menu-function">Loja</a>
-            <a routerLink="" class="menu-function">Sobre</a>
-            <a routerLink="/login" class="menu-function">Doar</a>
+  <nav class="menu-item">
+    <a routerLink="/feed" routerLinkActive="active" class="menu-function">Feed</a>
+    <a routerLink="/loja" routerLinkActive="active" class="menu-function">Loja</a>
+    <a routerLink="/sobre" routerLinkActive="active" class="menu-function">Sobre</a>
 
-        </nav>
+    <span class="item-doar">
+      <a routerLink="/login" routerLinkActive="active" class="menu-function">Doar</a>
+    </span>
+  </nav>
 
-        <app-button-ghost-link class="botao-ghost" toUrl="/login"> </app-button-ghost-link>
-        
-
-        
-
-
-        </div>
-
-    </header>
+  <app-button-ghost-link class="botao-direita" toUrl="/login" />
+</header>
     <router-outlet></router-outlet>
