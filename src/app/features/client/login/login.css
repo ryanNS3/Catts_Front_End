@@ -1,0 +1,199 @@
+  @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+  
+  .pagina-login {
+  display: flex;
+  min-height: 100vh;
+}
+
+.lado-foto {
+  flex: 1 1 50%;
+  position: relative;
+  background-size: cover;
+}
+/* "Coleira" com linha e bolinha, centralizado no topo */
+.marca-coleira {
+  position: absolute;
+  top: 20%;
+  left: 56%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: Inter;
+}
+
+.linha-coleira {
+  width: 1px;
+  height: 25%;
+  background: #fff;
+  margin-top: 8px;
+}
+
+
+
+/* Bloco de texto no canto inferior esquerdo */
+.info-gato {
+  position: absolute;
+  left: 5%;
+  bottom: 8%;
+  max-width: 70%;
+  font-family: Inter;
+}
+
+.tag-cidade {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 35px;
+  margin-bottom: 16px;
+}
+
+.tag-cidade img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.tag-cidade span {
+  position: relative;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.nome-idade {
+  margin:  0 0 8px;
+  color: #fff;
+  font-family: "Amatic SC";
+  font-size: 42px;
+  font-weight: 400;
+  margin-left: 54px;
+
+  
+}
+.descricao {
+  margin: 0 0 8px;
+  line-height: 1.4;
+  font-family: Montserrat;
+  color: #E8E8E8;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-left: 54px;
+}
+
+.descricao2 {
+  display: block;
+  margin-left: 54px;
+  line-height: 1.4;
+  font-family: Montserrat;
+  color: #E8E8E8;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  width: 282px;
+  height: 34px;
+}
+
+
+
+.lado-form {
+  flex: 1 1 50%;
+  padding: 48px;
+  box-sizing: border-box;
+}
+
+.voltar {
+      margin-top: 104px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #030303;
+  font-weight: 600;
+  font-family: Inter;
+}
+
+.icone-voltar {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+h1 { 
+    margin: 16px 0 4px; 
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 600;
+}
+.subtitulo { 
+    color: #434343; 
+    margin-bottom: 24px;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+form { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 16px; 
+}
+label { 
+    color: #606060;
+    display: flex; 
+    flex-direction: column; 
+    gap: 6px; font-weight: 600; 
+    font-size: 14px; 
+    font-family: Inter;
+    font-weight: 600;
+    
+}
+
+input {
+    color: #606060;
+    padding: 12px 14px;
+    border: 1px solid #969696;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    width: 367px;
+
+}
+
+.botao-continuar {
+  position: relative;
+  width: 173px;
+  height: 53px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+    margin-top: 290px;
+
+}
+
+.botao-continuar img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.botao-continuar span {
+  position: relative;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+}

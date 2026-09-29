@@ -1,1 +1,47 @@
-<p>login works!</p>
+<style>
+
+</style>
+
+<div class="pagina-login">
+  <div class="lado-foto" [style.background-image]="'url(' + fotoFundo() + ')'">
+
+    <div class="marca-coleira">
+      <span class="coleira">Coleira</span>
+      <img src="/Line 1.svg" alt="" />
+      <img src="/fundo-avatares.svg" alt="" />
+    </div>
+
+    <div class="info-gato">
+      <div class="tag-cidade">
+        <img src="/tag-cidade.svg" alt="" />
+        <span>São Paulo</span>
+      </div>
+      <h2 class="nome-idade">T O M - 3 A N O S</h2>
+      <p class="descricao">Gato Tom tem 3 anos foi </p>
+    <span class="descricao2">abandonado recentemente</span>
+
+    </div>
+
+  </div>
+
+
+  <div class="lado-form">
+    <a routerLink="/" class="voltar"><img src="/Arrow 2.svg" alt="" class="icone-voltar" />Voltar</a>
+
+    <h1>Solicitação de adoção</h1>
+    <p class="subtitulo">Preencha todos os campos</p>
+
+    <form>
+      <label>Nome<input type="text" placeholder="Ex: Luan" /></label>
+
+      <label>Email<input type="email" placeholder="ex: e@gmail.com" /></label>
+
+      <label>CPF<input type="text" placeholder="ex: e@gmail.com" /></label>
+
+    <button [routerLink]="toUrl" (click)="aoClicar()" class="botao-continuar">
+   <img src="/botaocontinuar.svg" alt="" /> 
+   <span>Continuar</span>
+    <ng-content></ng-content></button>    
+</form>
+  </div>
+</div>
