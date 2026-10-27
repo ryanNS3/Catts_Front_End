@@ -1,15 +1,5 @@
-
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <filter id="rabisco">
-    <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" result="ruido" />
-    <feDisplacementMap in="SourceGraphic" in2="ruido" scale="13" />
-  </filter>
-</svg>
-
 <button
-   [routerLink]="toUrl" (click)="aoClicar()" class="botao-ghost">
-   <img src="/botao-ghost.svg" alt="" /> 
+   [routerLink]="toUrl" (click)="aoClicar()" class="botao-ghost"> 
    <span>Doar/Adotar</span>
   
   
