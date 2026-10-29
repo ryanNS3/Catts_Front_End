@@ -1,11 +1,31 @@
 <main class="container">
+  
+  <!-- LADO ESQUERDO -->
+  <section class="login">
 
-        <section class="login">
+    @if (animalSelecionado(); as gato) {
+      <img [src]="gato.imagem" [alt]="gato.nome">
 
-          @if (etapa === 0){
-            
+      <span>{{ gato.cidade }}</span>
 
-          }
+      <h2>{{ gato.nome }}</h2>
+
+      <p>{{ gato.idade }} anos</p>
+    }
+  </section>
+
+  <!-- LADO DIREITO -->
+  <section class="formulario">
+  
+    @if (etapa === 0) {
+      <a (click)="voltar()">Voltar</a>
+
+      <h1>Sign in</h1>
+
+      <p>Selecione uma das opções abaixo para fazer o login</p>
+
+      <button type="button" (click)="continuar()">Google</button>
+    }
 
           @if (etapa === 1){
 
@@ -22,8 +42,11 @@
           @if (etapa === 4){
             
           }
+  </section>
 
+</main>
 
+<!--
 <div class="pagina-login">
   <div class="lado-foto" [style.background-image]="'url(' + fotoFundo() + ')'">
 
@@ -32,6 +55,7 @@
       <img src="/Line 1.svg" alt="" />
       <img src="/fundo-avatares.svg" alt="" />
     </div>
+
 
     <div class="info-gato">
       <div class="tag-cidade">
@@ -67,3 +91,4 @@
 </form>
   </div>
 </div>
+-->

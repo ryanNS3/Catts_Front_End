@@ -1,6 +1,7 @@
-import { Component, EventEmitter, inject, Input, Output, signal } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 //import GoogleLogin from 'react-google-login';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { AnimalService } from '../../../service/animal/animal';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +10,11 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
   styleUrl: './login.css',
 })
 export class Login {
+
+  private animalService = inject(AnimalService);
+
+
+  animalSelecionado = this.animalService.animalSelecionado;
 
   // etapa = 0 ->feed sem login-informacoes gerais
   // etapa = 1 -> login com o google
@@ -32,10 +38,6 @@ export class Login {
 
   gatoId = this.route.snapshot.paramMap.get('id');
 
-  // Depois isso vem de um service (AnimalService), buscando pelo gatoId.
-  // Por enquanto, fixo para teste:
-  fotoFundo = signal('/gatologin.jpg');
-  nomeGato = signal('Tom');
 
   //BOTAO CONTINUAR
    @Input() toUrl: string = '';

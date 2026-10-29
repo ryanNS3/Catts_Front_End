@@ -4,7 +4,7 @@
 
   <h1>Feed</h1>
 
-  @for (gato of gatos; track gato.nome) {
+  @for (gato of animais; track gato.nome) {
 
 
   <div class="feed-bloco">
@@ -13,7 +13,7 @@
     <section class="feed-topo">
 
       <!-- DOIS CARDS PEQUENOS -->
-      <div class="cards-laterais">
+      <div class="cards-laterais" (click)="abrirLogin(gato)">
 
         <div class="card card-pequeno">
           <img
@@ -28,7 +28,7 @@
         </div>
 
 
-        <div class="card card-pequeno">
+        <div class="card card-pequeno" (click)="abrirLogin(gato)">
           <img
             [src]="gato.imagem"
             [alt]="gato.nome"
@@ -44,7 +44,7 @@
 
 
       <!-- CARD GRANDE -->
-      <div class="card card-grande">
+      <div class="card card-grande" (click)="abrirLogin(gato)">
 
         <img
           [src]="gato.imagem"
@@ -64,7 +64,7 @@
     <!-- TRÊS CARDS INFERIORES -->
     <section class="feed-inferiores">
 
-      <div class="card card-inferior">
+      <div class="card card-inferior" (click)="abrirLogin(gato)">
         <img
           [src]="gato.imagem"
           [alt]="gato.nome"
@@ -77,7 +77,7 @@
       </div>
 
 
-      <div class="card card-inferior">
+      <div class="card card-inferior" (click)="abrirLogin(gato)">
         <img
           [src]="gato.imagem"
           [alt]="gato.nome"
@@ -90,7 +90,7 @@
       </div>
 
 
-      <div class="card card-inferior">
+      <div class="card card-inferior" (click)="abrirLogin(gato)">
         <img
           [src]="gato.imagem"
           [alt]="gato.nome"

@@ -1,5 +1,8 @@
-import { Component, HostListener} from "@angular/core";
+import { Component, HostListener, inject} from "@angular/core";
 import { ClientNavBar } from "../../../layoyt/client-nav-bar/client-nav-bar";
+import { Animal, AnimalService } from "../../../service/animal/animal";
+import { Router } from "@angular/router";
+
 
 @Component({
   imports: [ClientNavBar],
@@ -9,7 +12,10 @@ import { ClientNavBar } from "../../../layoyt/client-nav-bar/client-nav-bar";
 })
 export class Feed {
 
-  gatos= [
+  private Animais = inject(AnimalService);
+  private router = inject(Router);
+
+  animais= [
   {
     nome:"Tom",
     idade: 3,
@@ -36,17 +42,23 @@ export class Feed {
   },
   ];
 
+
+  abrirLogin(animal: Animal) {
+    this.Animais.selecionarAnimal(animal);
+    this.router.navigate(["/login"]);
+  }
+  
   @HostListener("window:scroll")
     aoRolar() {
 
       const chegouNoFinal = window.innerHeight + window.scrollY >= document.body.offsetHeight - 300;
 
       if(chegouNoFinal) {
-        this.carregarMaisGatos();
+        this.carregarMaisAnimais();
       }
     }
 
-    carregarMaisGatos() {
-      this.gatos = [...this.gatos, ...this.gatos];
+    carregarMaisAnimais() {
+      this.animais = [...this.animais, ...this.animais];
     }
 }
