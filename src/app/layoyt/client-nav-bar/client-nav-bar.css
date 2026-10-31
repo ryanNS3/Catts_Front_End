@@ -1,67 +1,72 @@
-  
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
-*{
-    align-items: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 .cabeca-menu {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 24px;
-    box-sizing: border-box;
-    font-family: Inter;
-    background: #fff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 
+  width: min(803px, calc(100% - 40px));
+  margin: 30px auto 0;
+  padding: 0;
 
+  height: 68px;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  background: #fff;
 }
 
 /* Logo */
 .marca {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  flex-shrink: 0;
+  width: 59px;
+  height: 13px;
+  flex-direction: column;
+  justify-content: center;
 }
-.Catts { font-size: 16px; font-weight: 700; color: #0b0b0c; }
+
+.Catts {
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
 
 /* Menu */
 .menu-item {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
 }
 
 .menu-function {
-  padding: 8px 16px;
-  border-radius: 999px;
-  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 12px;
   font-weight: 600;
-  color: #9a9a9f;
+  color: #77777d;
   text-decoration: none;
   white-space: nowrap;
   transition: background-color 0.15s, color 0.15s;
 }
-.menu-function:hover { color: #f3f3f5;
-    border-radius: 24px;
-    border: 1.5px solid #FFF;
-    background: #000D15;
- }
-.menu-function.active {
-  background: #0b0b0c;
-  color: #fff;
 
+.menu-function:hover {
+  background: #000d15;
+  color: #ffffff;
 }
 
-/* Avatar sobreposto ao Doar */
-.item-doar { position: relative; }
+.menu-function.active {
+  background: #000d15;
+  color: #ffffff;
+}
 
-
-/* Botão ghost, colado na direita */
-.botao-direita { margin-left: auto; }
-
+/* Botão direita */
+.botao-direita {
+  margin-left: auto;
+  align-self: center;
+}
