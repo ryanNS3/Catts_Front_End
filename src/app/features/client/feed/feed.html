@@ -1,110 +1,113 @@
 <app-client-nav-bar></app-client-nav-bar>
 
-<div class="feed">
+<main class="feed">
 
-  <h1>Feed</h1>
+  <!-- Cabeçalho -->
+  <section class="feed-cabecalho">
+    <h1>Feed</h1>
 
-  @for (gato of animais; track gato.nome) {
+    <!-- Pesquisa e filtro -->
+    <div class="feed-pesquisa">
+      <div class="campo-pesquisa">
+        <input type="text" placeholder="Pesquisar" aria-label="Pesquisar gatos">
+      </div>
 
+      <button class="botao-filtro" aria-label="Filtrar gatos">
+        <img src="/Icones/icone-filtro.svg" alt="Filtrar">
+      </button>
+    </div>
+  </section>
 
-  <div class="feed-bloco">
+  <!-- Grid gatos -->
+  @for (grupo of [].constructor(animaisExibidos.length / 6); track $index) {
 
-    <!-- PARTE DE CIMA -->
-    <section class="feed-topo">
+  <section class="feed-bloco">
 
-      <!-- DOIS CARDS PEQUENOS -->
-      <div class="cards-laterais" (click)="abrirLogin(gato)">
+    <div class="feed-layout">
 
-        <div class="card card-pequeno">
-          <img
-            [src]="gato.imagem"
-            [alt]="gato.nome"
-          >
+      <!-- Cards Laterais - esquerda -->
+      <div class="cards-laterais">
+
+        @for (
+        gato of animaisExibidos.slice($index * 6, $index * 6 + 3);
+        track $index
+        ) {
+
+        <article class="card card-lateral" (click)="abrirLogin(gato)">
+
+          <img class="imagem-gato" [src]="gato.imagem" [alt]="gato.nome">
+
+          <button class="botao-salvar" aria-label="Salvar gato" (click)="$event.stopPropagation()">
+            <img src="/Icones/icone-salvar.svg" alt="">
+          </button>
 
           <div class="info-gato">
             <span>{{ gato.cidade }}</span>
             <p>{{ gato.nome }} - {{ gato.idade }} anos</p>
           </div>
-        </div>
 
+        </article>
+        }
 
-        <div class="card card-pequeno" (click)="abrirLogin(gato)">
-          <img
-            [src]="gato.imagem"
-            [alt]="gato.nome"
-          >
+      </div>
 
-          <div class="info-gato">
-            <span>{{ gato.cidade }}</span>
-            <p>{{ gato.nome }} - {{ gato.idade }} anos</p>
+      <!-- COLUNA DIREITA -->
+      <div class="cards-direita">
+
+        <!-- Card Grande -->
+        <article class="card card-grande" (click)="abrirLogin(animaisExibidos[$index * 6 + 3])">
+
+          <img class="imagem-gato" [src]="animaisExibidos[$index * 6 + 3].imagem"
+            [alt]="animaisExibidos[$index * 6 + 3].nome">
+
+          <button class="botao-salvar" aria-label="Salvar gato" (click)="$event.stopPropagation()">
+            <img src="/Icones/icone-salvar.svg" alt="">
+          </button>
+
+          <div class="info-gato info-gato-grande">
+            <span>
+              {{ animaisExibidos[$index * 6 + 3].cidade }}
+            </span>
+
+            <p>
+              {{ animaisExibidos[$index * 6 + 3].nome }} -
+              {{ animaisExibidos[$index * 6 + 3].idade }} anos
+            </p>
           </div>
+
+        </article>
+
+        <!-- Cards Inferiores -->
+        <div class="cards-inferiores">
+
+          @for (
+          gato of animaisExibidos.slice($index * 6 + 4, $index * 6 + 6);
+          track $index
+          ) {
+
+          <article class="card card-inferior" (click)="abrirLogin(gato)">
+
+            <img class="imagem-gato" [src]="gato.imagem" [alt]="gato.nome">
+
+            <button class="botao-salvar" aria-label="Salvar gato" (click)="$event.stopPropagation()">
+              <img src="/Icones/icone-salvar.svg" alt="">
+            </button>
+
+            <div class="info-gato">
+              <span>{{ gato.cidade }}</span>
+              <p>{{ gato.nome }} - {{ gato.idade }} anos</p>
+            </div>
+
+          </article>
+          }
+
         </div>
 
       </div>
 
+    </div>
 
-      <!-- CARD GRANDE -->
-      <div class="card card-grande" (click)="abrirLogin(gato)">
-
-        <img
-          [src]="gato.imagem"
-          [alt]="gato.nome"
-        >
-
-        <div class="info-gato info-gato-grande">
-          <span>{{ gato.cidade }}</span>
-          <p>{{ gato.nome }} - {{ gato.idade }} anos</p>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- TRÊS CARDS INFERIORES -->
-    <section class="feed-inferiores">
-
-      <div class="card card-inferior" (click)="abrirLogin(gato)">
-        <img
-          [src]="gato.imagem"
-          [alt]="gato.nome"
-        >
-
-        <div class="info-gato">
-          <span>{{ gato.cidade }}</span>
-          <p>{{ gato.nome }} - {{ gato.idade }} anos</p>
-        </div>
-      </div>
-
-
-      <div class="card card-inferior" (click)="abrirLogin(gato)">
-        <img
-          [src]="gato.imagem"
-          [alt]="gato.nome"
-        >
-
-        <div class="info-gato">
-          <span>{{ gato.cidade }}</span>
-          <p>{{ gato.nome }} - {{ gato.idade }} anos</p>
-        </div>
-      </div>
-
-
-      <div class="card card-inferior" (click)="abrirLogin(gato)">
-        <img
-          [src]="gato.imagem"
-          [alt]="gato.nome"
-        >
-
-        <div class="info-gato">
-          <span>{{ gato.cidade }}</span>
-          <p>{{ gato.nome }} - {{ gato.idade }} anos</p>
-        </div>
-      </div>
-
-    </section>
-  </div>
-
+  </section>
   }
 
-</div>
+</main>

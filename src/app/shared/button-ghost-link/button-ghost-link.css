@@ -1,16 +1,14 @@
 .botao-ghost {
-  
- width:151px;
-    height:48px;
-    margin-top:15px;
-    border-radius:16px;
+
+    width: 151px;
+    height: 48px;
+    border-radius: 16px;
     border: 1.5px solid #000;
     background: transparent;
     color: var(--rose-50, #030303);
-    font-weight:600;
+    font-weight: 600;
     font-size: 12px;
     font-family: Inter;
     text-align: center;
-
+    cursor: pointer;
 }
-
