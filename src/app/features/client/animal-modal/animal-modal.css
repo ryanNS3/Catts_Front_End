@@ -1,0 +1,182 @@
+
+/* Fundo blur no feed */
+.modal-fundo {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+/* Janela principal */
+.modal-conteudo {
+    width: 900px;
+    max-width: calc(100% - 40px);
+    height: 600px;
+    max-height: 90vh;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    background-color: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Lado esquerdo do modal */
+.modal-imagem {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.modal-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Informações da foto */
+.informacoes-gato {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    color: white;
+    text-shadow: 1px 1px 5px black;
+}
+
+.informacoes-gato span {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid white;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-size: 13px;
+}
+
+.informacoes-gato h2 {
+    font-size: 32px;
+    margin: 10px 0 0;
+}
+
+/* Lado direito do modal */
+.modal-detalhes {
+    position: relative;
+    padding: 30px 32px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    min-width: 0;
+    font-family: 'Inter', sans-serif;
+    color: #071820;
+}
+
+/* Titulo principal */
+.modal-detalhes > h2 {
+    font-size: 20px;
+    margin: 14px 0 20px;
+}
+
+/* Titulo de cada informação */
+.titulo-informacao {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.titulo-informacao img {
+    width: 15px;
+    height: 15px;
+    object-fit: contain;
+}
+
+/* História */
+.informacao-historia {
+    margin-bottom: 18px;
+}
+
+.informacao-historia p {
+    font-size: 10px;
+    line-height: 1.5;
+    margin: 6px 0 0;
+    color: #555555;
+}
+
+/* duas colunas */
+.informacoes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 15px;
+}
+
+.item-informacao p {
+    font-size: 10px;
+    margin: 5px 0 0;
+}
+
+/* Lista de vacinas */
+.item-informacao ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 5px 0 0;
+    font-size: 10px;
+    list-style-position: outside;
+}
+
+.item-informacao li {
+    display: list-item;
+    margin-bottom: 3px;
+}
+
+/* ONG */
+.informacao-ong {
+    margin-top: 20px;
+}
+
+.informacao-ong > strong {
+    font-size: 11px;
+}
+
+.cartao-ong {
+    height: 42px;
+    margin-top: 10px;
+    padding: 0 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border: 1px solid #aaaaaa;
+    border-radius: 10px;
+    font-size: 11px;
+}
+
+.cartao-ong img {
+    width: 17px;
+    height: 17px;
+    object-fit: contain;
+}
+
+/* Responsividade */
+
+@media (max-width: 850px) {
+    .modal-conteudo {
+        width: calc(100% - 40px);
+        height: 85vh;
+    }
+
+    .modal-detalhes {
+        padding: 24px 20px;
+    }
+
+    .informacoes-gato h2 {
+        font-size: 26px;
+    }
+}

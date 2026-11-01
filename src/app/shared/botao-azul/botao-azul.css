@@ -1,0 +1,21 @@
+.botao-adotar {
+    height: 43px;
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+    border-radius: 9px;
+    background: linear-gradient(90deg, #087ee5, #59aaff);
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.botao-adotar img {
+    width: 15px;
+    height: 15px;
+    object-fit: contain;
+}

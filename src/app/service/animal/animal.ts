@@ -5,6 +5,12 @@ export interface Animal {
   idade: number;
   cidade: string;
   imagem: string;
+  historia?: string;
+  castrado?: boolean;
+  vacinas?: string[];
+  deficiencia?: string;
+  peso?: number;
+  ong?: string;
 }
 
 @Injectable({

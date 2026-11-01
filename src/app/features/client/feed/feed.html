@@ -33,7 +33,7 @@
         track $index
         ) {
 
-        <article class="card card-lateral" (click)="abrirLogin(gato)">
+        <article class="card card-lateral" (click)="abrirModal(gato)">
 
           <img class="imagem-gato" [src]="gato.imagem" [alt]="gato.nome">
 
@@ -55,7 +55,7 @@
       <div class="cards-direita">
 
         <!-- Card Grande -->
-        <article class="card card-grande" (click)="abrirLogin(animaisExibidos[$index * 6 + 3])">
+        <article class="card card-grande" (click)="abrirModal(animaisExibidos[$index * 6 + 3])">
 
           <img class="imagem-gato" [src]="animaisExibidos[$index * 6 + 3].imagem"
             [alt]="animaisExibidos[$index * 6 + 3].nome">
@@ -85,7 +85,7 @@
           track $index
           ) {
 
-          <article class="card card-inferior" (click)="abrirLogin(gato)">
+          <article class="card card-inferior" (click)="abrirModal(gato)">
 
             <img class="imagem-gato" [src]="gato.imagem" [alt]="gato.nome">
 
@@ -111,3 +111,10 @@
   }
 
 </main>
+
+@if (animalSelecionado) {
+  <app-animal-modal
+    [animal]="animalSelecionado"
+    (fechar)="fecharModal()"
+    (adotar)="adotarAnimal"/>
+}

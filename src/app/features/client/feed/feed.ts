@@ -1,11 +1,12 @@
 
-import { Component, HostListener, inject } from "@angular/core";
+import { Component, HostListener, inject, numberAttribute } from "@angular/core";
 import { Router } from "@angular/router";
 import { ClientNavBar } from "../../../layoyt/client-nav-bar/client-nav-bar";
 import { Animal, AnimalService } from "../../../service/animal/animal";
+import { AnimalModal } from "../animal-modal/animal-modal";
 
 @Component({
-  imports: [ClientNavBar],
+  imports: [ClientNavBar, AnimalModal],
   selector: "app-feed",
   styleUrl: "./feed.css",
   templateUrl: "./feed.html",
@@ -20,7 +21,13 @@ export class Feed {
       nome: "Tom",
       idade: 3,
       cidade: "São Paulo",
-      imagem: "https://images.unsplash.com/photo-1583795128727-6ec3642408f8?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      imagem: "https://images.unsplash.com/photo-1583795128727-6ec3642408f8?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+      historia: "Gato tom tem 3 anos que  foi abandonado pelos seus antigos tutores, ele adora brincar de bolinha e é muito carinhoso",
+      castrado: true,
+      vacinas: ["Raiva"],
+      deficiencia: "Nenhuma",
+      peso: 5,
+      ong: "ONG Catts"
     },
     {
       nome: "Luna",
@@ -44,13 +51,22 @@ export class Feed {
 
   animaisExibidos: Animal[] = [];
 
+  animalSelecionado: Animal | null = null;
+
   constructor() {
     this.carregarMaisAnimais();
   }
 
-  abrirLogin(animal: Animal) {
+  abrirModal(animal: Animal) {
+    this.animalSelecionado = animal;
+  }
+
+  fecharModal() {
+    this.animalSelecionado = null;
+  }
+
+  adotarAnimal(animal: Animal) {
     this.animaisService.selecionarAnimal(animal);
-    this.router.navigate(["/login"]);
   }
 
   @HostListener("window:scroll")

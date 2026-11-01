@@ -1,0 +1,99 @@
+<div class="modal-fundo">
+
+    <div class="modal-conteudo">
+
+        <!-- Foto do gato -->
+        <section class="modal-imagem">
+
+            <img [src]="animal.imagem" [alt]="animal.nome">
+
+            <div class="informacoes-gato">
+                <span>{{ animal.cidade }}</span>
+                <h2>{{ animal.nome }} - {{ animal.idade }} anos</h2>
+            </div>
+
+        </section>
+
+        <!-- Informações do gato -->
+        <section class="modal-detalhes">
+
+            <app-botao-voltar (voltar)="fechar.emit()"></app-botao-voltar>
+
+            <h2>Informações gerais</h2>
+
+            <!-- História -->
+            <div class="informacao-historia">
+                <div class="titulo-informacao">
+                    <img src="/Icones/Livro.svg" alt="">
+                    <span>História</span>
+                </div>
+
+                <p>{{ animal.historia || 'Ainda não temos uma história cadastrada.' }}</p>
+            </div>
+
+            <!-- Informações -->
+            <div class="informacoes-grid">
+
+                <div class="item-informacao">
+                    <div class="titulo-informacao">
+                        <img src="/Icones/Castrado.svg" alt="">
+                        <span>Castrado</span>
+                    </div>
+                    <p>{{ animal.castrado === undefined ? 'Não informado' : (animal.castrado ? 'Sim' : 'Não') }}</p>
+                </div>
+
+                <div class="item-informacao">
+                    <div class="titulo-informacao">
+                        <img src="/Icones/Vacina.svg" alt="">
+                        <span>Vacinas</span>
+                    </div>
+
+                    @if (animal.vacinas && animal.vacinas.length > 0) {
+                    <ul>
+                        @for (vacina of animal.vacinas; track vacina) {
+                        <li>{{ vacina }}</li>
+                        }
+                    </ul>
+                    } @else {
+                    <p>Não informado</p>
+                    }
+                </div>
+
+                <div class="item-informacao">
+                    <div class="titulo-informacao">
+                        <img src="/Icones/Pata-azul.svg" alt="">
+                        <span>Deficiência</span>
+                    </div>
+                    <p>{{ animal.deficiencia || 'Não informado' }}</p>
+                </div>
+
+                <div class="item-informacao">
+                    <div class="titulo-informacao">
+                        <img src="/Icones/Peso.svg" alt="">
+                        <span>Peso</span>
+                    </div>
+                    <p>{{ animal.peso ? animal.peso + 'kg' : 'Não informado' }}</p>
+                </div>
+
+            </div>
+
+            <!-- ONG responsável -->
+            <div class="informacao-ong">
+
+                <strong>Local da ong responsável:</strong>
+
+                <div class="cartao-ong">
+                    <span>{{ animal.ong || 'ONG não informada' }}</span>
+                    <img src="/Icones/Localizacao.svg" alt="Localização">
+                </div>
+
+            </div>
+
+            <!-- Botão adotar -->
+            <app-botao-azul (adotar)="adotar.emit(animal)"></app-botao-azul>
+
+        </section>
+
+    </div>
+
+</div>
