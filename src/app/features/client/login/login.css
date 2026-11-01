@@ -6,16 +6,17 @@
 }
 /*LADO ESQUERDO*/
 .login {
-  width: 57%;
-  height: 100%;
+  /*RESOLVER!!!*/ flex: 0 0 55.5%;  height: 100%;
   position: relative;
   overflow: hidden; /* overflow= "transbordar" ou "passar dos limites", Hidden= "escondido" */
 }  
 
 .gato-img {
+  
   width: 100%;
-  height: 100%;
+  height: 100vh;
   object-fit: cover; /* faz a imagem preencher o espaço sem ficar esticada*/
+  
 }
 
 .informacoes-gato {
@@ -58,12 +59,9 @@
 /*LADO DIREITO -LOGIN GOOGLE */
 .formulario {
   background-color: white;
-  margin-left: 80px;    
-  margin-top: 104px;
-}
-
-.voltar {
- 
+  flex: 1; 
+  margin: 0; 
+ /*RESOLVER!!!*/ padding: 104px clamp(24px, 6.25vw, 80px) 0;
 }
 
 .btn-voltar {
@@ -97,3 +95,192 @@ margin-top: 5px;
 .google-button{
   margin-top: 64px;
 }
+
+
+
+
+/*COLORACAO*/
+:root {
+  /* ================= AZUIS ================= */
+  --Azul-100: hsl(205.3334deg 79.8546% 96.4693%);
+  --Azul-200: #DBEEFC;
+  --Azul-300: #A2D6FC;
+  --Azul-400: #54ACF8;
+  --Azul-500: #2494F6;
+  --Azul-600: hsl(208deg 93.7124% 38.2212%);
+  --Azul-700: hsl(208deg 94.6458% 20.1228%);
+  --Azul-800: hsl(208deg 96.7398% 8.1299%);
+
+  /* ================= CORES ESPECIAIS ================= */
+  --Rosa: #FCA2E0;
+  --Azul-Claro: #A2D6FC;
+  --Verde-Agua: #A2FCE0;
+  --Amarelo: #FCDFA2;
+
+  /* ================= VERDES ================= */
+  --Verde-100: hsl(97.2deg 69.227% 94.9632%);
+  --Verde-200: hsl(97.1053deg 80.1927% 84.4501%);
+  --Verde-300: hsl(96.9903deg 89.4137% 57.4932%);
+  --Verde-400: hsl(97deg 91.6861% 43.9641%);
+  --Verde-500: hsl(96.9903deg 96.09% 29.1654%);
+  --Verde-600: hsl(96.9231deg 97.3783% 14.5358%);
+
+  /* ================= CINZAS ================= */
+  --Cinza-100: #F0F1F0;
+  --Cinza-200: #E2E4E3;
+  --Cinza-300: #A6A7A7;
+  --Cinza-400: #5C5E5D;
+  --Cinza-500: #383938;
+  --Cinza-600: #151616;
+
+  /* ================= VERMELHOS ================= */
+  --Vermelho-100: hsl(358.9474deg 87.6239% 88.8578%);
+  --Vermelho-200: hsl(358.9831deg 88.5705% 74.9023%);
+  --Vermelho-300: hsl(358.835deg 90.6588% 61.6718%);
+  --Vermelho-400: hsl(359deg 83.2876% 51.493%);
+  --Vermelho-500: hsl(358.835deg 88.6907% 29.5072%);
+  --Vermelho-600: hsl(359.0977deg 91.8589% 16.4607%);
+}
+
+/*ETAPA 1 */
+/*LADO DIREITO -DADOS PESSOAIS */
+
+
+
+.etapa-principal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: white;
+  width: 100%;
+  max-width: 416px;
+  height: 52px;
+
+
+  padding: 8px 8px 8px 8px;
+  border: 1.5px solid var(--Cinza-200, #E2E4E3);
+  border-radius: 28px;
+  font-family: Inter;
+}
+
+.dados-pessoais-etapa,
+.endereco-etapa,
+.seu-perfil-etapa {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.icone-etapa {
+  position: relative;
+  width: 36px;
+  height: 36px;
+}
+
+
+.icone {
+  margin:0px;
+  position: absolute;
+  top: 16px;
+  left: 17px;
+  width: 15px;
+  height: 15px;
+  transform: translate(-50%, -50%); /*desloca o elemento 50% da própria largura para a esquerda 
+  e 50% da própria altura para cima.*/
+}
+
+.nome-etapas {
+  font-size: 8px;
+  font-weight: 600px;
+  color: var(--Cinza-300, #A6A7A7);
+  
+
+}
+
+.dados-pessoais-etapa {
+  font-size: 8px;
+  font-weight: 600;
+  color: var(--Cinza-400, #5C5E5D);
+
+}
+
+/*FORMULARIO */
+
+.etapa-um .dados-pessoais-h1{
+  margin-top: 40px;
+  margin-bottom: 16px;
+
+  color: #000;
+  font-family: Inter;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: normal;
+}
+.etapa-um .sub-1{
+margin-bottom: 32px;
+
+color: var(--Cinza-400, #5C5E5D);
+font-family: Inter;
+font-size: 12px;
+font-style: normal;
+font-weight: 600;
+}
+
+.campos{
+  display: flex; 
+  flex-direction:column;
+  max-width: 416px;
+  font-family: Inter;
+
+}
+
+.etapa-um .text-form{
+  margin-bottom: 12px;
+  color: var(--Cinza-400, #5C5E5D);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+}
+.etapa-um .text-form-on{
+   margin-bottom: 12px;
+
+  width: 100%;
+  height: 44px;
+  padding: 0px 16px;
+  border-radius: 8px;
+  border: 1.5px solid var(--Cinza-200, #E2E4E3);
+  outline: none
+}
+.etapa-um .text-form-on:hover{
+border: 1.5px solid var(--Azul-500, #2494F6);
+box-shadow: 4px 4px 24px 0 var(--Azul-100, #DBEEFC);
+  }
+
+ 
+  
+.etapa-um .continuar{
+display: flex;
+width: 100%;
+max-width: 416px;
+margin-top: 27px;
+height: 64px;
+padding: 0px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+
+font-family: Inter;
+color: #FFF;
+font-size: 16px;
+font-weight: 700;
+
+border-radius: 16px;
+background: var(--linear-principal, linear-gradient(268deg, hsl(208deg 93.1321% 68.2749%) 7.93%, hsl(208deg 90.8992% 46.0337%) 96.39%));
+}
+
+
+
+
+
+
