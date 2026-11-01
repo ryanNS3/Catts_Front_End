@@ -78,6 +78,11 @@ nomeIdadeGatos(nome: string): string {
   return '';
 }
 
+tipoResidencia: 'condominio' | 'independente' = 'condominio';
+
+qtdPets = 'nenhum';
+horasTrabalho = 'nao-trabalha';
+
   // etapa = 0 ->feed sem login-informacoes gerais
   // etapa = 1 -> login com o google
   // etapa = 2 -> completar dados- adocao preencher o restante
