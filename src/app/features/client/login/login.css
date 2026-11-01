@@ -1,14 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 .container {
   display: flex;
   width: 100%;
   height: 100vh;
 }
-
+/*LADO ESQUERDO*/
 .login {
   width: 57%;
   height: 100%;
-  position: left;
-  overflow: hidden;
- 
+  position: relative;
+  overflow: hidden; /* overflow= "transbordar" ou "passar dos limites", Hidden= "escondido" */
 }  
 
+.gato-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* faz a imagem preencher o espaço sem ficar esticada*/
+}
+
+.informacoes-gato {
+  left: 30px;
+  color: white; 
+}
+
+.informacoes-gato span {
+  position: absolute;
+  bottom: 206px;  /* Distância da parte de baixo */
+  left: 54px; 
+  border: 1px solid white;
+  border-radius: 16px;
+  padding: 7px 14px;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(2px);
+  
+}
+ 
+.informacoes-gato h2 {
+  position: absolute;
+  bottom: 139px;  /* Distância da parte de baixo */
+  left: 55px; 
+  font-family: "Amatic SC", cursive;
+  font-size: 48px;
+  font-weight: 400px;
+}
+
+.informacoes-gato p {
+  position: absolute;
+  bottom: 89px;  /* Distância da parte de baixo */
+  left: 55px; 
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  max-width: 250px;
+}
+
+/*LADO DIREITO -LOGIN GOOGLE */
+.formulario {
+  background-color: white;
+  margin-left: 80px;    
+  margin-top: 104px;
+}
+
+.voltar {
+ 
+}
+
+.btn-voltar {
+  display: inline-flex;
+  margin-bottom: 58px;
+  color: black;
+  gap: 23px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: Inter;
+}
+
+
+.etapa-zero .sign-in {
+  color: #000;
+font-family: Inter;
+font-size: 32px;
+font-weight: 600;
+line-height: normal;
+}
+
+.etapa-zero .sub-0 {
+  color: #434343;
+font-family: Inter, sans-serif;
+font-size: 14px;
+font-weight: 600;
+margin-bottom: 64px;
+margin-top: 5px;
+}
+
+.google-button{
+  margin-top: 64px;
+}

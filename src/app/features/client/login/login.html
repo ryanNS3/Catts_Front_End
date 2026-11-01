@@ -4,25 +4,33 @@
   <section class="login">
 
     @if (animalSelecionado(); as gato) {
-      <img [src]="gato.imagem" [alt]="gato.nome">
+        <img class="gato-img" [src]="gato.imagem" [alt]="gato.nome">
+        
+        <div class="informacoes-gato">
 
-      <span>{{ gato.cidade }}</span>
+        <span>{{ gato.cidade }}</span>
 
-      <h2>{{ gato.nome }}</h2>
-
-      <p>{{ gato.idade }} anos</p>
+        <h2> {{ nomeIdadeGatos(gato.nome) }}</h2>
+        
+        <p class="observacao-gato">{{ observacaoDoGato(gato.nome) }}</p>
+        
+      </div>
     }
   </section>
 
   <!-- LADO DIREITO -->
-  <section class="formulario">
+  <section class="formulario" [class.etapa-zero]="etapa === 0">
   
     @if (etapa === 0) {
-      <a (click)="voltar()">Voltar</a>
+      <button class="btn-voltar" (click)="voltar()">
+        <img src="/Icones/Arrow 2.svg" alt="Voltar"> Voltar
+      </button>
 
-      <h1 class="Sign in">Sign in</h1>
+      <h1 class="sign-in">Sign in</h1>
 
       <p class = "sub-0">Selecione uma das opções abaixo para fazer o login</p>
+
+      <button class="continuar" (click) = "continuar()"> continuar /</button>
 
         <div class="googleButton" #googleButton></div>
     }
