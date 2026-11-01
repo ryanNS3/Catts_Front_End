@@ -1,95 +1,339 @@
 <main class="container">
-  
+
   <!-- LADO ESQUERDO -->
   <section class="login">
 
     @if (animalSelecionado(); as gato) {
-      <img [src]="gato.imagem" [alt]="gato.nome">
+      <img class="gato-img" [src]="gato.imagem" [alt]="gato.nome">
 
-      <span>{{ gato.cidade }}</span>
+      <div class="informacoes-gato">
 
-      <h2>{{ gato.nome }}</h2>
+        <span>{{ gato.cidade }}</span>
 
-      <p>{{ gato.idade }} anos</p>
+        <h2>{{ nomeIdadeGatos(gato.nome) }}</h2>
+
+        <p class="observacao-gato">{{ observacaoDoGato(gato.nome) }}</p>
+
+      </div>
     }
   </section>
 
   <!-- LADO DIREITO -->
-  <section class="formulario">
-  
+  <section class="formulario" [class.etapa-zero]="etapa === 0">
+
+    <!-- ETAPA 0: LOGIN -->
     @if (etapa === 0) {
-      <a (click)="voltar()">Voltar</a>
+      <button class="btn-voltar" (click)="voltar()">
+        <img src="/Icones/Arrow 2.svg" alt="Voltar"> Voltar
+      </button>
 
-      <h1 class="Sign in">Sign in</h1>
+      <h1 class="sign-in">Sign in</h1>
 
-      <p class = "sub-0">Selecione uma das opções abaixo para fazer o login</p>
+      <p class="sub-0">Selecione uma das opções abaixo para fazer o login</p>
 
-        <div class="googleButton" #googleButton></div>
+      <button class="continuar" (click)="continuar()"> continuar /</button>
+
+      <div class="google-button" #googleButton></div>
     }
 
-          @if (etapa === 1){
-            <h1>Login realizado com sucesso!</h1>
+    <!-- ETAPA 1: DADOS PESSOAIS -->
+    @if (etapa === 1) {
+      <section class="dados-pessoais" [class.etapa-um]="etapa === 1">
 
-          }
+        <button class="btn-voltar" (click)="voltar()">
+          <img src="/Icones/Arrow 2.svg" alt="Voltar"> Voltar
+        </button>
 
-          @if (etapa === 2){
-            
-          }
+        <div class="etapa-principal">
 
-          @if (etapa === 3){
-            
-          }
+          <div class="dados-pessoais-etapa">
+            <div class="icone-etapa">
+              <span class="icone icone-carteirinha"></span>
+            </div>
+            <p class="nome-etapas">Dados pessoais</p>
+          </div>
 
-          @if (etapa === 4){
-            
-          }
+          <div class="endereco-etapa">
+            <div class="icone-etapa">
+              <span class="icone icone-mundo"></span>
+            </div>
+            <p class="nome-etapas">Endereço</p>
+          </div>
+
+          <div class="seu-perfil-etapa">
+            <div class="icone-etapa">
+              <span class="icone icone-face"></span>
+            </div>
+            <p class="nome-etapas">Seu perfil</p>
+          </div>
+
+        </div>
+
+        <h1 class="dados-pessoais-h1">Dados pessoais</h1>
+        <p class="sub-1">Preencha todos os campos</p>
+
+        <!-- FORMULÁRIO -->
+        <div class="campos">
+
+          <label class="text-form" for="ContatoDigital">Contato</label>
+          <input class="text-form-on" type="text" id="ContatoDigital" placeholder="11 9374648">
+
+          <label class="text-form" for="CPFDigitar">CPF</label>
+          <input class="text-form-on" type="text" id="CPFDigitar" placeholder="237.876.837-21">
+
+          <label class="text-form" for="DataNascimentoDigitar">Data nascimento</label>
+          <input class="text-form-on" type="date" id="DataNascimentoDigitar">
+
+        </div>
+
+        <button class="continuar" (click)="continuar()">
+          <img class="continuarimage" src="/Icones/icone-patinha.svg" alt="">Continuar
+        </button>
+
+      </section>
+    }
+
+    <!-- ETAPA 2: ENDEREÇO -->
+    @if (etapa === 2) {
+      <section class="dados-pessoais" [class.etapa-dois]="etapa === 2">
+
+        <button class="btn-voltar" (click)="voltar()">
+          <img src="/Icones/Arrow 2.svg" alt="Voltar"> Voltar
+        </button>
+
+        <div class="etapa-principal">
+
+          <div class="dados-pessoais-etapa">
+            <div class="icone-etapa">
+              <span class="icone icone-carteirinha"></span>
+            </div>
+            <p class="nome-etapas">Dados pessoais</p>
+          </div>
+
+          <div class="endereco-etapa">
+            <div class="icone-etapa">
+              <span class="icone icone-mundo"></span>
+            </div>
+            <p class="nome-etapas">Endereço</p>
+          </div>
+
+          <div class="seu-perfil-etapa">
+            <div class="icone-etapa">
+              <span class="icone icone-face"></span>
+            </div>
+            <p class="nome-etapas">Seu perfil</p>
+          </div>
+
+        </div>
+
+        <h1 class="endereco-h1">Endereço</h1>
+        <p class="sub-2">Preencha todos os campos</p>
+
+        <div class="form-endereco">
+
+          <!-- CEP -->
+          <div class="campo">
+            <label class="text-form" for="CepDigitar">Cep</label>
+            <input class="text-form-on" type="text" id="CepDigitar" placeholder="00000-000" maxlength="9">
+          </div>
+
+          <!-- TIPO DE RESIDÊNCIA -->
+          <div class="campo tipo-residencia">
+            <p class="text-form">Tipo de residencia</p>
+
+            <div class="opcoes-residencia">
+
+              <button type="button" class="opcao-residencia"
+                      [class.selecionada]="tipoResidencia === 'condominio'"
+                      (click)="tipoResidencia = 'condominio'">
+                Condominio
+                <span class="icone-opcao icone-apartamento"></span>
+              </button>
+
+              <button type="button" class="opcao-residencia"
+                      [class.selecionada]="tipoResidencia === 'independente'"
+                      (click)="tipoResidencia = 'independente'">
+                Independente
+                <span class="icone-opcao icone-casa"></span>
+              </button>
+
+            </div>
+          </div>
+
+          <!-- TELAS DE PROTEÇÃO -->
+          <div class="campo">
+            <label class="text-form" for="TelasProtecao">Possui telas de proteção?</label>
+            <select class="select-form" id="TelasProtecao">
+              <option>Não, mas tenho intenção de colocar</option>
+              <option>Sim</option>
+              <option>Não</option>
+            </select>
+          </div>
+
+          <!-- IMÓVEL ALUGADO -->
+          <div class="campo">
+            <label class="text-form" for="ImovelAlugado">Imóvel alugado?</label>
+            <select class="select-form" id="ImovelAlugado">
+              <option>Sim</option>
+              <option>Não</option>
+            </select>
+          </div>
+
+          <button class="continuar" (click)="continuar()">
+            <img class="continuarimage" src="/Icones/icone-patinha.svg" alt="">Continuar
+          </button>
+
+        </div>
+
+      </section>
+    }
+
+    <!-- ETAPA 3 -->
+    @if (etapa === 3) {
+
+      @if (etapa === 3) {
+  <section class="dados-pessoais" [class.etapa-tres]="etapa === 3">
+
+    <button class="btn-voltar" (click)="voltar()">
+      <img src="/Icones/Arrow 2.svg" alt="Voltar"> Voltar
+    </button>
+
+    <div class="etapa-principal">
+
+      <div class="dados-pessoais-etapa">
+        <div class="icone-etapa">
+          <span class="icone icone-carteirinha"></span>
+        </div>
+        <p class="nome-etapas">Dados pessoais</p>
+      </div>
+
+      <div class="endereco-etapa">
+        <div class="icone-etapa">
+          <span class="icone icone-mundo"></span>
+        </div>
+        <p class="nome-etapas">Endereço</p>
+      </div>
+
+      <div class="seu-perfil-etapa">
+        <div class="icone-etapa">
+          <span class="icone icone-face"></span>
+        </div>
+        <p class="nome-etapas">Seu perfil</p>
+      </div>
+
+    </div>
+
+    <h1 class="perfil-h1">Seu perfil</h1>
+    <p class="sub-3">Preencha todos os campos</p>
+
+    <div class="form-perfil">
+
+      <!-- FAIXA SALARIAL -->
+      <div class="campo">
+        <label class="text-form" for="FaixaSalarial">Qual é sua faixa salarial?</label>
+        <input class="text-form-on" type="text" id="FaixaSalarial" placeholder="R$ 900">
+      </div>
+
+      <!-- QUANTOS PETS -->
+      <div class="campo">
+        <p class="text-form">Quantos pets você tem em casa?</p>
+
+        <div class="opcoes-perfil">
+
+          <button type="button" class="opcao-perfil"
+                  [class.selecionada]="qtdPets === 'nenhum'"
+                  (click)="qtdPets = 'nenhum'">
+            <span class="opcao-titulo">Nenhum</span>
+            <span class="icone-opcao icone-bloqueado"></span>
+          </button>
+
+          <button type="button" class="opcao-perfil"
+                  [class.selecionada]="qtdPets === '1-3'"
+                  (click)="qtdPets = '1-3'">
+            <span class="opcao-titulo">Entre</span>
+            <span class="opcao-valor">1-3</span>
+          </button>
+
+          <button type="button" class="opcao-perfil"
+                  [class.selecionada]="qtdPets === '+3'"
+                  (click)="qtdPets = '+3'">
+            <span class="opcao-titulo">Mais que</span>
+            <span class="opcao-valor">+3</span>
+          </button>
+
+        </div>
+      </div>
+
+      <!-- HORAS DE TRABALHO -->
+      <div class="campo">
+        <p class="text-form">Quantas horas você trabalha(por dia)?</p>
+
+        <div class="opcoes-perfil">
+
+          <button type="button" class="opcao-perfil"
+                  [class.selecionada]="horasTrabalho === 'nao-trabalha'"
+                  (click)="horasTrabalho = 'nao-trabalha'">
+            <span class="opcao-titulo">Não trabalha</span>
+            <span class="icone-opcao icone-bloqueado"></span>
+          </button>
+
+          <button type="button" class="opcao-perfil"
+                  [class.selecionada]="horasTrabalho === '4h-6h'"
+                  (click)="horasTrabalho = '4h-6h'">
+            <span class="opcao-titulo">Entre</span>
+            <span class="opcao-valor">4h-6h</span>
+          </button>
+
+          <button type="button" class="opcao-perfil"
+                  [class.selecionada]="horasTrabalho === '+8h'"
+                  (click)="horasTrabalho = '+8h'">
+            <span class="opcao-titulo">Mais que</span>
+            <span class="opcao-valor">+8h</span>
+          </button>
+
+        </div>
+      </div>
+
+      <!-- PESSOAS EM CASA -->
+      <div class="campo">
+        <label class="text-form" for="PessoasEmCasa">Quantas pessoas moram com você?</label>
+        <input class="text-form-on" type="number" inputmode="numeric" id="PessoasEmCasa" placeholder="1">
+      </div>
+
+      <!-- CHECKBOX -->
+      <label class="check-form">
+        <input class="check-box" type="checkbox">
+        <span>Aceita enviar vídeos e fotos da sua residência</span>
+      </label>
+
+      <button class="continuar" (click)="continuar()">
+        <img class="continuarimage" src="/Icones/icone-patinha.svg" alt="">Finalizar
+      </button>
+
+    </div>
+
+  </section>
+}
+
+    }
+
+    <!-- ETAPA 4 -->
+    @if (etapa === 4) {
+
+       <section class="perfil">
+
+    @if (animalSelecionado(); as gato) {
+      
+      <img
+        class="foto-perfil" [src]="gato.imagem" [alt]="gato.nome">
+
+      <h1>Você</h1>
+
+    }
+
   </section>
 
+    }
+
+  </section>
 </main>
-
-<!--
-<div class="pagina-login">
-  <div class="lado-foto" [style.background-image]="'url(' + fotoFundo() + ')'">
-
-    <div class="marca-coleira">
-      <span class="coleira">Coleira</span>
-      <img src="/Line 1.svg" alt="" />
-      <img src="/fundo-avatares.svg" alt="" />
-    </div>
-
-
-    <div class="info-gato">
-      <div class="tag-cidade">
-        <img src="/tag-cidade.svg" alt="" />
-        <span>São Paulo</span>
-      </div>
-      <h2 class="nome-idade">T O M - 3 A N O S</h2>
-      <p class="descricao">Gato Tom tem 3 anos foi </p>
-    <span class="descricao2">abandonado recentemente</span>
-
-    </div>
-
-  </div>
-
-
-  <div class="lado-form">
-    <a routerLink="/" class="voltar"><img src="/Arrow 2.svg" alt="" class="icone-voltar" />Voltar</a>
-
-    <h1>Solicitação de adoção</h1>
-    <p class="subtitulo">Preencha todos os campos</p>
-
-    <form>
-      <label>Nome<input type="text" placeholder="Ex: Luan" /></label>
-
-      <label>Email<input type="email" placeholder="ex: e@gmail.com" /></label>
-
-      <label>CPF<input type="text" placeholder="ex: e@gmail.com" /></label>
-
-    <button [routerLink]="toUrl" (click)="aoClicar()" class="botao-continuar">
-   <img src="/botaocontinuar.svg" alt="" /> 
-   <span>Continuar</span>
-    <ng-content></ng-content></button>    
-</form>
-  </div>
-</div>
--->

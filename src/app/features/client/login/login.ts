@@ -22,6 +22,67 @@ export class Login implements AfterViewInit {
 
   animalSelecionado = this.animalService.animalSelecionado;
 
+  private observacoes = {
+  Tom: 'Gato Tom tem 3 anos e foi abandonado recentemente.',
+  Luna: 'Gato Luna tem 6 anos e foi abandonado recentemente.',
+  Téo: 'Gato Téo tem 3 anos e foi abandonado recentemente.',
+  Olivia: 'Gato Olivia tem 3 anos e foi abandonado recentemente.'
+};
+
+observacaoDoGato(nome: string): string {
+
+  if (nome === 'Tom') {
+    return this.observacoes.Tom;
+  }
+
+  if (nome === 'Luna') {
+    return this.observacoes.Luna;
+  }
+
+  if (nome === 'Téo') {
+    return this.observacoes.Téo;
+  }
+
+  if (nome === 'Olivia') {
+    return this.observacoes.Olivia;
+  }
+
+  return '';
+}
+
+private nomeidade = {
+  Tom: 'Gato Tom - 3 anos ',
+  Luna: 'Gato Luna - 6 anos ',
+  Téo: 'Gato Téo - 3 anos',
+  Olivia: 'Gato Olivia - 3 anos'
+};
+
+nomeIdadeGatos(nome: string): string {
+
+  if (nome === 'Tom') {
+    return this.nomeidade.Tom;
+  }
+
+  if (nome === 'Luna') {
+    return this.nomeidade.Luna;
+  }
+
+  if (nome === 'Téo') {
+    return this.nomeidade.Téo;
+  }
+
+  if (nome === 'Olivia') {
+    return this.nomeidade.Olivia;
+  }
+
+  return '';
+}
+
+tipoResidencia: 'condominio' | 'independente' = 'condominio';
+
+qtdPets = 'nenhum';
+horasTrabalho = 'nao-trabalha';
+
   // etapa = 0 ->feed sem login-informacoes gerais
   // etapa = 1 -> login com o google
   // etapa = 2 -> completar dados- adocao preencher o restante
