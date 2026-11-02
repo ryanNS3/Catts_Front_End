@@ -1,11 +1,14 @@
-import { Component, Output, EventEmitter} from "@angular/core";
+import { Component, Output, EventEmitter, Input} from "@angular/core";
+import { Router, RouterLink } from "@angular/router";
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: "app-botao-azul",
   styleUrl: "./botao-azul.css",
   templateUrl: "./botao-azul.html",
 })
 export class BotaoAzul {
+   @Input() toUrl: string = '/login';
+   
   @Output() adotar = new EventEmitter<void>();
 }
