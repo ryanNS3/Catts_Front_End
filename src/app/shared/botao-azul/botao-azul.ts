@@ -1,4 +1,4 @@
-import { Component} from "@angular/core";
+import { Component, Output, EventEmitter} from "@angular/core";
 
 @Component({
   imports: [],
@@ -6,4 +6,6 @@ import { Component} from "@angular/core";
   styleUrl: "./botao-azul.css",
   templateUrl: "./botao-azul.html",
 })
-export class BotaoAzul {}
+export class BotaoAzul {
+  @Output() adotar = new EventEmitter<void>();
+}
