@@ -5,11 +5,11 @@
         <!-- Foto do gato -->
         <section class="modal-imagem">
 
-            <img [src]="animal.imagem" [alt]="animal.nome">
+            <img [src]="animal.image?.linkId || 'https://via.placeholder.com/300'" [alt]="animal.name">
 
             <div class="informacoes-gato">
-                <span>{{ animal.cidade }}</span>
-                <h2>{{ animal.nome }} - {{ animal.idade }} anos</h2>
+                <span>{{ animal.ong?.nomeInstitucional || 'ONG Parceira' }}</span>
+                <h2>{{ animal.name }} - {{ animal.age }} anos</h2>
             </div>
 
         </section>
@@ -21,14 +21,14 @@
 
             <h2>Informações gerais</h2>
 
-            <!-- História -->
+            <!-- História / Descrição -->
             <div class="informacao-historia">
                 <div class="titulo-informacao">
                     <img src="/Icones/Livro.svg" alt="">
                     <span>História</span>
                 </div>
 
-                <p>{{ animal.historia || 'Ainda não temos uma história cadastrada.' }}</p>
+                <p>{{ animal.description || 'Ainda não temos uma história cadastrada.' }}</p>
             </div>
 
             <!-- Informações -->
@@ -48,31 +48,27 @@
                         <span>Vacinas</span>
                     </div>
 
-                    @if (animal.vacinas && animal.vacinas.length > 0) {
-                    <ul>
-                        @for (vacina of animal.vacinas; track vacina) {
-                        <li>{{ vacina }}</li>
-                        }
-                    </ul>
+                    @if (animal.vaccine) {
+                        <p>{{ animal.vaccine }}</p>
                     } @else {
-                    <p>Não informado</p>
+                        <p>Não informado</p>
                     }
                 </div>
 
                 <div class="item-informacao">
                     <div class="titulo-informacao">
                         <img src="/Icones/Pata-azul.svg" alt="">
-                        <span>Deficiência</span>
+                        <span>Porte / Peso</span>
                     </div>
-                    <p>{{ animal.deficiencia || 'Não informado' }}</p>
+                    <p>{{ animal.weight ? animal.weight + 'kg' : 'Não informado' }}</p>
                 </div>
 
                 <div class="item-informacao">
                     <div class="titulo-informacao">
                         <img src="/Icones/Peso.svg" alt="">
-                        <span>Peso</span>
+                        <span>Status</span>
                     </div>
-                    <p>{{ animal.peso ? animal.peso + 'kg' : 'Não informado' }}</p>
+                    <p>{{ animal.adoptionStatus ? 'Disponível para Adoção' : 'Adotado' }}</p>
                 </div>
 
             </div>
@@ -83,7 +79,7 @@
                 <strong>Local da ong responsável:</strong>
 
                 <div class="cartao-ong">
-                    <span>{{ animal.ong || 'ONG não informada' }}</span>
+                    <span>{{ animal.ong?.nomeInstitucional || 'ONG não informada' }}</span>
                     <img src="/Icones/Localizacao.svg" alt="Localização">
                 </div>
 
