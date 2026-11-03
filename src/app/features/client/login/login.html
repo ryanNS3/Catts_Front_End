@@ -4,15 +4,15 @@
   <section class="login">
 
     @if (animalSelecionado(); as gato) {
-      <img class="gato-img" [src]="gato.imagem" [alt]="gato.nome">
+      <img class="gato-img" [src]="gato.image?.linkId || 'https://via.placeholder.com/300'" [alt]="gato.name">
 
       <div class="informacoes-gato">
 
-        <span>{{ gato.cidade }}</span>
+        <span>{{ gato.ong?.nomeInstitucional || 'ONG Parceira' }}</span>
 
-        <h2>{{ nomeIdadeGatos(gato.nome) }}</h2>
+        <h2>{{ nomeIdadeGatos(gato.name, gato.age) }}</h2>
 
-        <p class="observacao-gato">{{ observacaoDoGato(gato.nome) }}</p>
+        <p class="observacao-gato">{{ observacaoDoGato(gato.name) }}</p>
 
       </div>
     }
@@ -188,151 +188,139 @@
       </section>
     }
 
-    <!-- ETAPA 3 -->
+    <!-- ETAPA 3: PERFIL -->
     @if (etapa === 3) {
+      <section class="dados-pessoais" [class.etapa-tres]="etapa === 3">
 
-      @if (etapa === 3) {
-  <section class="dados-pessoais" [class.etapa-tres]="etapa === 3">
+        <button class="btn-voltar" (click)="voltar()">
+          <img src="/Icones/Arrow 2.svg" alt="Voltar"> Voltar
+        </button>
 
-    <button class="btn-voltar" (click)="voltar()">
-      <img src="/Icones/Arrow 2.svg" alt="Voltar"> Voltar
-    </button>
+        <div class="etapa-principal">
 
-    <div class="etapa-principal">
+          <div class="dados-pessoais-etapa">
+            <div class="icone-etapa">
+              <span class="icone icone-carteirinha"></span>
+            </div>
+            <p class="nome-etapas">Dados pessoais</p>
+          </div>
 
-      <div class="dados-pessoais-etapa">
-        <div class="icone-etapa">
-          <span class="icone icone-carteirinha"></span>
-        </div>
-        <p class="nome-etapas">Dados pessoais</p>
-      </div>
+          <div class="endereco-etapa">
+            <div class="icone-etapa">
+              <span class="icone icone-mundo"></span>
+            </div>
+            <p class="nome-etapas">Endereço</p>
+          </div>
 
-      <div class="endereco-etapa">
-        <div class="icone-etapa">
-          <span class="icone icone-mundo"></span>
-        </div>
-        <p class="nome-etapas">Endereço</p>
-      </div>
-
-      <div class="seu-perfil-etapa">
-        <div class="icone-etapa">
-          <span class="icone icone-face"></span>
-        </div>
-        <p class="nome-etapas">Seu perfil</p>
-      </div>
-
-    </div>
-
-    <h1 class="perfil-h1">Seu perfil</h1>
-    <p class="sub-3">Preencha todos os campos</p>
-
-    <div class="form-perfil">
-
-      <!-- FAIXA SALARIAL -->
-      <div class="campo">
-        <label class="text-form" for="FaixaSalarial">Qual é sua faixa salarial?</label>
-        <input class="text-form-on" type="text" id="FaixaSalarial" placeholder="R$ 900">
-      </div>
-
-      <!-- QUANTOS PETS -->
-      <div class="campo">
-        <p class="text-form">Quantos pets você tem em casa?</p>
-
-        <div class="opcoes-perfil">
-
-          <button type="button" class="opcao-perfil"
-                  [class.selecionada]="qtdPets === 'nenhum'"
-                  (click)="qtdPets = 'nenhum'">
-            <span class="opcao-titulo">Nenhum</span>
-            <span class="icone-opcao icone-bloqueado"></span>
-          </button>
-
-          <button type="button" class="opcao-perfil"
-                  [class.selecionada]="qtdPets === '1-3'"
-                  (click)="qtdPets = '1-3'">
-            <span class="opcao-titulo">Entre</span>
-            <span class="opcao-valor">1-3</span>
-          </button>
-
-          <button type="button" class="opcao-perfil"
-                  [class.selecionada]="qtdPets === '+3'"
-                  (click)="qtdPets = '+3'">
-            <span class="opcao-titulo">Mais que</span>
-            <span class="opcao-valor">+3</span>
-          </button>
+          <div class="seu-perfil-etapa">
+            <div class="icone-etapa">
+              <span class="icone icone-face"></span>
+            </div>
+            <p class="nome-etapas">Seu perfil</p>
+          </div>
 
         </div>
-      </div>
 
-      <!-- HORAS DE TRABALHO -->
-      <div class="campo">
-        <p class="text-form">Quantas horas você trabalha(por dia)?</p>
+        <h1 class="perfil-h1">Seu perfil</h1>
+        <p class="sub-3">Preencha todos os campos</p>
 
-        <div class="opcoes-perfil">
+        <div class="form-perfil">
 
-          <button type="button" class="opcao-perfil"
-                  [class.selecionada]="horasTrabalho === 'nao-trabalha'"
-                  (click)="horasTrabalho = 'nao-trabalha'">
-            <span class="opcao-titulo">Não trabalha</span>
-            <span class="icone-opcao icone-bloqueado"></span>
-          </button>
+          <!-- FAIXA SALARIAL -->
+          <div class="campo">
+            <label class="text-form" for="FaixaSalarial">Qual é sua faixa salarial?</label>
+            <input class="text-form-on" type="text" id="FaixaSalarial" placeholder="R$ 900">
+          </div>
 
-          <button type="button" class="opcao-perfil"
-                  [class.selecionada]="horasTrabalho === '4h-6h'"
-                  (click)="horasTrabalho = '4h-6h'">
-            <span class="opcao-titulo">Entre</span>
-            <span class="opcao-valor">4h-6h</span>
-          </button>
+          <!-- QUANTOS PETS -->
+          <div class="campo">
+            <p class="text-form">Quantos pets você tem em casa?</p>
 
-          <button type="button" class="opcao-perfil"
-                  [class.selecionada]="horasTrabalho === '+8h'"
-                  (click)="horasTrabalho = '+8h'">
-            <span class="opcao-titulo">Mais que</span>
-            <span class="opcao-valor">+8h</span>
+            <div class="opcoes-perfil">
+
+              <button type="button" class="opcao-perfil"
+                      [class.selecionada]="qtdPets === 'nenhum'"
+                      (click)="qtdPets = 'nenhum'">
+                <span class="opcao-titulo">Nenhum</span>
+                <span class="icone-opcao icone-bloqueado"></span>
+              </button>
+
+              <button type="button" class="opcao-perfil"
+                      [class.selecionada]="qtdPets === '1-3'"
+                      (click)="qtdPets = '1-3'">
+                <span class="opcao-titulo">Entre</span>
+                <span class="opcao-valor">1-3</span>
+              </button>
+
+              <button type="button" class="opcao-perfil"
+                      [class.selecionada]="qtdPets === '+3'"
+                      (click)="qtdPets = '+3'">
+                <span class="opcao-titulo">Mais que</span>
+                <span class="opcao-valor">+3</span>
+              </button>
+
+            </div>
+          </div>
+
+          <!-- HORAS DE TRABALHO -->
+          <div class="campo">
+            <p class="text-form">Quantas horas você trabalha(por dia)?</p>
+
+            <div class="opcoes-perfil">
+
+              <button type="button" class="opcao-perfil"
+                      [class.selecionada]="horasTrabalho === 'nao-trabalha'"
+                      (click)="horasTrabalho = 'nao-trabalha'">
+                <span class="opcao-titulo">Não trabalha</span>
+                <span class="icone-opcao icone-bloqueado"></span>
+              </button>
+
+              <button type="button" class="opcao-perfil"
+                      [class.selecionada]="horasTrabalho === '4h-6h'"
+                      (click)="horasTrabalho = '4h-6h'">
+                <span class="opcao-titulo">Entre</span>
+                <span class="opcao-valor">4h-6h</span>
+              </button>
+
+              <button type="button" class="opcao-perfil"
+                      [class.selecionada]="horasTrabalho === '+8h'"
+                      (click)="horasTrabalho = '+8h'">
+                <span class="opcao-titulo">Mais que</span>
+                <span class="opcao-valor">+8h</span>
+              </button>
+
+            </div>
+          </div>
+
+          <!-- PESSOAS EM CASA -->
+          <div class="campo">
+            <label class="text-form" for="PessoasEmCasa">Quantas pessoas moram com você?</label>
+            <input class="text-form-on" type="number" inputmode="numeric" id="PessoasEmCasa" placeholder="1">
+          </div>
+
+          <!-- CHECKBOX -->
+          <label class="check-form">
+            <input class="check-box" type="checkbox">
+            <span>Aceita enviar vídeos e fotos da sua residência</span>
+          </label>
+
+          <button class="continuar" (click)="continuar()">
+            <img class="continuarimage" src="/Icones/icone-patinha.svg" alt="">Finalizar
           </button>
 
         </div>
-      </div>
 
-      <!-- PESSOAS EM CASA -->
-      <div class="campo">
-        <label class="text-form" for="PessoasEmCasa">Quantas pessoas moram com você?</label>
-        <input class="text-form-on" type="number" inputmode="numeric" id="PessoasEmCasa" placeholder="1">
-      </div>
-
-      <!-- CHECKBOX -->
-      <label class="check-form">
-        <input class="check-box" type="checkbox">
-        <span>Aceita enviar vídeos e fotos da sua residência</span>
-      </label>
-
-      <button class="continuar" (click)="continuar()">
-        <img class="continuarimage" src="/Icones/icone-patinha.svg" alt="">Finalizar
-      </button>
-
-    </div>
-
-  </section>
-}
-
+      </section>
     }
 
     <!-- ETAPA 4 -->
     @if (etapa === 4) {
-
-       <section class="perfil">
-
-    @if (animalSelecionado(); as gato) {
-      
-      <img
-        class="foto-perfil" [src]="gato.imagem" [alt]="gato.nome">
-
-      <h1>Você</h1>
-
-    }
-
-  </section>
-
+      <section class="perfil">
+        @if (animalSelecionado(); as gato) {
+          <img class="foto-perfil" [src]="gato.image?.linkId || 'https://via.placeholder.com/300'" [alt]="gato.name">
+          <h1>Você</h1>
+        }
+      </section>
     }
 
   </section>
