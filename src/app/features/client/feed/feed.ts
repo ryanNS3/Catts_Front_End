@@ -1,9 +1,9 @@
 
-import { Component, HostListener, inject, numberAttribute } from "@angular/core";
-import { Router } from "@angular/router";
+import { Component, HostListener, inject, OnInit, signal } from "@angular/core";
 import { ClientNavBar } from "../../../layoyt/client-nav-bar/client-nav-bar";
-import { Animal, AnimalService } from "../../../service/animal/animal";
+import { AnimalService } from "../../../service/animal/animal";
 import { AnimalModal } from "../animal-modal/animal-modal";
+import { Animal } from "../../../service/@Type/animal";
 
 @Component({
   imports: [ClientNavBar, AnimalModal],
@@ -11,18 +11,18 @@ import { AnimalModal } from "../animal-modal/animal-modal";
   styleUrl: "./feed.css",
   templateUrl: "./feed.html",
 })
-export class Feed {
+export class Feed implements OnInit {
 
   private animaisService = inject(AnimalService);
-  private router = inject(Router);
 
+  // Objetos de teste enquanto a API não fornece os dados
   animais: Animal[] = [
     {
       nome: "Tom",
       idade: 3,
       cidade: "São Paulo",
       imagem: "https://images.unsplash.com/photo-1583795128727-6ec3642408f8?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
-      historia: "Gato tom tem 3 anos que  foi abandonado pelos seus antigos tutores, ele adora brincar de bolinha e é muito carinhoso",
+      historia: "Gato Tom tem 3 anos e foi abandonado pelos antigos tutores. Ele adora brincar de bolinha e é muito carinhoso.",
       castrado: true,
       vacinas: ["Raiva"],
       deficiencia: "Nenhuma",
@@ -49,12 +49,29 @@ export class Feed {
     }
   ];
 
+  animalList = signal<Animal[]>([]);
+
   animaisExibidos: Animal[] = [];
 
   animalSelecionado: Animal | null = null;
 
   constructor() {
     this.carregarMaisAnimais();
+  }
+
+  ngOnInit(): void {
+    console.log("Animais cadastrados para teste:", this.animais);
+    console.log("Animais exibidos no Feed:", this.animaisExibidos);
+
+    this.animaisService.buscarAnimais().subscribe({
+      next: (dados) => {
+        console.log("Animais recebidos da API:", dados);
+        this.animalList.set(dados);
+      },
+      error: (erro) => {
+        console.error("Erro ao buscar animais da API:", erro);
+      }
+    });
   }
 
   abrirModal(animal: Animal) {
