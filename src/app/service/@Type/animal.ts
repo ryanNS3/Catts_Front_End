@@ -1,14 +1,22 @@
 import { Service } from "@angular/core";
 
 export interface Animal {
-    nome: string;
-    idade: number;
-    cidade: string;
-    imagem: string;
-    historia?: string;
-    castrado?: boolean;
-    vacinas?: string[];
-    deficiencia?: string;
-    peso?: number;
-    ong?: string;
+  id?: string;
+  name: string;
+  age: number;
+  weight: number;
+  description: string;
+  adoptionStatus: boolean;
+  castrado: boolean;
+  vaccine?: string;
+  ong?: {
+    cnpj: string;
+    nomeInstitucional: string;
+    email: string;
+    telefone: string;
+    descricao: string;
+  };
+  image?: {
+    linkId: string;
+  };
 }

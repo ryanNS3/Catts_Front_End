@@ -18,97 +18,29 @@
     </div>
   </section>
 
-  <!-- Grid gatos -->
-  @for (grupo of [].constructor(animaisExibidos.length / 6); track $index) {
-
+  <!-- Grid de Gatos Dinâmico -->
   <section class="feed-bloco">
+    <div class="feed-layout" style="display: flex; flex-wrap: wrap; gap: 20px; padding: 20px;">
 
-    <div class="feed-layout">
+      @for (gato of animalList(); track gato.id) {
+        <article class="card card-lateral" (click)="abrirModal(gato)" style="cursor: pointer; width: 300px; border: 1px solid #ddd; border-radius: 8px; padding: 10px;">
 
-      <!-- Cards Laterais - esquerda -->
-      <div class="cards-laterais">
-
-        @for (
-        gato of animaisExibidos.slice($index * 6, $index * 6 + 3);
-        track $index
-        ) {
-
-        <article class="card card-lateral" (click)="abrirModal(gato)">
-
-          <img class="imagem-gato" [src]="gato.imagem" [alt]="gato.nome">
+          <img class="imagem-gato" [src]="gato.image?.linkId || 'https://via.placeholder.com/300'" [alt]="gato.name" style="width: 100%; height: 200px; object-fit: cover; border-radius: 6px;">
 
           <button class="botao-salvar" aria-label="Salvar gato" (click)="$event.stopPropagation()">
             <img src="/Icones/icone-salvar.svg" alt="">
           </button>
 
-          <div class="info-gato">
-            <span>{{ gato.cidade }}</span>
-            <p>{{ gato.nome }} - {{ gato.idade }} anos</p>
+          <div class="info-gato" style="margin-top: 10px;">
+            <span style="font-size: 12px; color: #666;">{{ gato.ong?.nomeInstitucional || 'ONG Parceira' }}</span>
+            <p style="font-weight: bold; margin: 5px 0;">{{ gato.name }} - {{ gato.age }} anos</p>
           </div>
 
         </article>
-        }
-
-      </div>
-
-      <!-- COLUNA DIREITA -->
-      <div class="cards-direita">
-
-        <!-- Card Grande -->
-        <article class="card card-grande" (click)="abrirModal(animaisExibidos[$index * 6 + 3])">
-
-          <img class="imagem-gato" [src]="animaisExibidos[$index * 6 + 3].imagem"
-            [alt]="animaisExibidos[$index * 6 + 3].nome">
-
-          <button class="botao-salvar" aria-label="Salvar gato" (click)="$event.stopPropagation()">
-            <img src="/Icones/icone-salvar.svg" alt="">
-          </button>
-
-          <div class="info-gato info-gato-grande">
-            <span>
-              {{ animaisExibidos[$index * 6 + 3].cidade }}
-            </span>
-
-            <p>
-              {{ animaisExibidos[$index * 6 + 3].nome }} -
-              {{ animaisExibidos[$index * 6 + 3].idade }} anos
-            </p>
-          </div>
-
-        </article>
-
-        <!-- Cards Inferiores -->
-        <div class="cards-inferiores">
-
-          @for (
-          gato of animaisExibidos.slice($index * 6 + 4, $index * 6 + 6);
-          track $index
-          ) {
-
-          <article class="card card-inferior" (click)="abrirModal(gato)">
-
-            <img class="imagem-gato" [src]="gato.imagem" [alt]="gato.nome">
-
-            <button class="botao-salvar" aria-label="Salvar gato" (click)="$event.stopPropagation()">
-              <img src="/Icones/icone-salvar.svg" alt="">
-            </button>
-
-            <div class="info-gato">
-              <span>{{ gato.cidade }}</span>
-              <p>{{ gato.nome }} - {{ gato.idade }} anos</p>
-            </div>
-
-          </article>
-          }
-
-        </div>
-
-      </div>
+      }
 
     </div>
-
   </section>
-  }
 
 </main>
 
