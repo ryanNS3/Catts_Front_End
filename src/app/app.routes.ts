@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { Feed } from './features/client/feed/feed';
-import { Login } from './features/client/login/login';
-
+import { Login } from './features/client/login/login-adotante/login';
 export const routes: Routes = [
     {
         path: '',

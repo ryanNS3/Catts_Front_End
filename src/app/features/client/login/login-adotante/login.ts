@@ -1,13 +1,13 @@
 import { Component, EventEmitter, inject, Input, Output, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
-import { LoginService } from '../../../service/login/loginservice';
-import { PainelGato } from '../../../shared/painel-gato/painel-gato';
-import { EtapaPerfil } from '../../../shared/etapa-perfil/etapa-perfil';
-import { EtapaEndereco } from '../../../shared/etapa-endereco/etapa-endereco';
-import { EtapaDadosPessoais } from '../../../shared/etapa-dados-pessoais/etapa-dados-pessoais';
-import { BotaoVoltar } from '../../../shared/botao-voltar/botao-voltar';
-import { EtapaFinal } from '../../../shared/etapa-final/etapa-final';
+import { LoginService } from '../../../../service/login/loginservice';
+import { EtapaFinal } from '../../../../shared/etapa-final/etapa-final';
+import { EtapaPerfil } from '../../../../shared/etapa-perfil/etapa-perfil';
+import { EtapaEndereco } from '../../../../shared/etapa-endereco/etapa-endereco';
+import { EtapaDadosPessoais } from '../../../../shared/etapa-dados-pessoais/etapa-dados-pessoais';
+import { BotaoVoltar } from '../../../../shared/botao-voltar/botao-voltar';
+import { PainelGato } from '../../../../shared/painel-gato/painel-gato';
 
 @Component({
   selector: 'app-login',
@@ -22,11 +22,6 @@ export class Login implements AfterViewInit {
 
   carregando = false;
   
-
-  tipoResidencia: 'condominio' | 'independente' = 'condominio';
-
-  qtdPets = 'nenhum';
-  horasTrabalho = 'nao-trabalha';
 
   etapa = 0;
 
