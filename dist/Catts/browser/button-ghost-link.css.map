@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/button-ghost-link/button-ghost-link.css"],
+  "sourcesContent": [".botao-ghost {\n\n    width: 151px;\n    height: 48px;\n    border-radius: 16px;\n    border: 1.5px solid #000;\n    background: transparent;\n    color: var(--rose-50, #030303);\n    font-weight: 600;\n    font-size: 12px;\n    font-family: Inter;\n    text-align: center;\n    cursor: pointer;\n}"],
+  "mappings": ";AAAA,CAAC;AAEG,SAAO;AACP,UAAQ;AACR,iBAAe;AACf,UAAQ,MAAM,MAAM;AACpB,cAAY;AACZ,SAAO,IAAI,SAAS,EAAE;AACtB,eAAa;AACb,aAAW;AACX,eAAa;AACb,cAAY;AACZ,UAAQ;AACZ;",
+  "names": []
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/campo-texto/campo-texto.css"],
+  "sourcesContent": [":host {\n  display: block;\n}\n\n.text-form {\n  display: block;\n  margin: 0 0 7px;\n  color: var(--Cinza-400, #5C5E5D);\n  font-family: Inter, sans-serif;\n  font-size: 14px;\n  font-weight: 600;\n  line-height: normal;\n}\n\n.text-form-on {\n  box-sizing: border-box;\n  width: 100%;\n  max-width: 416px;\n  padding: 0 16px;\n  border: 1.5px solid var(--Cinza-200, #E2E4E3);\n  border-radius: 8px;\n  outline: none;\n  font-family: Inter, sans-serif;\n  font-size: 10px;\n  font-weight: 600;\n}\n\n.text-form-on::placeholder {\n  color: var(--Cinza-300, #A6A7A7);\n}\n\n.text-form-on:focus {\n  border-color: var(--Azul-500, #2494F6);\n  box-shadow: 4px 4px 24px 0 rgba(36, 148, 246, 0.63);\n}"],
+  "mappings": ";AAAA;AACE,WAAS;AACX;AAEA,CAAC;AACC,WAAS;AACT,UAAQ,EAAE,EAAE;AACZ,SAAO,IAAI,WAAW,EAAE;AACxB,eAAa,KAAK,EAAE;AACpB,aAAW;AACX,eAAa;AACb,eAAa;AACf;AAEA,CAAC;AACC,cAAY;AACZ,SAAO;AACP,aAAW;AACX,WAAS,EAAE;AACX,UAAQ,MAAM,MAAM,IAAI,WAAW,EAAE;AACrC,iBAAe;AACf,WAAS;AACT,eAAa,KAAK,EAAE;AACpB,aAAW;AACX,eAAa;AACf;AAEA,CAbC,YAaY;AACX,SAAO,IAAI,WAAW,EAAE;AAC1B;AAEA,CAjBC,YAiBY;AACX,gBAAc,IAAI,UAAU,EAAE;AAC9B,cAAY,IAAI,IAAI,KAAK,EAAE,KAAK,EAAE,EAAE,GAAG,EAAE,GAAG,EAAE;AAChD;",
+  "names": []
+}

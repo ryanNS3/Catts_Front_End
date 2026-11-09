@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/etapa-final/etapa-final.css"],
+  "sourcesContent": [":host {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding-top: 138px;\n  background-color: white;\n}\n\n/* Foto redonda de 234px, como no Figma */\n.foto {\n  width: 234px;\n  height: 234px;\n  overflow: hidden;\n  border-radius: 50%;\n  background-color: var(--Cinza-100, #F0F1F0);\n}\n\n.foto img {\n  display: block;\n  width: 100%;\n  height: 100%;\n  object-fit: cover;   /* preenche o c\u00EDrculo sem esticar a foto */\n}\n\n.titulo {\n  margin: 15px 0 0;\n  color: black;\n  font-family: Inter, sans-serif;\n  font-size: 34px;\n  font-weight: 600;\n  line-height: normal;\n}"],
+  "mappings": ";AAAA;AACE,QAAM;AACN,WAAS;AACT,kBAAgB;AAChB,eAAa;AACb,eAAa;AACb,oBAAkB;AACpB;AAGA,CAAC;AACC,SAAO;AACP,UAAQ;AACR,YAAU;AACV,iBAAe;AACf,oBAAkB,IAAI,WAAW,EAAE;AACrC;AAEA,CARC,KAQK;AACJ,WAAS;AACT,SAAO;AACP,UAAQ;AACR,cAAY;AACd;AAEA,CAAC;AACC,UAAQ,KAAK,EAAE;AACf,SAAO;AACP,eAAa,KAAK,EAAE;AACpB,aAAW;AACX,eAAa;AACb,eAAa;AACf;",
+  "names": []
+}

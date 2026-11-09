@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/botao-azul/botao-azul.css"],
+  "sourcesContent": [".botao-adotar {\n    display: flex;\n    width: 100%;\n    max-width: 600px;\n    height: 43px;\n    padding: 0 16px;\n    justify-content: center;\n    align-items: center;\n    gap: 8px;\n    border: none;\n    border-radius: 16px;\n    background: linear-gradient(268deg, hsl(208deg 93.13% 68.27%) 7.93%, hsl(208deg 90.9% 46.03%) 96.39%);\n    color: white;\n    font-size: 12px;\n    font-weight: 600;\n    cursor: pointer;\n    margin-top: 20px;\n}\n\n.botao-adotar img {\n    width: 15px;\n    height: 15px;\n    object-fit: contain;\n}"],
+  "mappings": ";AAAA,CAAC;AACG,WAAS;AACT,SAAO;AACP,aAAW;AACX,UAAQ;AACR,WAAS,EAAE;AACX,mBAAiB;AACjB,eAAa;AACb,OAAK;AACL,UAAQ;AACR,iBAAe;AACf;AAAA,IAAY;AAAA,MAAgB,MAAhB;AAAA,MAAwB,IAAI,OAAO,OAAO,QAAQ,KAAlD;AAAA,MAAyD,IAAI,OAAO,MAAM,QAAQ;AAC9F,SAAO;AACP,aAAW;AACX,eAAa;AACb,UAAQ;AACR,cAAY;AAChB;AAEA,CAnBC,aAmBa;AACV,SAAO;AACP,UAAQ;AACR,cAAY;AAChB;",
+  "names": []
+}
