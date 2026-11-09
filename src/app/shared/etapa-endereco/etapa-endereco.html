@@ -1,0 +1,64 @@
+<section class="dados-pessoais etapa-dois">
+
+  <app-botao-voltar (click)="voltar.emit()" />
+
+  <app-step-slide [etapa]="2" />
+
+  <h1 class="endereco-h1">Endereço</h1>
+  <p class="sub-2">Preencha todos os campos</p>
+
+  <div class="form-endereco">
+
+    <!-- CEP -->
+    <div class="campo">
+      <label class="text-form" for="CepDigitar">Cep</label>
+      <input class="text-form-on" type="text" id="CepDigitar" placeholder="00000-000" maxlength="9">
+    </div>
+
+    <!-- TIPO DE RESIDÊNCIA -->
+    <div class="campo tipo-residencia">
+      <p class="text-form">Tipo de residencia</p>
+
+      <div class="opcoes-residencia">
+
+        <button type="button" class="opcao-residencia"
+                [class.selecionada]="tipoResidencia === 'condominio'"
+                (click)="tipoResidencia = 'condominio'">
+          Condominio
+          <span class="icone-opcao icone-apartamento"></span>
+        </button>
+
+        <button type="button" class="opcao-residencia"
+                [class.selecionada]="tipoResidencia === 'independente'"
+                (click)="tipoResidencia = 'independente'">
+          Independente
+          <span class="icone-opcao icone-casa"></span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- TELAS DE PROTEÇÃO -->
+    <div class="campo">
+      <label class="text-form" for="TelasProtecao">Possui telas de proteção?</label>
+      <select class="select-form" id="TelasProtecao">
+        <option>Não, mas tenho intenção de colocar</option>
+        <option>Sim</option>
+        <option>Não</option>
+      </select>
+    </div>
+
+    <!-- IMÓVEL ALUGADO -->
+    <div class="campo">
+      <label class="text-form" for="ImovelAlugado">Imóvel alugado?</label>
+      <select class="select-form" id="ImovelAlugado">
+        <option>Sim</option>
+        <option>Não</option>
+      </select>
+    </div>
+
+    <app-botao-continuar (click)="continuar.emit()" />
+
+  </div>
+
+</section>

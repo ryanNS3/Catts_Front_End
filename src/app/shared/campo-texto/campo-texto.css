@@ -1,0 +1,35 @@
+:host {
+  display: block;
+}
+
+.text-form {
+  display: block;
+  margin: 0 0 7px;
+  color: var(--Cinza-400, #5C5E5D);
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.text-form-on {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 416px;
+  padding: 0 16px;
+  border: 1.5px solid var(--Cinza-200, #E2E4E3);
+  border-radius: 8px;
+  outline: none;
+  font-family: Inter, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.text-form-on::placeholder {
+  color: var(--Cinza-300, #A6A7A7);
+}
+
+.text-form-on:focus {
+  border-color: var(--Azul-500, #2494F6);
+  box-shadow: 4px 4px 24px 0 rgba(36, 148, 246, 0.63);
+}

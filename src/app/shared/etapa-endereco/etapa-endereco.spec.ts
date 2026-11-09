@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { ClientNavBar } from "./client-nav-bar";
+import { EtapaEndereco } from "./etapa-endereco";
 
-describe("ClientNavBar", () => {
-  let component: ClientNavBar;
-  let fixture: ComponentFixture<ClientNavBar>;
+describe("EtapaEndereco", () => {
+  let component: EtapaEndereco;
+  let fixture: ComponentFixture<EtapaEndereco>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ClientNavBar],
+      imports: [EtapaEndereco],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ClientNavBar);
+    fixture = TestBed.createComponent(EtapaEndereco);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

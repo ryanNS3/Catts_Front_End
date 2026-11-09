@@ -1,40 +1,26 @@
 import { Component, EventEmitter, inject, Input, Output, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { AnimalService } from '../../../service/animal/animal';
 import { Router } from '@angular/router';
 import { LoginService } from '../../../service/login/loginservice';
+import { PainelGato } from '../../../shared/painel-gato/painel-gato';
+import { EtapaPerfil } from '../../../shared/etapa-perfil/etapa-perfil';
+import { EtapaEndereco } from '../../../shared/etapa-endereco/etapa-endereco';
+import { EtapaDadosPessoais } from '../../../shared/etapa-dados-pessoais/etapa-dados-pessoais';
+import { BotaoVoltar } from '../../../shared/botao-voltar/botao-voltar';
 
 @Component({
   selector: 'app-login',
-  imports: [RouterLink],
+  imports: [RouterLink, PainelGato, BotaoVoltar, EtapaDadosPessoais, EtapaEndereco, EtapaPerfil],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
 export class Login implements AfterViewInit {
 
-  private animalService = inject(AnimalService);
   private authService = inject(LoginService);
   private router = inject(Router);
 
   carregando = false;
-
-  animalSelecionado = this.animalService.animalSelecionado;
-
-  // Funções dinâmicas utilizando os dados reais da API (name, age, description)
-  observacaoDoGato(name?: string): string {
-    const animal = this.animalSelecionado();
-    if (animal && animal.description) {
-      return animal.description;
-    }
-    return `Gato ${name || 'Pet'} cadastrado recentemente para adoção.`;
-  }
-
-  nomeIdadeGatos(name?: string, age?: number): string {
-    const animal = this.animalSelecionado();
-    const nomeReal = animal?.name || name || 'Pet';
-    const idadeReal = animal?.age !== undefined ? animal.age : (age || 0);
-    return `Gato ${nomeReal} - ${idadeReal} anos`;
-  }
+  
 
   tipoResidencia: 'condominio' | 'independente' = 'condominio';
 

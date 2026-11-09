@@ -1,0 +1,94 @@
+<section class="dados-pessoais etapa-tres">
+
+  <app-botao-voltar (click)="voltar.emit()" />
+
+  <app-step-slide [etapa]="3" />
+
+  <h1 class="perfil-h1">Seu perfil</h1>
+  <p class="sub-3">Preencha todos os campos</p>
+
+  <div class="form-perfil">
+
+    <!-- FAIXA SALARIAL -->
+    <div class="campo">
+      <label class="text-form" for="FaixaSalarial">Qual é sua faixa salarial?</label>
+      <input class="text-form-on" type="text" id="FaixaSalarial" placeholder="R$ 900">
+    </div>
+
+    <!-- QUANTOS PETS -->
+    <div class="campo">
+      <p class="text-form">Quantos pets você tem em casa?</p>
+
+      <div class="opcoes-perfil">
+
+        <button type="button" class="opcao-perfil"
+                [class.selecionada]="qtdPets === 'nenhum'"
+                (click)="qtdPets = 'nenhum'">
+          <span class="opcao-titulo">Nenhum</span>
+          <span class="icone-opcao icone-bloqueado"></span>
+        </button>
+
+        <button type="button" class="opcao-perfil"
+                [class.selecionada]="qtdPets === '1-3'"
+                (click)="qtdPets = '1-3'">
+          <span class="opcao-titulo">Entre</span>
+          <span class="opcao-valor">1-3</span>
+        </button>
+
+        <button type="button" class="opcao-perfil"
+                [class.selecionada]="qtdPets === '+3'"
+                (click)="qtdPets = '+3'">
+          <span class="opcao-titulo">Mais que</span>
+          <span class="opcao-valor">+3</span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- HORAS DE TRABALHO -->
+    <div class="campo">
+      <p class="text-form">Quantas horas você trabalha(por dia)?</p>
+
+      <div class="opcoes-perfil">
+
+        <button type="button" class="opcao-perfil"
+                [class.selecionada]="horasTrabalho === 'nao-trabalha'"
+                (click)="horasTrabalho = 'nao-trabalha'">
+          <span class="opcao-titulo">Não trabalha</span>
+          <span class="icone-opcao icone-bloqueado"></span>
+        </button>
+
+        <button type="button" class="opcao-perfil"
+                [class.selecionada]="horasTrabalho === '4h-6h'"
+                (click)="horasTrabalho = '4h-6h'">
+          <span class="opcao-titulo">Entre</span>
+          <span class="opcao-valor">4h-6h</span>
+        </button>
+
+        <button type="button" class="opcao-perfil"
+                [class.selecionada]="horasTrabalho === '+8h'"
+                (click)="horasTrabalho = '+8h'">
+          <span class="opcao-titulo">Mais que</span>
+          <span class="opcao-valor">+8h</span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- PESSOAS EM CASA -->
+    <div class="campo">
+      <label class="text-form" for="PessoasEmCasa">Quantas pessoas moram com você?</label>
+      <input class="text-form-on" type="number" inputmode="numeric" id="PessoasEmCasa" placeholder="1">
+    </div>
+
+    <!-- CHECKBOX -->
+    <label class="check-form">
+      <input class="check-box" type="checkbox">
+      <span>Aceita enviar vídeos e fotos da sua residência</span>
+    </label>
+
+    <app-botao-continuar (click)="continuar.emit()" />
+
+  </div>
+
+</section>

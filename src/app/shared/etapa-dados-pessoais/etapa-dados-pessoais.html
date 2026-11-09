@@ -1,0 +1,22 @@
+<app-botao-voltar (click)="voltar.emit()" />
+
+<app-step-slide [etapa]="1" />
+
+<h1 class="dados-pessoais-h1">Dados pessoais</h1>
+<p class="sub-1">Preencha todos os campos</p>
+
+<!-- FORMULÁRIO -->
+<div class="campos">
+
+  <label class="text-form" for="ContatoDigital">Contato</label>
+  <input class="text-form-on" type="text" id="ContatoDigital" placeholder="11 9374648">
+
+  <label class="text-form" for="CPFDigitar">CPF</label>
+  <input class="text-form-on" type="text" id="CPFDigitar" placeholder="237.876.837-21">
+
+  <label class="text-form" for="DataNascimentoDigitar">Data nascimento</label>
+  <input class="text-form-on" type="date" id="DataNascimentoDigitar">
+
+</div>
+
+<app-botao-continuar (click)="continuar.emit()" />

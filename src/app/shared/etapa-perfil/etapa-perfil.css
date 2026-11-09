@@ -1,0 +1,198 @@
+:host {
+  display: block;
+}
+
+.etapa-tres .text-form-on,
+.etapa-tres .opcao-perfil,
+.etapa-tres .check-box,
+.etapa-tres .continuar {
+  box-sizing: border-box;
+}
+
+/* O botão Voltar agora é um componente: esta regra substitui o .etapa-tres .btn-voltar */
+app-botao-voltar {
+  margin-bottom: 37px;
+}
+
+/*ETAPA 3 - SEU PERFIL */
+.etapa-tres .perfil-h1 {
+  margin: 33px 0 9px;
+  color: var(--Cinza-600, #151616);
+  font-family: Inter, sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.etapa-tres .sub-3 {
+  margin: 0 0 28px;
+  color: var(--Cinza-400, #5C5E5D);
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Coluna com todos os campos: 25px entre cada um, como no Figma */
+.etapa-tres .form-perfil {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-width: 416px;
+  font-family: Inter, sans-serif;
+}
+
+.etapa-tres .campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.etapa-tres .text-form {
+  margin: 0 0 7px;
+  color: var(--Cinza-400, #5C5E5D);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+/* CAMPOS DE TEXTO */
+.etapa-tres .text-form-on {
+  width: 100%;
+  height: 44px;
+  padding: 0 16px;
+  border: 1.5px solid var(--Cinza-200, #E2E4E3);
+  border-radius: 8px;
+  outline: none;
+  font-family: Inter, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.etapa-tres .text-form-on::placeholder {
+  color: var(--Cinza-300, #A6A7A7);
+}
+
+.etapa-tres .text-form-on:focus {
+  border-color: var(--Azul-500, #2494F6);
+  box-shadow: 4px 4px 24px 0 rgba(36, 148, 246, 0.63);
+}
+
+/* CARDS DE OPÇÃO (pets e horas) */
+.etapa-tres .opcoes-perfil {
+  display: flex;
+  gap: 16px;
+}
+
+.etapa-tres .opcao-perfil {
+  --cor-icone: var(--Azul-500, #2494F6);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 106px;
+  height: 73px;
+  padding: 19px 20px;
+  background: white;
+  border: 1.5px solid var(--Cinza-300, #A6A7A7);
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.etapa-tres .opcao-titulo {
+  color: var(--Cinza-300, #A6A7A7);
+  font-size: 10px;
+  line-height: 6px;
+}
+
+.etapa-tres .opcao-valor {
+  color: var(--Cinza-400, #5C5E5D);
+  font-size: 16px;
+  line-height: 15px;
+}
+
+/* Card selecionado: borda e título azuis */
+.etapa-tres .opcao-perfil.selecionada {
+  border-color: var(--Azul-500, #2494F6);
+}
+
+.etapa-tres .opcao-perfil.selecionada .opcao-titulo {
+  color: var(--Azul-400, #54ACF8);
+}
+
+.etapa-tres .icone-opcao {
+  width: 24px;
+  height: 24px;
+  background-color: var(--cor-icone);
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.icone-bloqueado {
+  -webkit-mask-image: url('/Icones/icone-bloqueado.svg');
+  mask-image: url('/Icones/icone-bloqueado.svg');
+}
+
+/* CHECKBOX */
+.etapa-tres .check-form {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 1px;
+  cursor: pointer;
+  color: var(--Cinza-400, #5C5E5D);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.etapa-tres .check-box {
+  appearance: none;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  margin: 0;
+  background-color: white;
+  border: 1.5px solid var(--Cinza-200, #E2E4E3);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.etapa-tres .check-box:checked {
+  background-color: var(--Azul-500, #2494F6);
+  border-color: var(--Azul-500, #2494F6);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px;
+}
+
+/* BOTÃO */
+.etapa-tres .continuar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 64px;
+  padding: 0;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  color: white;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  background: linear-gradient(268deg, hsl(208deg 93.1321% 68.2749%) 7.93%, hsl(208deg 90.8992% 46.0337%) 96.39%);
+}
+
+/* Patinha dos botões */
+.continuarimage {
+  width: 24px;
+  height: 24px;
+}
