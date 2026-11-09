@@ -7,10 +7,11 @@ import { EtapaPerfil } from '../../../shared/etapa-perfil/etapa-perfil';
 import { EtapaEndereco } from '../../../shared/etapa-endereco/etapa-endereco';
 import { EtapaDadosPessoais } from '../../../shared/etapa-dados-pessoais/etapa-dados-pessoais';
 import { BotaoVoltar } from '../../../shared/botao-voltar/botao-voltar';
+import { EtapaFinal } from '../../../shared/etapa-final/etapa-final';
 
 @Component({
   selector: 'app-login',
-  imports: [RouterLink, PainelGato, BotaoVoltar, EtapaDadosPessoais, EtapaEndereco, EtapaPerfil],
+  imports: [RouterLink, PainelGato, BotaoVoltar, EtapaDadosPessoais, EtapaEndereco, EtapaPerfil, EtapaFinal],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })

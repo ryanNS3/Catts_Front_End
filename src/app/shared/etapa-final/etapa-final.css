@@ -1,0 +1,33 @@
+:host {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 138px;
+  background-color: white;
+}
+
+/* Foto redonda de 234px, como no Figma */
+.foto {
+  width: 234px;
+  height: 234px;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: var(--Cinza-100, #F0F1F0);
+}
+
+.foto img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* preenche o círculo sem esticar a foto */
+}
+
+.titulo {
+  margin: 15px 0 0;
+  color: black;
+  font-family: Inter, sans-serif;
+  font-size: 34px;
+  font-weight: 600;
+  line-height: normal;
+}

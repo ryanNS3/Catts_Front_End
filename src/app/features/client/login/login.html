@@ -1,45 +1,48 @@
 <main class="container">
 
-  <!-- LADO ESQUERDO -->
-  <app-painel-gato />
+  @if (etapa === 4) {
 
-  <!-- LADO DIREITO -->
-  <section class="formulario" [class.etapa-zero]="etapa === 0">
+    <!-- ETAPA 4: tela cheia, sem o painel do gato -->
+    <app-etapa-final />
 
-    <!-- ETAPA 0: LOGIN -->
-    @if (etapa === 0) {
-      <app-botao-voltar (click)="voltar()" />
+  } @else {
 
-      <h1 class="sign-in">Sign in</h1>
+    <!-- LADO ESQUERDO -->
+    <app-painel-gato />
 
-      <p class="sub-0">Selecione uma das opções abaixo para fazer o login</p>
+    <!-- LADO DIREITO -->
+    <section class="formulario" [class.etapa-zero]="etapa === 0">
 
-      <button class="continuar" (click)="continuar()"> continuar /</button>
+      <!-- ETAPA 0: LOGIN -->
+      @if (etapa === 0) {
+        <app-botao-voltar (click)="voltar()" />
 
-      <div class="google-button" #googleButton></div>
-    }
+        <h1 class="sign-in">Sign in</h1>
 
-    <!-- ETAPA 1: DADOS PESSOAIS -->
-    @if (etapa === 1) {
-      <app-etapa-dados-pessoais (voltar)="voltar()" (continuar)="continuar()" />
-    }
+        <p class="sub-0">Selecione uma das opções abaixo para fazer o login</p>
 
-    <!-- ETAPA 2: ENDEREÇO -->
-    @if (etapa === 2) {
-      <app-etapa-endereco (voltar)="voltar()" (continuar)="continuar()" />
-    }
+        <button class="continuar" (click)="continuar()"> continuar /</button>
 
-    <!-- ETAPA 3: PERFIL -->
-    @if (etapa === 3) {
-      <app-etapa-perfil (voltar)="voltar()" (continuar)="continuar()" />
-    }
+        <div class="google-button" #googleButton></div>
+      }
 
-    <!-- ETAPA 4 -->
-    @if (etapa === 4) {
-      <section class="perfil">
-        <h1>Você</h1>
-      </section>
-    }
+      <!-- ETAPA 1: DADOS PESSOAIS -->
+      @if (etapa === 1) {
+        <app-etapa-dados-pessoais (voltar)="voltar()" (continuar)="continuar()" />
+      }
 
-  </section>
+      <!-- ETAPA 2: ENDEREÇO -->
+      @if (etapa === 2) {
+        <app-etapa-endereco (voltar)="voltar()" (continuar)="continuar()" />
+      }
+
+      <!-- ETAPA 3: PERFIL -->
+      @if (etapa === 3) {
+        <app-etapa-perfil (voltar)="voltar()" (continuar)="continuar()" />
+      }
+
+    </section>
+
+  }
+
 </main>
