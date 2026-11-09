@@ -1,23 +1,23 @@
-import { Component, EventEmitter, inject, Input, Output, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { Router } from '@angular/router';
-import { LoginService } from '../../../../service/login/loginservice';
-import { EtapaFinal } from '../../../../shared/etapa-final/etapa-final';
-import { EtapaPerfil } from '../../../../shared/etapa-perfil/etapa-perfil';
-import { EtapaEndereco } from '../../../../shared/etapa-endereco/etapa-endereco';
-import { EtapaDadosPessoais } from '../../../../shared/etapa-dados-pessoais/etapa-dados-pessoais';
-import { BotaoVoltar } from '../../../../shared/botao-voltar/botao-voltar';
-import { PainelGato } from '../../../../shared/painel-gato/painel-gato';
+import { AfterViewInit, Component, ElementRef, EventEmitter, inject, Input, Output, ViewChild } from "@angular/core";
+import { EtapaFinal } from "../../../../shared/etapa-final/etapa-final";
+import { EtapaPerfil } from "../../../../shared/etapa-perfil/etapa-perfil";
+import { EtapaEndereco } from "../../../../shared/etapa-endereco/etapa-endereco";
+import { EtapaDadosPessoais } from "../../../../shared/etapa-dados-pessoais/etapa-dados-pessoais";
+import { BotaoVoltar } from "../../../../shared/botao-voltar/botao-voltar";
+import { PainelGato } from "../../../../shared/painel-gato/painel-gato";
+import { ActivatedRoute, Router, RouterLink } from "@angular/router";
+import { LoginService } from "../../../../service/login/loginservice";
 
 @Component({
-  selector: 'app-login',
   imports: [RouterLink, PainelGato, BotaoVoltar, EtapaDadosPessoais, EtapaEndereco, EtapaPerfil, EtapaFinal],
-  templateUrl: './login.html',
-  styleUrl: './login.css',
+  selector: "app-login-adotante",
+  styleUrl: "./login-adotante.css",
+  templateUrl: "./login-adotante.html",
 })
-export class Login implements AfterViewInit {
 
-  private authService = inject(LoginService);
+
+export class LoginAdotante  implements AfterViewInit {
+    private authService = inject(LoginService);
   private router = inject(Router);
 
   carregando = false;
@@ -78,3 +78,4 @@ export class Login implements AfterViewInit {
   }
 }
 declare var google: any;
+
