@@ -1,7 +1,8 @@
-<label class="text-form" [attr.for]="idCampo">{{ rotulo }}</label>
+<label class="text-form" [attr.for]="idCampo">{{ textoDigitado }}</label>
 <input class="text-form-on"
        [id]="idCampo"
        [type]="tipo"
        [placeholder]="placeholder"
        [attr.maxlength]="maximo"
-       [style.height.px]="altura">
+       [style.height.px]="altura"
+       [(ngModel)]="valor">

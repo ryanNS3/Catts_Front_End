@@ -1,0 +1,32 @@
+<div class="etapa-principal">
+
+  <div class="instituicao" [class.ativa]="etapa === 1">
+
+    <div class="icone-etapa">
+      <span class="icone icone-carteirinha"></span>
+    </div>
+
+    <p class="nome-etapas">instituição</p>
+
+  </div>
+
+  <div class="endereco-etapa" [class.ativa]="etapa === 2">
+
+    <div class="icone-etapa">
+      <span class="icone Contato/horário"></span>
+    </div>
+
+    <p class="nome-etapas">Contato/horário</p>
+
+  </div>
+
+  <div class="seu-perfil-etapa" [class.ativa]="etapa === 3">
+
+    <div class="icone-etapa">
+      <span class="icone icone-face"></span>
+    </div>
+    
+    <p class="nome-etapas">Localidade</p>
+  </div>
+
+</div>
