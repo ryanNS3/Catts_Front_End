@@ -8,7 +8,10 @@ import { Router, RouterLink } from "@angular/router";
   templateUrl: "./botao-azul.html",
 })
 export class BotaoAzul {
-   @Input() toUrl: string = '/login';
-   
-  @Output() adotar = new EventEmitter<void>();
+  
+   @Input() toUrl?: string = '';
+
+   @Input() texto: string = 'Adotar'; 
+
+   @Output() acaoBotao = new EventEmitter<void>();
 }

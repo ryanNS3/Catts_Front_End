@@ -1,4 +1,4 @@
-//#region node_modules/@angular/core/fesm2022/_effect-chunk.mjs
+//#region ../../../../../node_modules/@angular/core/fesm2022/_effect-chunk.mjs
 /**
 * @license Angular v22.1.7
 * (c) 2010-2026 Google LLC. https://angular.dev/
@@ -327,7 +327,7 @@ function runEffect(node) {
 	}
 }
 //#endregion
-//#region node_modules/@angular/core/fesm2022/_not_found-chunk.mjs
+//#region ../../../../../node_modules/@angular/core/fesm2022/_not_found-chunk.mjs
 /**
 * @license Angular v22.1.7
 * (c) 2010-2026 Google LLC. https://angular.dev/
@@ -347,7 +347,7 @@ function isNotFound(e) {
 	return e === NOT_FOUND$1 || e?.name === "ɵNotFound";
 }
 //#endregion
-//#region node_modules/@angular/core/fesm2022/_untracked-chunk.mjs
+//#region ../../../../../node_modules/@angular/core/fesm2022/_untracked-chunk.mjs
 /**
 * @license Angular v22.1.7
 * (c) 2010-2026 Google LLC. https://angular.dev/
@@ -433,7 +433,7 @@ function untracked$1(nonReactiveReadsFn) {
 	}
 }
 //#endregion
-//#region node_modules/@angular/core/fesm2022/_weak_ref-chunk.mjs
+//#region ../../../../../node_modules/@angular/core/fesm2022/_weak_ref-chunk.mjs
 /**
 * @license Angular v22.1.7
 * (c) 2010-2026 Google LLC. https://angular.dev/
@@ -441,7 +441,7 @@ function untracked$1(nonReactiveReadsFn) {
 */
 function setAlternateWeakRefImpl(impl) {}
 //#endregion
-//#region node_modules/@angular/core/fesm2022/primitives-signals.mjs
+//#region ../../../../../node_modules/@angular/core/fesm2022/primitives-signals.mjs
 /**
 * @license Angular v22.1.7
 * (c) 2010-2026 Google LLC. https://angular.dev/
@@ -550,7 +550,7 @@ function installDevToolsSignalFormatter() {
 }
 if (typeof ngDevMode === "undefined" || ngDevMode) installDevToolsSignalFormatter();
 //#endregion
-//#region node_modules/tslib/tslib.es6.mjs
+//#region ../../../../../node_modules/tslib/tslib.es6.mjs
 /******************************************************************************
 Copyright (c) Microsoft Corporation.
 
@@ -798,12 +798,12 @@ function __asyncValues(o) {
 	}
 }
 //#endregion
-//#region node_modules/rxjs/dist/esm5/internal/util/isFunction.js
+//#region ../../../../../node_modules/rxjs/dist/esm5/internal/util/isFunction.js
 function isFunction(value) {
 	return typeof value === "function";
 }
 //#endregion
-//#region node_modules/rxjs/dist/esm5/internal/util/createErrorClass.js
+//#region ../../../../../node_modules/rxjs/dist/esm5/internal/util/createErrorClass.js
 function createErrorClass(createImpl) {
 	var _super = function(instance) {
 		Error.call(instance);
@@ -815,7 +815,7 @@ function createErrorClass(createImpl) {
 	return ctorFunc;
 }
 //#endregion
-//#region node_modules/rxjs/dist/esm5/internal/util/UnsubscriptionError.js
+//#region ../../../../../node_modules/rxjs/dist/esm5/internal/util/UnsubscriptionError.js
 var UnsubscriptionError = createErrorClass(function(_super) {
 	return function UnsubscriptionErrorImpl(errors) {
 		_super(this);
@@ -827,7 +827,7 @@ var UnsubscriptionError = createErrorClass(function(_super) {
 	};
 });
 //#endregion
-//#region node_modules/rxjs/dist/esm5/internal/util/arrRemove.js
+//#region ../../../../../node_modules/rxjs/dist/esm5/internal/util/arrRemove.js
 function arrRemove(arr, item) {
 	if (arr) {
 		var index = arr.indexOf(item);
@@ -835,7 +835,7 @@ function arrRemove(arr, item) {
 	}
 }
 //#endregion
-//#region node_modules/rxjs/dist/esm5/internal/Subscription.js
+//#region ../../../../../node_modules/rxjs/dist/esm5/internal/Subscription.js
 var Subscription = function() {
 	function Subscription(initialTeardown) {
 		this.initialTeardown = initialTeardown;
@@ -942,7 +942,7 @@ function execFinalizer(finalizer) {
 	else finalizer.unsubscribe();
 }
 //#endregion
-//#region node_modules/rxjs/dist/esm5/internal/config.js
+//#region ../../../../../node_modules/rxjs/dist/esm5/internal/config.js
 var config = {
 	onUnhandledError: null,
 	onStoppedNotification: null,
@@ -951,7 +951,7 @@ var config = {
 	useDeprecatedNextContext: false
 };
 //#endregion
-//#region node_modules/rxjs/dist/esm5/internal/scheduler/timeoutProvider.js
+//#region ../../../../../node_modules/rxjs/dist/esm5/internal/scheduler/timeoutProvider.js
 var timeoutProvider = {
 	setTimeout: function(handler, timeout) {
 		var args = [];
@@ -967,7 +967,7 @@ var timeoutProvider = {
 	delegate: void 0
 };
 //#endregion
-//#region node_modules/rxjs/dist/esm5/internal/util/reportUnhandledError.js
+//#region ../../../../../node_modules/rxjs/dist/esm5/internal/util/reportUnhandledError.js
 function reportUnhandledError(err) {
 	timeoutProvider.setTimeout(function() {
 		var onUnhandledError = config.onUnhandledError;
@@ -976,10 +976,10 @@ function reportUnhandledError(err) {
 	});
 }
 //#endregion
-//#region node_modules/rxjs/dist/esm5/internal/util/noop.js
+//#region ../../../../../node_modules/rxjs/dist/esm5/internal/util/noop.js
 function noop$1() {}
 //#endregion
-//#region node_modules/rxjs/dist/esm5/internal/NotificationFactories.js
+//#region ../../../../../node_modules/rxjs/dist/esm5/internal/NotificationFactories.js
 var COMPLETE_NOTIFICATION = (function() {
 	return createNotification("C", void 0, void 0);
 })();
@@ -997,7 +997,7 @@ function createNotification(kind, value, error) {
 	};
 }
 //#endregion
-//#region node_modules/rxjs/dist/esm5/internal/util/errorContext.js
+//#region ../../../../../node_modules/rxjs/dist/esm5/internal/util/errorContext.js
 var context = null;
 function errorContext(cb) {
 	if (config.useDeprecatedSynchronousErrorHandling) {
@@ -1021,7 +1021,7 @@ function captureError(err) {
 	}
 }
 //#endregion
-//#region node_modules/rxjs/dist/esm5/internal/Subscriber.js
+//#region ../../../../../node_modules/rxjs/dist/esm5/internal/Subscriber.js
 var Subscriber = function(_super) {
 	__extends(Subscriber, _super);
 	function Subscriber(destination) {
@@ -1164,17 +1164,17 @@ var EMPTY_OBSERVER = {
 	complete: noop$1
 };
 //#endregion
-//#region node_modules/rxjs/dist/esm5/internal/symbol/observable.js
+//#region ../../../../../node_modules/rxjs/dist/esm5/internal/symbol/observable.js
 var observable = (function() {
 	return typeof Symbol === "function" && Symbol.observable || "@@observable";
 })();
 //#endregion
-//#region node_modules/rxjs/dist/esm5/internal/util/identity.js
+//#region ../../../../../node_modules/rxjs/dist/esm5/internal/util/identity.js
 function identity(x) {
 	return x;
 }
 //#endregion
-//#region node_modules/rxjs/dist/esm5/internal/util/pipe.js
+//#region ../../../../../node_modules/rxjs/dist/esm5/internal/util/pipe.js
 function pipe() {
 	var fns = [];
 	for (var _i = 0; _i < arguments.length; _i++) fns[_i] = arguments[_i];
@@ -1190,7 +1190,7 @@ function pipeFromArray(fns) {
 	};
 }
 //#endregion
-//#region node_modules/rxjs/dist/esm5/internal/Observable.js
+//#region ../../../../../node_modules/rxjs/dist/esm5/internal/Observable.js
 var Observable = function() {
 	function Observable(subscribe) {
 		if (subscribe) this._subscribe = subscribe;
@@ -1278,7 +1278,7 @@ function isSubscriber(value) {
 	return value && value instanceof Subscriber || isObserver(value) && isSubscription(value);
 }
 //#endregion
-//#region node_modules/rxjs/dist/esm5/internal/util/lift.js
+//#region ../../../../../node_modules/rxjs/dist/esm5/internal/util/lift.js
 function hasLift(source) {
 	return isFunction(source === null || source === void 0 ? void 0 : source.lift);
 }
@@ -1295,7 +1295,7 @@ function operate(init) {
 	};
 }
 //#endregion
-//#region node_modules/rxjs/dist/esm5/internal/operators/OperatorSubscriber.js
+//#region ../../../../../node_modules/rxjs/dist/esm5/internal/operators/OperatorSubscriber.js
 function createOperatorSubscriber(destination, onNext, onComplete, onError, onFinalize) {
 	return new OperatorSubscriber(destination, onNext, onComplete, onError, onFinalize);
 }
@@ -1343,7 +1343,7 @@ var OperatorSubscriber = function(_super) {
 	return OperatorSubscriber;
 }(Subscriber);
 //#endregion
-//#region node_modules/rxjs/dist/esm5/internal/util/ObjectUnsubscribedError.js
+//#region ../../../../../node_modules/rxjs/dist/esm5/internal/util/ObjectUnsubscribedError.js
 var ObjectUnsubscribedError = createErrorClass(function(_super) {
 	return function ObjectUnsubscribedErrorImpl() {
 		_super(this);
@@ -1352,7 +1352,7 @@ var ObjectUnsubscribedError = createErrorClass(function(_super) {
 	};
 });
 //#endregion
-//#region node_modules/rxjs/dist/esm5/internal/Subject.js
+//#region ../../../../../node_modules/rxjs/dist/esm5/internal/Subject.js
 var Subject = function(_super) {
 	__extends(Subject, _super);
 	function Subject() {
@@ -1491,7 +1491,7 @@ var AnonymousSubject = function(_super) {
 	return AnonymousSubject;
 }(Subject);
 //#endregion
-//#region node_modules/rxjs/dist/esm5/internal/BehaviorSubject.js
+//#region ../../../../../node_modules/rxjs/dist/esm5/internal/BehaviorSubject.js
 var BehaviorSubject = function(_super) {
 	__extends(BehaviorSubject, _super);
 	function BehaviorSubject(_value) {
@@ -1523,7 +1523,7 @@ var BehaviorSubject = function(_super) {
 	return BehaviorSubject;
 }(Subject);
 //#endregion
-//#region node_modules/rxjs/dist/esm5/internal/operators/map.js
+//#region ../../../../../node_modules/rxjs/dist/esm5/internal/operators/map.js
 function map(project, thisArg) {
 	return operate(function(source, subscriber) {
 		var index = 0;
@@ -1533,7 +1533,7 @@ function map(project, thisArg) {
 	});
 }
 //#endregion
-//#region node_modules/@angular/core/fesm2022/_pending_tasks-chunk.mjs
+//#region ../../../../../node_modules/@angular/core/fesm2022/_pending_tasks-chunk.mjs
 /**
 * @license Angular v22.1.7
 * (c) 2010-2026 Google LLC. https://angular.dev/
@@ -4101,7 +4101,7 @@ var PendingTasks = class PendingTasks {
 	});
 };
 //#endregion
-//#region node_modules/@angular/core/fesm2022/_attribute-chunk.mjs
+//#region ../../../../../node_modules/@angular/core/fesm2022/_attribute-chunk.mjs
 /**
 * @license Angular v22.1.7
 * (c) 2010-2026 Google LLC. https://angular.dev/
@@ -4109,7 +4109,7 @@ var PendingTasks = class PendingTasks {
 */
 var Attribute$1 = { JSACTION: "jsaction" };
 //#endregion
-//#region node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs
+//#region ../../../../../node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs
 /**
 * @license Angular v22.1.7
 * (c) 2010-2026 Google LLC. https://angular.dev/
@@ -19935,7 +19935,7 @@ function getDebugNode(nativeNode) {
 	return null;
 }
 //#endregion
-//#region node_modules/@angular/core/fesm2022/_resource-chunk.mjs
+//#region ../../../../../node_modules/@angular/core/fesm2022/_resource-chunk.mjs
 /**
 * @license Angular v22.1.7
 * (c) 2010-2026 Google LLC. https://angular.dev/
@@ -20365,7 +20365,7 @@ function rethrowFatalErrors(error) {
 	if (error instanceof RuntimeError && error.code === 992) throw error;
 }
 //#endregion
-//#region node_modules/@angular/core/fesm2022/primitives-event-dispatch.mjs
+//#region ../../../../../node_modules/@angular/core/fesm2022/primitives-event-dispatch.mjs
 /**
 * @license Angular v22.1.7
 * (c) 2010-2026 Google LLC. https://angular.dev/
@@ -21021,7 +21021,7 @@ function clearAppScopedEarlyEventContract(appId, dataContainer = window) {
 	dataContainer._ejsas[appId] = void 0;
 }
 //#endregion
-//#region node_modules/@angular/core/fesm2022/core.mjs
+//#region ../../../../../node_modules/@angular/core/fesm2022/core.mjs
 /**
 * @license Angular v22.1.7
 * (c) 2010-2026 Google LLC. https://angular.dev/

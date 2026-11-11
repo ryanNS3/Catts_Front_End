@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, inject, Input, Output, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, EventEmitter, inject, Input, NgZone, OnInit, Output, ViewChild } from "@angular/core";
 import { EtapaFinal } from "../../../../shared/etapa-final/etapa-final";
 import { EtapaPerfil } from "../../../../shared/etapa-perfil/etapa-perfil";
 import { EtapaEndereco } from "../../../../shared/etapa-endereco/etapa-endereco";
@@ -7,18 +7,22 @@ import { BotaoVoltar } from "../../../../shared/botao-voltar/botao-voltar";
 import { PainelGato } from "../../../../shared/painel-gato/painel-gato";
 import { ActivatedRoute, Router, RouterLink } from "@angular/router";
 import { LoginService } from "../../../../service/login/loginservice";
+import { BotaoAzul } from "../../../../shared/botao-azul/botao-azul";
+
+
 
 @Component({
-  imports: [RouterLink, PainelGato, BotaoVoltar, EtapaDadosPessoais, EtapaEndereco, EtapaPerfil, EtapaFinal],
+  imports: [RouterLink, PainelGato, BotaoVoltar, BotaoAzul, EtapaDadosPessoais, EtapaEndereco, EtapaPerfil, EtapaFinal],
   selector: "app-login-adotante",
   styleUrl: "./login-adotante.css",
   templateUrl: "./login-adotante.html",
 })
 
 
-export class LoginAdotante  implements AfterViewInit {
+export class LoginAdotante  implements AfterViewInit, OnInit {
     private authService = inject(LoginService);
   private router = inject(Router);
+  private zone = inject(NgZone);
 
   carregando = false;
   
@@ -38,24 +42,34 @@ export class LoginAdotante  implements AfterViewInit {
   private route = inject(ActivatedRoute);
   gatoId = this.route.snapshot.paramMap.get('id');
 
-  @Input() toUrl: string = '';
-  @Output() botaoClicado = new EventEmitter<void>();
 
-  aoClicar(): void {
-    this.botaoClicado.emit();
+    ngOnInit() {
+  const etapaUrl = this.route.snapshot.queryParamMap.get('etapa');
+  if (etapaUrl) {
+    this.etapa = Number(etapaUrl);
   }
+}
 
   @ViewChild('googleButton')
   googleButton!: ElementRef;
 
   entrarComGoogle(credential: string) {
-    this.authService.loginComGoogle(credential).subscribe({
-      next: (resposta: any) => {
-        console.log('Login realizado:', resposta);
-        this.etapa = 1;
-      },
-    });
-  }
+  this.authService.loginComGoogle(credential).subscribe({
+    next: (resposta: any) => {
+      localStorage.setItem('token', resposta.token);
+
+      // o callback do Google roda fora do Angular, por isso o zone.run
+      this.zone.run(() => {
+        if (resposta.cadastrado) {
+          this.router.navigate(['/feed']);
+        } else {
+          this.router.navigate(['/escolher-perfil']);
+        }
+      });
+    },
+    error: (erro) => console.error('Erro no login:', erro),
+  });
+}
 
   ngAfterViewInit() {
     this.inicializarGoogle();
@@ -76,6 +90,7 @@ export class LoginAdotante  implements AfterViewInit {
       );
     }
   }
+  
 }
 declare var google: any;
 

@@ -21,24 +21,24 @@
 
         <p class="sub-0">Selecione uma das opções abaixo para fazer o login</p>
 
-        <button class="continuar" (click)="continuar()"> continuar /</button>
+         <app-botao-azul texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
 
         <div class="google-button" #googleButton></div>
       }
 
       <!-- ETAPA 1: DADOS PESSOAIS -->
       @if (etapa === 1) {
-        <app-etapa-dados-pessoais (voltar)="voltar()" (continuar)="continuar()" />
+        <app-etapa-dados-pessoais (voltar)="voltar()" (acaoBotao)="continuar()" />
       }
 
       <!-- ETAPA 2: ENDEREÇO -->
       @if (etapa === 2) {
-        <app-etapa-endereco (voltar)="voltar()" (continuar)="continuar()" />
+        <app-etapa-endereco (voltar)="voltar()" (acaoBotao)="continuar()" />
       }
 
       <!-- ETAPA 3: PERFIL -->
       @if (etapa === 3) {
-        <app-etapa-perfil (voltar)="voltar()" (continuar)="continuar()" />
+        <app-etapa-perfil (voltar)="voltar()" (acaoBotao)="continuar()" />
       }
 
     </section>

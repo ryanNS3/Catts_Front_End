@@ -1,17 +1,24 @@
-import { HttpClient } from "@angular/common/http";
-import { inject, Injectable, Service } from "@angular/core";
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
+export class LoginService { // -Este é o seu AuthService
+  private http = inject(HttpClient);
 
-export class LoginService {    // <-- Este é o "authService"
-    private http = inject(HttpClient);
+  private apiUrl = 'http://localhost:3000'; // porta do seu backend
 
-    private apiUrl = 'http://localhost:4200'; 
+  // Manda o token do Google para o backend
+  loginComGoogle(credential: string) {
+    return this.http.post<{ token: string; cadastrado: boolean }>(
+      this.apiUrl + '/auth/google',
+      { credential: credential }
+    );
+  }
 
-    loginComGoogle(credential: string) {
-  return this.http.post( this.apiUrl + '/auth/google', { credential: credential }
-  );
-}
+  // Salva o perfil escolhido
+  salvarPerfil(perfil: string) {
+    return this.http.post(this.apiUrl + '/usuarios/perfil', { perfil: perfil });
+  }
 }

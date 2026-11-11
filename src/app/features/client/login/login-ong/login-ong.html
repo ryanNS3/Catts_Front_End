@@ -1,1 +1,41 @@
-<p>login-ong works!</p>
+<main class="container">
+
+    <!-- LADO ESQUERDO -->
+    <app-painel-gato />
+
+    <!-- LADO DIREITO -->
+    <section class="formulario" [class.etapa-zero]="etapa === 0">
+
+      <!-- ETAPA 0: LOGIN -->
+      @if (etapa === 0) {
+        <app-botao-voltar (click)="voltar()" />
+
+        <h1 class="sign-in">Sign in</h1>
+
+        <p class="sub-0">Selecione uma das opções abaixo para fazer o login</p>
+
+        <button class="continuar" (click)="continuar()"> continuar /</button>
+
+        <div class="google-button" #googleButton></div>
+      }
+
+      <!-- ETAPA 1: DADOS PESSOAIS -->
+      @if (etapa === 1) {
+        <app-etapa-dados-da-instituicao (voltar)="voltar()" (continuar)="continuar()" />
+      }
+
+      <!-- ETAPA 2: ENDEREÇO -->
+      @if (etapa === 2) {
+        <app-etapa-contato (voltar)="voltar()" (continuar)="continuar()" />
+      }
+
+      <!-- ETAPA 3: PERFIL -->
+      @if (etapa === 3) {
+        <app-etapa-localidade (voltar)="voltar()" (continuar)="continuar()" />
+      }
+
+    </section>
+
+  
+
+</main>

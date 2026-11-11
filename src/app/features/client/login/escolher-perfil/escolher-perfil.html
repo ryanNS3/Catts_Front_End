@@ -1,0 +1,46 @@
+
+<main class="container">
+
+ 
+  <app-painel-gato />
+ 
+  <section class="formulario">
+
+    <app-botao-voltar (voltar)="voltar()" />
+
+    <div class="titulo">
+      <h1>Qual é o seu perfil?</h1>
+      <p>Selecione uma das opções abaixo para fazer o login</p>
+    </div>
+
+    
+    <div class="opcoes">
+      <button class="opcao" [class.selecionado]="perfilSelecionado === 'adotante'" (click)="selecionarPerfil('adotante')">
+        <span>Sou um adotador</span>
+        <img src="/Icones/icone-adotador.svg" alt="Adotante">
+      </button>
+
+      <button class="opcao" [class.selecionado]="perfilSelecionado === 'ong'" (click)="selecionarPerfil('ong')">
+        <span>Sou uma ong</span>
+
+        <svg viewBox="0 0 48 48" class="icone-ong">
+          <path d="M4 21 L24 5 L44 21" />
+          <path d="M10 18 V39 H38 V18" />
+          <circle cx="24" cy="25" r="5" />
+          <path d="M14 39 C14 32 19 30 24 30 C29 30 34 32 34 39" />
+          <circle cx="12" cy="27" r="3" />
+          <circle cx="36" cy="27" r="3" />
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- CONTINUAR -->
+    <button class="continuar" (click)="continuar()">
+      <img src="/Icones/icone-patinha.svg" alt="">
+      Continuar
+    </button>
+
+  </section>
+
+</main>

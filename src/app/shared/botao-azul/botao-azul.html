@@ -1,5 +1,7 @@
-<button  [routerLink]="toUrl" class="botao-adotar" (click)="adotar.emit()">
+<button [routerLink]="toUrl ? toUrl : null" class="botao-adotar" (click)="acaoBotao.emit()">
     <img src="/Icones/pata-branca.svg" alt="">
-    Adotar
+    {{ texto }}
 </button>
+
+
 

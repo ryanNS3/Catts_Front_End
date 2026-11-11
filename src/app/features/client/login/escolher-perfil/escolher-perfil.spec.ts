@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { BotaoContinuar } from "./botao-continuar";
+import { EscolherPerfil } from "./escolher-perfil";
 
-describe("BotaoContinuar", () => {
-  let component: BotaoContinuar;
-  let fixture: ComponentFixture<BotaoContinuar>;
+describe("EscolherPerfil", () => {
+  let component: EscolherPerfil;
+  let fixture: ComponentFixture<EscolherPerfil>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BotaoContinuar],
+      imports: [EscolherPerfil],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(BotaoContinuar);
+    fixture = TestBed.createComponent(EscolherPerfil);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
