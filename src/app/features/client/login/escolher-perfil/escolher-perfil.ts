@@ -1,9 +1,10 @@
 
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { PainelGato } from '../../../../shared/painel-gato/painel-gato';
-import { BotaoVoltar } from '../../../../shared/botao-voltar/botao-voltar';
-import { BotaoAzul } from '../../../../shared/botao-azul/botao-azul';
+import { PainelGato } from '../../../../shared/components/painel-gato/painel-gato';
+import { BotaoVoltar } from '../../../../shared/components/botao-voltar/botao-voltar';
+import { BotaoAzul } from '../../../../shared/components/botao-azul/botao-azul';
+
 
 
 @Component({

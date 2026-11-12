@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from "@angular/core";
 import { BotaoVoltar } from "../botao-voltar/botao-voltar";
-import { StepSlide } from "../../step-slide/step-slide";
+import { StepSlide } from "../step-slide/step-slide";
 
 @Component({
   imports: [BotaoVoltar, StepSlide],

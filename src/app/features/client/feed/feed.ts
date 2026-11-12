@@ -1,8 +1,8 @@
 import { Component, HostListener, inject, OnInit, signal } from "@angular/core";
-import { ClientNavBar } from "../../../shared/client-nav-bar/client-nav-bar";
 import { AnimalService } from "../../../service/animal/animal";
 import { AnimalModal } from "../animal-modal/animal-modal";
 import { Animal } from "../../../service/@Type/animal";
+import { ClientNavBar } from "../../../shared/components/client-nav-bar/client-nav-bar";
 
 @Component({
   imports: [ClientNavBar, AnimalModal],

@@ -1,5 +1,5 @@
 import { Component, inject } from "@angular/core";
-import { AnimalService } from "../../service/animal/animal";
+import { AnimalService } from "../../../service/animal/animal";
 
 @Component({
   imports: [],
