@@ -1,13 +1,5 @@
 <main class="container">
 
-  @if (etapa === 4) {
-
-    <!-- ETAPA 4: tela cheia, sem o painel do gato -->
-    <app-etapa-final />
-
-  } @else {
-
-    
     <app-painel-gato />
 
     <!-- LADO DIREITO -->
@@ -44,12 +36,11 @@
       <!-- ETAPA 3: PERFIL -->
       @if (etapa === 3) {
         <app-etapa-perfil (voltar)="voltar()" />
-        <app-botao-azul texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
+        <app-botao-azul texto="Continuar"  toUrl="/ " texto="Continuar"></app-botao-azul>
 
       }
 
     </section>
 
-  }
-
+  
 </main>

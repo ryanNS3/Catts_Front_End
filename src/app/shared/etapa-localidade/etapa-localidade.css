@@ -1,0 +1,133 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 416px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Voltar -> stepper: 39px no Figma.
+   Se na sua tela ficar diferente, é só ajustar este número */
+app-botao-voltar {
+  margin-bottom: 8px;
+}
+
+/* stepper -> título: 40px */
+app-step-slide-ong {
+  margin-bottom: 40px;
+}
+
+/* ---------- Título ---------- */
+/* no Figma o título fica numa caixa de 24px com o texto centralizado */
+.titulo {
+  margin: 0;
+  height: 24px;
+  line-height: 24px;
+  font-size: 32px;
+  font-weight: 600;
+  color: #151616;
+}
+
+.subtitulo {
+  margin: 16px 0 28px; /* 16px do título, 28px até o primeiro campo */
+  line-height: 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #5c5e5d;
+}
+
+/* ---------- Formulário ---------- */
+/* 25px entre um grupo (label + campo) e o próximo */
+.campos {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* label + campo, com 12px entre eles */
+.grupo {
+  position: relative; /* para o aviso ficar no canto do label */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+/* Rua e Cidade lado a lado, 8px entre elas */
+.linha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+/* ---------- Label ---------- */
+.text-form {
+  margin: 0;
+  height: 12px;
+  line-height: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #5c5e5d;
+}
+
+/* label dos campos desabilitados */
+.text-form.bloqueado {
+  color: #a6a7a7;
+}
+
+/* ---------- Campo ---------- */
+.campo {
+  width: 100%;
+  height: 44px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  border: 1.5px solid #e2e4e3;
+  border-radius: 8px;
+  background: white;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 600;
+  color: #151616;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo::placeholder {
+  color: #a6a7a7;
+}
+
+/* campo selecionado: borda azul + brilho */
+.campo:focus {
+  border-color: #2494f6;
+  box-shadow: 4px 4px 24px rgba(36, 148, 246, 0.63);
+}
+
+/* o CEP é 5px mais alto */
+#cep {
+  height: 49px;
+}
+
+/* campo desabilitado: cinza (preenchido pelo ViaCEP) */
+.campo:disabled {
+  background: #e2e4e3;
+  border-color: #e2e4e3;
+  color: #a6a7a7;
+  -webkit-text-fill-color: #a6a7a7; /* Chrome/Safari mudam a cor sozinhos sem isso */
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+/* ---------- Avisos do CEP ---------- */
+/* ficam no canto direito da linha do label, sem empurrar nada */
+.aviso {
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #5c5e5d;
+}
+
+.aviso.erro {
+  color: #d93025;
+}

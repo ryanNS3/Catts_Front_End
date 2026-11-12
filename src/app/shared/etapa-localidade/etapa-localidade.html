@@ -1,1 +1,51 @@
-<p>etapa-localidade works!</p>
+<app-botao-voltar (click)="voltar.emit()" />
+
+<app-step-slide-ong [etapa]="3" />
+
+<h1 class="titulo">Localidade</h1>
+<p class="subtitulo">Preencha todos os campos</p>
+
+<div class="campos">
+
+  <!-- CEP -->
+  <div class="grupo">
+    <label class="text-form" for="cep">Cep</label>
+    <input class="campo" type="text" id="cep" inputmode="numeric"
+           placeholder="093874" maxlength="9"
+           [value]="cep()" (input)="formatarCep($event)">
+
+    @if (buscando()) {
+      <span class="aviso">Buscando...</span>
+    }
+    @if (erroCep()) {
+      <span class="aviso erro">{{ erroCep() }}</span>
+    }
+  </div>
+
+  <!-- Rua e Cidade lado a lado (desabilitados, vêm do ViaCEP) -->
+  <div class="linha">
+    <div class="grupo">
+      <label class="text-form bloqueado" for="rua">Rua</label>
+      <input class="campo" type="text" id="rua" [value]="rua()" disabled>
+    </div>
+
+    <div class="grupo">
+      <label class="text-form bloqueado" for="cidade">Cidade</label>
+      <input class="campo" type="text" id="cidade" [value]="cidade()" disabled>
+    </div>
+  </div>
+
+  <!-- Estado (desabilitado) -->
+  <div class="grupo">
+    <label class="text-form bloqueado" for="estado">Estado</label>
+    <input class="campo" type="text" id="estado" [value]="estado()" disabled>
+  </div>
+
+  <!-- Complemento (único que a pessoa digita, além do CEP) -->
+  <div class="grupo">
+    <label class="text-form" for="complemento">Complemento</label>
+    <input class="campo" type="text" id="complemento"
+           placeholder="Shopping sp" [(ngModel)]="complemento">
+  </div>
+
+</div>

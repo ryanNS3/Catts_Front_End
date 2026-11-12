@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, ElementRef, inject, NgZone, OnInit, ViewChild } from "@angular/core";
-import { EtapaFinal } from "../../../../shared/etapa-final/etapa-final";
 import { EtapaPerfil } from "../../../../shared/etapa-perfil/etapa-perfil";
 import { EtapaEndereco } from "../../../../shared/etapa-endereco/etapa-endereco";
 import { EtapaDadosPessoais } from "../../../../shared/etapa-dados-pessoais/etapa-dados-pessoais";
@@ -12,7 +11,7 @@ import { BotaoAzul } from "../../../../shared/botao-azul/botao-azul";
 
 
 @Component({
-  imports: [ PainelGato, BotaoVoltar, BotaoAzul, EtapaDadosPessoais, EtapaEndereco, EtapaPerfil, EtapaFinal],
+  imports: [ PainelGato, BotaoVoltar, BotaoAzul, EtapaDadosPessoais, EtapaEndereco, EtapaPerfil],
   selector: "app-login-adotante",
   styleUrl: "./login-adotante.css",
   templateUrl: "./login-adotante.html",

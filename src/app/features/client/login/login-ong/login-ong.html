@@ -1,42 +1,31 @@
 <main class="container">
-  
+
   <app-painel-gato />
 
-<section class="formulario"
-  [class.etapa-zero]="etapa === 0"
-  [class.etapa-instituicao]="etapa === 1"
-  [class.etapa-contato]="etapa === 2"
-  [class.etapa-localidade]="etapa === 3">
+  <section class="formulario"
+    [class.etapa-instituicao]="etapa === 1"
+    [class.etapa-contato]="etapa === 2"
+    [class.etapa-localidade]="etapa === 3">
 
-  @if (etapa === 1) {
-    <app-etapa-dados-da-instituicao (voltar)="voltar()" />
+    @if (etapa === 1) {
+      <app-etapa-dados-da-instituicao (voltar)="voltar()" />
 
-    <app-botao-azul class="botao-azul1"
-      texto="Continuar"
-      (acaoBotao)="continuar()">
-    </app-botao-azul>
-  }
+      <app-botao-azul class="botao-azul1" texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
+    }
 
-  @if (etapa === 2) {
-    <app-etapa-contato
-      (voltar)="voltar()" />
+    @if (etapa === 2) {
+      <app-etapa-contato (voltar)="voltar()" />
 
-    <app-botao-azul class="botao-azul2"
-      texto="Continuar"
-      (acaoBotao)="continuar()">
-    </app-botao-azul>
-  }
+      <app-botao-azul class="botao-azul2" texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
+    }
 
-  @if (etapa === 3) {
-    <app-etapa-localidade
-      (voltar)="voltar()" />
+    @if (etapa === 3) {
+      <app-etapa-localidade (voltar)="voltar()" />
 
-    <app-botao-azul class="botao-azul3"
-      texto="Continuar"
-      (acaoBotao)="continuar()">
-    </app-botao-azul>
-  }
+      <app-botao-azul class="botao-azul3" toUrl="/ " texto="Continuar"></app-botao-azul>
 
-</section>
+    }
+
+  </section>
 
 </main>

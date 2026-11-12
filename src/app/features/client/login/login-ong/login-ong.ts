@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, inject, Input, NgZone, OnInit, Output, ViewChild } from "@angular/core";
-import { CampoTexto } from "../../../../shared/campo-texto/campo-texto";
 import { ActivatedRoute, Router } from "@angular/router";
 import { LoginService } from "../../../../service/login/loginservice";
 import { PainelGato } from "../../../../shared/painel-gato/painel-gato";
@@ -7,9 +6,10 @@ import { EtapaLocalidade } from "../../../../shared/etapa-localidade/etapa-local
 import { EtapaContato } from "../../../../shared/etapa-contato/etapa-contato";
 import { EtapaDadosDaInstituicao } from "../../../../shared/etapa-dados-da-instituicao/etapa-dados-da-instituicao";
 import { BotaoAzul } from "../../../../shared/botao-azul/botao-azul";
+import { BotaoVoltar } from "../../../../shared/botao-voltar/botao-voltar";
 
 @Component({
-  imports: [PainelGato, EtapaLocalidade, EtapaContato, EtapaDadosDaInstituicao, BotaoAzul],
+  imports: [PainelGato, BotaoVoltar, BotaoAzul, EtapaLocalidade, EtapaContato, EtapaDadosDaInstituicao],
   selector: "app-login-ong",
   styleUrl: "./login-ong.css",
   templateUrl: "./login-ong.html",

@@ -1,1 +1,54 @@
-<p>etapa-contato works!</p>
+<app-botao-voltar (click)="voltar.emit()" />
+
+<app-step-slide-ong [etapa]="2" />
+
+<h1 class="titulo">Contato</h1>
+<p class="subtitulo">Preencha todos os campos</p>
+
+<div class="campos">
+
+  <label class="text-form" for="whatsapp">Whatsapp</label>
+  <input class="campo" type="text" id="whatsapp"
+         placeholder="11 906377-9077" [(ngModel)]="whatsapp">
+
+  <label class="text-form" for="instagram">
+    Instagram <span class="opcional">(Opcional)</span>
+  </label>
+  <input class="campo" type="text" id="instagram"
+         placeholder="@amigosgatos" [(ngModel)]="instagram">
+
+  <label class="text-form" for="facebook">
+    Facebook <span class="opcional">(Opcional)</span>
+  </label>
+  <input class="campo" type="text" id="facebook"
+         placeholder="facebook.com/amigosgatos" [(ngModel)]="facebook">
+
+  <!-- Horários lado a lado -->
+  <div class="horarios">
+    <div class="horario">
+      <label class="text-form" for="inicio">Horário início</label>
+      <input class="campo" type="text" id="inicio"
+             placeholder="9:00" [(ngModel)]="horarioInicio">
+    </div>
+
+    <div class="horario">
+      <label class="text-form" for="fim">Horário fim</label>
+      <input class="campo" type="text" id="fim"
+             placeholder="18:00" [(ngModel)]="horarioFim">
+    </div>
+  </div>
+
+  <!-- Dias da semana -->
+  <p class="text-form">Disponibilidade de atendimento</p>
+
+  <div class="dias">
+    @for (dia of dias; track dia) {
+      <button type="button" class="dia"
+              [class.selecionado]="estaSelecionado(dia)"
+              (click)="alternarDia(dia)">
+        {{ dia }}
+      </button>
+    }
+  </div>
+
+</div>
