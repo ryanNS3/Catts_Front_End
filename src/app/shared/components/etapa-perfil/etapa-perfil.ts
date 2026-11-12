@@ -1,10 +1,9 @@
 import { Component, EventEmitter, Output } from "@angular/core";
-import { StepSlide } from "../../step-slide/step-slide";
-import { BotaoVoltar } from "../botao-voltar/botao-voltar";
-import { BotaoAzul} from "../botao-azul/botao-azul";
+
+import { StepSlide } from "../step-slide/step-slide";
 
 @Component({
-  imports: [BotaoVoltar, BotaoAzul, StepSlide],
+  imports: [StepSlide],
   selector: "app-etapa-perfil",
   styleUrl: "./etapa-perfil.css",
   templateUrl: "./etapa-perfil.html",

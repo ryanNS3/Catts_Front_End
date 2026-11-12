@@ -1,15 +1,15 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, inject, Input, NgZone, OnInit, Output, ViewChild } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { LoginService } from "../../../../service/login/loginservice";
-import { PainelGato } from "../../../../shared/painel-gato/painel-gato";
-import { EtapaLocalidade } from "../../../../shared/etapa-localidade/etapa-localidade";
-import { EtapaContato } from "../../../../shared/etapa-contato/etapa-contato";
-import { EtapaDadosDaInstituicao } from "../../../../shared/etapa-dados-da-instituicao/etapa-dados-da-instituicao";
-import { BotaoAzul } from "../../../../shared/botao-azul/botao-azul";
-import { BotaoVoltar } from "../../../../shared/botao-voltar/botao-voltar";
+import { PainelGato } from "../../../../shared/components/painel-gato/painel-gato";
+import { BotaoAzul } from "../../../../shared/components/botao-azul/botao-azul";
+import { EtapaLocalidade } from "../../../../shared/components/etapa-localidade/etapa-localidade";
+import { EtapaContato } from "../../../../shared/components/etapa-contato/etapa-contato";
+import { EtapaDadosDaInstituicao } from "../../../../shared/components/etapa-dados-da-instituicao/etapa-dados-da-instituicao";
+
 
 @Component({
-  imports: [PainelGato, BotaoVoltar, BotaoAzul, EtapaLocalidade, EtapaContato, EtapaDadosDaInstituicao],
+  imports: [PainelGato, BotaoAzul, EtapaLocalidade, EtapaContato, EtapaDadosDaInstituicao],
   selector: "app-login-ong",
   styleUrl: "./login-ong.css",
   templateUrl: "./login-ong.html",
