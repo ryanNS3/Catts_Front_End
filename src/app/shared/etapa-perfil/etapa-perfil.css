@@ -9,10 +9,7 @@
   box-sizing: border-box;
 }
 
-/* O botão Voltar agora é um componente: esta regra substitui o .etapa-tres .btn-voltar */
-app-botao-voltar {
-  margin-bottom: 37px;
-}
+
 
 /*ETAPA 3 - SEU PERFIL */
 .etapa-tres .perfil-h1 {

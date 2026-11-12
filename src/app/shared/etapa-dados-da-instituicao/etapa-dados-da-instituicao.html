@@ -1,1 +1,17 @@
-<p>etapa-dados-da-instituicao works!</p>
+<app-botao-voltar (click)="voltar.emit()" />
+
+<app-step-slide-ong [etapa]="1" />
+
+<h1 class="dados-pessoais-h1">Dados da instituição</h1>
+<p class="sub-1">Preencha todos os campos</p>
+
+<!-- FORMULÁRIO -->
+<div class="campos">
+
+  <label class="text-form" for="ContatoDigitar">Nome da Ong</label>
+  <input class="text-form-on" type="text" id="ContatoDigitar" placeholder="ex: Amigos gatos">
+
+  <label class="text-form" for="CNPJDigitar">CNPJ</label>
+  <input class="text-form-on" type="text" id="CPFDigitar" placeholder="237.876.837-21">
+
+</div>

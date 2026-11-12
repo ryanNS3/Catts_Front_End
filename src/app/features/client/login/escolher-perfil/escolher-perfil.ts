@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PainelGato } from '../../../../shared/painel-gato/painel-gato';
 import { BotaoVoltar } from '../../../../shared/botao-voltar/botao-voltar';
+import { BotaoAzul } from '../../../../shared/botao-azul/botao-azul';
 
 
 @Component({
   selector: 'app-escolher-perfil',
-  imports: [PainelGato, BotaoVoltar],
+  imports: [PainelGato, BotaoVoltar, BotaoAzul],
   templateUrl: './escolher-perfil.html',
   styleUrl: './escolher-perfil.css'
 })
@@ -33,7 +34,7 @@ export class EscolherPerfil {
   }
 
   voltar() {
-    this.router.navigate(['/']);
+    this.router.navigate([' ']);
   }
 
   escolher(tipo: 'adotante' | 'ong') {

@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
   imports: [],
@@ -7,7 +7,10 @@ import { Component } from "@angular/core";
   templateUrl: "./step-slide-ong.html",
 })
 export class StepSlideOng {
-  etapa = 1;
+
+  @Input() etapa = 1;
+
+  
 
   continuar() {
   this.etapa++;

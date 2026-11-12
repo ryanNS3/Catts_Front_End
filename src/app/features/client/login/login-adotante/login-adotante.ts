@@ -1,18 +1,18 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, inject, Input, NgZone, OnInit, Output, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, inject, NgZone, OnInit, ViewChild } from "@angular/core";
 import { EtapaFinal } from "../../../../shared/etapa-final/etapa-final";
 import { EtapaPerfil } from "../../../../shared/etapa-perfil/etapa-perfil";
 import { EtapaEndereco } from "../../../../shared/etapa-endereco/etapa-endereco";
 import { EtapaDadosPessoais } from "../../../../shared/etapa-dados-pessoais/etapa-dados-pessoais";
 import { BotaoVoltar } from "../../../../shared/botao-voltar/botao-voltar";
 import { PainelGato } from "../../../../shared/painel-gato/painel-gato";
-import { ActivatedRoute, Router, RouterLink } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { LoginService } from "../../../../service/login/loginservice";
 import { BotaoAzul } from "../../../../shared/botao-azul/botao-azul";
 
 
 
 @Component({
-  imports: [RouterLink, PainelGato, BotaoVoltar, BotaoAzul, EtapaDadosPessoais, EtapaEndereco, EtapaPerfil, EtapaFinal],
+  imports: [ PainelGato, BotaoVoltar, BotaoAzul, EtapaDadosPessoais, EtapaEndereco, EtapaPerfil, EtapaFinal],
   selector: "app-login-adotante",
   styleUrl: "./login-adotante.css",
   templateUrl: "./login-adotante.html",
@@ -25,9 +25,13 @@ export class LoginAdotante  implements AfterViewInit, OnInit {
   private zone = inject(NgZone);
 
   carregando = false;
-  
 
-  etapa = 0;
+  //etapa 0 --login do google
+  //etapa 1 --Dados pessoais
+  //etapa 2 --Endereco
+  //etapa 1 --Seu Perfil 
+
+  etapa = 0; 
 
   continuar() {
     this.etapa++;

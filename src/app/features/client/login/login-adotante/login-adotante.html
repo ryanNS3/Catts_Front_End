@@ -7,7 +7,7 @@
 
   } @else {
 
-    <!-- LADO ESQUERDO -->
+    
     <app-painel-gato />
 
     <!-- LADO DIREITO -->
@@ -28,17 +28,24 @@
 
       <!-- ETAPA 1: DADOS PESSOAIS -->
       @if (etapa === 1) {
-        <app-etapa-dados-pessoais (voltar)="voltar()" (acaoBotao)="continuar()" />
+        <app-etapa-dados-pessoais (voltar)="voltar()"/>
+        
+        <app-botao-azul texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
+
       }
 
       <!-- ETAPA 2: ENDEREÇO -->
       @if (etapa === 2) {
-        <app-etapa-endereco (voltar)="voltar()" (acaoBotao)="continuar()" />
+        <app-etapa-endereco (voltar)="voltar()" />
+        <app-botao-azul texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
+
       }
 
       <!-- ETAPA 3: PERFIL -->
       @if (etapa === 3) {
-        <app-etapa-perfil (voltar)="voltar()" (acaoBotao)="continuar()" />
+        <app-etapa-perfil (voltar)="voltar()" />
+        <app-botao-azul texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
+
       }
 
     </section>

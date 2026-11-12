@@ -44,6 +44,7 @@ app-painel-gato {
   color: #333;
 }
 
+
 /* OPÇÕES */
 .opcoes {
   display: flex;
@@ -51,9 +52,9 @@ app-painel-gato {
 }
 
 .opcao {
-  width: 50%;
-  height: 164px;
-  border: 1px solid #D9D9D9;
+  width: 186px;
+  height: 163px;
+  border: 1.5px solid #E2E4E3;
   border-radius: 8px;
   background-color: white;
 
@@ -63,8 +64,8 @@ app-painel-gato {
   justify-content: space-between;
 
   padding: 22px 10px 16px;
+  color: #A6A7A7;
   cursor: pointer;
-  color: #A5A5A5;
 }
 
 .opcao span {
@@ -72,58 +73,46 @@ app-painel-gato {
   font-size: 14px;
 }
 
-.opcao img,
-.icone-ong {
-  width: 64px;
-  height: 64px;
-  object-fit: contain;
+/* OPÇÕES */
+.opcao {
+  --cor-icone: var(--Cinza-300, #A6A7A7);
 }
 
-/* ÍCONE DA ONG */
-.icone-ong {
-  fill: none;
-  stroke: #A5A5A5;
-  stroke-width: 3;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-/* OPÇÃO SELECIONADA */
+/* Quando selecionado */
 .opcao.selecionado {
-  border: 1px solid #2494F6;
-  color: #2494F6;
+  --cor-icone: var(--Azul-500, #2494F6);
+  color: var(--Azul-400, #54ACF8);
+  border-color: var(--Azul-500, #2494F6);
 }
 
-.opcao.selecionado img {
-  filter: none;
+/* ÍCONES */
+.icone-opcao {
+  width: 95px;
+  height: 90px;
+  background-color: var(--cor-icone);
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  -webkit-mask-size: contain;
+  mask-size: contain;
 }
 
-.opcao.selecionado .icone-ong {
-  stroke: #2494F6;
+/* Ícone adotador */
+.icone-adotador {
+  -webkit-mask-image: url('/Icones/icone-adotador.svg');
+  mask-image: url('/Icones/icone-adotador.svg');
 }
 
-/* BOTÃO CONTINUAR */
-.continuar {
-  width: 100%;
-  height: 64px;
-  margin-top: 18px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(90deg, #087FE5, #61B4F7);
-
-  color: white;
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-
-  cursor: pointer;
+/* Ícone ONG */
+.icone-ong {
+  -webkit-mask-image: url('/Icones/icone-sou-ong.svg');
+  mask-image: url('/Icones/icone-sou-ong.svg');
 }
+
 
 .continuar img {
   width: 18px;
@@ -131,22 +120,7 @@ app-painel-gato {
   filter: brightness(0) invert(1);
 }
 
-/* RESPONSIVIDADE */
-@media (max-width: 900px) {
-  .container {
-    min-height: 100vh;
-  }
-
-  app-painel-gato {
-    display: none;
-  }
-
-  .formulario {
-    width: 100%;
-    padding: 40px 24px;
-  }
-
-  .titulo h1 {
-    font-size: 26px;
-  }
+ app-botao-azul{
+  margin-top: 100px;
 }
+

@@ -6,7 +6,7 @@ import { EscolherPerfil } from './features/client/login/escolher-perfil/escolher
 
 export const routes: Routes = [
   {
-    path: '',
+    path: ' ',
     component: Feed,
   },
   {

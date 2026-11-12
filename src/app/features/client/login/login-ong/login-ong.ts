@@ -1,16 +1,15 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, inject, Input, NgZone, OnInit, Output, ViewChild } from "@angular/core";
 import { CampoTexto } from "../../../../shared/campo-texto/campo-texto";
-import { StepSlideOng } from "../../../../shared/step-slide-ong/step-slide-ong";
 import { ActivatedRoute, Router } from "@angular/router";
 import { LoginService } from "../../../../service/login/loginservice";
 import { PainelGato } from "../../../../shared/painel-gato/painel-gato";
-import { BotaoVoltar } from "../../../../shared/botao-voltar/botao-voltar";
 import { EtapaLocalidade } from "../../../../shared/etapa-localidade/etapa-localidade";
 import { EtapaContato } from "../../../../shared/etapa-contato/etapa-contato";
 import { EtapaDadosDaInstituicao } from "../../../../shared/etapa-dados-da-instituicao/etapa-dados-da-instituicao";
+import { BotaoAzul } from "../../../../shared/botao-azul/botao-azul";
 
 @Component({
-  imports: [StepSlideOng, CampoTexto, PainelGato, BotaoVoltar, EtapaLocalidade, EtapaContato, EtapaDadosDaInstituicao],
+  imports: [PainelGato, EtapaLocalidade, EtapaContato, EtapaDadosDaInstituicao, BotaoAzul],
   selector: "app-login-ong",
   styleUrl: "./login-ong.css",
   templateUrl: "./login-ong.html",
@@ -24,7 +23,7 @@ export class LoginOng implements AfterViewInit, OnInit {
   carregando = false;
   
 
-  etapa = 0;
+  etapa = 1;
 
   continuar() {
     this.etapa++;
@@ -40,11 +39,9 @@ export class LoginOng implements AfterViewInit, OnInit {
   gatoId = this.route.snapshot.paramMap.get('id');
 
   @Input() toUrl: string = '';
-  @Output() botaoClicado = new EventEmitter<void>();
+  @Output() acaoBotao = new EventEmitter<void>();
 
-  aoClicar(): void {
-    this.botaoClicado.emit();
-  }
+
 
     ngOnInit() {
   const etapaUrl = this.route.snapshot.queryParamMap.get('etapa');

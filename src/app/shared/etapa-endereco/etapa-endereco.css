@@ -9,10 +9,7 @@
   box-sizing: border-box;
 }
 
-/* O botão Voltar agora é um componente: esta regra substitui o .etapa-dois .btn-voltar */
-app-botao-voltar {
-  margin-bottom: 37px;
-}
+
 
 /*ETAPA 2 - ENDEREÇO */
 .etapa-dois .endereco-h1 {

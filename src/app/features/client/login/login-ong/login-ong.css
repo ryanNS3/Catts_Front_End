@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*COLORACAO*/
+:root {
+  /* ================= AZUIS ================= */
+  --Azul-100: hsl(205.3334deg 79.8546% 96.4693%);
+  --Azul-200: #DBEEFC;
+  --Azul-300: #A2D6FC;
+  --Azul-400: #54ACF8;
+  --Azul-500: #2494F6;
+  --Azul-600: hsl(208deg 93.7124% 38.2212%);
+  --Azul-700: hsl(208deg 94.6458% 20.1228%);
+  --Azul-800: hsl(208deg 96.7398% 8.1299%);
+
+  /* ================= CORES ESPECIAIS ================= */
+  --Rosa: #FCA2E0;
+  --Azul-Claro: #A2D6FC;
+  --Verde-Agua: #A2FCE0;
+  --Amarelo: #FCDFA2;
+
+  /* ================= VERDES ================= */
+  --Verde-100: hsl(97.2deg 69.227% 94.9632%);
+  --Verde-200: hsl(97.1053deg 80.1927% 84.4501%);
+  --Verde-300: hsl(96.9903deg 89.4137% 57.4932%);
+  --Verde-400: hsl(97deg 91.6861% 43.9641%);
+  --Verde-500: hsl(96.9903deg 96.09% 29.1654%);
+  --Verde-600: hsl(96.9231deg 97.3783% 14.5358%);
+
+  /* ================= CINZAS ================= */
+  --Cinza-100: #F0F1F0;
+  --Cinza-200: #E2E4E3;
+  --Cinza-300: #A6A7A7;
+  --Cinza-400: #5C5E5D;
+  --Cinza-500: #383938;
+  --Cinza-600: #151616;
+
+  /* ================= VERMELHOS ================= */
+  --Vermelho-100: hsl(358.9474deg 87.6239% 88.8578%);
+  --Vermelho-200: hsl(358.9831deg 88.5705% 74.9023%);
+  --Vermelho-300: hsl(358.835deg 90.6588% 61.6718%);
+  --Vermelho-400: hsl(359deg 83.2876% 51.493%);
+  --Vermelho-500: hsl(358.835deg 88.6907% 29.5072%);
+  --Vermelho-600: hsl(359.0977deg 91.8589% 16.4607%);
+}
+
+/*LAYOUT GERAL*/
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+/*LADO DIREITO*/
+.formulario {
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+  background-color: white;
+  margin: 0;
+  padding: 104px clamp(24px, 6.25vw, 80px) 0;
+}
+
+app-botao-voltar {
+  margin-top: 58px;
+}
+
+
+/*ETAPA 0 - LOGIN GOOGLE */
+.etapa-zero .sign-in {
+  color: #000;
+  font-family: Inter, sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.etapa-zero .sub-0 {
+  color: #434343;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 64px;
+  margin-top: 5px;
+}
+
+.google-button {
+  margin-top: 64px;
+}
+

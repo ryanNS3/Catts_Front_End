@@ -1,0 +1,73 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 416px;
+  min-height: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Espaço entre o botão voltar, o stepper e o título */
+
+app-step-slide-ong {
+  margin-bottom: 40px;
+}
+
+
+.dados-pessoais-h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 600;
+  color: #151616;
+}
+
+.sub-1 {
+  margin: 4px 0 25px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #5c5e5d;
+}
+
+
+.campos {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.text-form {
+  font-size: 14px;
+  font-weight: 600;
+  color: #5c5e5d;
+}
+
+/* o 2º label (CNPJ) precisa de mais espaço em cima */
+.text-form-on + .text-form {
+  margin-top: 17px;
+}
+
+.text-form-on {
+    width: 414.87px;
+    height: 49px;
+  padding: 20px 16px;
+  border: 1.5px solid #e2e4e3;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #151616;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.text-form-on::placeholder {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--Cinza-300, #A6A7A7);
+  font-family: Inter, sans-serif;
+
+
+}
+
+.text-form-on:hover {
+  border: 1.5px solid var(--Azul-500, #2494F6);
+  box-shadow: 4px 4px 24px 0 var(--Azul-100, #DBEEFC);
+}
+
