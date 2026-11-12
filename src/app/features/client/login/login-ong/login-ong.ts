@@ -6,10 +6,11 @@ import { BotaoAzul } from "../../../../shared/components/botao-azul/botao-azul";
 import { EtapaLocalidade } from "../../../../shared/components/etapa-localidade/etapa-localidade";
 import { EtapaContato } from "../../../../shared/components/etapa-contato/etapa-contato";
 import { EtapaDadosDaInstituicao } from "../../../../shared/components/etapa-dados-da-instituicao/etapa-dados-da-instituicao";
+import { BotaoVoltar } from "../../../../shared/components/botao-voltar/botao-voltar";
 
 
 @Component({
-  imports: [PainelGato, BotaoAzul, EtapaLocalidade, EtapaContato, EtapaDadosDaInstituicao],
+  imports: [PainelGato, BotaoAzul, EtapaLocalidade, EtapaContato, EtapaDadosDaInstituicao, BotaoVoltar],
   selector: "app-login-ong",
   styleUrl: "./login-ong.css",
   templateUrl: "./login-ong.html",

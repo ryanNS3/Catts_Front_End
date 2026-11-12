@@ -7,7 +7,7 @@
 
       <!-- ETAPA 0: LOGIN -->
       @if (etapa === 0) {
-        <app-botao-voltar (click)="voltar()" />
+        <app-botao-voltar  [irParaFeed]="true" />
 
         <h1 class="sign-in">Sign in</h1>
 

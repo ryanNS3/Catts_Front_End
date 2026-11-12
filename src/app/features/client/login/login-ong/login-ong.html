@@ -8,7 +8,10 @@
     [class.etapa-localidade]="etapa === 3">
 
     @if (etapa === 1) {
-      <app-etapa-dados-da-instituicao (voltar)="voltar()" />
+
+      <app-botao-voltar [irParaFeed]="true" />
+
+      <app-etapa-dados-da-instituicao />
 
       <app-botao-azul class="botao-azul1" texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
     }

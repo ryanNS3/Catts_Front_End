@@ -1,4 +1,5 @@
-import { Component, Output, EventEmitter } from "@angular/core";
+import { Component, Output, EventEmitter, Input } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   imports: [],
@@ -9,4 +10,17 @@ import { Component, Output, EventEmitter } from "@angular/core";
 export class BotaoVoltar {
 
   @Output() voltar = new EventEmitter<void>();
+
+  @Input() irParaFeed = false;
+
+  constructor(private router: Router) {}
+
+  voltarPagina() {
+    if (this.irParaFeed) {
+      this.router.navigate(["/"]);
+    } else {
+      this.voltar.emit();
+    }
+  }
 }
+
