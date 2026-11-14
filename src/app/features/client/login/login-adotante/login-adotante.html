@@ -20,23 +20,39 @@
 
       <!-- ETAPA 1: DADOS PESSOAIS -->
       @if (etapa === 1) {
-        <app-etapa-dados-pessoais (voltar)="voltar()"/>
-        
-        <app-botao-azul texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
+       <!--
+    Chama o componente DadosPessoais.
+    [formulario]: envia o FormGroup para o componente filho.
+    (voltar): chama o método voltar do LoginAdotante.
+  -->
+  <app-etapa-dados-pessoais
+    [formulario]="dadosPessoais"
+    (voltar)="voltar()"
+  />
+
+  <!--
+    Botão que chama continuar().
+    O método verifica se os dados estão válidos.
+  -->
+  <app-botao-azul
+    texto="Continuar"
+    (acaoBotao)="continuar()"
+  />
+
 
       }
 
       <!-- ETAPA 2: ENDEREÇO -->
       @if (etapa === 2) {
-        <app-etapa-endereco (voltar)="voltar()" />
+        <app-etapa-endereco [formulario]="endereco"   (voltar)="voltar()" />
         <app-botao-azul texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
 
       }
 
       <!-- ETAPA 3: PERFIL -->
       @if (etapa === 3) {
-        <app-etapa-perfil (voltar)="voltar()" />
-        <app-botao-azul texto="Continuar"  toUrl="/" texto="Continuar"></app-botao-azul>
+        <app-etapa-perfil [formulario]="perfil" (voltar)="voltar()" />
+        <app-botao-azul texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
 
       }
 

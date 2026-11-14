@@ -60,10 +60,6 @@
   padding: 104px clamp(24px, 6.25vw, 80px) 0;
 }
 
-.etapaum .app-botao-voltar {
-  margin-bottom: 50px;
-}
-
 /*ETAPA 0 - LOGIN GOOGLE */
 .etapa-zero .sign-in {
   color: #000;

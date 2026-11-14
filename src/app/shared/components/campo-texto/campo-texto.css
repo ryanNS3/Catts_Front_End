@@ -1,21 +1,32 @@
+
 :host {
   display: block;
+  width: 100%;
 }
 
+/* Agrupa o label e o input */
+.campo-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 100%;
+  max-width: 416px;
+}
+
+/* Label */
 .text-form {
   display: block;
-  margin: 0 0 7px;
   color: var(--Cinza-400, #5C5E5D);
   font-family: Inter, sans-serif;
   font-size: 14px;
   font-weight: 600;
-  line-height: normal;
 }
 
+/* Input */
 .text-form-on {
   box-sizing: border-box;
   width: 100%;
-  max-width: 416px;
+  height: 44px;
   padding: 0 16px;
   border: 1.5px solid var(--Cinza-200, #E2E4E3);
   border-radius: 8px;
@@ -25,10 +36,18 @@
   font-weight: 600;
 }
 
+/* Texto de exemplo */
 .text-form-on::placeholder {
   color: var(--Cinza-300, #A6A7A7);
 }
 
+/* Quando o mouse passa sobre o input */
+.text-form-on:hover {
+  border-color: var(--Azul-500, #2494F6);
+  box-shadow: 4px 4px 24px 0 var(--Azul-100, #DBEEFC);
+}
+
+/* Quando o usuário seleciona o input */
 .text-form-on:focus {
   border-color: var(--Azul-500, #2494F6);
   box-shadow: 4px 4px 24px 0 rgba(36, 148, 246, 0.63);

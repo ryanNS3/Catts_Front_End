@@ -1,13 +1,23 @@
-import { Component, EventEmitter, Output } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { BotaoVoltar } from "../botao-voltar/botao-voltar";
 import { StepSlide } from "../step-slide/step-slide";
+import { FormGroup } from "@angular/forms";
+import { CampoTexto } from "../campo-texto/campo-texto";
 
 @Component({
-  imports: [BotaoVoltar, StepSlide],
+  imports: [BotaoVoltar, StepSlide, CampoTexto],
   selector: "app-etapa-dados-pessoais",
   styleUrl: "./etapa-dados-pessoais.css",
   templateUrl: "./etapa-dados-pessoais.html",
 })
 export class EtapaDadosPessoais {
-  @Output() voltar = new EventEmitter<void>();     // avisa o login
+
+  // Input recebe dados do componente pai.
+// Output permite enviar eventos ao componente pai.
+
+ // Recebe o formulário enviado pelo LoginAdotante.
+  @Input() formulario!: FormGroup;
+
+  // Emite um evento quando o usuário clica em voltar.
+  @Output() voltar = new EventEmitter<void>();
 }

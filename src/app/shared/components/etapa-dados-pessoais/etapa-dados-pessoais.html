@@ -6,15 +6,33 @@
 <p class="sub-1">Preencha todos os campos</p>
 
 <!-- FORMULÁRIO -->
+ <!-- Agrupa os campos do formulário. -->
 <div class="campos">
 
-  <label class="text-form" for="ContatoDigital">Contato</label>
-  <input class="text-form-on" type="text" id="ContatoDigital" placeholder="11 9374648">
+  <!-- Campo de contato. -->
+  <app-campo-texto
+  label="Contato"
+  idInput="contato"
+  placeholder="11 937464885"
+  [maximo]="12"
+  [controlPai]="$any(formulario.get('contato'))"
+/>
 
-  <label class="text-form" for="CPFDigitar">CPF</label>
-  <input class="text-form-on" type="text" id="CPFDigitar" placeholder="237.876.837-21">
+  <!-- Campo de CPF. -->
+  <app-campo-texto
+    label="CPF"
+    idInput="cpf"
+    placeholder="000.000.000-00"
+    [maximo]="14"
+    [controlPai]="$any(formulario.get('cpf'))"
+  />
 
-  <label class="text-form" for="DataNascimentoDigitar">Data nascimento</label>
-  <input class="text-form-on" type="date" id="DataNascimentoDigitar">
+  <!-- Campo de data de nascimento. -->
+  <app-campo-texto
+    label="Data nascimento"
+    idInput="nascimento"
+    tipo="date"
+    [controlPai]="$any(formulario.get('nascimento'))"
+  />
 
 </div>

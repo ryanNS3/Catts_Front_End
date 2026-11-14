@@ -1,27 +1,19 @@
+
 :host {
   display: block;
 }
 
-.etapa-dois .text-form-on,
-.etapa-dois .select-form,
-.etapa-dois .opcao-residencia,
-.etapa-dois .continuar {
-  box-sizing: border-box;
-}
-
-
-
-/*ETAPA 2 - ENDEREÇO */
-.etapa-dois .endereco-h1 {
+/* TÍTULO */
+.endereco-h1 {
   margin: 33px 0 9px;
   color: var(--Cinza-600, #151616);
   font-family: Inter, sans-serif;
   font-size: 32px;
   font-weight: 600;
-  line-height: normal;
 }
 
-.etapa-dois .sub-2 {
+/* SUBTÍTULO */
+.sub-2 {
   margin: 0 0 28px;
   color: var(--Cinza-400, #5C5E5D);
   font-family: Inter, sans-serif;
@@ -29,8 +21,8 @@
   font-weight: 600;
 }
 
-/* Coluna com todos os campos: 25px entre cada um, como no Figma */
-.etapa-dois .form-endereco {
+/* ORGANIZAÇÃO DO FORMULÁRIO */
+.form-endereco {
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -38,55 +30,34 @@
   font-family: Inter, sans-serif;
 }
 
-.etapa-dois .campo {
+/* Agrupa label e select */
+.campo {
   display: flex;
   flex-direction: column;
 }
 
-.etapa-dois .text-form {
+/* Label dos selects e tipo de residência */
+.text-form {
   margin: 0 0 7px;
   color: var(--Cinza-400, #5C5E5D);
   font-size: 14px;
   font-weight: 600;
-  line-height: normal;
-}
-
-/* CEP */
-.etapa-dois .text-form-on {
-  width: 100%;
-  height: 49px;
-  padding: 0 16px;
-  border: 1.5px solid var(--Cinza-200, #E2E4E3);
-  border-radius: 8px;
-  outline: none;
-  font-family: Inter, sans-serif;
-  font-size: 10px;
-  font-weight: 600;
-}
-
-.etapa-dois .text-form-on::placeholder {
-  color: var(--Cinza-300, #A6A7A7);
-}
-
-.etapa-dois .text-form-on:focus,
-.etapa-dois .select-form:focus {
-  border-color: var(--Azul-500, #2494F6);
-  box-shadow: 4px 4px 24px 0 rgba(36, 148, 246, 0.63);
 }
 
 /* TIPO DE RESIDÊNCIA */
-.etapa-dois .tipo-residencia {
-  height: 108px;  /* os cards passam um pouco; assim o espaço até o próximo campo fica igual ao Figma */
+.tipo-residencia {
+  height: 108px;
 }
 
-.etapa-dois .opcoes-residencia {
+.opcoes-residencia {
   display: flex;
   gap: 16px;
 }
 
-.etapa-dois .opcao-residencia {
+.opcao-residencia {
   --cor-icone: var(--Cinza-300, #A6A7A7);
 
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -103,13 +74,15 @@
   font-weight: 600;
 }
 
-.etapa-dois .opcao-residencia.selecionada {
+/* Residência selecionada */
+.opcao-residencia.selecionada {
   --cor-icone: var(--Azul-500, #2494F6);
   color: var(--Azul-400, #54ACF8);
   border-color: var(--Azul-500, #2494F6);
 }
 
-.etapa-dois .icone-opcao {
+/* Ícones */
+.icone-opcao {
   width: 24px;
   height: 24px;
   margin-top: 12px;
@@ -127,13 +100,15 @@
   -webkit-mask-image: url('/Icones/icone-apartamento.svg');
   mask-image: url('/Icones/icone-apartamento.svg');
 }
+
 .icone-casa {
   -webkit-mask-image: url('/Icones/icone-casa.svg');
   mask-image: url('/Icones/icone-casa.svg');
 }
 
 /* SELECTS */
-.etapa-dois .select-form {
+.select-form {
+  box-sizing: border-box;
   appearance: none;
   width: 100%;
   height: 44px;
@@ -152,27 +127,7 @@
   font-weight: 600;
 }
 
-/* BOTÃO */
-.etapa-dois .continuar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  height: 64px;
-  padding: 0;
-  border: none;
-  border-radius: 16px;
-  cursor: pointer;
-  color: white;
-  font-family: Inter, sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  background: linear-gradient(268deg, hsl(208deg 93.1321% 68.2749%) 7.93%, hsl(208deg 90.8992% 46.0337%) 96.39%);
-}
-
-/* Patinha dos botões */
-.continuarimage {
-  width: 24px;
-  height: 24px;
+.select-form:focus {
+  border-color: var(--Azul-500, #2494F6);
+  box-shadow: 4px 4px 24px 0 rgba(36, 148, 246, 0.63);
 }

@@ -1,8 +1,32 @@
-<label class="text-form" [attr.for]="idCampo">{{ textoDigitado }}</label>
-<input class="text-form-on"
-       [id]="idCampo"
-       [type]="tipo"
-       [placeholder]="placeholder"
-       [attr.maxlength]="maximo"
-       [style.height.px]="altura"
-       [(ngModel)]="valor">
+<!-- Div que agrupa o label e o input -->
+<div class="campo-texto">
+
+  <!--
+    label: texto que identifica o campo.
+    [for]: conecta o label ao ID do input.
+    {{ }}: mostra o valor recebido pelo @Input.
+  -->
+  <label class="text-form" [for]="idInput">
+    {{ label }}
+  </label>
+
+  <!--
+    [id]: recebe o identificador do campo.
+    [type]: define o tipo do input.
+    [placeholder]: mostra um texto de exemplo.
+    [attr.maxlength]: limita a quantidade de caracteres.
+    [style.height.px]: define a altura em pixels.
+    [formControl]: conecta o input ao formulário pai.
+  -->
+  <input
+    class="text-form-on"
+    [id]="idInput"
+    [type]="tipo"
+    [placeholder]="placeholder"
+    [attr.maxlength]="maximo"
+    [formControl]="controlPai"
+    //O evento blur acontece quando o usuário sai do campo, por exemplo, ao clicar em outro lugar da tela.
+    (blur)="saiuDoCampo.emit()"
+  />
+
+</div>
