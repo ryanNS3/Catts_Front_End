@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Output } from "@angular/core";
-import { StepSlideOng } from "../step-slide-ong/step-slide-ong";
-import { BotaoVoltar } from "../botao-voltar/botao-voltar";
+import { StepSlideOng } from "../../../../../shared/components/step-slide-ong/step-slide-ong";
+
 @Component({
-  imports: [BotaoVoltar, StepSlideOng],
+  imports: [StepSlideOng],
   selector: "app-etapa-dados-da-instituicao",
   styleUrl: "./etapa-dados-da-instituicao.css",
   templateUrl: "./etapa-dados-da-instituicao.html",

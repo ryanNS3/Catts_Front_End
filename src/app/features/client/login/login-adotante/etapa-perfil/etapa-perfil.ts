@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
-
-import { StepSlide } from "../step-slide/step-slide";
 import { FormGroup, ReactiveFormsModule  } from "@angular/forms";
-import { CampoTexto } from "../campo-texto/campo-texto";
+import { StepSlide } from "../../../../../shared/components/step-slide/step-slide";
+import { CampoTexto } from "../../../../../shared/components/campo-texto/campo-texto";
+
 
 @Component({
   imports: [StepSlide, CampoTexto, ReactiveFormsModule],

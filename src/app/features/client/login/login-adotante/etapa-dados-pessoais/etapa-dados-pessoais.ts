@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { BotaoVoltar } from "../botao-voltar/botao-voltar";
-import { StepSlide } from "../step-slide/step-slide";
 import { FormGroup } from "@angular/forms";
-import { CampoTexto } from "../campo-texto/campo-texto";
+import { BotaoVoltar } from "../../../../../shared/components/botao-voltar/botao-voltar";
+import { StepSlide } from "../../../../../shared/components/step-slide/step-slide";
+import { CampoTexto } from "../../../../../shared/components/campo-texto/campo-texto";
 
 @Component({
   imports: [BotaoVoltar, StepSlide, CampoTexto],

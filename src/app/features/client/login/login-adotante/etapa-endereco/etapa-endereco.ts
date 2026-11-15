@@ -1,10 +1,11 @@
 
 import { Component, EventEmitter, inject, Input, Output } from "@angular/core";
-import { BotaoVoltar } from "../botao-voltar/botao-voltar";
-import { StepSlide } from "../step-slide/step-slide";
-import { CampoTexto } from "../campo-texto/campo-texto";
 import { FormGroup, ReactiveFormsModule } from "@angular/forms";
-import { ViaCep } from "../../../service/via-cep/via-cep";
+import { BotaoVoltar } from "../../../../../shared/components/botao-voltar/botao-voltar";
+import { StepSlide } from "../../../../../shared/components/step-slide/step-slide";
+import { CampoTexto } from "../../../../../shared/components/campo-texto/campo-texto";
+import { ViaCep } from "../../../../../service/via-cep/via-cep";
+
 
 @Component({
   imports: [BotaoVoltar, StepSlide, CampoTexto, ReactiveFormsModule],

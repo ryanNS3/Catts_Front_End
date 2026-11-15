@@ -1,8 +1,9 @@
 import { Component, EventEmitter, Output, inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { BotaoVoltar } from '../botao-voltar/botao-voltar';
-import { StepSlideOng } from '../step-slide-ong/step-slide-ong';
+import { BotaoVoltar } from '../../../../../shared/components/botao-voltar/botao-voltar';
+import { StepSlideOng } from '../../../../../shared/components/step-slide-ong/step-slide-ong';
+
 
 interface RespostaViaCep {
   logradouro: string;

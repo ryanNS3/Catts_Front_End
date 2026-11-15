@@ -3,10 +3,10 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { LoginService } from "../../../../service/login/loginservice";
 import { PainelGato } from "../../../../shared/components/painel-gato/painel-gato";
 import { BotaoAzul } from "../../../../shared/components/botao-azul/botao-azul";
-import { EtapaLocalidade } from "../../../../shared/components/etapa-localidade/etapa-localidade";
-import { EtapaContato } from "../../../../shared/components/etapa-contato/etapa-contato";
-import { EtapaDadosDaInstituicao } from "../../../../shared/components/etapa-dados-da-instituicao/etapa-dados-da-instituicao";
 import { BotaoVoltar } from "../../../../shared/components/botao-voltar/botao-voltar";
+import { EtapaLocalidade } from "./etapa-localidade/etapa-localidade";
+import { EtapaContato } from "./etapa-contato/etapa-contato";
+import { EtapaDadosDaInstituicao } from "./etapa-dados-da-instituicao/etapa-dados-da-instituicao";
 
 
 @Component({

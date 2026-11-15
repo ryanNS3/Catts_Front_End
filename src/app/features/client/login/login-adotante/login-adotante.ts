@@ -5,9 +5,9 @@ import { LoginService } from "../../../../service/login/loginservice";
 import { PainelGato } from "../../../../shared/components/painel-gato/painel-gato";
 import { BotaoVoltar } from "../../../../shared/components/botao-voltar/botao-voltar";
 import { BotaoAzul } from "../../../../shared/components/botao-azul/botao-azul";
-import { EtapaDadosPessoais } from "../../../../shared/components/etapa-dados-pessoais/etapa-dados-pessoais";
-import { EtapaEndereco } from "../../../../shared/components/etapa-endereco/etapa-endereco";
-import { EtapaPerfil } from "../../../../shared/components/etapa-perfil/etapa-perfil";
+import { EtapaDadosPessoais } from "./etapa-dados-pessoais/etapa-dados-pessoais";
+import { EtapaEndereco } from "./etapa-endereco/etapa-endereco";
+import { EtapaPerfil} from "./etapa-perfil/etapa-perfil";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
