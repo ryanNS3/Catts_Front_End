@@ -1,72 +1,134 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* NAVBAR */
 .cabeca-menu {
+  
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 28px;
 
   width: min(803px, calc(100% - 40px));
+  height: 68px;
+
   margin: 30px auto 0;
   padding: 0;
 
-  height: 68px;
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
   background: #fff;
+
 }
 
-/* Logo */
+/* LOGO */
 .marca {
   display: flex;
-  width: 59px;
-  height: 13px;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
+
+  text-decoration: none;
+  flex-shrink: 0;
 }
 
 .Catts {
   color: #000;
-  text-align: center;
-  font-family: Inter;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  font-size: 16px;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
-/* Menu */
+/* MENU */
 .menu-item {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
 }
 
+/* LINKS */
 .menu-function {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3px 10px;
+
+  padding: 7px 13px;
   border-radius: 10px;
-  font-size: 12px;
-  font-weight: 600;
+
   color: #77777d;
+  font-size: 14px;
+  font-weight: 600;
+
   text-decoration: none;
   white-space: nowrap;
-  transition: background-color 0.15s, color 0.15s;
+
+  transition: background-color 0.15s,
+              color 0.15s;
 }
 
+/* HOVER */
 .menu-function:hover {
-  background: #000d15;
-  color: #ffffff;
+  background: #2494F6;
+  color: #fff;
 }
 
+/* LINK SELECIONADO */
 .menu-function.active {
-  background: #000d15;
-  color: #ffffff;
+  background: #2494F6;
+  color: #fff;
 }
 
-/* Botão direita */
+/* BOTÃO DOAR/ADOTAR */
+.botao-ghost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 180px;
+  height: 60px;
+
+  border: 2px solid #000;
+  border-radius: 20px;
+
+  background: #fff;
+  color: #000;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* POSICIONAMENTO DO BOTÃO */
 .botao-direita {
   margin-left: auto;
-  align-self: center;
+}
+
+/* TELAS MENORES */
+@media (max-width: 700px) {
+  .cabeca-menu {
+    gap: 12px;
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .menu-item {
+    gap: 4px;
+  }
+
+  .menu-function {
+    font-size: 12px;
+    padding: 7px 9px;
+  }
+
+  .botao-ghost {
+    width: 151px;
+    height: 48px;
+    font-size: 12px;
+  }
 }

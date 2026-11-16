@@ -1,0 +1,30 @@
+
+<section class="login">
+
+  @if (animalAleatorio; as gato) {
+
+    <img
+      class="gato-img"
+      [src]="gato.image?.linkId || 'https://via.placeholder.com/300'"
+      [alt]="gato.name"
+    />
+
+    <div class="informacoes-gato">
+
+      <span>
+        {{ gato.ong?.nomeInstitucional || 'ONG Parceira' }}
+      </span>
+
+      <h2>
+        {{ nomeIdadeGatos() }}
+      </h2>
+
+      <p class="observacao-gato">
+        {{ observacaoDoGato() }}
+      </p>
+
+    </div>
+
+  }
+
+</section>

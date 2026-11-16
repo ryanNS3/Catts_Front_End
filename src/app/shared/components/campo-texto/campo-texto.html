@@ -1,23 +1,10 @@
 <!-- Div que agrupa o label e o input -->
 <div class="campo-texto">
 
-  <!--
-    label: texto que identifica o campo.
-    [for]: conecta o label ao ID do input.
-    {{ }}: mostra o valor recebido pelo @Input.
-  -->
   <label class="text-form" [for]="idInput">
     {{ label }}
   </label>
 
-  <!--
-    [id]: recebe o identificador do campo.
-    [type]: define o tipo do input.
-    [placeholder]: mostra um texto de exemplo.
-    [attr.maxlength]: limita a quantidade de caracteres.
-    [style.height.px]: define a altura em pixels.
-    [formControl]: conecta o input ao formulário pai.
-  -->
   <input
     class="text-form-on"
     [id]="idInput"

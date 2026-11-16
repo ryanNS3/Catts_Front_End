@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { ButtonGhostLink } from '../button-ghost-link/button-ghost-link';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-client-nav-bar',
-  imports: [ButtonGhostLink],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './client-nav-bar.html',
   styleUrl: './client-nav-bar.css',
 })

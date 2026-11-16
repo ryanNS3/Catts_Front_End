@@ -1,20 +1,23 @@
+
 <header class="cabeca-menu">
+
   <a routerLink="/" class="marca">
-    <span class="Catts">@Catts</span>
+
+  <span class="Catts">@Catts</span>
+
   </a>
 
   <nav class="menu-item">
-    <a routerLink="/feed" routerLinkActive="active" class="menu-function">Feed</a>
-    <a routerLink="/loja" routerLinkActive="active" class="menu-function">Loja</a>
-    <a routerLink="/ONGs" routerLinkActive="active" class="menu-function">ONGs</a>
 
-    <span class="item-doar">
-      <a routerLink="/login" routerLinkActive="active" class="menu-function">Doar</a>
-    </span>
+    <a routerLink="/feed" routerLinkActive="active" class="menu-function"> Feed </a>
+
+    <a routerLink="/loja" routerLinkActive="active" class="menu-function"> Loja </a>
+
+    <a routerLink="/ONGs" routerLinkActive="active" class="menu-function"> ONGs </a>
+
+    <a routerLink="/escolher-perfil" routerLinkActive="active" class="menu-function"> Doar </a>
   </nav>
 
-  <app-button-ghost-link class="botao-direita" toUrl="/login" />
-
+  <button type="button" class="botao-ghost botao-direita" routerLink="/escolher-perfil"> Doar/Adotar </button>
 
 </header>
-    
