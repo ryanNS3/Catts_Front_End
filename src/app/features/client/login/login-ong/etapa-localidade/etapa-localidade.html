@@ -1,4 +1,4 @@
-<app-botao-voltar (click)="voltar.emit()" />
+<app-botao-voltar (voltar)="voltar.emit()" />
 
 <app-step-slide-ong [etapa]="3" />
 
@@ -9,43 +9,80 @@
 
   <!-- CEP -->
   <div class="grupo">
-    <label class="text-form" for="cep">Cep</label>
-    <input class="campo" type="text" id="cep" inputmode="numeric"
-           placeholder="093874" maxlength="9"
-           [value]="cep()" (input)="formatarCep($event)">
+
+    <app-campo-texto
+      label="CEP"
+      idInput="cep"
+      placeholder="00000-000"
+      [maximo]="9"
+      [controlPai]="$any(formulario.get('cep'))"
+      (saiuDoCampo)="buscarCep()"
+    />
 
     @if (buscando()) {
       <span class="aviso">Buscando...</span>
     }
+
     @if (erroCep()) {
       <span class="aviso erro">{{ erroCep() }}</span>
     }
+
   </div>
 
-  <!-- Rua e Cidade lado a lado (desabilitados, vêm do ViaCEP) -->
+  <!-- RUA E CIDADE -->
   <div class="linha">
+
     <div class="grupo">
       <label class="text-form bloqueado" for="rua">Rua</label>
-      <input class="campo" type="text" id="rua" [value]="rua()" disabled>
+
+      <input
+        class="campo"
+        type="text"
+        id="rua"
+        [value]="formulario.get('rua')?.value"
+        disabled
+      />
     </div>
 
     <div class="grupo">
       <label class="text-form bloqueado" for="cidade">Cidade</label>
-      <input class="campo" type="text" id="cidade" [value]="cidade()" disabled>
+
+      <input
+        class="campo"
+        type="text"
+        id="cidade"
+        [value]="formulario.get('cidade')?.value"
+        disabled
+      />
     </div>
+
   </div>
 
-  <!-- Estado (desabilitado) -->
+  <!-- ESTADO -->
   <div class="grupo">
+
     <label class="text-form bloqueado" for="estado">Estado</label>
-    <input class="campo" type="text" id="estado" [value]="estado()" disabled>
+
+    <input
+      class="campo"
+      type="text"
+      id="estado"
+      [value]="formulario.get('estado')?.value"
+      disabled
+    />
+
   </div>
 
-  <!-- Complemento (único que a pessoa digita, além do CEP) -->
+  <!-- COMPLEMENTO -->
   <div class="grupo">
-    <label class="text-form" for="complemento">Complemento</label>
-    <input class="campo" type="text" id="complemento"
-           placeholder="Shopping sp" [(ngModel)]="complemento">
+
+    <app-campo-texto
+      label="Complemento"
+      idInput="complemento"
+      placeholder="Shopping SP"
+      [controlPai]="$any(formulario.get('complemento'))"
+    />
+
   </div>
 
 </div>

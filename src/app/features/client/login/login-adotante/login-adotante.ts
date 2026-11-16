@@ -11,14 +11,7 @@ import { EtapaPerfil} from "./etapa-perfil/etapa-perfil";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
-  imports: [
-    PainelGato,
-    BotaoVoltar,
-    BotaoAzul,
-    EtapaDadosPessoais,
-    EtapaEndereco,
-    EtapaPerfil
-  ],
+  imports: [PainelGato, BotaoVoltar, BotaoAzul, EtapaDadosPessoais, EtapaEndereco, EtapaPerfil],
   selector: "app-login-adotante",
   styleUrl: "./login-adotante.css",
   templateUrl: "./login-adotante.html",
@@ -53,16 +46,14 @@ export class LoginAdotante implements AfterViewInit, OnInit {
   // FORMULÁRIO DE ENDEREÇO
   endereco = new FormGroup({
 
-    // CEP digitado pelo usuário.
+   
     cep: new FormControl('', Validators.required),
 
-    // Tipo de residência selecionado.
+    
     tipoResidencia: new FormControl('condominio', Validators.required),
 
-    // Resposta sobre telas de proteção.
     telasProtecao: new FormControl('', Validators.required),
 
-    // Resposta sobre imóvel alugado.
     imovelAlugado: new FormControl('', Validators.required),
 
     // Dados recebidos automaticamente pela API ViaCEP.
@@ -80,13 +71,10 @@ export class LoginAdotante implements AfterViewInit, OnInit {
 // Armazena as respostas do usuário na etapa 3.
 perfil = new FormGroup({
 
-  // Armazena a faixa salarial digitada.
   faixaSalarial: new FormControl('', Validators.required),
 
-  // Armazena a quantidade de pets selecionada.
   qtdPets: new FormControl('nenhum', Validators.required),
 
-  // Armazena a quantidade de horas trabalhadas.
   horasTrabalho: new FormControl('nao-trabalha', Validators.required),
 
   // Armazena quantas pessoas moram com o usuário.
@@ -95,8 +83,6 @@ perfil = new FormGroup({
     [Validators.required, Validators.min(1)]
   ),
 
-  // Armazena se o usuário aceita enviar fotos e vídeos.
-  // Começa como false porque a opção não está marcada.
   aceitaFotos: new FormControl(false)
 
 });
@@ -120,7 +106,6 @@ perfil = new FormGroup({
     });
   }
 
-  // MÉTODO PARA AVANÇAR AS ETAPAS
   continuar() {
 
     // ETAPA 1 - DADOS PESSOAIS
@@ -128,8 +113,6 @@ perfil = new FormGroup({
 
       // Verifica se os campos obrigatórios estão preenchidos.
       if (this.dadosPessoais.valid) {
-
-        // Avança para a etapa Endereço.
         this.etapa++;
 
       } else {
@@ -152,8 +135,6 @@ perfil = new FormGroup({
         this.endereco.valid &&
         this.endereco.get('cepEncontrado')?.value === true
       ) {
-
-        // Avança para a etapa Perfil.
         this.etapa++;
 
       } else {
@@ -180,7 +161,6 @@ perfil = new FormGroup({
     console.log('Perfil:', this.perfil.value);
 
 
-     // Navega para o Feed depois da validação.
     this.router.navigate(['/']);
 
   } else {

@@ -3,6 +3,11 @@
   display: block;
 }
 
+app-step-slide{
+  display: block;
+  margin-top: 40px;
+}
+
 /* TÍTULO */
 .endereco-h1 {
   margin: 33px 0 9px;

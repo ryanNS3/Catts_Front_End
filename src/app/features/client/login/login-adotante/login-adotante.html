@@ -9,34 +9,24 @@
       @if (etapa === 0) {
         <app-botao-voltar  [irParaFeed]="true" />
 
+        <div  class="titulo">
+
         <h1 class="sign-in">Sign in</h1>
 
         <p class="sub-0">Selecione uma das opções abaixo para fazer o login</p>
 
          <app-botao-azul texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
+        </div>
 
         <div class="google-button" #googleButton></div>
       }
 
       <!-- ETAPA 1: DADOS PESSOAIS -->
       @if (etapa === 1) {
-       <!--
-    Chama o componente DadosPessoais.
-    [formulario]: envia o FormGroup para o componente filho.
-    (voltar): chama o método voltar do LoginAdotante.
-  -->
-  <app-etapa-dados-pessoais
-    [formulario]="dadosPessoais"
-    (voltar)="voltar()"
+  <app-etapa-dados-pessoais [formulario]="dadosPessoais" (voltar)="voltar()"
   />
 
-  <!--
-    Botão que chama continuar().
-    O método verifica se os dados estão válidos.
-  -->
-  <app-botao-azul
-    texto="Continuar"
-    (acaoBotao)="continuar()"
+  <app-botao-azul  class="botao-azul1" texto="Continuar" (acaoBotao)="continuar()"
   />
 
 
@@ -45,14 +35,14 @@
       <!-- ETAPA 2: ENDEREÇO -->
       @if (etapa === 2) {
         <app-etapa-endereco [formulario]="endereco"   (voltar)="voltar()" />
-        <app-botao-azul texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
+        <app-botao-azul class="botao-azul2" texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
 
       }
 
       <!-- ETAPA 3: PERFIL -->
       @if (etapa === 3) {
         <app-etapa-perfil [formulario]="perfil" (voltar)="voltar()" />
-        <app-botao-azul texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
+        <app-botao-azul class="botao-azul3" texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
 
       }
 

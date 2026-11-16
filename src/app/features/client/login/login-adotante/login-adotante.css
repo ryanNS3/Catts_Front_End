@@ -78,6 +78,20 @@
   margin-top: 5px;
 }
 
+.titulo {
+  margin-top: 48px; 
+}
+
 .google-button {
   margin-top: 64px;
 }
+
+.botao-azul1,
+.botao-azul2,
+.botao-azul3 {
+  display: block;
+  width: 416px;
+  max-width: 100%;
+  margin-top: 40px;
+}
+

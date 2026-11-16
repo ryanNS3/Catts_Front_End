@@ -1,11 +1,9 @@
 
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { PainelGato } from '../../../../shared/components/painel-gato/painel-gato';
 import { BotaoVoltar } from '../../../../shared/components/botao-voltar/botao-voltar';
 import { BotaoAzul } from '../../../../shared/components/botao-azul/botao-azul';
-
-
 
 @Component({
   selector: 'app-escolher-perfil',
@@ -16,16 +14,16 @@ import { BotaoAzul } from '../../../../shared/components/botao-azul/botao-azul';
 
 export class EscolherPerfil {
 
-  perfilSelecionado = 'ong';
+  private router = inject(Router);
 
-  constructor(private router: Router) {}
+  perfilSelecionado = 'ong';
 
   selecionarPerfil(perfil: string) {
     this.perfilSelecionado = perfil;
   }
 
   continuar() {
-
+    
     if (this.perfilSelecionado === 'adotante') {
       this.router.navigate(['/login']);
     } else {
@@ -35,15 +33,8 @@ export class EscolherPerfil {
   }
 
   voltar() {
-    this.router.navigate([' ']);
+    this.router.navigate(['/']);
   }
 
-  escolher(tipo: 'adotante' | 'ong') {
-  if (tipo === 'ong') {
-    this.router.navigate(['/cadastro-ong']);
-  } else {
-    this.router.navigate(['/login-adotante'], { queryParams: { etapa: 1 } });
-  }
-}
 
 }

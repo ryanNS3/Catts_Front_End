@@ -2,10 +2,11 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { FormGroup, ReactiveFormsModule  } from "@angular/forms";
 import { StepSlide } from "../../../../../shared/components/step-slide/step-slide";
 import { CampoTexto } from "../../../../../shared/components/campo-texto/campo-texto";
+import { BotaoVoltar } from "../../../../../shared/components/botao-voltar/botao-voltar";
 
 
 @Component({
-  imports: [StepSlide, CampoTexto, ReactiveFormsModule],
+  imports: [StepSlide, CampoTexto, ReactiveFormsModule, BotaoVoltar],
   selector: "app-etapa-perfil",
   styleUrl: "./etapa-perfil.css",
   templateUrl: "./etapa-perfil.html",

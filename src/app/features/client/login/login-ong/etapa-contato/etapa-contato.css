@@ -10,10 +10,11 @@ app-botao-voltar {
 }
 
 app-step-slide-ong {
+  display: block;
   margin-bottom: 36px;
 }
 
-/* ---------- Título ---------- */
+/* TÍTULO */
 .titulo {
   margin: 0;
   font-size: 32px;
@@ -28,11 +29,11 @@ app-step-slide-ong {
   color: #5c5e5d;
 }
 
-/* ---------- Formulário ---------- */
+/* FORMULÁRIO */
 .campos {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 22px;
 }
 
 .text-form {
@@ -42,56 +43,18 @@ app-step-slide-ong {
   color: #5c5e5d;
 }
 
-.opcional {
-  font-size: 8px;
-}
-
-.campo {
-  padding: 18px 16px;
-  border: 1.5px solid #e2e4e3;
-  border-radius: 8px;
-  font-family: inherit;
-  font-size: 14px;
-  color: #151616;
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.campo::placeholder {
-  font-size: 10px;
-  font-weight: 600;
-  color: #a6a7a7;
-}
-
-.campo:focus {
-  border-color: #2494f6;
-  box-shadow: 4px 4px 24px rgba(36, 148, 246, 0.63);
-}
-
-.campo + .text-form {
-  margin-top: 14px;
-}
-
-/* ---------- Horários lado a lado ---------- */
+/* HORÁRIOS */
 .horarios {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
-  margin-top: 14px;
 }
 
 .horario {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  min-width: 0;
 }
 
-/* ---------- Dias da semana ---------- */
-.horarios + .text-form {
-  margin-top: 14px;
-}
-
-/* 6 colunas: Segunda a Sábado na 1ª linha, Domingo cai na 2ª */
+/* DIAS DA SEMANA */
 .dias {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -103,16 +66,14 @@ app-step-slide-ong {
   border: 1.5px solid var(--Cinza-200, #E2E4E3);
   border-radius: 8px;
   background: white;
-  color: #2494f6;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-size: 10px;
   font-weight: 600;
   color: var(--Cinza-300, #A6A7A7);
-
+  cursor: pointer;
 }
 
 .dia.selecionado {
-  border: 1.5px solid var(--Azul-500, #2494F6);
+  border-color: var(--Azul-500, #2494F6);
   color: var(--Azul-400, #54ACF8);
-
 }

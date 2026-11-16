@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   width: 416px;
-  min-height: 100%;
   font-family: 'Inter', sans-serif;
 }
 
@@ -12,6 +11,10 @@ app-step-slide-ong {
   margin-bottom: 40px;
 }
 
+app-botao-azul {
+  display: block;
+  margin-top: 40px;
+}
 
 .dados-pessoais-h1 {
   margin: 0;

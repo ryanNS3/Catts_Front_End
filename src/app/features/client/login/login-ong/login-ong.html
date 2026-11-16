@@ -1,6 +1,6 @@
 <main class="container">
 
-  <app-painel-gato />
+<app-painel-pet-aleatorio />
 
   <section class="formulario"
     [class.etapa-instituicao]="etapa === 1"
@@ -9,23 +9,23 @@
 
     @if (etapa === 1) {
 
-      <app-botao-voltar [irParaFeed]="true" />
+      <app-botao-voltar (voltar)="voltarParaPerfil()" />
 
-      <app-etapa-dados-da-instituicao />
+      <app-etapa-dados-da-instituicao [formulario]="dadosInstituicao" />
 
       <app-botao-azul class="botao-azul1" texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
     }
 
     @if (etapa === 2) {
-      <app-etapa-contato (voltar)="voltar()" />
+      <app-etapa-contato   [formulario]="contato" (voltar)="voltar()" />
 
       <app-botao-azul class="botao-azul2" texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
     }
 
     @if (etapa === 3) {
-      <app-etapa-localidade (voltar)="voltar()" />
+      <app-etapa-localidade [formulario]="localidade" (voltar)="voltar()" />
 
-      <app-botao-azul class="botao-azul3" toUrl="/" texto="Continuar"></app-botao-azul>
+      <app-botao-azul class="botao-azul3" texto="Continuar" (acaoBotao)="finalizarCadastro()"></app-botao-azul>
 
     }
 

@@ -1,35 +1,62 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+
 import { BotaoVoltar } from '../../../../../shared/components/botao-voltar/botao-voltar';
 import { StepSlideOng } from '../../../../../shared/components/step-slide-ong/step-slide-ong';
+import { CampoTexto } from '../../../../../shared/components/campo-texto/campo-texto';
 
 @Component({
   selector: 'app-etapa-contato',
-  imports: [FormsModule, BotaoVoltar, StepSlideOng],
+  imports: [BotaoVoltar, StepSlideOng, CampoTexto],
   templateUrl: './etapa-contato.html',
   styleUrl: './etapa-contato.css',
 })
 export class EtapaContato {
+
+  // Recebe o formulário do LoginOng
+  @Input() formulario!: FormGroup;
+
+  // Avisa ao componente pai quando clicar em Voltar
   @Output() voltar = new EventEmitter<void>();
 
-  whatsapp = '';
-  instagram = '';
-  facebook = '';
-  horarioInicio = '';
-  horarioFim = '';
+  // Dias disponíveis
+  dias = [
+    'Segunda',
+    'Terça',
+    'Quarta',
+    'Quinta',
+    'Sexta',
+    'Sábado',
+    'Domingo'
+  ];
 
-  dias = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'];
-  diasSelecionados: string[] = [];
-
-  estaSelecionado(dia: string): boolean {
-    return this.diasSelecionados.includes(dia);
+  // Acessa o controle dos dias no formulário
+  get controleDias(): FormControl<string[]> {
+    return this.formulario.get('diasSelecionados') as FormControl<string[]>;
   }
 
+  // Verifica se o dia está selecionado
+  estaSelecionado(dia: string): boolean {
+    return this.controleDias.value.includes(dia);
+  }
+
+  // Adiciona ou remove um dia selecionado
   alternarDia(dia: string) {
+
+    const selecionados = this.controleDias.value;
+
     if (this.estaSelecionado(dia)) {
-      this.diasSelecionados = this.diasSelecionados.filter(d => d !== dia);
+
+      this.controleDias.setValue(
+        selecionados.filter(d => d !== dia)
+      );
+
     } else {
-      this.diasSelecionados = [...this.diasSelecionados, dia];
+
+      this.controleDias.setValue([...selecionados, dia]);
+
     }
+
+    this.controleDias.markAsTouched();
   }
 }

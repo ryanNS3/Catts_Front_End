@@ -1,4 +1,4 @@
-<app-botao-voltar (click)="voltar.emit()" />
+<app-botao-voltar (voltar)="voltar.emit()" />
 
 <app-step-slide-ong [etapa]="2" />
 
@@ -7,48 +7,50 @@
 
 <div class="campos">
 
-  <label class="text-form" for="whatsapp">Whatsapp</label>
-  <input class="campo" type="text" id="whatsapp"
-         placeholder="11 906377-9077" [(ngModel)]="whatsapp">
+  <!-- WHATSAPP -->
+  <app-campo-texto label="WhatsApp" idInput="whatsapp" placeholder="11 906377-9077" [maximo]="12"
+    [controlPai]="$any(formulario.get('whatsapp'))"
+    
+  />
 
-  <label class="text-form" for="instagram">
-    Instagram <span class="opcional">(Opcional)</span>
-  </label>
-  <input class="campo" type="text" id="instagram"
-         placeholder="@amigosgatos" [(ngModel)]="instagram">
+  <!-- INSTAGRAM -->
+  <app-campo-texto label="Instagram (Opcional)" idInput="instagram" placeholder="@amigosgatos"
+  [controlPai]="$any(formulario.get('instagram'))"
+  />
 
-  <label class="text-form" for="facebook">
-    Facebook <span class="opcional">(Opcional)</span>
-  </label>
-  <input class="campo" type="text" id="facebook"
-         placeholder="facebook.com/amigosgatos" [(ngModel)]="facebook">
+  <!-- FACEBOOK -->
+  <app-campo-texto label="Facebook (Opcional)" idInput="facebook" placeholder="facebook.com/amigosgatos"
+    [controlPai]="$any(formulario.get('facebook'))"
+  />
 
-  <!-- Horários lado a lado -->
+  <!-- HORÁRIOS -->
   <div class="horarios">
     <div class="horario">
-      <label class="text-form" for="inicio">Horário início</label>
-      <input class="campo" type="text" id="inicio"
-             placeholder="9:00" [(ngModel)]="horarioInicio">
+      <app-campo-texto label="Horário início" idInput="inicio" placeholder="9:00"
+        [controlPai]="$any(formulario.get('horarioInicio'))"
+      />
     </div>
 
     <div class="horario">
-      <label class="text-form" for="fim">Horário fim</label>
-      <input class="campo" type="text" id="fim"
-             placeholder="18:00" [(ngModel)]="horarioFim">
+      <app-campo-texto label="Horário fim" idInput="fim" placeholder="18:00"
+        [controlPai]="$any(formulario.get('horarioFim'))"
+      />
     </div>
+
   </div>
 
-  <!-- Dias da semana -->
+  <!-- DIAS DE ATENDIMENTO -->
   <p class="text-form">Disponibilidade de atendimento</p>
 
   <div class="dias">
+
     @for (dia of dias; track dia) {
-      <button type="button" class="dia"
-              [class.selecionado]="estaSelecionado(dia)"
-              (click)="alternarDia(dia)">
-        {{ dia }}
+
+      <button type="button" class="dia" [class.selecionado]="estaSelecionado(dia)" (click)="alternarDia(dia)"> {{ dia }}
       </button>
+
     }
+
   </div>
 
 </div>

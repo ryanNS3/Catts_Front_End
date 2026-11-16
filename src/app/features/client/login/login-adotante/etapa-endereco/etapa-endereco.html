@@ -1,57 +1,31 @@
 <section class="dados-pessoais etapa-dois">
 
-  <!-- Botão que retorna à etapa anterior -->
   <app-botao-voltar (click)="voltar.emit()" />
-
-  <!-- Mostra a etapa 2 do cadastro -->
   <app-step-slide [etapa]="2" />
 
   <h1 class="endereco-h1">Endereço</h1>
   <p class="sub-2">Preencha todos os campos</p>
 
-  <!-- Conecta os campos ao formulário recebido -->
   <div class="form-endereco" [formGroup]="formulario">
 
-    <!-- CEP: utiliza o CampoTexto reutilizável -->
-    <app-campo-texto
-      label="CEP"
-      idInput="cep"
-      placeholder="00000-000"
-      [maximo]="9"
-      [controlPai]="$any(formulario.get('cep'))"
-      (saiuDoCampo)="buscarCep()"
-
+    <app-campo-texto label="CEP" idInput="cep" placeholder="00000-000" [maximo]="9" 
+    [controlPai]="$any(formulario.get('cep'))"(saiuDoCampo)="buscarCep()"
     />
 
-    <!-- TIPO DE RESIDÊNCIA -->
     <div class="campo tipo-residencia">
-      
       <p class="text-form">Tipo de residência</p>
-      
+
       <div class="opcoes-residencia">
-
-        <!-- Seleciona condomínio -->
-        <button
-          type="button"
-          class="opcao-residencia"
-          [class.selecionada]="tipoResidencia === 'condominio'"
-          (click)="selecionarResidencia('condominio')"> Condomínio
-
+        <button type="button" class="opcao-residencia" 
+        [class.selecionada]="tipoResidencia === 'condominio'"
+        (click)="selecionarResidencia('condominio')"> Condomínio
           <span class="icone-opcao icone-apartamento"></span>
-
         </button>
 
-        <!-- Seleciona residência independente -->
-        <button
-          type="button"
-          class="opcao-residencia"
-          [class.selecionada]="tipoResidencia === 'independente'"
-          (click)="selecionarResidencia('independente')">
-
-          Independente
-
+        <button type="button" class="opcao-residencia"
+        [class.selecionada]="tipoResidencia === 'independente'"
+        (click)="selecionarResidencia('independente')">Independente
           <span class="icone-opcao icone-casa"></span>
-
         </button>
 
       </div>
@@ -73,9 +47,7 @@
         <!-- Opção inicial sem valor -->
         <option value="" disabled>Selecione uma opção</option>
 
-        <option value="intencao">
-          Não, mas tenho intenção de colocar
-        </option>
+        <option value="intencao"> Não, mas tenho intenção de colocar </option>
 
         <option value="sim">Sim</option>
 
@@ -92,11 +64,7 @@
       </label>
 
       <!-- Conecta o select ao campo imovelAlugado -->
-      <select
-        class="select-form"
-        id="ImovelAlugado"
-        formControlName="imovelAlugado">
-
+      <select class="select-form" id="ImovelAlugado" formControlName="imovelAlugado">
         <option value="" disabled>Selecione uma opção</option>
 
         <option value="sim">Sim</option>

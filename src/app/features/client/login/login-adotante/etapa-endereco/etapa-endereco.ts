@@ -107,7 +107,6 @@ export class EtapaEndereco {
         console.log('Endereço:', this.formulario.value);
       },
 
-      // Caso aconteça algum erro na API.
       error: () => {
         alert('Erro ao consultar o CEP.');
       }

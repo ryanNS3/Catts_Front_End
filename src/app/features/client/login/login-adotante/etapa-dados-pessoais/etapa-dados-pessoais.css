@@ -29,3 +29,8 @@
   gap: 12px;
   max-width: 416px;
 }
+
+app-step-slide {
+  display: block;
+  margin-top: 40px;
+}
