@@ -11,7 +11,7 @@ export class AnimalService {
   private http = inject(HttpClient);
 
   buscarAnimais() {
-     return this.http.get<Animal[]>('http://localhost:8080/v1/animal');
+     return this.http.get<Animal[]>('https://catts-api-hhegcygvgbcrgkas.brazilsouth-01.azurewebsites.net/v1/animal');
   }
 
   animalSelecionado = signal<Animal | null>(null);
