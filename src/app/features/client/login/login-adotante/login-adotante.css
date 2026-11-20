@@ -95,3 +95,33 @@
   margin-top: 40px;
 }
 
+/* TOAST */
+
+.toast-sucesso {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  padding: 16px 20px;
+  border-radius: 10px;
+
+  background-color: #e8f8ef;
+  color: #217a48;
+  border: 1px solid #a8dfbc;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.toast-sucesso button {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: 22px;
+  cursor: pointer;
+}
+

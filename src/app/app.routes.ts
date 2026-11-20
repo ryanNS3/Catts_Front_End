@@ -3,6 +3,7 @@ import { Feed } from './features/client/feed/feed';
 import { LoginAdotante } from './features/client/login/login-adotante/login-adotante';
 import { LoginOng } from './features/client/login/login-ong/login-ong';
 import { EscolherPerfil } from './features/client/login/escolher-perfil/escolher-perfil';
+import { LoginGoogle } from './features/client/login/login-google/login-google';
 
 export const routes: Routes = [
   {
@@ -25,6 +26,10 @@ export const routes: Routes = [
 
   { path: 'escolher-perfil',
     component: EscolherPerfil,
+  },
+
+  { path: 'login-google',
+    component: LoginGoogle,
   },
 
 ];

@@ -8,7 +8,7 @@
 <div class="campos">
 
   <!-- WHATSAPP -->
-  <app-campo-texto label="WhatsApp" idInput="whatsapp" placeholder="11 906377-9077" [maximo]="12"
+  <app-campo-texto label="WhatsApp" idInput="whatsapp" placeholder="11 906377-9077" [maximo]="11"
     [controlPai]="$any(formulario.get('whatsapp'))"
     
   />
@@ -26,13 +26,13 @@
   <!-- HORÁRIOS -->
   <div class="horarios">
     <div class="horario">
-      <app-campo-texto label="Horário início" idInput="inicio" placeholder="9:00"
+      <app-campo-texto label="Horário início" idInput="inicio" placeholder="9:00" tipo="time"
         [controlPai]="$any(formulario.get('horarioInicio'))"
       />
     </div>
 
     <div class="horario">
-      <app-campo-texto label="Horário fim" idInput="fim" placeholder="18:00"
+      <app-campo-texto label="Horário fim" idInput="fim" placeholder="18:00" tipo="time"
         [controlPai]="$any(formulario.get('horarioFim'))"
       />
     </div>
@@ -40,17 +40,21 @@
   </div>
 
   <!-- DIAS DE ATENDIMENTO -->
-  <p class="text-form">Disponibilidade de atendimento</p>
+ 
+<!-- DIAS DE ATENDIMENTO -->
+<p class="text-form">Disponibilidade de atendimento</p>
 
-  <div class="dias">
+<div class="dias" [class.dias-erro]="controleDias.invalid && controleDias.touched"
+>
+  @for (dia of dias; track dia) {
 
-    @for (dia of dias; track dia) {
-
-      <button type="button" class="dia" [class.selecionado]="estaSelecionado(dia)" (click)="alternarDia(dia)"> {{ dia }}
-      </button>
-
-    }
-
-  </div>
-
+    <button type="button" class="dia" [class.selecionado]="estaSelecionado(dia)" (click)="alternarDia(dia)"> {{ dia }} </button>
+  }
+  
 </div>
+
+@if (controleDias.invalid && controleDias.touched) {
+  <span class="mensagem-erro">
+    Selecione pelo menos um dia de atendimento.
+  </span>
+}

@@ -1,5 +1,5 @@
 
-import { Component, EventEmitter, inject, Input, Output } from "@angular/core";
+import { Component, EventEmitter, inject, Input, Output, signal } from "@angular/core";
 import { FormGroup, ReactiveFormsModule } from "@angular/forms";
 import { BotaoVoltar } from "../../../../../shared/components/botao-voltar/botao-voltar";
 import { StepSlide } from "../../../../../shared/components/step-slide/step-slide";
@@ -37,8 +37,12 @@ export class EtapaEndereco {
     this.formulario.get('tipoResidencia')?.setValue(tipo);
   }
 
+ // Essa variável vai guardar as mensagens de erro do CEP.
+  erroCep = signal('');
   // Método responsável por buscar o CEP.
   buscarCep() {
+    //Assim, quando uma nova consulta começar, a mensagem anterior será limpa.
+    this.erroCep.set('');
 
     // Pega o CEP digitado.
     const cep = this.formulario.get('cep')?.value || '';
@@ -65,10 +69,10 @@ export class EtapaEndereco {
 
     // Verifica se o CEP tem 8 números.
     if (cepLimpo.length !== 8) {
-      alert('Digite um CEP válido com 8 números.');
+      this.erroCep.set('O CEP deve conter 8 números');
       return;
     }
-
+    
     // Consulta a API ViaCEP.
     this.viaCep.buscarCep(cepLimpo).subscribe({
 
@@ -87,7 +91,7 @@ export class EtapaEndereco {
 
         // Verifica se o CEP existe.
         if (dados.erro) {
-          alert('CEP não encontrado.');
+          this.erroCep.set('CEP não encontrado');
           return;
         }
 
@@ -106,9 +110,10 @@ export class EtapaEndereco {
         // Mostra os dados no console.
         console.log('Endereço:', this.formulario.value);
       },
+      
 
       error: () => {
-        alert('Erro ao consultar o CEP.');
+        this.erroCep.set('Erro ao consultar o CEP');
       }
 
     });

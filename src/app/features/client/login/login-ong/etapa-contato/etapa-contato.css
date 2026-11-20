@@ -77,3 +77,19 @@ app-step-slide-ong {
   border-color: var(--Azul-500, #2494F6);
   color: var(--Azul-400, #54ACF8);
 }
+
+
+/* Erro nos dias de atendimento */
+.dias.dias-erro {
+  border: 1.5px solid #E53935;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+/* Mensagem de erro */
+.mensagem-erro {
+  color: #E53935;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}

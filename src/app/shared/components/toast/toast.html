@@ -1,0 +1,12 @@
+
+<div class="toast" [class.erro]="tipo === 'erro'">
+
+  <span class="icone">
+    {{ tipo === 'sucesso' ? '✓' : '!' }}
+  </span>
+
+  <p>{{ mensagem }}</p>
+
+  <button type="button" (click)="fechar.emit()"> × </button>
+
+</div>

@@ -16,6 +16,7 @@
       placeholder="00000-000"
       [maximo]="9"
       [controlPai]="$any(formulario.get('cep'))"
+      [erroExterno]="erroCep() !== ''"
       (saiuDoCampo)="buscarCep()"
     />
 

@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+.container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.container > app-painel-pet-aleatorio {
+  flex: 0 0 55.5%;
+  min-width: 0;
+}
+
+/*LADO DIREITO*/
+.formulario {
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+  background-color: white;
+  margin: 0;
+  padding: 104px clamp(24px, 6.25vw, 80px) 0;
+}
+.sign-in {
+  color: #000;
+  font-family: Inter, sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.sub-0 {
+  color: #434343;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 64px;
+  margin-top: 5px;
+}
+
+.titulo {
+  margin-top: 48px; 
+}
+
+.google-button {
+  width: 100%;
+  max-width: 300px;
+  margin-top: 64px;
+}

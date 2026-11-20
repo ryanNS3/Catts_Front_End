@@ -136,3 +136,29 @@ app-step-slide{
   border-color: var(--Azul-500, #2494F6);
   box-shadow: 4px 4px 24px 0 rgba(36, 148, 246, 0.63);
 }
+
+
+.mensagem-erro {
+  color: #E53935;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+
+/* Select com erro */
+.select-form.select-erro,
+.select-form.select-erro:focus {
+  border: 1.5px solid #E53935;
+  background-color: #FFF5F5;
+  box-shadow: none;
+}
+
+/* Mensagem de erro */
+.mensagem-erro {
+  color: #E53935;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+

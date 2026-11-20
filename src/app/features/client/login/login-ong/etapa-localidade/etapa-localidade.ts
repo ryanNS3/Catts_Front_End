@@ -36,11 +36,17 @@ buscarCep() {
     cepEncontrado: false
   });
 
-  // Verifica se o CEP tem 8 números
-  if (!cep || cep.length !== 8) {
-    this.erroCep.set('O CEP deve conter 8 números');
-    return;
-  }
+
+if (!cep) {
+  this.erroCep.set('');
+  return;
+}
+
+if (cep.length !== 8) {
+  this.erroCep.set('O CEP deve conter 8 números');
+  return;
+}
+
 
   this.buscando.set(true);
   this.erroCep.set('');

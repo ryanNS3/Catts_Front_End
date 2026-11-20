@@ -32,6 +32,8 @@ export class CampoTexto {
   // Avisa ao componente pai quando o usuário sai do input.
   @Output() saiuDoCampo = new EventEmitter<void>();
 
+  @Input() erroExterno = false;
+
   
 
 }

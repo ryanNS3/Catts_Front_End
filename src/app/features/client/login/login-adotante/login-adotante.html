@@ -1,33 +1,19 @@
 <main class="container">
 
+ 
+@if (mostrarToast) {
+  <app-toast [mensagem]="mensagemToast" [tipo]="tipoToast" (fechar)="mostrarToast = false" />
+}
+
     <app-painel-gato />
 
     <!-- LADO DIREITO -->
-    <section class="formulario" [class.etapa-zero]="etapa === 0">
-
-      <!-- ETAPA 0: LOGIN -->
-      @if (etapa === 0) {
-        <app-botao-voltar  [irParaFeed]="true" />
-
-        <div  class="titulo">
-
-        <h1 class="sign-in">Sign in</h1>
-
-        <p class="sub-0">Selecione uma das opções abaixo para fazer o login</p>
-
-         <app-botao-azul texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
-        </div>
-
-        <div class="google-button" #googleButton></div>
-      }
+    <section class="formulario">
 
       <!-- ETAPA 1: DADOS PESSOAIS -->
       @if (etapa === 1) {
-  <app-etapa-dados-pessoais [formulario]="dadosPessoais" (voltar)="voltar()"
-  />
-
-  <app-botao-azul  class="botao-azul1" texto="Continuar" (acaoBotao)="continuar()"
-  />
+        <app-etapa-dados-pessoais [formulario]="dadosPessoais" (voltar)="voltar()" />
+        <app-botao-azul  class="botao-azul1" texto="Continuar" (acaoBotao)="continuar()" />
 
 
       }
@@ -45,7 +31,6 @@
         <app-botao-azul class="botao-azul3" texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
 
       }
-
     </section>
 
   

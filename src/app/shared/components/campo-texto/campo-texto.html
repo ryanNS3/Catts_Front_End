@@ -1,19 +1,35 @@
-<!-- Div que agrupa o label e o input -->
+
 <div class="campo-texto">
 
   <label class="text-form" [for]="idInput">
     {{ label }}
   </label>
 
-  <input
-    class="text-form-on"
+  <input class="text-form-on"
     [id]="idInput"
     [type]="tipo"
     [placeholder]="placeholder"
     [attr.maxlength]="maximo"
     [formControl]="controlPai"
-    //O evento blur acontece quando o usuário sai do campo, por exemplo, ao clicar em outro lugar da tela.
+    [class.input-erro]="(controlPai.invalid && controlPai.touched) || erroExterno"
+    [attr.aria-invalid]="controlPai.invalid && controlPai.touched"
     (blur)="saiuDoCampo.emit()"
   />
+
+  @if (controlPai.invalid && controlPai.touched) {
+    <span class="mensagem-erro">
+      
+      @if (controlPai.hasError('required')) {
+      Campo obrigatório
+    } @else if (controlPai.hasError('menorIdade')) {
+      Você precisa ter pelo menos 18 anos.
+    } @else if (controlPai.hasError('cpfInvalido')) {
+      CPF inválido.
+    } @else {
+      Verifique este campo
+    }
+    
+    </span>
+  }
 
 </div>
