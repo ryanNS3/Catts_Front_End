@@ -1,8 +1,4 @@
 
-/* =========================
-   CONTAINER PRINCIPAL
-========================= */
-
 .admin-detalhe-solicitacao {
   width: 86%;
   max-width: 1400px;
@@ -12,9 +8,7 @@
 }
 
 
-/* =========================
-   CABEÇALHO
-========================= */
+/* Cabeçalho */
 
 .admin-cabecalho {
   display: flex;
@@ -60,9 +54,7 @@
 }
 
 
-/* =========================
-   BOTÕES DE AÇÃO
-========================= */
+/*botões de ação*/
 
 .acoes-solicitacao {
   display: flex;
@@ -111,9 +103,7 @@
 }
 
 
-/* =========================
-   CARDS PRINCIPAIS
-========================= */
+/*cards principais*/
 
 .detalhe-solicitacao-conteudo {
   display: flex;
@@ -143,9 +133,7 @@
 }
 
 
-/* =========================
-   TÍTULO DOS CARDS
-========================= */
+/*titulo dos cards*/
 
 .card-titulo {
   padding: 18px 35px;
@@ -161,10 +149,7 @@
   color: #222222;
 }
 
-
-/* =========================
-   COLUNAS DO SOLICITANTE
-========================= */
+/*Colunas */
 
 .colunas-solicitante {
   display: grid;
@@ -197,9 +182,7 @@
   flex-shrink: 0;
 }
 
-/* =========================
-   INFORMAÇÕES
-========================= */
+/* informação */
 
 .informacoes-solicitante,
 .informacoes-endereco,
@@ -235,9 +218,7 @@
   overflow-wrap: anywhere;
 }
 
-/* =========================
-   BOTÃO DE CONTATO
-========================= */
+/* Botão Whatsapp*/
 
 .btn-contato {
   width: 75%;
@@ -265,9 +246,7 @@
   object-fit: contain;
 }
 
-/* =========================
-   INFORMAÇÕES DO PET
-========================= */
+/*==informação do pet==*/
 
 .informacoes-pet {
   display: grid;
@@ -277,35 +256,7 @@
 }
 
 
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 1100px) {
-
-  .admin-detalhe-solicitacao {
-    width: 92%;
-  }
-
-  .colunas-solicitante {
-    gap: 16px;
-    padding: 22px 20px;
-  }
-
-  .coluna-dados h3 {
-    font-size: 12px;
-  }
-
-  .campo-informacao p {
-    font-size: 12px;
-  }
-
-}
-
-
-/* =========================
-   TELAS MENORES
-========================= */
+/* ====Responsividade====== */
 
 @media (max-width: 900px) {
 
@@ -325,52 +276,3 @@
 
 }
 
-
-/* =========================
-   CELULAR
-========================= */
-
-@media (max-width: 600px) {
-
-  .admin-cabecalho {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .identificacao-solicitacao {
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .identificacao-solicitacao h1 {
-    font-size: 22px;
-  }
-
-  .identificacao-solicitacao span:first-child {
-    font-size: 20px;
-  }
-
-  .separador-titulo {
-    font-size: 20px;
-  }
-
-  .acoes-solicitacao {
-    margin-left: auto;
-  }
-
-  .colunas-solicitante {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 20px 16px;
-  }
-
-  .card-titulo {
-    padding: 16px;
-  }
-
-  .btn-contato {
-    width: calc(100% - 32px);
-    margin: auto 16px 16px;
-  }
-
-}

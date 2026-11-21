@@ -1,71 +1,67 @@
-
-<app-admin-nav-bar
-  [novasSolicitacoes]="novasSolicitacoes">
+<app-admin-nav-bar [novasSolicitacoes]="novasSolicitacoes">
 </app-admin-nav-bar>
 
 <main class="admin-inicio">
 
-  <!-- Cabeçalho -->
-  <section class="admin-cabecalho">
+    <!-- Cabeçalho -->
+    <section class="admin-cabecalho">
 
-    <app-admin-page-icon icon="home.svg"></app-admin-page-icon>
+        <app-admin-page-icon icon="home.svg"></app-admin-page-icon>
 
-    <div class="admin-titulo">
-      <h1>Início</h1>
-      <p>Visualize e aprove as solicitações de adoção abaixo</p>
-    </div>
+        <div class="admin-titulo">
+            <h1>Início</h1>
+            <p>Visualize e aprove as solicitações de adoção abaixo</p>
+        </div>
 
-    <app-admin-counter
-      [valor]="solicitacoes.length"
-      descricao="Solicitações">
-    </app-admin-counter>
+        <app-admin-counter [valor]="solicitacoes.length" descricao="Solicitações">
+        </app-admin-counter>
 
-  </section>
+    </section>
 
-  <!-- Tabela de solicitações -->
-  <section class="admin-solicitacoes">
+    <!-- Tabela de solicitações -->
+    <section class="admin-solicitacoes">
 
-    <table>
+        <table>
 
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Nome solicitador</th>
-          <th>Pet solicitado</th>
-          <th>Status</th>
-          <th>Ação</th>
-        </tr>
-      </thead>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome solicitador</th>
+                    <th>Pet solicitado</th>
+                    <th>Status</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
 
-      <tbody>
+            <tbody>
 
-        @for (solicitacao of solicitacoes; track solicitacao.id) {
-          <tr>
+                @for (solicitacao of solicitacoes; track solicitacao.id) {
+                <tr>
 
-            <td>#{{ solicitacao.id }}</td>
+                    <td>#{{ solicitacao.id }}</td>
 
-            <td>{{ solicitacao.nomeSolicitante }}</td>
+                    <td>{{ solicitacao.nomeSolicitante }}</td>
 
-            <td>{{ solicitacao.nomePet }}</td>
+                    <td>{{ solicitacao.nomePet }}</td>
 
-            <td>
-              <span class="status-pendente">
-                {{ solicitacao.status }}
-              </span>
-            </td>
+                    <td>
+                        <span class="status-pendente">
+                            {{ solicitacao.status }}
+                        </span>
+                    </td>
 
-         <td>
-  <button (click)="visualizarSolicitacao(solicitacao.id)">
-    Visualizar
-  </button>
-</td>
-          </tr>
-        }
+                    <td>
+                        <button (click)="visualizarSolicitacao(solicitacao.id)">
+                            Visualizar
+                        </button>
+                    </td>
+                </tr>
+                }
 
-      </tbody>
+            </tbody>
 
-    </table>
+        </table>
 
-  </section>
+    </section>
 
 </main>

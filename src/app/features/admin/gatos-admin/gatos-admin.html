@@ -12,21 +12,17 @@
         <app-admin-counter [valor]="gatos.length" descricao="Gatos cadastrados"></app-admin-counter>
 
     </section>
-<section class="lista-gatos">
+    <section class="lista-gatos">
 
-  <div class="card-adicionar-gato">
-    <span>Adicionar</span>
-    <p>Clique aqui para adicionar</p>
-  </div>
+        <div class="card-adicionar-gato">
+            <span>Adicionar</span>
+            <p>Clique aqui para adicionar</p>
+        </div>
 
-  @for (gato of gatos; track gato.id) {
-    <app-admin-cat-card
-      [id]="gato.id"
-      [nome]="gato.nome"
-      [idade]="gato.idade"
-      [imagem]="gato.imagem">
-    </app-admin-cat-card>
-  }
+        @for (gato of gatos; track gato.id) {
+        <app-admin-cat-card [id]="gato.id" [nome]="gato.nome" [idade]="gato.idade" [imagem]="gato.imagem">
+        </app-admin-cat-card>
+        }
 
-</section>
+    </section>
 </main>
