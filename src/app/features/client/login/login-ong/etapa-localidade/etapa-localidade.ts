@@ -23,55 +23,50 @@ export class EtapaLocalidade {
 
   buscando = signal(false);
   erroCep = signal('');
-
-buscarCep() {
-
-  const cep = this.formulario.get('cep')?.value?.replace(/\D/g, '');
-
-  // Limpa o endereço anterior
-  this.formulario.patchValue({
-    rua: '',
-    cidade: '',
-    estado: '',
-    cepEncontrado: false
-  });
-
-
-if (!cep) {
-  this.erroCep.set('');
-  return;
-}
-
-if (cep.length !== 8) {
-  this.erroCep.set('O CEP deve conter 8 números');
-  return;
-}
-
-
-  this.buscando.set(true);
-  this.erroCep.set('');
-
-  this.viaCep.buscarCep(cep).subscribe({
-
-    next: (dados) => {
-
-      this.buscando.set(false);
-
-      if (dados.erro) {
-        this.erroCep.set('CEP não encontrado');
+  
+  buscarCep() {
+    const cep = this.formulario.get('cep')?.value?.replace(/\D/g, '');
+    // Limpa o endereço anterior
+      this.formulario.patchValue({
+        rua: '',
+        cidade: '',
+        estado: '',
+        cepEncontrado: false
+      
+      });
+      
+      if (!cep) {
+        this.erroCep.set('');
         return;
       }
+      
+      if (cep.length !== 8) {
+        this.erroCep.set('O CEP deve conter 8 números');
+        return;
+      }
+      
+      this.buscando.set(true);
+      this.erroCep.set('');
 
+      this.viaCep.buscarCep(cep).subscribe({
+        next: (dados) => {
+          this.buscando.set(false);
+          
+        if (dados.erro) {
+          this.erroCep.set('CEP não encontrado');
+          return;
+      }
+      
       this.formulario.patchValue({
         rua: dados.logradouro,
         cidade: dados.localidade,
         estado: dados.uf,
         cepEncontrado: true
       });
-
+      
       this.erroCep.set('');
     },
-
+    
     error: () => {
       this.buscando.set(false);
       this.erroCep.set('Erro ao buscar o CEP');

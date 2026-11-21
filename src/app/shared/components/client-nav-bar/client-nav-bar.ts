@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { AnimalService } from '../../../service/animal/animal';
 
 @Component({
   selector: 'app-client-nav-bar',
@@ -8,5 +9,10 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './client-nav-bar.css',
 })
 export class ClientNavBar {
+  private animalService = inject(AnimalService);
+
+  sortearGato() {
+    this.animalService.sortearGato();
+  }
 
 }

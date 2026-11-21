@@ -1,7 +1,6 @@
-import { Component, EventEmitter, inject, OnInit, } from "@angular/core";
+import { Component, inject, OnInit, } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { FormGroup, FormControl, Validators, AbstractControl } from "@angular/forms";
-import { PainelGato } from "../../../../shared/components/painel-gato/painel-gato";
 import { BotaoAzul } from "../../../../shared/components/botao-azul/botao-azul";
 import { BotaoVoltar } from "../../../../shared/components/botao-voltar/botao-voltar";
 import { EtapaLocalidade } from "./etapa-localidade/etapa-localidade";
@@ -20,14 +19,9 @@ import { Toast } from "../../../../shared/components/toast/toast";
 export class LoginOng implements OnInit {
 
   private router = inject(Router);
-
-  carregando = false;
-  
-
   etapa = 1;
 
 validarCnpj(control: AbstractControl) {
-
   const cnpj = control.value;
 
   // Verifica se tem 14 números
@@ -92,18 +86,11 @@ validarCnpj(control: AbstractControl) {
     return;
   }
 
-  if (this.etapa === 3 && this.localidade.invalid) {
-    this.localidade.markAllAsTouched();
-    return;
-  }
-
   if (this.etapa < 3) {
     this.etapa++;
   }
 
 }
-
-
   voltar() {
     if (this.etapa > 1) {
       this.etapa--;
@@ -118,7 +105,7 @@ voltarParaPerfil() {
 formulario = new FormGroup({
 
   // ETAPA 1 - Dados da instituição
-  dadosInstituicao: new FormGroup({
+    dadosInstituicao: new FormGroup({
     nomeOng: new FormControl('', Validators.required),
     cnpj: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]{14}$/), this.validarCnpj]),
   }),
@@ -147,10 +134,6 @@ formulario = new FormGroup({
 
 });
 
-
-mensagemSucesso = false;
-
-
 mostrarToast = false;
 mensagemToast = '';
 tipoToast: 'sucesso' | 'erro' = 'sucesso';
@@ -166,32 +149,20 @@ finalizarCadastro() {
 
   if (this.localidade.invalid) {
     this.localidade.markAllAsTouched();
-
-    this.exibirToast(
-      'Preencha os campos obrigatórios!',
-      'erro'
-    );
+    this.exibirToast('Preencha os campos obrigatórios!',  'erro');
 
     return;
   }
 
   if (this.formulario.invalid) {
     this.formulario.markAllAsTouched();
-
-    this.exibirToast(
-      'Verifique os dados do cadastro!',
-      'erro'
-    );
+    this.exibirToast('Verifique os dados do cadastro!',  'erro');
 
     return;
   }
 
   console.log('Dados da ONG:', this.formulario.value);
-
-  this.exibirToast(
-    'Dados preenchidos com sucesso!',
-    'sucesso'
-  );
+  this.exibirToast('Dados preenchidos com sucesso!',  'sucesso');
 }
 
 
@@ -208,7 +179,6 @@ get localidade() {
 }
 
 constructor() {
-
   // Observa quando o usuário altera o CEP
   this.localidade.controls.cep.valueChanges.subscribe(() => {
 
@@ -221,14 +191,9 @@ constructor() {
     });
 
   });
-
 }
-
-  private route = inject(ActivatedRoute);
-  gatoId = this.route.snapshot.paramMap.get('id');
-
- 
-    ngOnInit() {
+  private route = inject(ActivatedRoute);  
+  ngOnInit() {
   const etapaUrl = this.route.snapshot.queryParamMap.get('etapa');
   if (etapaUrl) {
     this.etapa = Number(etapaUrl);

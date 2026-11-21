@@ -1,22 +1,13 @@
 <app-botao-voltar (click)="voltar.emit()" />
-
 <app-step-slide [etapa]="1" />
 
 <h1 class="dados-pessoais-h1">Dados pessoais</h1>
 <p class="sub-1">Preencha todos os campos</p>
 
-
-
 <!-- FORMULÁRIO -->
 <div class="campos">
-
-  <app-campo-texto label="Contato" idInput="contato" placeholder="11 937464885" [maximo]="11" [controlPai]="$any(formulario.get('contato'))"
-/>
-
-  <app-campo-texto label="CPF" idInput="cpf" placeholder="000.000.000-00" [maximo]="11" [controlPai]="$any(formulario.get('cpf'))"
-  />
-
-  <app-campo-texto label="Data nascimento" idInput="nascimento" tipo="date" [controlPai]="$any(formulario.get('nascimento'))"
-  />
+  <app-campo-texto label="Contato" idInput="contato" placeholder="11 937464885" [maximo]="11" [controlPai]="$any(formulario.get('contato'))"/>
+  <app-campo-texto label="CPF" idInput="cpf" placeholder="000.000.000-00" [maximo]="11" [controlPai]="$any(formulario.get('cpf'))"/>
+  <app-campo-texto label="Data nascimento" idInput="nascimento" tipo="date" [controlPai]="$any(formulario.get('nascimento'))"/>
 
 </div>

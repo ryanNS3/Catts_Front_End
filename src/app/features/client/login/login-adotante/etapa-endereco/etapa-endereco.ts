@@ -51,10 +51,7 @@ export class EtapaEndereco {
     const cepLimpo = cep.replace(/\D/g, '');
 
     // Evita consultar novamente um CEP já encontrado.
-    if (
-      cepLimpo === this.cepConsultado &&
-      this.formulario.get('cepEncontrado')?.value === true
-    ) {
+    if (cepLimpo === this.cepConsultado && this.formulario.get('cepEncontrado')?.value === true) {
       return;
     }
 
@@ -81,8 +78,7 @@ export class EtapaEndereco {
 
         // Pega o CEP que está no campo neste momento.
         const cepAtual = (
-          this.formulario.get('cep')?.value || ''
-        ).replace(/\D/g, '');
+          this.formulario.get('cep')?.value || '' ).replace(/\D/g, '');
 
         // Se o usuário mudou o CEP, ignora a resposta antiga.
         if (cepAtual !== cepLimpo) {
@@ -110,8 +106,7 @@ export class EtapaEndereco {
         // Mostra os dados no console.
         console.log('Endereço:', this.formulario.value);
       },
-      
-
+  
       error: () => {
         this.erroCep.set('Erro ao consultar o CEP');
       }

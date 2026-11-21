@@ -1,5 +1,6 @@
-import { Component, inject } from "@angular/core";
+import { Component, inject, OnInit, signal } from "@angular/core";
 import { AnimalService } from "../../../service/animal/animal";
+import { Animal } from "../../../service/@Type/animal";
 
 @Component({
   imports: [],
@@ -10,6 +11,7 @@ import { AnimalService } from "../../../service/animal/animal";
 export class PainelGato {
   private animalService = inject(AnimalService);
 
+
    nomeIdadeGatos(name?: string, age?: number): string {
     const animal = this.animalSelecionado();
     const nomeReal = animal?.name || name || 'Pet';
@@ -18,6 +20,7 @@ export class PainelGato {
   }
 
   animalSelecionado = this.animalService.animalSelecionado;
+  gatoSorteado = this.animalService.gatoSorteado;
 
     // Funções dinâmicas utilizando os dados reais da API (name, age, description)
   observacaoDoGato(name?: string): string {

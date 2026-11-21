@@ -19,4 +19,19 @@ export class AnimalService {
   selecionarAnimal(animal: Animal) {
     this.animalSelecionado.set(animal);
   }
+
+  gatoSorteado = signal<Animal | null>(null);
+
+sortearGato() {
+  // A pessoa começou um novo fluxo pela navbar.
+  this.animalSelecionado.set(null);
+  this.gatoSorteado.set(null);
+
+  this.buscarAnimais().subscribe((gatos) => {
+    if (gatos.length > 0) {
+      const posicao = Math.floor(Math.random() * gatos.length);
+      this.gatoSorteado.set(gatos[posicao]);
+    }
+  });
+}
 }

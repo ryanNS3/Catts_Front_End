@@ -1,6 +1,6 @@
-<app-botao-voltar (voltar)="voltar.emit()" />
+<app-botao-voltar (voltar)="voltar.emit()"></app-botao-voltar>
 
-<app-step-slide-ong [etapa]="3" />
+<app-step-slide-ong [etapa]="3"></app-step-slide-ong>
 
 <h1 class="titulo">Localidade</h1>
 <p class="subtitulo">Preencha todos os campos</p>
@@ -10,15 +10,9 @@
   <!-- CEP -->
   <div class="grupo">
 
-    <app-campo-texto
-      label="CEP"
-      idInput="cep"
-      placeholder="00000-000"
-      [maximo]="9"
-      [controlPai]="$any(formulario.get('cep'))"
-      [erroExterno]="erroCep() !== ''"
-      (saiuDoCampo)="buscarCep()"
-    />
+    <app-campo-texto label="CEP" idInput="cep" placeholder="00000-000" [maximo]="9"
+      [controlPai]="$any(formulario.get('cep'))"[erroExterno]="erroCep() !== ''"
+      (saiuDoCampo)="buscarCep()"></app-campo-texto>
 
     @if (buscando()) {
       <span class="aviso">Buscando...</span>
@@ -35,26 +29,14 @@
 
     <div class="grupo">
       <label class="text-form bloqueado" for="rua">Rua</label>
-
-      <input
-        class="campo"
-        type="text"
-        id="rua"
-        [value]="formulario.get('rua')?.value"
-        disabled
-      />
+      <input class="campo" type="text" id="rua" 
+      [value]="formulario.get('rua')?.value" disabled>
     </div>
 
     <div class="grupo">
       <label class="text-form bloqueado" for="cidade">Cidade</label>
-
-      <input
-        class="campo"
-        type="text"
-        id="cidade"
-        [value]="formulario.get('cidade')?.value"
-        disabled
-      />
+      <input class="campo" type="text" id="cidade"
+        [value]="formulario.get('cidade')?.value"disabled>
     </div>
 
   </div>
@@ -64,25 +46,16 @@
 
     <label class="text-form bloqueado" for="estado">Estado</label>
 
-    <input
-      class="campo"
-      type="text"
-      id="estado"
-      [value]="formulario.get('estado')?.value"
-      disabled
-    />
+    <input class="campo" type="text" id="estado" 
+    [value]="formulario.get('estado')?.value" disabled>
 
   </div>
 
   <!-- COMPLEMENTO -->
   <div class="grupo">
 
-    <app-campo-texto
-      label="Complemento"
-      idInput="complemento"
-      placeholder="Shopping SP"
-      [controlPai]="$any(formulario.get('complemento'))"
-    />
+    <app-campo-texto label="Complemento" idInput="complemento" placeholder="Shopping SP"
+    [controlPai]="$any(formulario.get('complemento'))"></app-campo-texto>
 
   </div>
 

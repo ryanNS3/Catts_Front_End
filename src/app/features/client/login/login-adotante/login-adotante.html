@@ -1,37 +1,28 @@
 <main class="container">
 
- 
 @if (mostrarToast) {
-  <app-toast [mensagem]="mensagemToast" [tipo]="tipoToast" (fechar)="mostrarToast = false" />
-}
+  <app-toast [mensagem]="mensagemToast" [tipo]="tipoToast" (fechar)="mostrarToast = false" /> }
 
-    <app-painel-gato />
+    <app-painel-gato> </app-painel-gato>
 
     <!-- LADO DIREITO -->
     <section class="formulario">
 
-      <!-- ETAPA 1: DADOS PESSOAIS -->
       @if (etapa === 1) {
-        <app-etapa-dados-pessoais [formulario]="dadosPessoais" (voltar)="voltar()" />
-        <app-botao-azul  class="botao-azul1" texto="Continuar" (acaoBotao)="continuar()" />
-
+        <app-etapa-dados-pessoais [formulario]="dadosPessoais" (voltar)="voltar()"> </app-etapa-dados-pessoais>
+        <app-botao-azul  class="botao-azul1" texto="Continuar" (acaoBotao)="continuar()"> </app-botao-azul>
 
       }
 
-      <!-- ETAPA 2: ENDEREÇO -->
       @if (etapa === 2) {
-        <app-etapa-endereco [formulario]="endereco"   (voltar)="voltar()" />
+        <app-etapa-endereco [formulario]="endereco"   (voltar)="voltar()"></app-etapa-endereco>
         <app-botao-azul class="botao-azul2" texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
 
       }
-
-      <!-- ETAPA 3: PERFIL -->
       @if (etapa === 3) {
         <app-etapa-perfil [formulario]="perfil" (voltar)="voltar()" />
         <app-botao-azul class="botao-azul3" texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
 
       }
     </section>
-
-  
 </main>

@@ -22,7 +22,6 @@ export class LoginAdotante implements OnInit {
   // Etapa 1 - Dados pessoais
   // Etapa 2 - Endereço
   // Etapa 3 - Perfil
-  // Etapa 4 - Final
   etapa = 1;
 
   // FORMULÁRIO DE DADOS PESSOAIS
@@ -97,10 +96,7 @@ validarCpf(control: AbstractControl) {
   horasTrabalho: new FormControl('nao-trabalha', Validators.required),
 
   // Armazena quantas pessoas moram com o usuário.
-  pessoasEmCasa: new FormControl<number | null>(
-    null,
-    [Validators.required, Validators.min(1)]
-  ),
+  pessoasEmCasa: new FormControl<number | null>( null, [Validators.required, Validators.min(1)]),
   aceitaFotos: new FormControl(false)
 
 });
@@ -135,27 +131,22 @@ exibirToast(mensagem: string, tipo: 'sucesso' | 'erro') {
 
     });
   }
+  
+  validarIdade(control: AbstractControl) {
+    if (!control.value) {
 
-
-
-
-validarIdade(control: AbstractControl) {
-
-  if (!control.value) {
+      return null;
+     }
+     
+     const nascimento = new Date(control.value + 'T00:00:00');
+     const hoje = new Date();
+     const idadeMinima = new Date();
+     idadeMinima.setFullYear(hoje.getFullYear() - 18);
+     
+     if (nascimento > idadeMinima) {
+      return { menorIdade: true };
+    }
     return null;
-  }
-
-  const nascimento = new Date(control.value + 'T00:00:00');
-  const hoje = new Date();
-
-  const idadeMinima = new Date();
-  idadeMinima.setFullYear(hoje.getFullYear() - 18);
-
-  if (nascimento > idadeMinima) {
-    return { menorIdade: true };
-  }
-
-  return null;
 }
 
 
@@ -166,18 +157,13 @@ validarIdade(control: AbstractControl) {
     // ETAPA 1 - DADOS PESSOAIS
     
     if (this.etapa === 1) {
-
-    if (this.dadosPessoais.valid) {
-    this.mostrarToast = false;
-    this.etapa++;
-
-    } else {
-    this.dadosPessoais.markAllAsTouched();
-
-    this.exibirToast(
-      'Preencha os dados pessoais corretamente!',
-      'erro'
-    );
+      if (this.dadosPessoais.valid) {
+        this.mostrarToast = false;
+        this.etapa++;
+      } else {
+        this.dadosPessoais.markAllAsTouched();
+        
+        this.exibirToast('Preencha os dados pessoais corretamente!','erro');
   }
 
   return;
@@ -196,8 +182,6 @@ validarIdade(control: AbstractControl) {
         this.endereco.markAllAsTouched();
          this.exibirToast('Preencha os dados do endereço corretamente!', 'erro');
       }
-
-      return;
     }
 
   // ETAPA 3 - PERFIL
@@ -212,39 +196,29 @@ validarIdade(control: AbstractControl) {
     console.log('Perfil:', this.perfil.value);
 
      this.exibirToast('Dados preenchidos com sucesso!', 'sucesso');
-  } else {
-    this.perfil.markAllAsTouched();
-    this.exibirToast( 'Preencha os dados do perfil corretamente!', 'erro');
-  }
+    } else {
+      this.perfil.markAllAsTouched();
+      this.exibirToast( 'Preencha os dados do perfil corretamente!', 'erro');
+    }
 
   return;
 }
 }
   
-  // MÉTODO PARA VOLTAR
   voltar() {
-
+    
     if (this.etapa > 1) {
       this.etapa--;
-    }
-    else{
-        this.router.navigate(['/escolher-perfil']);
-
+    }else{
+      this.router.navigate(['/escolher-perfil']);
     }
   }
-  irParaFeed() {
-  this.router.navigate(['/']);
-}
 
   // ROTA DO GATO
   private route = inject(ActivatedRoute);
 
-  // Recupera o ID do gato enviado pela URL.
-  gatoId = this.route.snapshot.paramMap.get('id');
-
   // Executado quando o componente é inicializado.
   ngOnInit() {
-
     // Recupera o parâmetro "etapa" da URL.
     const etapaUrl = this.route.snapshot.queryParamMap.get('etapa');
 

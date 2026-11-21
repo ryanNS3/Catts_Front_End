@@ -12,23 +12,11 @@ import { CampoTexto } from '../../../../../shared/components/campo-texto/campo-t
   styleUrl: './etapa-contato.css',
 })
 export class EtapaContato {
-
-  // Recebe o formulário do LoginOng
   @Input() formulario!: FormGroup;
-
-  // Avisa ao componente pai quando clicar em Voltar
   @Output() voltar = new EventEmitter<void>();
 
   // Dias disponíveis
-  dias = [
-    'Segunda',
-    'Terça',
-    'Quarta',
-    'Quinta',
-    'Sexta',
-    'Sábado',
-    'Domingo'
-  ];
+  dias = [ 'Segunda','Terça','Quarta', 'Quinta','Sexta', 'Sábado','Domingo'];
 
   // Acessa o controle dos dias no formulário
   get controleDias(): FormControl<string[]> {
@@ -42,21 +30,17 @@ export class EtapaContato {
 
   // Adiciona ou remove um dia selecionado
   alternarDia(dia: string) {
-
     const selecionados = this.controleDias.value;
 
     if (this.estaSelecionado(dia)) {
-
       this.controleDias.setValue(
         selecionados.filter(d => d !== dia)
       );
-
+    
     } else {
-
       this.controleDias.setValue([...selecionados, dia]);
-
     }
-
+    
     this.controleDias.markAsTouched();
   }
 }

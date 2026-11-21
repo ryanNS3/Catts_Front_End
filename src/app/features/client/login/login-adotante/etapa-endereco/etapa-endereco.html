@@ -8,28 +8,23 @@
 
   <div class="form-endereco" [formGroup]="formulario">
 
-    <app-campo-texto label="CEP" idInput="cep" placeholder="00000-000" [maximo]="9" 
-    [controlPai]="$any(formulario.get('cep'))"  [erroExterno]="erroCep() !== '' "
-    (saiuDoCampo)="buscarCep()"
-    />
+    <app-campo-texto label="CEP" idInput="cep" placeholder="00000-000" [maximo]="9"  [controlPai]="$any(formulario.get('cep'))" 
+     [erroExterno]="erroCep() !== '' " (saiuDoCampo)="buscarCep()"/>
     
     @if (erroCep()) {
-      <span class="mensagem-erro"> {{ erroCep() }} </span>
-}
-
-    <div class="campo tipo-residencia">
+      <span class="mensagem-erro"> {{ erroCep() }} </span>}
+      
+      <div class="campo tipo-residencia">
       <p class="text-form">Tipo de residência</p>
 
       <div class="opcoes-residencia">
-        <button type="button" class="opcao-residencia" 
-        [class.selecionada]="tipoResidencia === 'condominio'"
+        <button type="button" class="opcao-residencia" [class.selecionada]="tipoResidencia === 'condominio'" 
         (click)="selecionarResidencia('condominio')"> Condomínio
           <span class="icone-opcao icone-apartamento"></span>
         </button>
 
-        <button type="button" class="opcao-residencia"
-        [class.selecionada]="tipoResidencia === 'independente'"
-        (click)="selecionarResidencia('independente')">Independente
+        <button type="button" class="opcao-residencia" [class.selecionada]="tipoResidencia === 'independente'"
+        (click)="selecionarResidencia('independente')"> Independente
           <span class="icone-opcao icone-casa"></span>
         </button>
 
@@ -39,53 +34,41 @@
     <!-- TELAS DE PROTEÇÃO -->
     <div class="campo">
 
-      <label class="text-form" for="TelasProtecao">
-        Possui telas de proteção?
-      </label>
+      <label class="text-form" for="TelasProtecao"> Possui telas de proteção? </label>
 
       <!-- formControlName conecta o select ao FormGroup -->
       <select class="select-form" id="TelasProtecao" formControlName="telasProtecao" 
       [class.select-erro]="formulario.get('telasProtecao')?.invalid &&
-    formulario.get('telasProtecao')?.touched">
+        formulario.get('telasProtecao')?.touched">
 
         <!-- Opção inicial sem valor -->
         <option value="" disabled>Selecione uma opção</option>
-
         <option value="intencao"> Não, mas tenho intenção de colocar </option>
-
         <option value="sim">Sim</option>
-
         <option value="nao">Não</option>
 
       </select>
-      
+
       @if (formulario.get('telasProtecao')?.invalid && formulario.get('telasProtecao')?.touched) {
-        <span class="mensagem-erro"> Selecione uma opção. </span>
-      }
+        <span class="mensagem-erro"> Selecione uma opção. </span>}
 
     </div>
 
     <!-- IMÓVEL ALUGADO -->
     <div class="campo">
 
-      <label class="text-form" for="ImovelAlugado">
-        Imóvel alugado?
-      </label>
+      <label class="text-form" for="ImovelAlugado"> Imóvel alugado? </label>
 
       <!-- Conecta o select ao campo imovelAlugado -->
       <select class="select-form" id="ImovelAlugado" formControlName="imovelAlugado" 
       [class.select-erro]=" formulario.get('imovelAlugado')?.invalid && formulario.get('imovelAlugado')?.touched
 ">
         <option value="" disabled>Selecione uma opção</option>
-
         <option value="sim">Sim</option>
-
         <option value="nao">Não</option>
-
       </select>
       
       @if (formulario.get('imovelAlugado')?.invalid && formulario.get('imovelAlugado')?.touched) {
-        
         <span class="mensagem-erro"> Selecione uma opção. </span> }
 
     </div>

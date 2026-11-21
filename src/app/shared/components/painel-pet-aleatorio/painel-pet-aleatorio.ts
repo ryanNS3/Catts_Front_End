@@ -1,66 +1,37 @@
-
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AnimalService } from '../../../service/animal/animal';
-import { Animal } from '../../../service/@Type/animal';
 
 @Component({
   selector: 'app-painel-pet-aleatorio',
-  imports: [],
   templateUrl: './painel-pet-aleatorio.html',
   styleUrl: './painel-pet-aleatorio.css',
 })
-export class PainelPetAleatorio implements OnInit {
-
+export class PainelPetAleatorio {
   private animalService = inject(AnimalService);
 
-  // Guarda o pet sorteado
-  animalAleatorio: Animal | null = null;
-
-  ngOnInit() {
-
-    // Busca os animais cadastrados na API
-    this.animalService.buscarAnimais().subscribe({
-
-      next: (animais) => {
-
-        // Verifica se existem animais
-        if (animais.length > 0) {
-
-          // Sorteia uma posição da lista
-          const indice = Math.floor(Math.random() * animais.length);
-
-          // Guarda o animal sorteado
-          this.animalAleatorio = animais[indice];
-
-        }
-
-      },
-
-      error: (erro) => {
-        console.error('Erro ao buscar animais:', erro);
-      }
-
-    });
-
+  get animalAleatorio() {
+    return this.animalService.gatoSorteado();
   }
 
   nomeIdadeGatos(): string {
-
     const animal = this.animalAleatorio;
 
     if (!animal) return '';
-
     return `Gato ${animal.name} - ${animal.age} anos`;
   }
+  urlDaFoto(caminho: string): string {
+  return new URL(
+    caminho,
+    'https://catts-api-hhegcygvgbcrgkas.brazilsouth-01.azurewebsites.net'
+  ).href;
+}
+
+
 
   observacaoDoGato(): string {
-
     const animal = this.animalAleatorio;
 
     if (!animal) return '';
-
-    return animal.description ||
-      `Gato ${animal.name} cadastrado recentemente para adoção.`;
+     return animal.description || `Gato ${animal.name} cadastrado recentemente para adoção.`;
   }
-
 }

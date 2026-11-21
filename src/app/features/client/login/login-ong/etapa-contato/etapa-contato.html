@@ -1,6 +1,6 @@
-<app-botao-voltar (voltar)="voltar.emit()" />
+<app-botao-voltar (voltar)="voltar.emit()"> </app-botao-voltar>
 
-<app-step-slide-ong [etapa]="2" />
+<app-step-slide-ong [etapa]="2"></app-step-slide-ong>
 
 <h1 class="titulo">Contato</h1>
 <p class="subtitulo">Preencha todos os campos</p>
@@ -9,34 +9,27 @@
 
   <!-- WHATSAPP -->
   <app-campo-texto label="WhatsApp" idInput="whatsapp" placeholder="11 906377-9077" [maximo]="11"
-    [controlPai]="$any(formulario.get('whatsapp'))"
-    
-  />
+    [controlPai]="$any(formulario.get('whatsapp'))"></app-campo-texto>
 
   <!-- INSTAGRAM -->
   <app-campo-texto label="Instagram (Opcional)" idInput="instagram" placeholder="@amigosgatos"
-  [controlPai]="$any(formulario.get('instagram'))"
-  />
+  [controlPai]="$any(formulario.get('instagram'))"></app-campo-texto>
 
   <!-- FACEBOOK -->
   <app-campo-texto label="Facebook (Opcional)" idInput="facebook" placeholder="facebook.com/amigosgatos"
-    [controlPai]="$any(formulario.get('facebook'))"
-  />
+    [controlPai]="$any(formulario.get('facebook'))"></app-campo-texto>
 
   <!-- HORÁRIOS -->
   <div class="horarios">
     <div class="horario">
       <app-campo-texto label="Horário início" idInput="inicio" placeholder="9:00" tipo="time"
-        [controlPai]="$any(formulario.get('horarioInicio'))"
-      />
+        [controlPai]="$any(formulario.get('horarioInicio'))"></app-campo-texto>
     </div>
 
     <div class="horario">
       <app-campo-texto label="Horário fim" idInput="fim" placeholder="18:00" tipo="time"
-        [controlPai]="$any(formulario.get('horarioFim'))"
-      />
+        [controlPai]="$any(formulario.get('horarioFim'))"></app-campo-texto>
     </div>
-
   </div>
 
   <!-- DIAS DE ATENDIMENTO -->
@@ -44,10 +37,9 @@
 <!-- DIAS DE ATENDIMENTO -->
 <p class="text-form">Disponibilidade de atendimento</p>
 
-<div class="dias" [class.dias-erro]="controleDias.invalid && controleDias.touched"
->
-  @for (dia of dias; track dia) {
+<div class="dias" [class.dias-erro]="controleDias.invalid && controleDias.touched">
 
+  @for (dia of dias; track dia) {
     <button type="button" class="dia" [class.selecionado]="estaSelecionado(dia)" (click)="alternarDia(dia)"> {{ dia }} </button>
   }
   

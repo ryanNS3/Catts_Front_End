@@ -35,11 +35,8 @@ etapa = 1
 
   // Inicializa o botão do Google
   inicializarGoogle() {
-
     if (typeof google !== 'undefined' && google.accounts) {
-
       google.accounts.id.initialize({
-
         client_id: '158654072886-prqsffc413vlfrbr1dtfs7aqmpmssnnt.apps.googleusercontent.com',
 
         callback: (resposta: any) => {
@@ -56,15 +53,11 @@ etapa = 1
 
   // Envia a credencial para o backend
   entrarComGoogle(credential: string) {
-
     this.authService.loginComGoogle(credential).subscribe({
-
       next: (resposta: any) => {
-
         localStorage.setItem('token', resposta.token);
-
         this.zone.run(() => {
-
+          
           if (resposta.cadastrado) {
             this.router.navigate(['']);
           } else {
@@ -81,5 +74,4 @@ etapa = 1
     });
   }
 }
-
 declare var google: any;

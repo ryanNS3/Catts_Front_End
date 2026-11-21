@@ -1,13 +1,13 @@
 
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { PainelGato } from '../../../../shared/components/painel-gato/painel-gato';
 import { BotaoVoltar } from '../../../../shared/components/botao-voltar/botao-voltar';
 import { BotaoAzul } from '../../../../shared/components/botao-azul/botao-azul';
+import { PainelPetAleatorio } from '../../../../shared/components/painel-pet-aleatorio/painel-pet-aleatorio';
 
 @Component({
   selector: 'app-escolher-perfil',
-  imports: [PainelGato, BotaoVoltar, BotaoAzul],
+  imports: [BotaoVoltar, BotaoAzul, PainelPetAleatorio],
   templateUrl: './escolher-perfil.html',
   styleUrl: './escolher-perfil.css'
 })

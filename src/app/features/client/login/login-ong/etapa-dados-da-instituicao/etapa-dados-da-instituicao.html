@@ -1,19 +1,15 @@
-<app-step-slide-ong [etapa]="1" />
+<app-step-slide-ong [etapa]="1"></app-step-slide-ong>
 
-<h1 class="dados-pessoais-h1">
-  Dados da instituição
-</h1>
+<h1 class="dados-pessoais-h1">Dados da instituição </h1>
 
-<p class="sub-1"> Preencha todos os campos
-</p>
+<p class="sub-1"> Preencha todos os campos </p>
 
 <div class="campos">
 
   <app-campo-texto label="Nome da ONG" idInput="nomeOng" placeholder="Ex: Amigos gatos"
-    [controlPai]="$any(formulario.get('nomeOng'))"
-  />
+    [controlPai]="$any(formulario.get('nomeOng'))"></app-campo-texto>
 
-  <app-campo-texto label="CNPJ" idInput="cnpj" placeholder="00.000.000/0000-00" [maximo]="14" [controlPai]="$any(formulario.get('cnpj'))"
-  />
+  <app-campo-texto label="CNPJ" idInput="cnpj" placeholder="00.000.000/0000-00" [maximo]="14" 
+  [controlPai]="$any(formulario.get('cnpj'))"> </app-campo-texto>
 
 </div>

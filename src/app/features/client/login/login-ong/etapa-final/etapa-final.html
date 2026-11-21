@@ -1,9 +1,0 @@
-<div class="foto">
-  @if (animalSelecionado(); as gato) {
-    @if (gato.image?.linkId) {
-      <img [src]="gato.image?.linkId || ''" [alt]="gato.name">
-    }
-  }
-</div>
-
-<h1 class="titulo">Você</h1>

@@ -1,4 +1,3 @@
-
 <section class="dados-pessoais etapa-tres">
 
   <app-botao-voltar (click)="voltar.emit()" />
@@ -9,23 +8,17 @@
 
   <!-- Agrupa os campos do formulário -->
   <div class="form-perfil" [formGroup]="formulario">
-
-    <!-- FAIXA SALARIAL -->
-    <!-- Utiliza o CampoTexto reutilizável -->
     <app-campo-texto label="Qual é sua faixa salarial?" idInput="FaixaSalarial" placeholder="R$ 900"
-    [controlPai]="$any(formulario.get('faixaSalarial'))"
-    />
+    [controlPai]="$any(formulario.get('faixaSalarial'))"/>
 
     <!-- QUANTIDADE DE PETS -->
     <div class="campo">
 
       <p class="text-form">Quantos pets você tem em casa?</p>
-
       <div class="opcoes-perfil">
 
         <!-- Seleciona nenhum pet -->
-        <button type="button" class="opcao-perfil" 
-          [class.selecionada]="qtdPets === 'nenhum'"
+        <button type="button" class="opcao-perfil" [class.selecionada]="qtdPets === 'nenhum'"
           (click)="selecionarOpcao('qtdPets', 'nenhum')">
 
           <span class="opcao-titulo">Nenhum</span>
@@ -33,8 +26,7 @@
         </button>
 
         <!-- Seleciona entre 1 e 3 pets -->
-        <button type="button" class="opcao-perfil"
-          [class.selecionada]="qtdPets === '1-3'"
+        <button type="button" class="opcao-perfil" [class.selecionada]="qtdPets === '1-3'"
           (click)="selecionarOpcao('qtdPets', '1-3')">
 
           <span class="opcao-titulo">Entre</span>
@@ -56,15 +48,12 @@
     <!-- HORAS DE TRABALHO -->
     <div class="campo">
 
-      <p class="text-form">
-        Quantas horas você trabalha(por dia)?
-      </p>
+      <p class="text-form"> Quantas horas você trabalha(por dia)? </p>
 
       <div class="opcoes-perfil">
 
         <!-- Não trabalha -->
-        <button type="button" class="opcao-perfil" 
-        [class.selecionada]="horasTrabalho === 'nao-trabalha'"
+        <button type="button" class="opcao-perfil" [class.selecionada]="horasTrabalho === 'nao-trabalha'"
         (click)="selecionarOpcao('horasTrabalho', 'nao-trabalha')">
 
           <span class="opcao-titulo">Não trabalha</span>
@@ -72,8 +61,7 @@
         </button>
 
         <!-- Entre 4 e 6 horas -->
-        <button type="button" class="opcao-perfil" 
-        [class.selecionada]="horasTrabalho === '4h-6h'"
+        <button type="button" class="opcao-perfil" [class.selecionada]="horasTrabalho === '4h-6h'"
         (click)="selecionarOpcao('horasTrabalho', '4h-6h')">
 
           <span class="opcao-titulo">Entre</span>
@@ -81,8 +69,7 @@
         </button>
 
         <!-- Mais de 8 horas -->
-        <button type="button" class="opcao-perfil"
-          [class.selecionada]="horasTrabalho === '+8h'"
+        <button type="button" class="opcao-perfil" [class.selecionada]="horasTrabalho === '+8h'"
           (click)="selecionarOpcao('horasTrabalho', '+8h')">
 
           <span class="opcao-titulo">Mais que</span>
@@ -99,15 +86,11 @@
 
     <!-- CHECKBOX -->
     <label class="check-form">
-
       <!-- Conecta o checkbox ao formulário -->
       <input class="check-box" type="checkbox" formControlName="aceitaFotos"
       />
 
-      <span>
-        Aceita enviar vídeos e fotos da sua residência
-      </span>
-
+      <span> Aceita enviar vídeos e fotos da sua residência</span>
     </label>
 
   </div>
