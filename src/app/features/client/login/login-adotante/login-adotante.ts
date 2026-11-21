@@ -28,7 +28,7 @@ export class LoginAdotante implements OnInit {
 
   dadosPessoais = new FormGroup ({
     contato: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]{2}9[0-9]{8}$/)]),
-    cpf: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]{11}$/), this.validarCpf]),
+    cpf: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]{11}$/)]),
     nascimento: new FormControl('', [Validators.required, this.validarIdade])
 
   });
@@ -51,37 +51,6 @@ export class LoginAdotante implements OnInit {
     cepEncontrado: new FormControl(false)
 
   });
-
-validarCpf(control: AbstractControl) {
-  const cpf = control.value;
-
-  if (!cpf || cpf.length !== 11) {
-    return null;
-  }
-
-  // Impede CPFs com todos os números iguais
-  if (/^(\d)\1{10}$/.test(cpf)) {
-    return { cpfInvalido: true };
-  }
-
-  // Verifica os dois últimos números do CPF
-  for (let i = 9; i < 11; i++) {
-    let soma = 0;
-
-    for (let j = 0; j < i; j++) {
-      soma += Number(cpf[j]) * (i + 1 - j);
-    }
-
-    const resto = (soma * 10) % 11;
-    const digito = resto === 10 ? 0 : resto;
-
-    if (digito !== Number(cpf[i])) {
-      return { cpfInvalido: true };
-    }
-  }
-
-  return null;
-}
 
 
   // FORMULÁRIO DO PERFIL

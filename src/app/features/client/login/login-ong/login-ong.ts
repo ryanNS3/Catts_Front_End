@@ -24,57 +24,6 @@ export class LoginOng implements OnInit {
   private salvandoCadastro = false;
   etapa = 1;
 
-validarCnpj(control: AbstractControl) {
-  const cnpj = control.value;
-
-  // Verifica se tem 14 números
-  if (!cnpj || !/^[0-9]{14}$/.test(cnpj)) {
-    return null;
-  }
-
-  // Não permite números todos iguais
-  if (/^(\d)\1{13}$/.test(cnpj)) {
-    return { cnpjInvalido: true };
-  }
-
-  // Pesos usados para calcular os dois últimos números
-  const pesos1 = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
-  const pesos2 = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
-
-  let soma1 = 0;
-  let soma2 = 0;
-
-  // Calcula o primeiro dígito
-  for (let i = 0; i < 12; i++) {
-    soma1 += Number(cnpj[i]) * pesos1[i];
-  }
-
-  let digito1 = 11 - (soma1 % 11);
-
-  if (digito1 >= 10) {
-    digito1 = 0;
-  }
-
-  // Calcula o segundo dígito
-  for (let i = 0; i < 13; i++) {
-    soma2 += Number(cnpj[i]) * pesos2[i];
-  }
-
-  let digito2 = 11 - (soma2 % 11);
-
-  if (digito2 >= 10) {
-    digito2 = 0;
-  }
-
-  // Compara os dígitos calculados com os do CNPJ
-  if (digito1 !== Number(cnpj[12]) ||
-      digito2 !== Number(cnpj[13])) {
-    return { cnpjInvalido: true };
-  }
-
-  return null;
-}
-
   continuar() {
   if (this.etapa === 1) {
     if (this.dadosInstituicao.valid) {
@@ -121,7 +70,7 @@ formulario = new FormGroup({
   // ETAPA 1 - Dados da instituição
     dadosInstituicao: new FormGroup({
     nomeOng: new FormControl('', Validators.required),
-    cnpj: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]{14}$/), this.validarCnpj]),
+    cnpj: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]{14}$/)]),
   }),
 
   // ETAPA 2 - Contato
