@@ -49,10 +49,14 @@
                     </div>
 
                     @if (animal.vaccine) {
-                        <p>{{ animal.vaccine }}</p>
-                    } @else {
-                        <p>Não informado</p>
-                    }
+    <ul>
+        @for (vacina of animal.vaccine.split(','); track vacina) {
+            <li>{{ vacina.trim() }}</li>
+        }
+    </ul>
+} @else {
+    <p>Não informado</p>
+}
                 </div>
 
                 <div class="item-informacao">

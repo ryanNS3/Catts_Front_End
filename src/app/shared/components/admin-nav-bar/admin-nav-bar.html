@@ -1,0 +1,54 @@
+
+<header class="navbar">
+
+  <!-- Logo -->
+  <div class="logo">
+    @Catts
+  </div>
+
+  <!-- Navegação -->
+  <nav class="menu">
+
+  <a
+    class="opcao"
+    [class.ativa]="paginaAtiva === 'inicio'"
+    href="/admin">
+    INÍCIO
+  </a>
+
+  <a
+    class="opcao"
+    [class.ativa]="paginaAtiva === 'gatos'"
+    href="/admin/gatos">
+    GATOS
+  </a>
+
+  <a
+    class="opcao"
+    [class.ativa]="paginaAtiva === 'perfil'"
+    href="/admin/perfil">
+    PERFIL
+  </a>
+
+  </nav>
+
+  <!-- Notificações e foto -->
+  <div class="acoes">
+
+    <div class="notificacoes">
+
+      <div class="icone-notificacao">
+        <img [src]="'/Icones/Notificacao.svg'" alt="Ícone de notificação">
+      </div>
+
+       <span>{{ novasSolicitacoes }} NOVAS SOLICITAÇÕES</span>
+
+    </div>
+
+    <div class="foto-admin">
+      N
+    </div>
+
+  </div>
+
+</header>

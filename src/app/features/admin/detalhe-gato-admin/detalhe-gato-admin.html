@@ -1,0 +1,29 @@
+<app-admin-nav-bar paginaAtiva="gatos"></app-admin-nav-bar>
+
+<main class="admin-detalhe-gato">
+
+  <section class="admin-cabecalho">
+    <app-admin-page-icon icon="pata-branca.svg"></app-admin-page-icon>
+
+    <div class="admin-titulo">
+      <h1>Gatos</h1>
+      <p>Visualize as informações do gato selecionado</p>
+    </div>
+
+    <app-admin-counter
+      [valor]="19"
+      descricao="Gatos para adoção">
+    </app-admin-counter>
+  </section>
+
+  @if (gatoSelecionado) {
+  <app-admin-cat-card
+    tamanho="detalhe"
+    [id]="gatoSelecionado.id"
+    [nome]="gatoSelecionado.nome"
+    [idade]="gatoSelecionado.idade"
+    [imagem]="gatoSelecionado.imagem">
+  </app-admin-cat-card>
+}
+
+</main>

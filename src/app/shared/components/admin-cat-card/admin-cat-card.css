@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+
+.card-gato {
+    width: 230px;
+    height: 280px;
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card-gato img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.informacoes-gato {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 35px 15px 15px;
+    box-sizing: border-box;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+    font-family: 'Amatic SC', cursive;
+}
+
+.informacoes-gato h3 {
+    font-size: 38px;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0;
+    text-align: center;
+}
+
+.informacoes-gato p {
+    font-size: 13px;
+    color: #ffffff;
+    margin: 0;
+}
+
+.card-detalhe {
+    width: 360px;
+    height: 405px;
+}

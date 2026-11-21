@@ -1,0 +1,119 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.admin-gatos {
+  padding: 25px 6%;
+  background-color: #ffffff;
+  min-height: calc(100vh - 50px);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Cabeçalho */
+.admin-cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 28px;
+}
+
+.admin-titulo {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.admin-titulo h1 {
+  font-family: 'Inter';
+  font-size: 36px;
+  font-weight: 200;
+  color: #222222;
+  margin: 0;
+}
+
+.admin-titulo p {
+  font-size: 14px;
+  color: #666666;
+  margin: 0;
+}
+
+/* Contador */
+app-admin-counter {
+  margin-left: auto;
+  margin-right: 25px;
+}
+
+/* Lista de gatos */
+.lista-gatos {
+  display: grid;
+  grid-template-columns: repeat(4, 230px);
+  gap: 25px;
+  margin-top: 30px;
+}
+
+/* Card adicionar gato */
+.card-adicionar-gato {
+  width: 230px;
+  height: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+  border: 2px dashed #000;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: #000;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+
+.card-adicionar-gato span {
+  font-size: 34px;
+  font-weight: 200;
+}
+
+.card-adicionar-gato p {
+  font-size: 10px;
+  margin: 0;
+}
+
+.card-adicionar-gato:hover {
+  border-color: #2996ed;
+  color: #2996ed;
+  background-color: #f7fbff;
+}
+
+/* Responsividade */
+@media (max-width: 1100px) {
+  .lista-gatos {
+    grid-template-columns: repeat(3, 230px);
+  }
+}
+
+@media (max-width: 800px) {
+  .lista-gatos {
+    grid-template-columns: repeat(2, 230px);
+  }
+}
+
+@media (max-width: 550px) {
+  .lista-gatos {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .admin-gatos {
+    padding: 25px 4%;
+  }
+
+  .admin-cabecalho {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  app-admin-counter {
+    margin-left: 0;
+  }
+}

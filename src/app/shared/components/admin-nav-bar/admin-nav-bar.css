@@ -1,0 +1,157 @@
+
+.navbar {
+  width: 88%;
+  max-width: none;
+  margin: 50px auto 25px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+
+  font-family: 'Inter', sans-serif;
+}
+
+/* Logo */
+
+.logo {
+  font-size: 15px;
+  font-weight: bold;
+  color: #111;
+  white-space: nowrap;
+}
+
+/* Menu */
+
+.menu {
+  display: flex;
+  align-items: center;
+
+  width: 330px;
+  height: 46px;
+
+  margin-left: 48px;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.opcao {
+  flex: 1;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 11px;
+  color: #999;
+
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.opcao.ativa {
+  background-color: #2994f5;
+  color: white;
+  border-radius: 30px;
+}
+
+/* Ações */
+
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-left: auto;
+}
+
+/* Notificações */
+
+.notificacoes {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  height: 46px;
+  padding: 5px 22px 5px 7px;
+
+  border: 1px solid #e8e8e8;
+  border-radius: 30px;
+
+  font-size: 11px;
+  color: #222;
+  white-space: nowrap;
+}
+
+.icone-notificacao {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff454f;
+  border-radius: 50%;
+}
+
+.icone-notificacao img {
+  width: 11px;
+  height: 10px;
+  object-fit: contain;
+}
+/* Foto do administrador */
+
+.foto-admin {
+  width: 46px;
+  height: 46px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+  background-color: #ea3f94;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Responsividade */
+
+@media (max-width: 750px) {
+  .navbar {
+    width: 92%;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  .menu {
+    margin-left: auto;
+    width: 280px;
+  }
+
+  .acoes {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .menu {
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .acoes {
+    gap: 10px;
+  }
+
+  .notificacoes {
+    padding-right: 10px;
+    font-size: 9px;
+  }
+}

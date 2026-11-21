@@ -1,5 +1,5 @@
 
-/* Fundo blur no feed */
+/* Fundo do Feed */
 .modal-fundo {
     position: fixed;
     inset: 0;
@@ -7,176 +7,314 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
     backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.08);
 }
 
 /* Janela principal */
 .modal-conteudo {
-    width: 900px;
-    max-width: calc(100% - 40px);
-    height: 600px;
+    width: 800px;
+    max-width: 100%;
+    height: 544px;
     max-height: 90vh;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
 
     background-color: #ffffff;
-    border-radius: 20px;
+    border: 1px solid #333333;
+    border-radius: 18px;
     overflow: hidden;
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.12);
 }
 
-/* Lado esquerdo do modal */
+/* Lado da imagem */
 .modal-imagem {
     position: relative;
-    width: 100%;
+    min-width: 0;
     height: 100%;
     overflow: hidden;
 }
 
-.modal-imagem img {
+.modal-imagem > img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-/* Informações da foto */
+/* Informações sobre a foto */
 .informacoes-gato {
     position: absolute;
-    bottom: 25px;
-    left: 25px;
-    color: white;
-    text-shadow: 1px 1px 5px black;
+    bottom: 24px;
+    left: 24px;
+    right: 15px;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px #000000;
 }
 
 .informacoes-gato span {
     display: inline-block;
-    padding: 6px 12px;
-    border: 1px solid white;
+    padding: 5px 10px;
+    border: 1px solid #ffffff;
     border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.3);
-    font-size: 13px;
+    font-size: 11px;
 }
 
 .informacoes-gato h2 {
-    font-size: 32px;
+    font-size: 30px;
+    font-weight: 400;
     margin: 10px 0 0;
 }
 
-/* Lado direito do modal */
+/* Lado das informações */
 .modal-detalhes {
-    position: relative;
-    padding: 30px 32px;
+    min-width: 0;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 28px 46px 24px;
+
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
-    min-width: 0;
+
+    overflow: hidden;
+
     font-family: 'Inter', sans-serif;
     color: #071820;
 }
 
-/* Titulo principal */
-.modal-detalhes > h2 {
-    font-size: 20px;
-    margin: 14px 0 20px;
+/* Botão voltar */
+.modal-detalhes app-botao-voltar {
+    display: block;
+    flex-shrink: 0;
 }
 
-/* Titulo de cada informação */
+/* Título */
+.modal-detalhes > h2 {
+    font-size: 18px;
+    font-weight: 800;
+    margin: 12px 0 14px;
+}
+
+/* Títulos das informações */
 .titulo-informacao {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 11px;
+    gap: 6px;
+    font-size: 10px;
     font-weight: 600;
 }
 
 .titulo-informacao img {
     width: 15px;
     height: 15px;
+    flex-shrink: 0;
     object-fit: contain;
 }
 
 /* História */
 .informacao-historia {
-    margin-bottom: 18px;
+    margin-bottom: 12px;
 }
 
 .informacao-historia p {
     font-size: 10px;
-    line-height: 1.5;
-    margin: 6px 0 0;
+    line-height: 1.35;
+    margin: 5px 0 0;
     color: #555555;
+    overflow-wrap: anywhere;
 }
 
-/* duas colunas */
+/* Informações em duas colunas */
 .informacoes-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 20px;
-    row-gap: 15px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 14px;
+    row-gap: 12px;
+}
+
+.item-informacao {
+    min-width: 0;
 }
 
 .item-informacao p {
     font-size: 10px;
+    line-height: 1.4;
     margin: 5px 0 0;
+    color: #444444;
+    overflow-wrap: anywhere;
 }
 
-/* Lista de vacinas */
+/* Vacinas */
 .item-informacao ul {
     list-style-type: disc;
-    padding-left: 20px;
+    padding-left: 14px;
     margin: 5px 0 0;
     font-size: 10px;
-    list-style-position: outside;
 }
 
 .item-informacao li {
-    display: list-item;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
 }
 
 /* ONG */
 .informacao-ong {
-    margin-top: 20px;
+    margin-top: 18px;
 }
 
 .informacao-ong > strong {
-    font-size: 11px;
+    font-size: 10px;
+    font-weight: 600;
 }
 
 .cartao-ong {
-    height: 42px;
-    margin-top: 10px;
+    min-height: 40px;
+    box-sizing: border-box;
+    margin-top: 8px;
     padding: 0 12px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 8px;
 
-    border: 1px solid #aaaaaa;
+    border: 1px solid #888888;
     border-radius: 10px;
-    font-size: 11px;
+    font-size: 10px;
+}
+
+.cartao-ong span {
+    min-width: 0;
+    overflow-wrap: anywhere;
 }
 
 .cartao-ong img {
-    width: 17px;
-    height: 17px;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
     object-fit: contain;
 }
 
-/* Responsividade */
+/* Botão Adotar */
+.modal-detalhes app-botao-azul {
+    width: 75%;
+    margin: auto auto 35px;
+    padding-top: 10px;
+    flex-shrink: 0;
+}
 
+.modal-detalhes ::ng-deep .botao-adotar {
+    height: 44px;
+    font-size: 12px;
+    border-radius: 10px;
+    gap: 6px;
+}
+
+.modal-detalhes ::ng-deep .botao-adotar img {
+    width: 16px;
+    height: 16px;
+}
+
+/* Tablets */
 @media (max-width: 850px) {
     .modal-conteudo {
-        width: calc(100% - 40px);
-        height: 85vh;
+        width: 720px;
+        height: 520px;
     }
 
     .modal-detalhes {
-        padding: 24px 20px;
+        padding: 22px 24px;
+    }
+
+    .modal-detalhes > h2 {
+        font-size: 17px;
     }
 
     .informacoes-gato h2 {
-        font-size: 26px;
+        font-size: 28px;
+    }
+
+    .informacoes-grid {
+        column-gap: 10px;
+        row-gap: 10px;
+    }
+
+    .modal-detalhes app-botao-azul {
+        width: 85%;
+    }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+    .modal-fundo {
+        padding: 12px;
+    }
+
+    .modal-conteudo {
+        width: 100%;
+        height: 92vh;
+        max-height: 92vh;
+        grid-template-columns: 1fr;
+        grid-template-rows: 38% 62%;
+        border-radius: 16px;
+    }
+
+    .modal-imagem {
+        min-height: 0;
+    }
+
+    .informacoes-gato {
+        left: 16px;
+        bottom: 14px;
+    }
+
+    .informacoes-gato span {
+        font-size: 10px;
+        padding: 5px 9px;
+    }
+
+    .informacoes-gato h2 {
+        font-size: 24px;
+        margin-top: 6px;
+    }
+
+    .modal-detalhes {
+        padding: 12px 16px;
+        height: 100%;
+    }
+
+    .modal-detalhes > h2 {
+        font-size: 16px;
+        margin: 8px 0 10px;
+    }
+
+    .titulo-informacao {
+        font-size: 10px;
+    }
+
+    .informacao-historia p,
+    .item-informacao p {
+        font-size: 9px;
+    }
+
+    .informacoes-grid {
+        column-gap: 10px;
+        row-gap: 10px;
+    }
+
+    .informacao-ong {
+        margin-top: 12px;
+    }
+
+    .cartao-ong {
+        min-height: 36px;
+    }
+
+    .modal-detalhes app-botao-azul {
+        width: 85%;
+        padding-top: 8px;
     }
 }

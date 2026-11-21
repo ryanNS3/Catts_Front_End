@@ -4,6 +4,10 @@ import { LoginAdotante } from './features/client/login/login-adotante/login-adot
 import { LoginOng } from './features/client/login/login-ong/login-ong';
 import { EscolherPerfil } from './features/client/login/escolher-perfil/escolher-perfil';
 import { LoginGoogle } from './features/client/login/login-google/login-google';
+import { InicioAdmin } from './features/admin/inicio-admin/inicio-admin';
+import { GatosAdmin } from './features/admin/gatos-admin/gatos-admin';
+import { DetalheGatoAdmin } from './features/admin/detalhe-gato-admin/detalhe-gato-admin';
+import { DetalheSolicitacaoAdmin } from './features/admin/detalhe-solicitacao-admin/detalhe-solicitacao-admin';
 
 export const routes: Routes = [
   {
@@ -30,6 +34,22 @@ export const routes: Routes = [
 
   { path: 'login-google',
     component: LoginGoogle,
+  },
+
+  {path: 'admin',
+    component: InicioAdmin,
+  },
+
+  {path: 'admin/gatos',
+    component: GatosAdmin,
+  },
+
+  {path: 'admin/gatos/:id',
+    component: DetalheGatoAdmin,
+  },
+
+  {path: 'admin/solicitacoes/:id',
+    component: DetalheSolicitacaoAdmin,
   },
 
 ];

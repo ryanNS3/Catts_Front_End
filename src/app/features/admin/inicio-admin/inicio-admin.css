@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.admin-inicio {
+  padding: 25px 6%;
+  background-color: #ffffff;
+  min-height: calc(100vh - 50px);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Cabeçalho */
+.admin-cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 28px;
+}
+
+.admin-titulo {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.admin-titulo h1 {
+    font-family: 'Inter';
+  font-size: 36px;
+  font-weight: 200;
+  color: #222222;
+  margin: 0;
+}
+
+.admin-titulo p {
+  font-size: 14px;
+  color: #666666;
+  margin: 0;
+}
+
+/* Contador */
+app-admin-counter {
+  margin-left: auto;
+  margin-right: 25px;
+}
+
+/* Tabela */
+.admin-solicitacoes {
+  width: 100%;
+  min-height: 440px;
+  border: 1px solid #e5e5e5;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.admin-solicitacoes table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.admin-solicitacoes th {
+  height: 46px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #222222;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.admin-solicitacoes td {
+  height: 58px;
+  font-size: 12px;
+  color: #666666;
+  text-align: center;
+}
+
+.admin-solicitacoes th,
+.admin-solicitacoes td {
+  padding: 10px;
+  text-align: center;
+}
+
+/* Status */
+.status-pendente {
+  display: inline-block;
+  background-color: #ff414b;
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 6px 18px;
+  font-size: 11px;
+}
+
+/* Botão visualizar */
+.admin-solicitacoes button {
+  background-color: #2996ed;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 7px 18px;
+  font-size: 11px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+/* Responsividade */
+@media (max-width: 700px) {
+  .admin-inicio {
+    padding: 25px 4%;
+  }
+
+  .admin-cabecalho {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  app-admin-counter {
+    margin-left: 0;
+  }
+
+  .admin-solicitacoes {
+    overflow-x: auto;
+  }
+
+  .admin-solicitacoes table {
+    min-width: 650px;
+  }
+}

@@ -25,10 +25,6 @@ export class Feed implements OnInit {
   animalSelecionado: Animal | null = null;
 
   ngOnInit(): void {
-    const gatoParaReabrir = history.state?.gatoParaReabrir;
-    if (gatoParaReabrir) {
-      this.abrirModal(gatoParaReabrir);
-}
     this.animaisService.buscarAnimais().subscribe({
       next: (dados) => {
         console.log("Animais recebidos da API:", dados);

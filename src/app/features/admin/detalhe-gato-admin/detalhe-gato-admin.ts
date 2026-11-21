@@ -1,0 +1,49 @@
+import { Component } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { AdminNavBar } from "../../../shared/components/admin-nav-bar/admin-nav-bar";
+import { AdminPageIcon } from "../../../shared/components/admin-page-icon/admin-page-icon";
+import { AdminCounter } from "../../../shared/components/admin-counter/admin-counter";
+import { AdminCatCard } from "../../../shared/components/admin-cat-card/admin-cat-card";
+
+@Component({
+  imports: [AdminNavBar, AdminPageIcon, AdminCounter, AdminCatCard],
+  selector: "app-detalhe-gato-admin",
+  styleUrl: "./detalhe-gato-admin.css",
+  templateUrl: "./detalhe-gato-admin.html",
+})
+export class DetalheGatoAdmin {
+
+  idGato: string | null = null;
+
+ constructor(private route: ActivatedRoute) {
+  this.idGato = this.route.snapshot.paramMap.get('id');
+
+  this.gatoSelecionado = this.gatos.find(
+    gato => gato.id === Number(this.idGato)
+  );
+}
+
+  gatos = [
+  {
+    id: 1,
+    nome: "Tom",
+    idade: "2 anos",
+    imagem: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=500"
+  },
+  {
+    id: 2,
+    nome: "Luna",
+    idade: "1 ano",
+    imagem: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=500"
+  },
+  {
+    id: 3,
+    nome: "Téo",
+    idade: "6 meses",
+    imagem: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=500"
+  }
+];
+
+gatoSelecionado: any;
+
+}

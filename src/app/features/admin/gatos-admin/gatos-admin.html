@@ -1,0 +1,32 @@
+<app-admin-nav-bar paginaAtiva="gatos"></app-admin-nav-bar>
+
+<main class="admin-gatos">
+    <section class="admin-cabecalho">
+        <app-admin-page-icon icon="pata-branca.svg"></app-admin-page-icon>
+
+        <div class="admin-titulo">
+            <h1>Gatos</h1>
+            <p>Visualize e aprove as solicitações de adoção abaixo</p>
+        </div>
+
+        <app-admin-counter [valor]="gatos.length" descricao="Gatos cadastrados"></app-admin-counter>
+
+    </section>
+<section class="lista-gatos">
+
+  <div class="card-adicionar-gato">
+    <span>Adicionar</span>
+    <p>Clique aqui para adicionar</p>
+  </div>
+
+  @for (gato of gatos; track gato.id) {
+    <app-admin-cat-card
+      [id]="gato.id"
+      [nome]="gato.nome"
+      [idade]="gato.idade"
+      [imagem]="gato.imagem">
+    </app-admin-cat-card>
+  }
+
+</section>
+</main>

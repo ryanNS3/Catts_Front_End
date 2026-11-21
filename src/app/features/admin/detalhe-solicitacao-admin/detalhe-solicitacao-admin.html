@@ -1,0 +1,220 @@
+
+<app-admin-nav-bar paginaAtiva="inicio"></app-admin-nav-bar>
+
+<main class="admin-detalhe-solicitacao">
+
+  <!-- Cabeçalho -->
+  <section class="admin-cabecalho">
+
+    <app-admin-page-icon icon="home.svg"></app-admin-page-icon>
+
+    <div class="admin-titulo">
+
+      <div class="identificacao-solicitacao">
+
+        @if (solicitacaoSelecionada) {
+          <span>Início</span>
+          <span class="separador-titulo">•</span>
+
+          <h1>
+            #{{ solicitacaoSelecionada.id }}
+            {{ solicitacaoSelecionada.nomeSolicitante }}
+          </h1>
+        }
+
+      </div>
+
+      <p>Visualize e aprove as solicitações de adoção abaixo</p>
+
+    </div>
+
+    <!-- Ações da solicitação -->
+    <div class="acoes-solicitacao">
+
+  <button
+    class="btn-recusar"
+    title="Recusar solicitação"
+    (click)="atualizarStatus('Recusada')">
+    <img src="/Icones/recusar.svg" alt="Recusar">
+  </button>
+
+  <button
+    class="btn-aprovar"
+    title="Aprovar solicitação"
+    (click)="atualizarStatus('Aprovada')">
+    <img src="/Icones/salvar.svg" alt="Aprovar">
+  </button>
+
+</div>
+
+  </section>
+
+
+  <!-- Conteúdo -->
+  <section class="detalhe-solicitacao-conteudo">
+
+    <!-- Card do solicitante -->
+    <div class="card-solicitante">
+
+      <div class="card-titulo">
+        <h2>Dados solicitante</h2>
+      </div>
+
+      <div class="colunas-solicitante">
+
+        <!-- Dados pessoais -->
+        <div class="coluna-dados">
+
+          <h3>
+            <img src="/Icones/dados.svg" alt="">
+            Dados pessoais
+          </h3>
+
+          <div class="informacoes-solicitante">
+
+            <div class="campo-informacao">
+              <span>Nome completo</span>
+              <p>{{ dadosSolicitante.nome }}</p>
+            </div>
+
+            <div class="campo-informacao">
+              <span>CPF</span>
+              <p>{{ dadosSolicitante.cpf }}</p>
+            </div>
+
+            <div class="campo-informacao">
+              <span>Data nascimento</span>
+              <p>{{ dadosSolicitante.dataNascimento }}</p>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Endereço -->
+        <div class="coluna-dados">
+
+          <h3>
+            <img src="/Icones/location.svg" alt="">
+            Endereço
+          </h3>
+
+          <div class="informacoes-endereco">
+
+            <div class="campo-informacao">
+              <span>CEP</span>
+              <p>{{ dadosEndereco.cep }}</p>
+            </div>
+
+            <div class="campo-informacao">
+              <span>Rua</span>
+              <p>{{ dadosEndereco.rua }}</p>
+            </div>
+
+            <div class="campo-informacao">
+              <span>Número</span>
+              <p>{{ dadosEndereco.numero }}</p>
+            </div>
+
+            <div class="campo-informacao">
+              <span>Cidade</span>
+              <p>{{ dadosEndereco.cidade }}</p>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Financeiro -->
+        <div class="coluna-dados">
+
+          <h3>
+            <img src="/Icones/money_bag.svg" alt="">
+            Financeiro
+          </h3>
+
+          <div class="informacoes-financeiro">
+
+            <div class="campo-informacao">
+              <span>Renda mensal</span>
+              <p>{{ dadosFinanceiro.rendaMensal }}</p>
+            </div>
+
+            <div class="campo-informacao">
+              <span>Profissão</span>
+              <p>{{ dadosFinanceiro.profissao }}</p>
+            </div>
+
+            <div class="campo-informacao">
+              <span>Empregado</span>
+              <p>{{ dadosFinanceiro.possuiEmprego }}</p>
+            </div>
+
+            <div class="campo-informacao">
+              <span>Moradia</span>
+              <p>{{ dadosFinanceiro.tipoMoradia }}</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Contato -->
+      <button class="btn-contato">
+
+        <img src="/Icones/Whatsapp.svg" alt="Ícone do Whatsapp">
+
+        Entrar em contato
+
+      </button>
+
+    </div>
+
+
+    <!-- Card do pet -->
+<div class="card-pet">
+
+  <div class="card-titulo">
+    <h2>Dados do pet</h2>
+  </div>
+
+  <div class="informacoes-pet">
+
+    <div class="campo-informacao">
+      <span>Nome</span>
+      <p>{{ dadosPet.nome }}</p>
+    </div>
+
+    <div class="campo-informacao">
+      <span>Idade</span>
+      <p>{{ dadosPet.idade }}</p>
+    </div>
+
+    <div class="campo-informacao">
+      <span>Sexo</span>
+      <p>{{ dadosPet.sexo }}</p>
+    </div>
+
+    <div class="campo-informacao">
+      <span>Castrado</span>
+      <p>{{ dadosPet.castrado }}</p>
+    </div>
+
+    <div class="campo-informacao">
+      <span>Peso</span>
+      <p>{{ dadosPet.peso }}</p>
+    </div>
+
+  </div>
+
+</div>
+
+  </section>
+
+</main>
+```

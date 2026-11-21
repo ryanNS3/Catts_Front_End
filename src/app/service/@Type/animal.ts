@@ -1,4 +1,3 @@
-import { Service } from "@angular/core";
 
 export interface Animal {
   id?: string;

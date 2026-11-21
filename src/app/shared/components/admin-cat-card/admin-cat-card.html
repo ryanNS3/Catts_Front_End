@@ -1,0 +1,7 @@
+<div class="card-gato" (click)="abrirDetalhes()" [class.card-detalhe]="tamanho === 'detalhe'">
+  <img [src]="imagem" [alt]="'Foto de ' + nome">
+
+  <div class="informacoes-gato">
+    <h3>{{ nome }} - {{ idade }}</h3>
+  </div>
+</div>
