@@ -1,6 +1,6 @@
-import { $i as unwrapSafeValue, Al as ɵɵinject, Dc as Injector, Ec as InjectionToken, Ei as performanceMarkFeature, El as ɵɵdefineInjectable, En as ElementRef, Fc as NgZone, Fn as Injectable, In as Input, O as booleanAttribute, Oo as ɵɵgetInheritedFactory, Pn as Inject, Qn as Optional, Sc as IMAGE_CONFIG_DEFAULTS, Uc as RuntimeError, Wi as setClassMetadata, ao as ɵɵdefineService, dr as Service, hc as DestroyRef, ir as Renderer2, la as ɵɵNgOnChangesFeature, mc as DOCUMENT, nl as formatRuntimeError, no as ɵɵdefineDirective, r as ChangeDetectorRef, rt as numberAttribute, sl as inject, tn as ApplicationRef, wn as Directive, xc as IMAGE_CONFIG, zl as Subject, zs as ɵɵstyleProp } from "./core-CVtrrAt4.js";
-import { r as PlatformLocation } from "./_platform_location-chunk-DnDGxBVa.js";
-//#region ../../../../../node_modules/@angular/common/fesm2022/_location-chunk.mjs
+import { $i as unwrapSafeValue, Al as ɵɵinject, Dc as Injector, Ec as InjectionToken, Ei as performanceMarkFeature, El as ɵɵdefineInjectable, En as ElementRef, Fc as NgZone, Fn as Injectable, In as Input, O as booleanAttribute, Oo as ɵɵgetInheritedFactory, Pn as Inject, Qn as Optional, Sc as IMAGE_CONFIG_DEFAULTS, Uc as RuntimeError, Wi as setClassMetadata, ao as ɵɵdefineService, dr as Service, hc as DestroyRef, ir as Renderer2, la as ɵɵNgOnChangesFeature, mc as DOCUMENT, nl as formatRuntimeError, no as ɵɵdefineDirective, r as ChangeDetectorRef, rt as numberAttribute, sl as inject, tn as ApplicationRef, wn as Directive, xc as IMAGE_CONFIG, zl as Subject, zs as ɵɵstyleProp } from "./core-Gi4yMOCN.js";
+import { r as PlatformLocation } from "./_platform_location-chunk-BA3RQ1qD.js";
+//#region node_modules/@angular/common/fesm2022/_location-chunk.mjs
 /**
 * @license Angular v22.1.7
 * (c) 2010-2026 Google LLC. https://angular.dev/
@@ -290,7 +290,7 @@ function _stripOrigin(baseHref) {
 	return baseHref;
 }
 //#endregion
-//#region ../../../../../node_modules/@angular/common/fesm2022/_platform_navigation-chunk.mjs
+//#region node_modules/@angular/common/fesm2022/_platform_navigation-chunk.mjs
 /**
 * @license Angular v22.1.7
 * (c) 2010-2026 Google LLC. https://angular.dev/
@@ -319,7 +319,7 @@ var PlatformNavigation = class PlatformNavigation {
 	}], null, null);
 })();
 //#endregion
-//#region ../../../../../node_modules/@angular/common/fesm2022/common.mjs
+//#region node_modules/@angular/common/fesm2022/common.mjs
 /**
 * @license Angular v22.1.7
 * (c) 2010-2026 Google LLC. https://angular.dev/

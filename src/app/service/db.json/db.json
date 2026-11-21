@@ -1,0 +1,161 @@
+{
+  "adotantes": [
+    {
+      "dadosPessoais": {
+        "contato": "11947393385",
+        "cpf": "49483022878",
+        "nascimento": "2003-06-21"
+      },
+      "endereco": {
+        "cep": "04747-130",
+        "tipoResidencia": "condominio",
+        "telasProtecao": "sim",
+        "imovelAlugado": "sim",
+        "logradouro": "Rua Cambé",
+        "bairro": "Santo Amaro",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "cepEncontrado": true
+      },
+      "perfil": {
+        "faixaSalarial": "9000",
+        "qtdPets": "nenhum",
+        "horasTrabalho": "nao-trabalha",
+        "pessoasEmCasa": "1",
+        "aceitaFotos": true
+      },
+      "id": "_2-RJaLELno"
+    },
+    {
+      "dadosPessoais": {
+        "contato": "11947393385",
+        "cpf": "49483022878",
+        "nascimento": "2005-02-21"
+      },
+      "endereco": {
+        "cep": "04747-130",
+        "tipoResidencia": "condominio",
+        "telasProtecao": "sim",
+        "imovelAlugado": "sim",
+        "logradouro": "Rua Cambé",
+        "bairro": "Santo Amaro",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "cepEncontrado": true
+      },
+      "perfil": {
+        "faixaSalarial": "9000",
+        "qtdPets": "nenhum",
+        "horasTrabalho": "nao-trabalha",
+        "pessoasEmCasa": "1",
+        "aceitaFotos": true
+      },
+      "id": "1276XjPACnc"
+    },
+    {
+      "dadosPessoais": {
+        "contato": "11947393385",
+        "cpf": "49483022878",
+        "nascimento": "2006-02-21"
+      },
+      "endereco": {
+        "cep": "04747-130",
+        "tipoResidencia": "condominio",
+        "telasProtecao": "sim",
+        "imovelAlugado": "nao",
+        "logradouro": "Rua Cambé",
+        "bairro": "Santo Amaro",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "cepEncontrado": true
+      },
+      "perfil": {
+        "faixaSalarial": "9000",
+        "qtdPets": "nenhum",
+        "horasTrabalho": "nao-trabalha",
+        "pessoasEmCasa": "1",
+        "aceitaFotos": true
+      },
+      "id": "F_6GTejywb4"
+    },
+    {
+      "dadosPessoais": {
+        "contato": "11947393385",
+        "cpf": "49483022878",
+        "nascimento": "1991-07-21"
+      },
+      "endereco": {
+        "cep": "04747-130",
+        "tipoResidencia": "condominio",
+        "telasProtecao": "sim",
+        "imovelAlugado": "sim",
+        "logradouro": "Rua Cambé",
+        "bairro": "Santo Amaro",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "cepEncontrado": true
+      },
+      "perfil": {
+        "faixaSalarial": "9000",
+        "qtdPets": "nenhum",
+        "horasTrabalho": "nao-trabalha",
+        "pessoasEmCasa": "1",
+        "aceitaFotos": true
+      },
+      "id": "lqvDiVLGUME"
+    }
+  ],
+  "ongs": [
+    {
+      "dadosInstituicao": {
+        "nomeOng": "Amigos Gatos",
+        "cnpj": "50833756000190"
+      },
+      "contato": {
+        "whatsapp": "11947393385",
+        "instagram": "",
+        "facebook": "",
+        "horarioInicio": "15:44",
+        "horarioFim": "01:48",
+        "diasSelecionados": [
+          "Segunda"
+        ]
+      },
+      "localidade": {
+        "cep": "04747-130",
+        "rua": "Rua Cambé",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "complemento": "",
+        "cepEncontrado": true
+      },
+      "id": "gcq_sBD0trk"
+    },
+    {
+      "dadosInstituicao": {
+        "nomeOng": "Amigos Gatos",
+        "cnpj": "50833756000190"
+      },
+      "contato": {
+        "whatsapp": "11947392285",
+        "instagram": "",
+        "facebook": "",
+        "horarioInicio": "15:08",
+        "horarioFim": "06:08",
+        "diasSelecionados": [
+          "Segunda"
+        ]
+      },
+      "localidade": {
+        "cep": "04747-130",
+        "rua": "Rua Cambé",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "complemento": "",
+        "cepEncontrado": true
+      },
+      "id": "IVo0hxRQJrk"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

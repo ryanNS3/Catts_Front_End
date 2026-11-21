@@ -9,6 +9,7 @@ import { EtapaPerfil} from "./etapa-perfil/etapa-perfil";
 import {AbstractControl, FormControl, FormGroup, Validators } from "@angular/forms";
 import { Toast } from "../../../../shared/components/toast/toast";
 import { AnimalService } from "../../../../service/animal/animal";
+import { AdotanteService } from '../../../../service/adotante/adotante.service';
 
 @Component({
   imports: [PainelGato, BotaoAzul, EtapaDadosPessoais, EtapaEndereco, EtapaPerfil, Toast],
@@ -143,6 +144,9 @@ exibirToast(mensagem: string, tipo: 'sucesso' | 'erro') {
     }
     return null;
 }
+  private adotanteService = inject(AdotanteService);
+  salvandoCadastro = false;
+  cadastroSalvo = false;
 
   continuar() {
 
@@ -170,10 +174,10 @@ exibirToast(mensagem: string, tipo: 'sucesso' | 'erro') {
         this.mostrarToast = false;
         this.etapa++;
       } else {
-
         this.endereco.markAllAsTouched();
-         this.exibirToast('Preencha os dados do endereço corretamente!', 'erro');
+        this.exibirToast('Preencha os dados do endereço corretamente!', 'erro');
       }
+    return
     }
 
   // ETAPA 3 - PERFIL
@@ -187,7 +191,7 @@ exibirToast(mensagem: string, tipo: 'sucesso' | 'erro') {
     console.log('Endereço:', this.endereco.value);
     console.log('Perfil:', this.perfil.value);
 
-     this.exibirToast('Dados preenchidos com sucesso!', 'sucesso');
+     this.salvarCadastro(); 
     } else {
       this.perfil.markAllAsTouched();
       this.exibirToast( 'Preencha os dados do perfil corretamente!', 'erro');
@@ -228,6 +232,34 @@ exibirToast(mensagem: string, tipo: 'sucesso' | 'erro') {
       this.etapa = Number(etapaUrl);
     }
   }
+
+  private salvarCadastro(): void {
+  if (this.salvandoCadastro || this.cadastroSalvo) {
+    return;
+  }
+
+  const dados = {
+    dadosPessoais: this.dadosPessoais.getRawValue(),
+    endereco: this.endereco.getRawValue(),
+    perfil: this.perfil.getRawValue()
+  };
+
+  this.salvandoCadastro = true;
+
+  this.adotanteService.cadastrarAdotante(dados).subscribe({
+    next: () => {
+      this.salvandoCadastro = false;
+      this.cadastroSalvo = true;
+      this.exibirToast('Cadastro salvo com sucesso!', 'sucesso');
+      this.router.navigate(['']);
+
+    },
+    error: () => {
+      this.salvandoCadastro = false;
+      this.exibirToast('Não foi possível salvar. Tente novamente.', 'erro');
+    }
+  });
+}
 
 }
 

@@ -8,6 +8,7 @@ import { EtapaContato } from "./etapa-contato/etapa-contato";
 import { EtapaDadosDaInstituicao } from "./etapa-dados-da-instituicao/etapa-dados-da-instituicao";
 import { PainelPetAleatorio } from "../../../../shared/components/painel-pet-aleatorio/painel-pet-aleatorio";
 import { Toast } from "../../../../shared/components/toast/toast";
+import { OngService } from "../../../../service/ong/ong.service";
 
 
 @Component({
@@ -19,6 +20,8 @@ import { Toast } from "../../../../shared/components/toast/toast";
 export class LoginOng implements OnInit {
 
   private router = inject(Router);
+  private ongService = inject(OngService);
+  private salvandoCadastro = false;
   etapa = 1;
 
 validarCnpj(control: AbstractControl) {
@@ -73,21 +76,32 @@ validarCnpj(control: AbstractControl) {
 }
 
   continuar() {
-  if (this.etapa === 1 && this.dadosInstituicao.invalid) {
-    this.dadosInstituicao.markAllAsTouched();
-    this.exibirToast('Preencha os dados da instituição corretamente!','erro');
+  if (this.etapa === 1) {
+    if (this.dadosInstituicao.valid) {
+      this.mostrarToast = false;
+      this.etapa++;
+    } else {
+      this.dadosInstituicao.markAllAsTouched();
+      this.exibirToast('Preencha os dados da instituição corretamente!', 'erro');
+    }
 
-  return;
-}
-  if (this.etapa === 2 && this.contato.invalid) {
-    this.contato.markAllAsTouched();
-    this.exibirToast('Preencha os dados de contato corretamente!','erro');
+    return;
+  }
+  if (this.etapa === 2) {
+    if (this.contato.valid) {
+      this.mostrarToast = false;
+      this.etapa++;
+    } else {
+      this.contato.markAllAsTouched();
+      this.exibirToast('Preencha os dados de contato corretamente!', 'erro');
+    }
 
     return;
   }
 
-  if (this.etapa < 3) {
-    this.etapa++;
+  // ETAPA 3 - LOCALIDADE
+  if (this.etapa === 3) {
+    this.finalizarCadastro();
   }
 
 }
@@ -160,9 +174,23 @@ finalizarCadastro() {
 
     return;
   }
+  if (this.salvandoCadastro) {
+  return;
+}
+this.salvandoCadastro = true;
+
+this.ongService.cadastrarOng(this.formulario.getRawValue()).subscribe({
+  next: () => {
 
   console.log('Dados da ONG:', this.formulario.value);
   this.exibirToast('Dados preenchidos com sucesso!',  'sucesso');
+      this.router.navigate(['/']);
+  },
+  error: () => {
+    this.salvandoCadastro = false;
+    this.exibirToast('Não foi possível salvar. Tente novamente.', 'erro');
+  }
+});
 }
 
 
