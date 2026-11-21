@@ -8,6 +8,7 @@ import { EtapaEndereco } from "./etapa-endereco/etapa-endereco";
 import { EtapaPerfil} from "./etapa-perfil/etapa-perfil";
 import {AbstractControl, FormControl, FormGroup, Validators } from "@angular/forms";
 import { Toast } from "../../../../shared/components/toast/toast";
+import { AnimalService } from "../../../../service/animal/animal";
 
 @Component({
   imports: [PainelGato, BotaoAzul, EtapaDadosPessoais, EtapaEndereco, EtapaPerfil, Toast],
@@ -24,11 +25,7 @@ export class LoginAdotante implements OnInit {
   // Etapa 3 - Perfil
   etapa = 1;
 
-  // FORMULÁRIO DE DADOS PESSOAIS
-  // FormGroup agrupa os campos do formulário.
-  // FormControl armazena o valor de cada campo.
   dadosPessoais = new FormGroup ({
-
     contato: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]{2}9[0-9]{8}$/)]),
     cpf: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]{11}$/), this.validarCpf]),
     nascimento: new FormControl('', [Validators.required, this.validarIdade])
@@ -53,7 +50,6 @@ export class LoginAdotante implements OnInit {
     cepEncontrado: new FormControl(false)
 
   });
-
 
 validarCpf(control: AbstractControl) {
   const cpf = control.value;
@@ -115,7 +111,6 @@ exibirToast(mensagem: string, tipo: 'sucesso' | 'erro') {
 
   // NOVO: observa quando o usuário modifica o CEP.
   constructor() {
-
     // valueChanges detecta alterações no campo CEP.
     this.endereco.controls.cep.valueChanges.subscribe(() => {
 
@@ -148,9 +143,6 @@ exibirToast(mensagem: string, tipo: 'sucesso' | 'erro') {
     }
     return null;
 }
-
-
-
 
   continuar() {
 
@@ -204,15 +196,24 @@ exibirToast(mensagem: string, tipo: 'sucesso' | 'erro') {
   return;
 }
 }
-  
-  voltar() {
-    
-    if (this.etapa > 1) {
-      this.etapa--;
-    }else{
-      this.router.navigate(['/escolher-perfil']);
-    }
+  private animalService = inject(AnimalService);
+   voltar() {
+  if (this.etapa > 1) {
+    this.etapa--;
+    return;
   }
+
+  const gato = this.animalService.animalSelecionado();
+
+  if (gato) {
+    this.router.navigate(['/'], {
+      state: { gatoParaReabrir: gato }
+    });
+    return;
+  }
+
+  this.router.navigate(['/escolher-perfil']);
+}
 
   // ROTA DO GATO
   private route = inject(ActivatedRoute);
