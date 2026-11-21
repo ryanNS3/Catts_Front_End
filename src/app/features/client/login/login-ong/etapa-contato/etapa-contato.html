@@ -40,7 +40,7 @@
 <div class="dias" [class.dias-erro]="controleDias.invalid && controleDias.touched">
 
   @for (dia of dias; track dia) {
-    <button type="button" class="dia" [class.selecionado]="estaSelecionado(dia)" (click)="alternarDia(dia)"> {{ dia }} </button>
+    <app-botao-opcao class="dia" [selecionado]="estaSelecionado(dia)" (pressionado)="alternarDia(dia)"> {{ dia }} </app-botao-opcao>
   }
   
 </div>
@@ -50,3 +50,5 @@
     Selecione pelo menos um dia de atendimento.
   </span>
 }
+
+</div>

@@ -9,6 +9,9 @@ import { FormControl, ReactiveFormsModule } from "@angular/forms";
 })
 export class CampoTexto {
 
+  @Input() formato: 'linha' | 'multilinha' = 'linha';
+  @Input() somenteLeitura = false;
+
    // Texto que aparece acima do input.
   @Input() label = '';
 
@@ -33,7 +36,4 @@ export class CampoTexto {
   @Output() saiuDoCampo = new EventEmitter<void>();
 
   @Input() erroExterno = false;
-
-  
-
 }

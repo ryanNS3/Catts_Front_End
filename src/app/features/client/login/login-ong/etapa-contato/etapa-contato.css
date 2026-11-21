@@ -54,28 +54,17 @@ app-step-slide-ong {
   min-width: 0;
 }
 
-/* DIAS DA SEMANA */
 .dias {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 8px;
+  margin-top: 8px;
 }
 
-.dia {
-  height: 40px;
-  border: 1.5px solid var(--Cinza-200, #E2E4E3);
-  border-radius: 8px;
-  background: white;
-  font-family: Inter, sans-serif;
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--Cinza-300, #A6A7A7);
-  cursor: pointer;
-}
+.dias > .dia {
+  min-width: 0;
+  width: 100%;
 
-.dia.selecionado {
-  border-color: var(--Azul-500, #2494F6);
-  color: var(--Azul-400, #54ACF8);
 }
 
 

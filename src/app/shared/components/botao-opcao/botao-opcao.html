@@ -1,0 +1,9 @@
+<button
+  type="button"
+  class="opcao"
+  [class.selecionado]="selecionado"
+  [attr.aria-pressed]="selecionado"
+  (click)="pressionado.emit()">
+  
+  <ng-content></ng-content>
+  </button>

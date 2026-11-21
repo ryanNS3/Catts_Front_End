@@ -1,20 +1,35 @@
-
 <div class="campo-texto">
 
   <label class="text-form" [for]="idInput">
     {{ label }}
   </label>
 
+ @if (formato === 'multilinha') {
+
+  <textarea class="text-form-on"
+    [id]="idInput"
+    [placeholder]="placeholder"
+    [attr.maxlength]="maximo"
+    [formControl]="controlPai"
+    [readOnly]="somenteLeitura"
+    [class.input-erro]="(controlPai.invalid && controlPai.touched) || erroExterno"
+    [attr.aria-invalid]="(controlPai.invalid && controlPai.touched) || erroExterno"
+    (blur)="saiuDoCampo.emit()"
+  ></textarea>
+
+} @else {
+
   <input class="text-form-on"
     [id]="idInput"
     [type]="tipo"
+    [readOnly]="somenteLeitura"
     [placeholder]="placeholder"
     [attr.maxlength]="maximo"
     [formControl]="controlPai"
     [class.input-erro]="(controlPai.invalid && controlPai.touched) || erroExterno"
     [attr.aria-invalid]="controlPai.invalid && controlPai.touched"
-    (blur)="saiuDoCampo.emit()"
-  />
+    (blur)="saiuDoCampo.emit()">
+}
 
   @if (controlPai.invalid && controlPai.touched) {
     <span class="mensagem-erro">
@@ -33,3 +48,4 @@
   }
 
 </div>
+
