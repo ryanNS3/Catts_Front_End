@@ -59,21 +59,10 @@ export class LoginAdotante implements OnInit {
   // Etapa 3: campos e cards do Figma
   perfil = new FormGroup({
     faixaSalarial: new FormControl<number | null>(null, [Validators.required, Validators.min(0)]),
-    qtdPets: new FormControl('nenhum', { nonNullable: true }),
-    horasTrabalho: new FormControl('', { nonNullable: true }),
+    qtdPets: new FormControl('nenhum',Validators.required),
+    horasTrabalho: new FormControl('nao-trabalha', Validators.required),   
     pessoasEmCasa: new FormControl<number | null>(null, [Validators.required, Validators.min(1), Validators.pattern(/^\d+$/)]),
     aceitaFotos: new FormControl(false)
-  });
-
-  // Dados complementares que o backend recebe
-  detalhesPerfil = new FormGroup({
-    horasExatas: new FormControl<number | null>(null, [
-      Validators.required,
-      Validators.min(0),
-      Validators.max(24),
-      Validators.pattern(/^\d+$/)
-    ]),
-    descricao: new FormControl('', [Validators.required, Validators.pattern(/\S/)])
   });
 
   constructor() {
@@ -86,17 +75,12 @@ export class LoginAdotante implements OnInit {
         cepEncontrado: false
       });
     });
-
-    // Ao trocar o card, descarta as horas referentes à seleção anterior.
-    this.perfil.controls.horasTrabalho.valueChanges.subscribe(faixa => {
-      this.detalhesPerfil.controls.horasExatas.reset(faixa === 'nao-trabalha' ? 0 : null);
-    });
   }
 
   ngOnInit() {
     const etapaUrl = Number(this.route.snapshot.queryParamMap.get('etapa'));
 
-    if (Number.isInteger(etapaUrl) && etapaUrl >= 1 && etapaUrl <= 4) {
+    if (Number.isInteger(etapaUrl) && etapaUrl >= 1 && etapaUrl <= 3) {
       this.etapa = etapaUrl;
     }
   }
@@ -155,36 +139,8 @@ export class LoginAdotante implements OnInit {
         return;
       }
 
-      this.etapa = 4;
-      return;
-    }
+    this.salvarCadastro();
 
-    if (this.etapa === 4) {
-      if (this.detalhesPerfil.invalid) {
-        this.detalhesPerfil.markAllAsTouched();
-        this.exibirToast('Informe as horas de trabalho e descreva sua rotina.', 'erro');
-        return;
-      }
-
-      const faixa = this.perfil.controls.horasTrabalho.value;
-      const horas = Number(this.detalhesPerfil.controls.horasExatas.value);
-
-      if (faixa === 'nao-trabalha' && horas !== 0) {
-        this.exibirToast('Você marcou "Não trabalha". Informe 0 ou volte para alterar o card.', 'erro');
-        return;
-      }
-
-      if (faixa === '4h-6h' && (horas < 4 || horas > 6)) {
-        this.exibirToast('Você marcou de 4 a 6 horas. Confira o número informado.', 'erro');
-        return;
-      }
-
-      if (faixa === '+8h' && horas <= 8) {
-        this.exibirToast('Você marcou mais de 8 horas. Confira o número informado.', 'erro');
-        return;
-      }
-
-      this.salvarCadastro();
     }
   }
 
@@ -243,7 +199,6 @@ export class LoginAdotante implements OnInit {
     const pessoal = this.dadosPessoais.getRawValue();
     const endereco = this.endereco.getRawValue();
     const perfil = this.perfil.getRawValue();
-    const detalhes = this.detalhesPerfil.getRawValue();
 
     const cpf = (pessoal.cpf ?? '').replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4');
     const cep = (endereco.cep ?? '').replace(/^(\d{5})-?(\d{3})$/, '$1-$2');
@@ -258,9 +213,10 @@ export class LoginAdotante implements OnInit {
       imovelAlugado: endereco.imovelAlugado === 'sim',
       salario: Number(perfil.faixaSalarial),
       quantidadePet: perfil.qtdPets,
-      quantidadeHorasTrabalho: Number(detalhes.horasExatas),
+      quantidadeHorasTrabalho: perfil.horasTrabalho === 'nao-trabalha' ? 'nao trabalho'
+        : perfil.horasTrabalho === '+8h' ? '8+'
+        : perfil.horasTrabalho,
       quantidadePessoasCasa: Number(perfil.pessoasEmCasa),
-      descricao: detalhes.descricao?.trim(),
       address: {
         street: endereco.logradouro,
         number: Number(endereco.numero),

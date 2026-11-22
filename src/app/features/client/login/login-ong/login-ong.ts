@@ -91,6 +91,7 @@ formulario = new FormGroup({
   cidade: new FormControl(''),
   estado: new FormControl(''),
   complemento: new FormControl(''),
+  numero: new FormControl<number | null>(null, [Validators.required, Validators.min(1), Validators.pattern(/^\d+$/)]),
   cepEncontrado: new FormControl(false, Validators.requiredTrue),
 
   }),

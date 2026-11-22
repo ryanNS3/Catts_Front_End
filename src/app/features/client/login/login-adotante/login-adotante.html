@@ -18,12 +18,7 @@
 
     @if (etapa === 3) {
       <app-etapa-perfil [formulario]="perfil" (voltar)="voltar()" />
-      <app-botao-azul class="botao-azul3" texto="Finalizar" (acaoBotao)="continuar()" />
-    }
-
-    @if (etapa === 4) {
-      <app-etapa-perfil [formulario]="detalhesPerfil" [mostrarDetalhes]="true" (voltar)="voltar()" />
-      <app-botao-azul class="botao-azul3" [texto]="salvandoCadastro ? 'Enviando...' : 'Enviar cadastro'" (acaoBotao)="continuar()" />
+      <app-botao-azul class="botao-azul3" [texto]="salvandoCadastro ? 'Enviando...' : 'Finalizar'" (acaoBotao)="continuar()" />
     }
   </section>
 </main>

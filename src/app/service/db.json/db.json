@@ -207,6 +207,57 @@
         "cepEncontrado": true
       },
       "id": "IVo0hxRQJrk"
+    },
+    {
+      "dadosInstituicao": {
+        "nomeOng": "Amigos Gatos",
+        "cnpj": "50833756000190"
+      },
+      "contato": {
+        "whatsapp": "11111111111",
+        "instagram": "",
+        "facebook": "",
+        "horarioInicio": "00:44",
+        "horarioFim": "23:44",
+        "diasSelecionados": [
+          "Segunda"
+        ]
+      },
+      "localidade": {
+        "cep": "04747-130",
+        "rua": "Rua Cambé",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "complemento": "",
+        "cepEncontrado": true
+      },
+      "id": "WdqREnnBw2s"
+    },
+    {
+      "dadosInstituicao": {
+        "nomeOng": "Amigos Gatos",
+        "cnpj": "50833756000190"
+      },
+      "contato": {
+        "whatsapp": "11111111111",
+        "instagram": "",
+        "facebook": "",
+        "horarioInicio": "02:15",
+        "horarioFim": "23:15",
+        "diasSelecionados": [
+          "Segunda"
+        ]
+      },
+      "localidade": {
+        "cep": "04747-130",
+        "rua": "Rua Cambé",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "complemento": "",
+        "numero": "50",
+        "cepEncontrado": true
+      },
+      "id": "3rugMtuxkwE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -21,8 +21,6 @@ export class EtapaPerfil {
   // Recebe o formulário criado no LoginAdotante.
   @Input() formulario!: FormGroup;
 
-  @Input() mostrarDetalhes = false;
-
   // Recupera a quantidade de pets selecionada.
   get qtdPets() {
     return this.formulario.get('qtdPets')?.value;
@@ -33,11 +31,10 @@ export class EtapaPerfil {
     return this.formulario.get('horasTrabalho')?.value;
   }
 
-  // Atualiza o valor de um campo do formulário.
-  selecionarOpcao(campo: string, valor: string) {
-
-    // get() encontra o campo pelo nome.
+  // Atualiza o valor de um campo do formulário.  
+selecionarOpcao(campo: 'qtdPets' | 'horasTrabalho', valor: string) {
+      // get() encontra o campo pelo nome.
     // setValue() altera o valor armazenado.
-    this.formulario.get(campo)?.setValue(valor);
-  }
+  this.formulario.get(campo)?.setValue(valor);
+}
 }

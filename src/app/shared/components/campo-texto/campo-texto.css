@@ -43,7 +43,7 @@
 /* Quando o mouse passa sobre o input */
 .text-form-on:hover {
   border-color: var(--Azul-500, #2494F6);
-  box-shadow: 4px 4px 24px 0 var(--Azul-100, #DBEEFC);
+  box-shadow: 4px 4px 24px 0 var(--Azul-100, #ffffff);
 }
 
 /* Quando o usuário seleciona o input */
