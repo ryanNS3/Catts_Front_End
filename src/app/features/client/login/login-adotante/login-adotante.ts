@@ -20,7 +20,8 @@ import { LoginService } from '../../../../service/login/loginservice';
   templateUrl: './login-adotante.html',
   styleUrl: './login-adotante.css'
 })
-export class LoginAdotante implements OnInit {
+
+export class LoginAdotante {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
   private loginService = inject(LoginService);
@@ -76,26 +77,16 @@ export class LoginAdotante implements OnInit {
       });
     });
   }
-
-  ngOnInit() {
-    const etapaUrl = Number(this.route.snapshot.queryParamMap.get('etapa'));
-
-    if (Number.isInteger(etapaUrl) && etapaUrl >= 1 && etapaUrl <= 3) {
-      this.etapa = etapaUrl;
-    }
-  }
-
   validarIdade(control: AbstractControl) {
-    if (!control.value) {
-      return null;
-    }
+     if (!control.value) {
+       return null;
+     }
+     const nascimento = new Date(control.value + 'T00:00:00');
+     const limite = new Date();
+     limite.setFullYear(limite.getFullYear() - 18);
 
-    const nascimento = new Date(control.value + 'T00:00:00');
-    const limite = new Date();
-    limite.setFullYear(limite.getFullYear() - 18);
-
-    return nascimento > limite ? { menorIdade: true } : null;
-  }
+     return nascimento > limite ? { menorIdade: true } : null;
+   }
 
   exibirToast(mensagem: string, tipo: 'sucesso' | 'erro') {
     this.mensagemToast = mensagem;
@@ -145,11 +136,11 @@ export class LoginAdotante implements OnInit {
   }
 
   voltar() {
+      // Se o cadastro ainda está sendo salvo, interrompe o método.
     if (this.salvandoCadastro) {
       return;
     }
-
-    this.mostrarToast = false;
+      this.mostrarToast = false;
 
     if (this.etapa > 1) {
       this.etapa--;
@@ -157,88 +148,63 @@ export class LoginAdotante implements OnInit {
     }
 
     const gato = this.animalService.animalSelecionado();
+    
+    this.router.navigate(['/'], { state: { gatoParaReabrir: gato } }); //state é a opção do Angular que permite enviar dados junto com a navegação
+    return;
 
-    if (gato) {
-      this.router.navigate(['/'], { state: { gatoParaReabrir: gato } });
-      return;
-    }
-
-    this.router.navigate(['/escolher-perfil']);
   }
 
   private salvarCadastro(): void {
-    // Confere as etapas anteriores também quando a pessoa entrou pela URL.
-    if (this.dadosPessoais.invalid) {
-      this.etapa = 1;
-      this.dadosPessoais.markAllAsTouched();
-      this.exibirToast('Confira os dados pessoais antes de enviar.', 'erro');
-      return;
+  const pessoal = this.dadosPessoais.getRawValue(); //getRawValue lê os valores de todos os campos de um grupo do formulário
+  const endereco = this.endereco.getRawValue();
+  const perfil = this.perfil.getRawValue();
+
+  // Junta os valores das três etapas em um único objeto.
+  const dados = {
+    // Mantém a chamada compatível com o serviço atual.
+    googleToken: this.loginService.googleToken,
+
+    contato: pessoal.contato,              
+    cpf: pessoal.cpf,                              
+    dataNascimento: pessoal.nascimento,    
+
+    tipoResidencia: endereco.tipoResidencia?.toUpperCase(), //toUpperCase() para deixar em letra maiuscula, ? DANDO POSSIBILIDADE PARA UNDEFINED
+    possuiTelaProtecao: endereco.telasProtecao === 'sim',
+    imovelAlugado: endereco.imovelAlugado === 'sim',
+
+    salario: Number(perfil.faixaSalarial),
+    quantidadePet: perfil.qtdPets,
+    quantidadeHorasTrabalho:
+      perfil.horasTrabalho === 'nao-trabalha' ? 'nao trabalho' // ? entao use
+      : perfil.horasTrabalho === '+8h' ? '8+' // : signific senao
+      : perfil.horasTrabalho,
+    quantidadePessoasCasa: Number(perfil.pessoasEmCasa),
+
+    // Agrupa os campos do endereço no formato que seu código já usava.
+    address: {
+      street: endereco.logradouro,
+      number: Number(endereco.numero),
+      city: endereco.cidade,
+      state: endereco.estado,
+      cep: endereco.cep
     }
+  };
+  this.salvandoCadastro = true;
 
-    if (this.endereco.invalid || this.endereco.controls.cepEncontrado.value !== true) {
-      this.etapa = 2;
-      this.endereco.markAllAsTouched();
-      this.exibirToast('Confira o endereço antes de enviar.', 'erro');
-      return;
+  // Envia o objeto e aguarda a resposta do backend.
+  this.adotanteService.cadastrarAdotante(dados).subscribe({
+    next: () => {
+      // O backend respondeu com sucesso.
+      this.salvandoCadastro = false;
+      this.cadastroSalvo = true;
+      this.router.navigate(['/']); // Abre o feed.
+    },
+
+    error: () => {
+      // O envio falhou. Libera o botão para a pessoa tentar novamente.
+      this.salvandoCadastro = false;
+      this.exibirToast('Não foi possível salvar o cadastro. Tente novamente.', 'erro');
     }
-
-    if (this.perfil.invalid) {
-      this.etapa = 3;
-      this.perfil.markAllAsTouched();
-      this.exibirToast('Confira os dados do perfil antes de enviar.', 'erro');
-      return;
-    }
-
-    const googleToken = this.loginService.googleToken;
-
-    if (!googleToken) {
-      this.exibirToast('Entre com o Google para concluir o cadastro.', 'erro');
-      return;
-    }
-
-    const pessoal = this.dadosPessoais.getRawValue();
-    const endereco = this.endereco.getRawValue();
-    const perfil = this.perfil.getRawValue();
-
-    const cpf = (pessoal.cpf ?? '').replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4');
-    const cep = (endereco.cep ?? '').replace(/^(\d{5})-?(\d{3})$/, '$1-$2');
-
-    const dados = {
-      googleToken: googleToken,
-      contato: pessoal.contato,
-      cpf: cpf,
-      dataNascimento: pessoal.nascimento,
-      tipoResidencia: endereco.tipoResidencia?.toUpperCase(),
-      possuiTelaProtecao: endereco.telasProtecao === 'sim',
-      imovelAlugado: endereco.imovelAlugado === 'sim',
-      salario: Number(perfil.faixaSalarial),
-      quantidadePet: perfil.qtdPets,
-      quantidadeHorasTrabalho: perfil.horasTrabalho === 'nao-trabalha' ? 'nao trabalho'
-        : perfil.horasTrabalho === '+8h' ? '8+'
-        : perfil.horasTrabalho,
-      quantidadePessoasCasa: Number(perfil.pessoasEmCasa),
-      address: {
-        street: endereco.logradouro,
-        number: Number(endereco.numero),
-        city: endereco.cidade,
-        state: endereco.estado,
-        cep: cep
-      }
-    };
-
-    this.salvandoCadastro = true;
-
-    this.adotanteService.cadastrarAdotante(dados).subscribe({
-      next: () => {
-        this.salvandoCadastro = false;
-        this.cadastroSalvo = true;
-        this.exibirToast('Cadastro salvo com sucesso!', 'sucesso');
-        this.router.navigate(['/']);
-      },
-      error: () => {
-        this.salvandoCadastro = false;
-        this.exibirToast('Não foi possível salvar o cadastro. Tente novamente.', 'erro');
-      }
-    });
-  }
+  });
+}
 }
