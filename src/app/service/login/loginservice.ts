@@ -4,7 +4,7 @@ import { inject, Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class LoginService { // -Este é o seu AuthService
+export class LoginService { // -Este é o seu AuthService  
   private http = inject(HttpClient);
   googleToken = '';
 

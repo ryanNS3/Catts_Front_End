@@ -6,7 +6,7 @@ export class AdotanteService {
   private httpClient = inject(HttpClient);
   private readonly API = 'http://localhost:3000/adotantes';
 
-  cadastrarAdotante(dados: object) {
-    return this.httpClient.post(this.API, dados);
+  cadastrarAdotante(dados: object) { 
+    return this.httpClient.post(this.API, dados); //para onde enviar e o que enviar.
   }
 }
