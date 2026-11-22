@@ -1,28 +1,29 @@
 <main class="container">
+  @if (mostrarToast) {
+    <app-toast [mensagem]="mensagemToast" [tipo]="tipoToast" (fechar)="mostrarToast = false" />
+  }
 
-@if (mostrarToast) {
-  <app-toast [mensagem]="mensagemToast" [tipo]="tipoToast" (fechar)="mostrarToast = false" /> }
+  <app-painel-gato />
 
-    <app-painel-gato> </app-painel-gato>
+  <section class="formulario">
+    @if (etapa === 1) {
+      <app-etapa-dados-pessoais [formulario]="dadosPessoais" (voltar)="voltar()" />
+      <app-botao-azul class="botao-azul1" texto="Continuar" (acaoBotao)="continuar()" />
+    }
 
-    <!-- LADO DIREITO -->
-    <section class="formulario">
+    @if (etapa === 2) {
+      <app-etapa-endereco [formulario]="endereco" (voltar)="voltar()" />
+      <app-botao-azul class="botao-azul2" texto="Continuar" (acaoBotao)="continuar()" />
+    }
 
-      @if (etapa === 1) {
-        <app-etapa-dados-pessoais [formulario]="dadosPessoais" (voltar)="voltar()"> </app-etapa-dados-pessoais>
-        <app-botao-azul  class="botao-azul1" texto="Continuar" (acaoBotao)="continuar()"> </app-botao-azul>
+    @if (etapa === 3) {
+      <app-etapa-perfil [formulario]="perfil" (voltar)="voltar()" />
+      <app-botao-azul class="botao-azul3" texto="Finalizar" (acaoBotao)="continuar()" />
+    }
 
-      }
-
-      @if (etapa === 2) {
-        <app-etapa-endereco [formulario]="endereco"   (voltar)="voltar()"></app-etapa-endereco>
-        <app-botao-azul class="botao-azul2" texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
-
-      }
-      @if (etapa === 3) {
-        <app-etapa-perfil [formulario]="perfil" (voltar)="voltar()" />
-        <app-botao-azul class="botao-azul3" texto="Continuar" (acaoBotao)="continuar()"></app-botao-azul>
-
-      }
-    </section>
+    @if (etapa === 4) {
+      <app-etapa-perfil [formulario]="detalhesPerfil" [mostrarDetalhes]="true" (voltar)="voltar()" />
+      <app-botao-azul class="botao-azul3" [texto]="salvandoCadastro ? 'Enviando...' : 'Enviar cadastro'" (acaoBotao)="continuar()" />
+    }
+  </section>
 </main>

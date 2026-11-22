@@ -70,12 +70,12 @@ formulario = new FormGroup({
   // ETAPA 1 - Dados da instituição
     dadosInstituicao: new FormGroup({
     nomeOng: new FormControl('', Validators.required),
-    cnpj: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]{14}$/)]),
+    cnpj: new FormControl('', [Validators.required]),
   }),
 
   // ETAPA 2 - Contato
   contato: new FormGroup({
-  whatsapp: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]{2}9[0-9]{8}$/)]),
+  whatsapp: new FormControl('', [Validators.required]),
   instagram: new FormControl(''),
   facebook: new FormControl(''),
   horarioInicio: new FormControl('', Validators.required),

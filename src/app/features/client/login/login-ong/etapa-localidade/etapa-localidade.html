@@ -53,10 +53,11 @@
 
   <!-- COMPLEMENTO -->
   <div class="grupo">
+    <app-campo-texto label="Número do imóvel" idInput="numeroImovel" tipo="number" placeholder="Ex 1000"
+      [controlPai]="$any(formulario.get('numero'))"> </app-campo-texto>
 
     <app-campo-texto label="Complemento" idInput="complemento" placeholder="Shopping SP"
     [controlPai]="$any(formulario.get('complemento'))"></app-campo-texto>
-
-  </div>
+ 
 
 </div>

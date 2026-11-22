@@ -1,98 +1,75 @@
 <section class="dados-pessoais etapa-tres">
-
   <app-botao-voltar (click)="voltar.emit()" />
   <app-step-slide [etapa]="3" />
 
-  <h1 class="perfil-h1">Seu perfil</h1>
-  <p class="sub-3">Preencha todos os campos</p>
+  @if (mostrarDetalhes) {
+    <h1 class="perfil-h1">Sua rotina</h1>
+    <p class="sub-3">Confirme os detalhes para concluir seu cadastro</p>
 
-  <!-- Agrupa os campos do formulário -->
-  <div class="form-perfil" [formGroup]="formulario">
-    <app-campo-texto label="Qual é sua faixa salarial?" idInput="FaixaSalarial" placeholder="R$ 900"
-    [controlPai]="$any(formulario.get('faixaSalarial'))"/>
+    <div class="form-perfil" [formGroup]="formulario">
+      <app-campo-texto label="Quantas horas por dia você trabalha exatamente?" idInput="HorasExatas" tipo="number" placeholder="Ex.: 8. Se não trabalha, digite 0." [controlPai]="$any(formulario.get('horasExatas'))" />
 
-    <!-- QUANTIDADE DE PETS -->
-    <div class="campo">
-
-      <p class="text-form">Quantos pets você tem em casa?</p>
-      <div class="opcoes-perfil">
-
-        <!-- Seleciona nenhum pet -->
-        <button type="button" class="opcao-perfil" [class.selecionada]="qtdPets === 'nenhum'"
-          (click)="selecionarOpcao('qtdPets', 'nenhum')">
-
-          <span class="opcao-titulo">Nenhum</span>
-          <span class="icone-opcao icone-bloqueado"></span>
-        </button>
-
-        <!-- Seleciona entre 1 e 3 pets -->
-        <button type="button" class="opcao-perfil" [class.selecionada]="qtdPets === '1-3'"
-          (click)="selecionarOpcao('qtdPets', '1-3')">
-
-          <span class="opcao-titulo">Entre</span>
-          <span class="opcao-valor">1-3</span>
-        </button>
-
-        <!-- Seleciona mais de 3 pets -->
-        <button type="button" class="opcao-perfil"
-          [class.selecionada]="qtdPets === '+3'"
-          (click)="selecionarOpcao('qtdPets', '+3')">
-
-          <span class="opcao-titulo">Mais que</span>
-          <span class="opcao-valor">+3</span>
-        </button>
-
-      </div>
+      <app-campo-texto label="Conte um pouco sobre sua rotina" idInput="Descricao" placeholder="Ex.: Trabalho em casa e moro em apartamento telado." [controlPai]="$any(formulario.get('descricao'))" />
     </div>
+  } @else {
+    <h1 class="perfil-h1">Seu perfil</h1>
+    <p class="sub-3">Preencha todos os campos</p>
 
-    <!-- HORAS DE TRABALHO -->
-    <div class="campo">
+    <div class="form-perfil" [formGroup]="formulario">
+      <app-campo-texto label="Qual é sua faixa salarial?" idInput="FaixaSalarial" tipo="number" placeholder="R$ 900" [controlPai]="$any(formulario.get('faixaSalarial'))" />
 
-      <p class="text-form"> Quantas horas você trabalha(por dia)? </p>
+      <!-- QUANTIDADE DE PETS -->
+      <div class="campo">
+        <p class="text-form">Quantos pets você tem em casa?</p>
 
-      <div class="opcoes-perfil">
+        <div class="opcoes-perfil">
+          <button type="button" class="opcao-perfil" [class.selecionada]="qtdPets === 'nenhum'" (click)="selecionarOpcao('qtdPets', 'nenhum')">
+            <span class="opcao-titulo">Nenhum</span>
+            <span class="icone-opcao icone-bloqueado"></span>
+          </button>
 
-        <!-- Não trabalha -->
-        <button type="button" class="opcao-perfil" [class.selecionada]="horasTrabalho === 'nao-trabalha'"
-        (click)="selecionarOpcao('horasTrabalho', 'nao-trabalha')">
+          <button type="button" class="opcao-perfil" [class.selecionada]="qtdPets === '1-3'" (click)="selecionarOpcao('qtdPets', '1-3')">
+            <span class="opcao-titulo">Entre</span>
+            <span class="opcao-valor">1-3</span>
+          </button>
 
-          <span class="opcao-titulo">Não trabalha</span>
-          <span class="icone-opcao icone-bloqueado"></span>
-        </button>
-
-        <!-- Entre 4 e 6 horas -->
-        <button type="button" class="opcao-perfil" [class.selecionada]="horasTrabalho === '4h-6h'"
-        (click)="selecionarOpcao('horasTrabalho', '4h-6h')">
-
-          <span class="opcao-titulo">Entre</span>
-          <span class="opcao-valor">4h-6h</span>
-        </button>
-
-        <!-- Mais de 8 horas -->
-        <button type="button" class="opcao-perfil" [class.selecionada]="horasTrabalho === '+8h'"
-          (click)="selecionarOpcao('horasTrabalho', '+8h')">
-
-          <span class="opcao-titulo">Mais que</span>
-          <span class="opcao-valor">+8h</span>
-        </button>
-
+          <button type="button" class="opcao-perfil" [class.selecionada]="qtdPets === '+3'" (click)="selecionarOpcao('qtdPets', '+3')">
+            <span class="opcao-titulo">Mais que</span>
+            <span class="opcao-valor">+3</span>
+          </button>
+        </div>
       </div>
+
+      <!-- HORAS DE TRABALHO -->
+      <div class="campo">
+        <p class="text-form">Quantas horas você trabalha (por dia)?</p>
+
+        <div class="opcoes-perfil">
+          <button type="button" class="opcao-perfil" [class.selecionada]="horasTrabalho === 'nao-trabalha'" (click)="selecionarOpcao('horasTrabalho', 'nao-trabalha')">
+            <span class="opcao-titulo">Não trabalha</span>
+            <span class="icone-opcao icone-bloqueado"></span>
+          </button>
+
+          <button type="button" class="opcao-perfil" [class.selecionada]="horasTrabalho === '4h-6h'" (click)="selecionarOpcao('horasTrabalho', '4h-6h')">
+            <span class="opcao-titulo">Entre</span>
+            <span class="opcao-valor">4h-6h</span>
+          </button>
+
+          <button type="button" class="opcao-perfil" [class.selecionada]="horasTrabalho === '+8h'" (click)="selecionarOpcao('horasTrabalho', '+8h')">
+            <span class="opcao-titulo">Mais que</span>
+            <span class="opcao-valor">+8h</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- PESSOAS EM CASA -->
+      <app-campo-texto label="Quantas pessoas moram com você?" idInput="PessoasEmCasa" tipo="number" placeholder="1" [controlPai]="$any(formulario.get('pessoasEmCasa'))" />
+
+      <!-- CHECKBOX -->
+      <label class="check-form">
+        <input class="check-box" type="checkbox" formControlName="aceitaFotos" />
+        <span>Aceita enviar vídeos e fotos da sua residência</span>
+      </label>
     </div>
-
-    <!-- PESSOAS EM CASA -->
-    <app-campo-texto label="Quantas pessoas moram com você?" idInput="PessoasEmCasa" tipo="number"placeholder="1"
-    [controlPai]="$any(formulario.get('pessoasEmCasa'))"
-    />
-
-    <!-- CHECKBOX -->
-    <label class="check-form">
-      <!-- Conecta o checkbox ao formulário -->
-      <input class="check-box" type="checkbox" formControlName="aceitaFotos"
-      />
-
-      <span> Aceita enviar vídeos e fotos da sua residência</span>
-    </label>
-
-  </div>
-
+  }
 </section>

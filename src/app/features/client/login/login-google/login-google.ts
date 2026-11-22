@@ -5,7 +5,6 @@ import { LoginService } from '../../../../service/login/loginservice';
 import { BotaoVoltar } from '../../../../shared/components/botao-voltar/botao-voltar';
 import { PainelPetAleatorio } from '../../../../shared/components/painel-pet-aleatorio/painel-pet-aleatorio';
 
-
 @Component({
   selector: 'app-login-google',
   imports: [BotaoVoltar, PainelPetAleatorio],
@@ -56,6 +55,7 @@ etapa = 1
     this.authService.loginComGoogle(credential).subscribe({
       next: (resposta: any) => {
         localStorage.setItem('token', resposta.token);
+        this.authService.googleToken = credential;
         this.zone.run(() => {
           
           if (resposta.cadastrado) {

@@ -6,6 +6,7 @@ import { inject, Injectable } from '@angular/core';
 })
 export class LoginService { // -Este é o seu AuthService
   private http = inject(HttpClient);
+  googleToken = '';
 
   private apiUrl = 'http://localhost:3000'; // porta do seu backend
 

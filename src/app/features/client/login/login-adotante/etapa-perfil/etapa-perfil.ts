@@ -21,6 +21,8 @@ export class EtapaPerfil {
   // Recebe o formulário criado no LoginAdotante.
   @Input() formulario!: FormGroup;
 
+  @Input() mostrarDetalhes = false;
+
   // Recupera a quantidade de pets selecionada.
   get qtdPets() {
     return this.formulario.get('qtdPets')?.value;

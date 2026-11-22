@@ -1,7 +1,7 @@
 <section class="dados-pessoais etapa-dois">
 
-  <app-botao-voltar (click)="voltar.emit()" />
-  <app-step-slide [etapa]="2" />
+  <app-botao-voltar (click)="voltar.emit()"></app-botao-voltar>
+  <app-step-slide [etapa]="2" ></app-step-slide>
 
   <h1 class="endereco-h1">Endereço</h1>
   <p class="sub-2">Preencha todos os campos</p>
@@ -9,11 +9,14 @@
   <div class="form-endereco" [formGroup]="formulario">
 
     <app-campo-texto label="CEP" idInput="cep" placeholder="00000-000" [maximo]="9"  [controlPai]="$any(formulario.get('cep'))" 
-     [erroExterno]="erroCep() !== '' " (saiuDoCampo)="buscarCep()"/>
+     [erroExterno]="erroCep() !== '' " (saiuDoCampo)="buscarCep()"></app-campo-texto>
     
     @if (erroCep()) {
       <span class="mensagem-erro"> {{ erroCep() }} </span>}
       
+    <app-campo-texto label="Número" idInput="numero" placeholder="Ex 1000"
+      [controlPai]="$any(formulario.get('numero'))"> </app-campo-texto>
+
       <div class="campo tipo-residencia">
       <p class="text-form">Tipo de residência</p>
 
