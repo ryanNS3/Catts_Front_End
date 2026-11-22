@@ -1,0 +1,24 @@
+
+.radio-opcao {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.radio-opcao label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  color: #333333;
+  cursor: pointer;
+}
+
+.radio-opcao input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: #2494F6;
+  cursor: pointer;
+}

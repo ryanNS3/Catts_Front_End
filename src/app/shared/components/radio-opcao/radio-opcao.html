@@ -1,0 +1,22 @@
+
+<div class="radio-opcao">
+
+  <label>
+    <input
+      type="radio"
+      [checked]="selecionado === true"
+      (change)="selecionar(true)"
+    >
+    <span>Sim</span>
+  </label>
+
+  <label>
+    <input
+      type="radio"
+      [checked]="selecionado === false"
+      (change)="selecionar(false)"
+    >
+    <span>Não</span>
+  </label>
+
+</div>

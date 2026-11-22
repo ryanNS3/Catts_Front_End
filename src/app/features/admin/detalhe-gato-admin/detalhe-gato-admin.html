@@ -2,7 +2,9 @@
 
 <main class="admin-detalhe-gato">
 
+  <!-- Cabeçalho -->
   <section class="admin-cabecalho">
+
     <app-admin-page-icon icon="pata-branca.svg"></app-admin-page-icon>
 
     <div class="admin-titulo">
@@ -10,20 +12,133 @@
       <p>Visualize as informações do gato selecionado</p>
     </div>
 
-    <app-admin-counter
-      [valor]="19"
-      descricao="Gatos para adoção">
+    <app-admin-counter [valor]="19" descricao="Gatos para adoção">
     </app-admin-counter>
+
   </section>
 
+  <!-- Conteúdo principal -->
   @if (gatoSelecionado) {
-  <app-admin-cat-card
-    tamanho="detalhe"
-    [id]="gatoSelecionado.id"
-    [nome]="gatoSelecionado.nome"
-    [idade]="gatoSelecionado.idade"
-    [imagem]="gatoSelecionado.imagem">
-  </app-admin-cat-card>
-}
+
+  <section class="conteudo-detalhe-gato">
+
+    <!-- Card do gato -->
+    <div class="coluna-gato">
+
+      <app-admin-cat-card tamanho="detalhe" [id]="gatoSelecionado.id" [nome]="gatoSelecionado.nome"
+        [idade]="gatoSelecionado.idade" [imagem]="gatoSelecionado.imagem">
+      </app-admin-cat-card>
+
+    </div>
+
+    <!-- Informações -->
+    <div class="coluna-informacoes">
+
+      <div class="detalhe-informacoes">
+
+        <!-- História -->
+        <div class="historia-pet">
+
+          <app-campo-texto label="História do pet" idInput="historia" formato="multilinha" class="largura-livre"
+            [controlPai]="formulario.controls.historia">
+          </app-campo-texto>
+
+        </div>
+
+        <div class="dados-cadastrais">
+
+          <!-- Nome -->
+          <div class="campo-dado">
+
+            <app-campo-texto label="Nome" idInput="nome" formato="linha" [controlPai]="formulario.controls.nome">
+            </app-campo-texto>
+
+          </div>
+
+          <!-- CPF -->
+          <div class="campo-dado">
+
+            <app-campo-texto label="CPF" idInput="cpf" formato="linha" [controlPai]="formulario.controls.cpf">
+            </app-campo-texto>
+
+          </div>
+
+          <!-- Idade -->
+          <div class="campo-dado">
+
+            <app-campo-texto label="Idade" idInput="idade" formato="linha" tipo="number"
+              [controlPai]="formulario.controls.idade">
+            </app-campo-texto>
+
+          </div>
+
+          <!-- Peso -->
+          <div class="campo-dado">
+
+            <app-campo-texto label="Peso" idInput="peso" formato="linha" tipo="number"
+              [controlPai]="formulario.controls.peso">
+            </app-campo-texto>
+
+          </div>
+
+          <!-- Castrado -->
+          <div class="campo-dado">
+
+            <label>Castrado</label>
+
+            <app-radio-opcao [selecionado]="castrado" (resposta)="castrado = $event">
+            </app-radio-opcao>
+
+          </div>
+
+          <!-- Vacinado -->
+          <div class="campo-dado">
+
+            <label>Vacinado</label>
+
+            <app-radio-opcao [selecionado]="vacinado" (resposta)="vacinado = $event">
+            </app-radio-opcao>
+
+          </div>
+
+          <!-- Vacinas -->
+          <div class="campo-dado">
+
+            <label>Vacinas aplicadas</label>
+
+            <div class="vacinas">
+
+              @for (vacina of vacinas; track vacina) {
+
+              <app-botao-opcao [selecionado]="vacinasSelecionadas.includes(vacina)"
+                (pressionado)="alternarVacina(vacina)">
+                {{ vacina }}
+              </app-botao-opcao>
+
+              }
+
+            </div>
+
+          </div>
+
+          <!-- Deficiência -->
+          <div class="campo-dado">
+
+            <label>Possui deficiência?</label>
+
+            <app-radio-opcao [selecionado]="possuiDeficiencia" (resposta)="possuiDeficiencia = $event">
+            </app-radio-opcao>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  }
 
 </main>

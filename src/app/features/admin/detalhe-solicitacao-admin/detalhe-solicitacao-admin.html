@@ -1,4 +1,3 @@
-
 <app-admin-nav-bar paginaAtiva="inicio"></app-admin-nav-bar>
 
 <main class="admin-detalhe-solicitacao">
@@ -13,13 +12,13 @@
       <div class="identificacao-solicitacao">
 
         @if (solicitacaoSelecionada) {
-          <span>Início</span>
-          <span class="separador-titulo">•</span>
+        <span>Início</span>
+        <span class="separador-titulo">•</span>
 
-          <h1>
-            #{{ solicitacaoSelecionada.id }}
-            {{ solicitacaoSelecionada.nomeSolicitante }}
-          </h1>
+        <h1>
+          #{{ solicitacaoSelecionada.id }}
+          {{ solicitacaoSelecionada.nomeSolicitante }}
+        </h1>
         }
 
       </div>
@@ -31,21 +30,15 @@
     <!-- Ações da solicitação -->
     <div class="acoes-solicitacao">
 
-  <button
-    class="btn-recusar"
-    title="Recusar solicitação"
-    (click)="atualizarStatus('Recusada')">
-    <img src="/Icones/recusar.svg" alt="Recusar">
-  </button>
+      <button class="btn-recusar" title="Recusar solicitação" (click)="atualizarStatus('Recusada')">
+        <img src="/Icones/recusar.svg" alt="Recusar">
+      </button>
 
-  <button
-    class="btn-aprovar"
-    title="Aprovar solicitação"
-    (click)="atualizarStatus('Aprovada')">
-    <img src="/Icones/salvar.svg" alt="Aprovar">
-  </button>
+      <button class="btn-aprovar" title="Aprovar solicitação" (click)="atualizarStatus('Aprovada')">
+        <img src="/Icones/salvar.svg" alt="Aprovar">
+      </button>
 
-</div>
+    </div>
 
   </section>
 
@@ -177,42 +170,42 @@
 
 
     <!-- Card do pet -->
-<div class="card-pet">
+    <div class="card-pet">
 
-  <div class="card-titulo">
-    <h2>Dados do pet</h2>
-  </div>
+      <div class="card-titulo">
+        <h2>Dados do pet</h2>
+      </div>
 
-  <div class="informacoes-pet">
+      <div class="informacoes-pet">
 
-    <div class="campo-informacao">
-      <span>Nome</span>
-      <p>{{ dadosPet.nome }}</p>
+        <div class="campo-informacao">
+          <span>Nome</span>
+          <p>{{ dadosPet.nome }}</p>
+        </div>
+
+        <div class="campo-informacao">
+          <span>Idade</span>
+          <p>{{ dadosPet.idade }}</p>
+        </div>
+
+        <div class="campo-informacao">
+          <span>Sexo</span>
+          <p>{{ dadosPet.sexo }}</p>
+        </div>
+
+        <div class="campo-informacao">
+          <span>Castrado</span>
+          <p>{{ dadosPet.castrado }}</p>
+        </div>
+
+        <div class="campo-informacao">
+          <span>Peso</span>
+          <p>{{ dadosPet.peso }}</p>
+        </div>
+
+      </div>
+
     </div>
-
-    <div class="campo-informacao">
-      <span>Idade</span>
-      <p>{{ dadosPet.idade }}</p>
-    </div>
-
-    <div class="campo-informacao">
-      <span>Sexo</span>
-      <p>{{ dadosPet.sexo }}</p>
-    </div>
-
-    <div class="campo-informacao">
-      <span>Castrado</span>
-      <p>{{ dadosPet.castrado }}</p>
-    </div>
-
-    <div class="campo-informacao">
-      <span>Peso</span>
-      <p>{{ dadosPet.peso }}</p>
-    </div>
-
-  </div>
-
-</div>
 
   </section>
 

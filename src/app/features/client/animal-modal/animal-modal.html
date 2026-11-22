@@ -51,7 +51,7 @@
                     @if (animal.vaccine) {
                     <ul>
                         @for (vacina of animal.vaccine.split(','); track vacina) {
-                        <li>{{ vacina.trim() }}</li>
+                        <li>{{ vacina.replaceAll('"', '').replaceAll('[', '').replaceAll(']', '').trim() }}</li>
                         }
                     </ul>
                     } @else {

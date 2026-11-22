@@ -8,6 +8,7 @@ import { InicioAdmin } from './features/admin/inicio-admin/inicio-admin';
 import { GatosAdmin } from './features/admin/gatos-admin/gatos-admin';
 import { DetalheGatoAdmin } from './features/admin/detalhe-gato-admin/detalhe-gato-admin';
 import { DetalheSolicitacaoAdmin } from './features/admin/detalhe-solicitacao-admin/detalhe-solicitacao-admin';
+import { AdicionarGatoAdmin } from './features/admin/adicionar-gato-admin/adicionar-gato-admin';
 
 export const routes: Routes = [
   {
@@ -40,16 +41,20 @@ export const routes: Routes = [
     component: InicioAdmin,
   },
 
-  {path: 'admin/gatos',
-    component: GatosAdmin,
-  },
-
-  {path: 'admin/gatos/:id',
-    component: DetalheGatoAdmin,
-  },
-
   {path: 'admin/solicitacoes/:id',
     component: DetalheSolicitacaoAdmin,
   },
 
+  {path: 'admin/gatos',
+    component: GatosAdmin,
+  },
+
+  {path: 'admin/gatos/adicionar',
+    component: AdicionarGatoAdmin,
+  },
+
+  {path: 'admin/gatos/:id',
+    component: DetalheGatoAdmin,
+  }
+  
 ];

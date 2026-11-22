@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter} from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { Animal } from "../../../service/@Type/animal";
 import { BotaoVoltar } from "../../../shared/components/botao-voltar/botao-voltar";
 import { BotaoAzul } from "../../../shared/components/botao-azul/botao-azul";

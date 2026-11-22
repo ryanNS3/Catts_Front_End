@@ -1,9 +1,13 @@
 
+/* Página */
 .admin-detalhe-gato {
-  padding: 25px 6%;
-  background-color: #ffffff;
+  width: 100%;
   min-height: calc(100vh - 50px);
+  padding: 25px 4%;
+  box-sizing: border-box;
+  background-color: #ffffff;
   font-family: 'Inter', sans-serif;
+  color: #666666;
 }
 
 /* Cabeçalho */
@@ -11,7 +15,7 @@
   display: flex;
   align-items: center;
   gap: 30px;
-  margin-bottom: 28px;
+  margin-bottom: 30px;
 }
 
 /* Título */
@@ -22,20 +26,217 @@
 }
 
 .admin-titulo h1 {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
   font-size: 36px;
   font-weight: 200;
-  color: #222222;
-  margin: 0;
+  color: #666666;
 }
 
 .admin-titulo p {
-  font-size: 14px;
-  color: #666666;
   margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #777777;
 }
 
 /* Contador */
 app-admin-counter {
   margin-left: auto;
   margin-right: 25px;
+}
+
+/* Conteúdo principal */
+.conteudo-detalhe-gato {
+  display: grid;
+  grid-template-columns: 360px minmax(0, 1fr);
+  align-items: start;
+  column-gap: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Card do gato */
+.coluna-gato {
+  width: 360px;
+  min-width: 360px;
+  max-width: 360px;
+  box-sizing: border-box;
+}
+
+/* Coluna de informações */
+.coluna-informacoes {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Organização das informações */
+.detalhe-informacoes {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 18px;
+  width: 100%;
+  min-width: 0;
+}
+
+/* História */
+.historia-pet {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Dados do pet */
+.dados-pet {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Campos em duas colunas */
+.dados-cadastrais {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 14px 20px;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Campos individuais */
+.campo-dado {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Títulos dos campos e opções */
+.campo-dado > label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #666666;
+  line-height: 1.4;
+}
+
+/* Campo de texto */
+app-campo-texto {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Radio */
+app-radio-opcao {
+  display: block;
+  width: 100%;
+}
+
+/* Texto interno do radio */
+::ng-deep app-radio-opcao * {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #666666;
+}
+
+/* Vacinas */
+.vacinas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+/* Botões de vacina */
+::ng-deep app-botao-opcao .opcao {
+  min-width: 52px;
+  height: 34px;
+  padding: 0 10px;
+  border-radius: 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+/* Gato não encontrado */
+.gato-nao-encontrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  color: #777777;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .admin-detalhe-gato {
+    padding: 25px 3%;
+  }
+
+  .conteudo-detalhe-gato {
+    grid-template-columns: 300px minmax(0, 1fr);
+    column-gap: 22px;
+  }
+
+  .coluna-gato {
+    width: 300px;
+    min-width: 300px;
+    max-width: 300px;
+  }
+}
+
+/* Telas menores */
+@media (max-width: 750px) {
+  .conteudo-detalhe-gato {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 25px;
+  }
+
+  .coluna-gato {
+    width: 100%;
+    min-width: 0;
+    max-width: 360px;
+  }
+
+  .coluna-informacoes {
+    width: 100%;
+  }
+}
+
+/* Celular */
+@media (max-width: 600px) {
+  .admin-detalhe-gato {
+    padding: 20px 5%;
+  }
+
+  .admin-cabecalho {
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .admin-titulo h1 {
+    font-size: 28px;
+  }
+
+  .admin-titulo p {
+    font-size: 12px;
+  }
+
+  app-admin-counter {
+    margin: 10px 0 0;
+  }
+
+  .dados-cadastrais {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 15px;
+  }
 }

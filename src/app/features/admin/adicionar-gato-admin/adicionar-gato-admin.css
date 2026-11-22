@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
+
+.admin-detalhe-gato {
+  width: 100%;
+  min-height: 100vh;
+  padding: 30px 4%;
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
+}
+
+/* CABEÇALHO */
+
+.admin-cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+.admin-titulo h1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-family: Inter, sans-serif;
+  font-size: 40px;
+  font-weight: 200;
+  letter-spacing: -1px;
+}
+
+.titulo-gatos {
+  color: #b7b7b7;
+}
+
+.separador-titulo {
+  color: #d5d5d5;
+}
+
+.titulo-adicionar {
+  color: #2994f4;
+}
+
+.admin-titulo p {
+  margin: 8px 0 0;
+  font-size: 15px;
+  color: #666;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.conteudo-detalhe-gato {
+  display: grid;
+  grid-template-columns: 400px minmax(0, 1fr);
+  align-items: start;
+  gap: 30px;
+  width: 100%;
+}
+
+/* FOTO */
+
+.coluna-gato {
+  width: 100%;
+}
+
+.area-upload {
+  width: 100%;
+  height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+
+  border: 2px dashed #a9b8ce;
+  border-radius: 14px;
+  background-color: #f5f8fc;
+
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.area-upload img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.area-upload input[type="file"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #4779c5;
+  pointer-events: none;
+}
+
+.upload-placeholder img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.upload-placeholder p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: Inter, sans-serif;
+  color: var(--Azul-500, #2494F6);
+}
+
+/* COLUNA DE INFORMAÇÕES */
+
+.coluna-informacoes {
+  width: 100%;
+  min-width: 0;
+}
+
+.detalhe-informacoes {
+  width: 100%;
+}
+
+.historia-pet {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+/* CAMPOS */
+
+.dados-cadastrais {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 25px;
+  align-items: start;
+}
+
+.campo-dado {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+}
+
+.campo-dado > label {
+  font-size: 15px;
+  font-weight: 500;
+  color: #222;
+}
+
+/* RÁDIOS */
+
+.campo-dado app-radio-opcao {
+  width: 100%;
+}
+
+/* VACINAS */
+
+.vacinas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* BOTÃO CONTINUAR */
+
+.area-botao {
+  display: grid;
+  grid-template-columns: 400px minmax(0, 1fr);
+  gap: 30px;
+  width: 100%;
+  margin-top: 30px;
+  box-sizing: border-box;
+}
+
+.area-botao app-botao-azul {
+  grid-column: 2;
+  display: block;
+  width: 100%;
+}
+
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 1000px) {
+
+  .conteudo-detalhe-gato {
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 25px;
+  }
+
+  .area-upload {
+    height: 340px;
+  }
+
+  .dados-cadastrais {
+    gap: 18px;
+  }
+
+}
+
+@media (max-width: 750px) {
+
+  .conteudo-detalhe-gato {
+    grid-template-columns: 1fr;
+  }
+
+  .coluna-gato {
+    max-width: 350px;
+  }
+
+  .area-upload {
+    height: 350px;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .admin-detalhe-gato {
+    padding: 20px 5%;
+  }
+
+  .admin-titulo h1 {
+    font-size: 28px;
+  }
+
+  .dados-cadastrais {
+    grid-template-columns: 1fr;
+  }
+
+  .area-botao {
+    margin-top: 25px;
+  }
+
+}
