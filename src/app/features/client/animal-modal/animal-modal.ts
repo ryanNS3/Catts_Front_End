@@ -6,10 +6,11 @@ import { AdocaoService, RetornoAdocao } from '../../../service/adocao/adocao.ser
 import { AnimalService } from '../../../service/animal/animal';
 import { BotaoVoltar } from '../../../shared/components/botao-voltar/botao-voltar';
 import { BotaoAzul } from '../../../shared/components/botao-azul/botao-azul';
+import { Toast } from '../../../shared/components/toast/toast';
 
 @Component({
   selector: 'app-animal-modal',
-  imports: [BotaoVoltar, BotaoAzul, FormsModule],
+  imports: [BotaoVoltar, BotaoAzul, FormsModule, Toast],
   templateUrl: './animal-modal.html',
   styleUrl: './animal-modal.css',
 })
@@ -41,8 +42,15 @@ export class AnimalModal implements OnInit {
   }
 
   adotar() {
-    // Evita outro envio enquanto o primeiro está em andamento ou já foi confirmado.
-    if (this.enviando() || this.concluido()) return;
+   // Se o primeiro clique ainda está sendo processado, aguarda.
+    if (this.enviando()) 
+    return;
+
+    // Se o envio já foi confirmado neste modal, só mostra o aviso.
+  if (this.concluido()) {
+  this.aviso.set('Você já enviou uma solicitação para este gato.');
+  return;
+}
 
     const id = this.animal.id;
     const mensagem = this.mensagemAdotante.trim();
@@ -85,13 +93,20 @@ export class AnimalModal implements OnInit {
       },
       error: (erro) => {
         this.enviando.set(false);
+        
+        if (erro.status === 409) { //Erro 409 Solicitacao ja enviada
+        this.concluido.set(true);
+        this.aviso.set('Você já enviou uma solicitação para este gato.');
+        return;
+  }
 
-        if (erro.status === 401) {
+
+        if (erro.status === 401) { // 401 — Falha de autenticação
           if (localStorage.getItem('token') === token) {
             localStorage.removeItem('token');
             localStorage.removeItem('tipo');
           }
-          this.aviso.set('Sua sessão expirou. Clique em Adotar para entrar novamente.');
+          this.aviso.set('Sua sessão expirou. Faça login novamente.');
           return;
         }
 

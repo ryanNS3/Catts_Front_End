@@ -1,4 +1,17 @@
+:host(.toast-do-modal) {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1001;
+  width: max-content;
+  max-width: calc(100% - 32px);
+}
 
+:host(.toast-do-modal) .toast {
+  position: static;
+  box-sizing: border-box;
+}
 .toast {
   position: fixed;
   top: 20px;
