@@ -86,6 +86,10 @@ export class LoginGoogle implements AfterViewInit {
   // Mantém o jeito que você já usa para guardar a sessão.
   localStorage.setItem('token', resposta.token);
   if (resposta.tipo) localStorage.setItem('tipo', resposta.tipo);
+   if (resposta.tipo === 'ONG') {
+    this.router.navigate(['/admin']);
+    return;
+  }
 
   if (this.rascunho) {
     // Login concluído. O modal pode continuar o pedido.
