@@ -90,7 +90,11 @@
             </div>
 
             <!-- Botão adotar -->
-            <app-botao-azul toUrl="/login" texto="Adotar" (acaoBotao)="adotar.emit(animal)"></app-botao-azul>
+            <app-botao-azul [texto]="enviando() ? 'Enviando…' : (concluido() ? 'Enviado' : 'Adotar')"
+                [desabilitado]="enviando() || concluido()"
+                (acaoBotao)="adotar()"></app-botao-azul>
+                <!--aviso define qual mensagem vai aparecer. Por exemplo, quando o backend confirma o pedido:-->
+                <p role="status">{{ aviso() }}</p>
 
         </section>
 

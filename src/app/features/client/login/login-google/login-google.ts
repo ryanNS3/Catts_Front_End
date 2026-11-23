@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { LoginService, AuthResponse } from '../../../../service/login/loginservice';
 import { BotaoVoltar } from '../../../../shared/components/botao-voltar/botao-voltar';
 import { PainelPetAleatorio } from '../../../../shared/components/painel-pet-aleatorio/painel-pet-aleatorio';
+import { AdocaoService } from '../../../../service/adocao/adocao.service';
 
 declare var google: any;
 
@@ -16,6 +17,8 @@ export class LoginGoogle implements AfterViewInit {
 
   private authService = inject(LoginService);
   private router = inject(Router);
+  private adocoes = inject(AdocaoService);
+  private rascunho = this.adocoes.rascunhoDoLogin();
   private zone = inject(NgZone);
 
   etapa = 1;
@@ -24,8 +27,13 @@ export class LoginGoogle implements AfterViewInit {
   googleButton!: ElementRef;
 
   voltar() {
-    this.router.navigate(['/']);
+  if (this.rascunho) {
+    this.adocoes.voltarAoModal(this.rascunho, false);
+    return;
   }
+
+  this.router.navigate(['/']);
+}
 
   ngAfterViewInit() {
     this.inicializarGoogle();
@@ -55,16 +63,37 @@ export class LoginGoogle implements AfterViewInit {
         this.authService.nomeGoogle = resposta.nome;
 
         this.zone.run(() => {
-          if (!resposta.precisaCompletarCadastro && resposta.token) {
-            // Usuário já possui cadastro: salva o JWT e vai para a home/feed
-            localStorage.setItem('token', resposta.token);
-            if (resposta.tipo) localStorage.setItem('tipo', resposta.tipo);
-            this.router.navigate(['']);
-          } else {
-            // Primeiro acesso: vai escolher entre Adotante ou ONG
-            this.router.navigate(['/escolher-perfil']);
-          }
-        });
+        // Primeiro acesso: a pessoa ainda precisa completar o cadastro.
+           if (resposta.precisaCompletarCadastro) {
+           if (this.rascunho) {
+        // Veio do modal Adotar. Leva o pedido para o cadastro de adotante.
+           this.router.navigate(['/login'], {
+           state: { rascunhoAdocao: this.rascunho },
+           replaceUrl: true
+      });
+    } else {
+      // Veio da navbar. Pode escolher entre adotante e ONG.
+      this.router.navigate(['/escolher-perfil']);
+    }
+    return;
+  }
+
+  if (!resposta.token) {
+    console.error('O Catts não retornou o token de acesso.');
+    return;
+  }
+
+  // Mantém o jeito que você já usa para guardar a sessão.
+  localStorage.setItem('token', resposta.token);
+  if (resposta.tipo) localStorage.setItem('tipo', resposta.tipo);
+
+  if (this.rascunho) {
+    // Login concluído. O modal pode continuar o pedido.
+    this.adocoes.voltarAoModal(this.rascunho, true);
+  } else {
+    this.router.navigate(['/']);
+  }
+});
       },
       error: (erro) => {
         console.error('Erro no login:', erro);

@@ -3,6 +3,8 @@ import { AnimalService } from "../../../service/animal/animal";
 import { AnimalModal } from "../animal-modal/animal-modal";
 import { Animal } from "../../../service/@Type/animal";
 import { ClientNavBar } from "../../../shared/components/client-nav-bar/client-nav-bar";
+import { Router } from "@angular/router";
+import { RetornoAdocao } from "../../../service/adocao/adocao.service";
 
 @Component({
   imports: [ClientNavBar, AnimalModal],
@@ -22,8 +24,11 @@ export class Feed implements OnInit {
 
   animaisExibidos: Animal[] = [];
 
-  animalSelecionado: Animal | null = null;
+// Lê o que voltarAoModal() enviou para o feed nesta navegação.
+retorno = inject(Router).currentNavigation()?.extras.info as RetornoAdocao | undefined;
 
+// Se voltou do login, o feed já começa com esse gato selecionado.
+animalSelecionado: Animal | null = this.retorno?.rascunho.animal ?? null;
   ngOnInit(): void {
     this.animaisService.buscarAnimais().subscribe({
       next: (dados) => {

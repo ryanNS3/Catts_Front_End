@@ -1,7 +1,10 @@
-<button [routerLink]="toUrl ? toUrl : null" class="botao-adotar" (click)="acaoBotao.emit()">
+<button [routerLink]="toUrl ? toUrl : null" class="botao-adotar" [disabled]="desabilitado"
+(click)="acaoBotao.emit()">
     <img src="/Icones/pata-branca.svg" alt="">
     {{ texto }}
 </button>
+
+<!--O Angular acompanha o valor à direita: quando desabilitado vale true. Quando vale false, libera o clique. -->
 
 
 
