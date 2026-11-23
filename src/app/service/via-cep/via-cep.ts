@@ -24,7 +24,8 @@ export class ViaCep {
   constructor(private http: HttpClient) {}
   buscarCep(cep: string) {
 
-    // Remove hífens e outros caracteres que não sejam números.
+    // Remove hífens e outros caracteres que não sejam números. 
+    // \D encontra esses caracteres, o g procura em toda a string e '' substitui cada ocorrência por nada
     const cepLimpo = cep.replace(/\D/g, '');
 
     // Faz uma requisição GET e retorna os dados da API.

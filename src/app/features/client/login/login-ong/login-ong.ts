@@ -63,10 +63,7 @@ export class LoginOng {
 
     // Etapa 3: localidade
     localidade: new FormGroup({
-      cep: new FormControl('', [
-        Validators.required,
-        Validators.pattern(/^\d{5}-?\d{3}$/)
-      ]),
+      cep: new FormControl('', [Validators.required, Validators.pattern(/^\d{5}-?\d{3}$/)]),
       rua: new FormControl(''),
       cidade: new FormControl(''),
       estado: new FormControl(''),
