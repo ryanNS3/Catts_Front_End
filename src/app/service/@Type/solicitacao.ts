@@ -1,6 +1,11 @@
+export type StatusSolicitacao = 'Pendente' | 'Aprovada' | 'Recusada';
+
 export interface Solicitacao {
-  id: number;
+  id: number | string;
   nomeSolicitante: string;
   nomePet: string;
-  status: 'Pendente' | 'Aprovada' | 'Recusada';
+  status: StatusSolicitacao;
+  mensagemAdotante?: string;
+  respostaOng?: string;
+  dataSolicitacao?: string;
 }
