@@ -9,7 +9,7 @@
             <p>Visualize e aprove as solicitações de adoção abaixo</p>
         </div>
 
-        <app-admin-counter [valor]="gatos.length" descricao="Gatos cadastrados"></app-admin-counter>
+        <app-admin-counter [valor]="gatos().length" descricao="Gatos cadastrados"></app-admin-counter>
 
     </section>
     <section class="lista-gatos">
@@ -19,8 +19,9 @@
             <p>Clique aqui para adicionar</p>
         </div>
 
-        @for (gato of gatos; track gato.id) {
-        <app-admin-cat-card [id]="gato.id" [nome]="gato.nome" [idade]="gato.idade" [imagem]="gato.imagem">
+        @for (gato of gatos(); track gato.id ?? $index) {
+        <app-admin-cat-card [id]="+(gato.id ?? 0)" [nome]="gato.name" [idade]="gato.age + ' anos'"
+            [imagem]="gato.image?.linkId ?? ''">
         </app-admin-cat-card>
         }
 

@@ -14,6 +14,12 @@ export class AnimalService {
      return this.http.get<Animal[]>('https://catts-api-hhegcygvgbcrgkas.brazilsouth-01.azurewebsites.net/v1/animal');
   }
 
+  buscarAnimaisPorOng(ongId: string | number) {
+  return this.http.get<Animal[]>(
+    `https://catts-api-hhegcygvgbcrgkas.brazilsouth-01.azurewebsites.net/v1/animal/ong/${ongId}`
+  );
+}
+
   animalSelecionado = signal<Animal | null>(null);
 
   selecionarAnimal(animal: Animal) {
