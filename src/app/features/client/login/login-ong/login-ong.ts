@@ -146,22 +146,17 @@ export class LoginOng {
   }
 
   voltar() {
-    if (this.salvandoCadastro) {
+    if (this.salvandoCadastro || this.etapa <= 1) {
       return;
     }
 
     this.mostrarToast = false;
-
-    if (this.etapa > 1) {
       this.etapa--;
-      return;
     }
-
-  const gato = this.animalService.animalSelecionado();
-
-    this.router.navigate(['/'], { state: { gatoParaReabrir: gato } });
-    return;
-  }
+  voltarParaPerfil() {
+      this.router.navigate(['/escolher-perfil']);
+    }
+  
 
   private salvarCadastro(): void {
     const dadosInstituicao = this.dadosInstituicao.getRawValue();
@@ -172,7 +167,7 @@ export class LoginOng {
     googleToken: this.loginService.googleToken,
     nomeInstitucional: dadosInstituicao.nomeOng,
 
-    ontato: contato.whatsapp?.replace(/\D/g, ''),
+    contato: contato.whatsapp?.replace(/\D/g, ''),
    instagram: contato.instagram,
     facebook: contato.facebook,
     horarioInicio: contato.horarioInicio,
