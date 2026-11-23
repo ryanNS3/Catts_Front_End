@@ -74,4 +74,10 @@ export class DetalheSolicitacaoAdmin {
 
     this.router.navigate(["../../"], { relativeTo: this.route });
   }
+  abrirWhatsApp() {
+    const telefone = "5511999999999";
+
+    window.open(`https://wa.me/${telefone}`, "_blank" );
+  }
+  
 }
