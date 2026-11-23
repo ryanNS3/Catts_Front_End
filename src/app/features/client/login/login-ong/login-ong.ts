@@ -165,7 +165,7 @@ export class LoginOng {
 
  const dados = {
   googleToken: this.loginService.googleToken,
-  CNPJ: dadosInstituicao.cnpj?.replace(/\D/g, ''), // ou com máscara, conforme esperado no back
+  CNPJ: dadosInstituicao.cnpj?.replace(/\D/g, ''),
   nomeInstitucional: dadosInstituicao.nomeOng,
   contato: contato.whatsapp?.replace(/\D/g, ''),
   instagram: contato.instagram,
