@@ -163,17 +163,16 @@ export class LoginOng {
     const contato = this.contato.getRawValue();
     const localidade = this.localidade.getRawValue();
 
-  const dados = {   
-    googleToken: this.loginService.googleToken,
-    nomeInstitucional: dadosInstituicao.nomeOng,
-
-    contato: contato.whatsapp?.replace(/\D/g, ''),
-   instagram: contato.instagram,
-    facebook: contato.facebook,
-    horarioInicio: contato.horarioInicio,
-    horarioFim: contato.horarioFim,
-    diaDisponibilidade: `[${(contato.diasSelecionados ?? []).join(', ')}]`,
-
+ const dados = {
+  googleToken: this.loginService.googleToken,
+  CNPJ: dadosInstituicao.cnpj?.replace(/\D/g, ''), // ou com máscara, conforme esperado no back
+  nomeInstitucional: dadosInstituicao.nomeOng,
+  contato: contato.whatsapp?.replace(/\D/g, ''),
+  instagram: contato.instagram,
+  facebook: contato.facebook,
+  horarioInicio: contato.horarioInicio,
+  horarioFim: contato.horarioFim,
+  diaDisponibilidade: `[${(contato.diasSelecionados ?? []).join(', ')}]`,
   address: {
     street: localidade.rua,
     number: Number(localidade.numero),
