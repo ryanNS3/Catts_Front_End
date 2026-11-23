@@ -1,6 +1,6 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { PainelGato } from '../../../../shared/components/painel-gato/painel-gato';
 import { BotaoAzul } from '../../../../shared/components/botao-azul/botao-azul';
@@ -23,7 +23,6 @@ import { LoginService } from '../../../../service/login/loginservice';
 
 export class LoginAdotante {
   private router = inject(Router);
-  private route = inject(ActivatedRoute);
   private loginService = inject(LoginService);
   private animalService = inject(AnimalService);
   private adotanteService = inject(AdotanteService);
@@ -146,6 +145,7 @@ export class LoginAdotante {
       this.etapa--;
       return;
     }
+    
 
     const gato = this.animalService.animalSelecionado();
     

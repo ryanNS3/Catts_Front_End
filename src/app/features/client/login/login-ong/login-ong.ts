@@ -1,181 +1,205 @@
-import { Component, inject, OnInit, } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
-import { FormGroup, FormControl, Validators, AbstractControl } from "@angular/forms";
-import { BotaoAzul } from "../../../../shared/components/botao-azul/botao-azul";
-import { BotaoVoltar } from "../../../../shared/components/botao-voltar/botao-voltar";
-import { EtapaLocalidade } from "./etapa-localidade/etapa-localidade";
-import { EtapaContato } from "./etapa-contato/etapa-contato";
-import { EtapaDadosDaInstituicao } from "./etapa-dados-da-instituicao/etapa-dados-da-instituicao";
-import { PainelPetAleatorio } from "../../../../shared/components/painel-pet-aleatorio/painel-pet-aleatorio";
-import { Toast } from "../../../../shared/components/toast/toast";
-import { OngService } from "../../../../service/ong/ong.service";
+import { Component, inject } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
+import { BotaoAzul } from '../../../../shared/components/botao-azul/botao-azul';
+import { BotaoVoltar } from '../../../../shared/components/botao-voltar/botao-voltar';
+import { PainelPetAleatorio } from '../../../../shared/components/painel-pet-aleatorio/painel-pet-aleatorio';
+import { Toast } from '../../../../shared/components/toast/toast';
+
+import { EtapaDadosDaInstituicao } from './etapa-dados-da-instituicao/etapa-dados-da-instituicao';
+import { EtapaContato } from './etapa-contato/etapa-contato';
+import { EtapaLocalidade } from './etapa-localidade/etapa-localidade';
+
+import { AnimalService } from '../../../../service/animal/animal';
+import { OngService } from '../../../../service/ong/ong.service';
+import { LoginService } from '../../../../service/login/loginservice';
 
 @Component({
-  imports: [BotaoAzul, EtapaLocalidade, EtapaContato, EtapaDadosDaInstituicao, BotaoVoltar, PainelPetAleatorio, Toast],
-  selector: "app-login-ong",
-  styleUrl: "./login-ong.css",
-  templateUrl: "./login-ong.html",
+  selector: 'app-login-ong',
+  imports: [
+    BotaoAzul,
+    BotaoVoltar,
+    PainelPetAleatorio,
+    EtapaDadosDaInstituicao,
+    EtapaContato,
+    EtapaLocalidade,
+    Toast
+  ],
+  templateUrl: './login-ong.html',
+  styleUrl: './login-ong.css'
 })
-export class LoginOng implements OnInit {
-
+export class LoginOng {
   private router = inject(Router);
+  private loginService = inject(LoginService);
+  private animalService = inject(AnimalService);
   private ongService = inject(OngService);
-  private salvandoCadastro = false;
+
+
   etapa = 1;
+  salvandoCadastro = false;
+  cadastroSalvo = false;
+
+  mostrarToast = false;
+  mensagemToast = '';
+  tipoToast: 'sucesso' | 'erro' = 'sucesso';
+
+  formulario = new FormGroup({
+    // Etapa 1: dados da instituição
+    dadosInstituicao: new FormGroup({
+      nomeOng: new FormControl('', Validators.required),
+      cnpj: new FormControl('', Validators.required)
+    }),
+
+    // Etapa 2: contato
+    contato: new FormGroup({
+      whatsapp: new FormControl('', Validators.required),
+      instagram: new FormControl(''),
+      facebook: new FormControl(''),
+      horarioInicio: new FormControl('', Validators.required),
+      horarioFim: new FormControl('', Validators.required),
+      diasSelecionados: new FormControl<string[]>([], Validators.required)
+    }),
+
+    // Etapa 3: localidade
+    localidade: new FormGroup({
+      cep: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^\d{5}-?\d{3}$/)
+      ]),
+      rua: new FormControl(''),
+      cidade: new FormControl(''),
+      estado: new FormControl(''),
+      complemento: new FormControl(''),
+      numero: new FormControl<number | null>(null, [Validators.required,Validators.min(1)]),
+      cepEncontrado: new FormControl(false, Validators.requiredTrue)
+    })
+  });
+
+  get dadosInstituicao() {
+    return this.formulario.controls.dadosInstituicao;
+  }
+
+  get contato() {
+    return this.formulario.controls.contato;
+  }
+
+  get localidade() {
+    return this.formulario.controls.localidade;
+  }
+
+  constructor() {
+    this.localidade.controls.cep.valueChanges.subscribe(() => {
+      this.localidade.patchValue({
+        rua: '',
+        cidade: '',
+        estado: '',
+        cepEncontrado: false
+      });
+    });
+  }
+
+  exibirToast(mensagem: string, tipo: 'sucesso' | 'erro') {
+    this.mensagemToast = mensagem;
+    this.tipoToast = tipo;
+    this.mostrarToast = true;
+  }
 
   continuar() {
-  if (this.etapa === 1) {
-    if (this.dadosInstituicao.valid) {
-      this.mostrarToast = false;
-      this.etapa++;
-    } else {
-      this.dadosInstituicao.markAllAsTouched();
-      this.exibirToast('Preencha os dados da instituição corretamente!', 'erro');
+    if (this.salvandoCadastro || this.cadastroSalvo) {
+      return;
     }
 
-    return;
-  }
-  if (this.etapa === 2) {
-    if (this.contato.valid) {
-      this.mostrarToast = false;
-      this.etapa++;
-    } else {
-      this.contato.markAllAsTouched();
-      this.exibirToast('Preencha os dados de contato corretamente!', 'erro');
+    this.mostrarToast = false;
+
+    if (this.etapa === 1) {
+      if (this.dadosInstituicao.invalid) {
+        this.dadosInstituicao.markAllAsTouched();
+        this.exibirToast('Preencha os dados da instituição corretamente!', 'erro');
+        return;
+      }
+
+      this.etapa = 2;
+      return;
     }
 
-    return;
+    if (this.etapa === 2) {
+      if (this.contato.invalid) {
+        this.contato.markAllAsTouched();
+        this.exibirToast('Preencha os dados de contato corretamente!', 'erro');
+        return;
+      }
+
+      this.etapa = 3;
+      return;
+    }
+
+    if (this.etapa === 3) {
+      if (this.localidade.invalid) {
+        this.localidade.markAllAsTouched();
+        this.exibirToast('Confira o CEP e o número do imóvel.', 'erro');
+        return;
+      }
+
+      this.salvarCadastro();
+    }
   }
 
-  // ETAPA 3 - LOCALIDADE
-  if (this.etapa === 3) {
-    this.finalizarCadastro();
-  }
-
-}
   voltar() {
+    if (this.salvandoCadastro) {
+      return;
+    }
+
+    this.mostrarToast = false;
+
     if (this.etapa > 1) {
       this.etapa--;
+      return;
     }
-  }
-  
-  // Volta para a tela Escolher Perfil
-voltarParaPerfil() {
-  this.router.navigate(['/escolher-perfil']);
-}
 
-formulario = new FormGroup({
+  const gato = this.animalService.animalSelecionado();
 
-  // ETAPA 1 - Dados da instituição
-    dadosInstituicao: new FormGroup({
-    nomeOng: new FormControl('', Validators.required),
-    cnpj: new FormControl('', [Validators.required]),
-  }),
-
-  // ETAPA 2 - Contato
-  contato: new FormGroup({
-  whatsapp: new FormControl('', [Validators.required]),
-  instagram: new FormControl(''),
-  facebook: new FormControl(''),
-  horarioInicio: new FormControl('', Validators.required),
-  horarioFim: new FormControl('', Validators.required),
-  diasSelecionados: new FormControl<string[]>([], Validators.required),
-
-}),
-
-  // ETAPA 3 - Localidade
-  localidade: new FormGroup({
-  cep: new FormControl('', [Validators.required,Validators.pattern(/^\d{5}-?\d{3}$/)]), // Esse código aceita 12345678 ou 12345-678, mas rejeita CEPs incompletos.
-  rua: new FormControl(''),
-  cidade: new FormControl(''),
-  estado: new FormControl(''),
-  complemento: new FormControl(''),
-  numero: new FormControl<number | null>(null, [Validators.required, Validators.min(1), Validators.pattern(/^\d+$/)]),
-  cepEncontrado: new FormControl(false, Validators.requiredTrue),
-
-  }),
-
-});
-
-mostrarToast = false;
-mensagemToast = '';
-tipoToast: 'sucesso' | 'erro' = 'sucesso';
-
-exibirToast(mensagem: string, tipo: 'sucesso' | 'erro') {
-  this.mensagemToast = mensagem;
-  this.tipoToast = tipo;
-  this.mostrarToast = true;
-}
-
-
-finalizarCadastro() {
-
-  if (this.localidade.invalid) {
-    this.localidade.markAllAsTouched();
-    this.exibirToast('Preencha os campos obrigatórios!',  'erro');
-
+    this.router.navigate(['/'], { state: { gatoParaReabrir: gato } });
     return;
   }
 
-  if (this.formulario.invalid) {
-    this.formulario.markAllAsTouched();
-    this.exibirToast('Verifique os dados do cadastro!',  'erro');
+  private salvarCadastro(): void {
+    const dadosInstituicao = this.dadosInstituicao.getRawValue();
+    const contato = this.contato.getRawValue();
+    const localidade = this.localidade.getRawValue();
 
-    return;
+  const dados = {   
+    googleToken: this.loginService.googleToken,
+    nomeInstitucional: dadosInstituicao.nomeOng,
+
+    ontato: contato.whatsapp?.replace(/\D/g, ''),
+   instagram: contato.instagram,
+    facebook: contato.facebook,
+    horarioInicio: contato.horarioInicio,
+    horarioFim: contato.horarioFim,
+    diaDisponibilidade: `[${(contato.diasSelecionados ?? []).join(', ')}]`,
+
+  address: {
+    street: localidade.rua,
+    number: Number(localidade.numero),
+    city: localidade.cidade,
+    state: localidade.estado,
+    cep: localidade.cep?.replace(/^(\d{5})(\d{3})$/, '$1-$2')
   }
-  if (this.salvandoCadastro) {
-  return;
-}
+};
+
 this.salvandoCadastro = true;
 
-this.ongService.cadastrarOng(this.formulario.getRawValue()).subscribe({
+this.ongService.cadastrarOng(dados).subscribe({
   next: () => {
-
-  console.log('Dados da ONG:', this.formulario.value);
-  this.exibirToast('Dados preenchidos com sucesso!',  'sucesso');
-      this.router.navigate(['/']);
+    this.salvandoCadastro = false;
+    this.cadastroSalvo = true;
+    this.router.navigate(['/admin']);
   },
   error: () => {
     this.salvandoCadastro = false;
-    this.exibirToast('Não foi possível salvar. Tente novamente.', 'erro');
-  }
-});
-}
-
-
-get dadosInstituicao() {
-  return this.formulario.controls.dadosInstituicao;
-}
-
-get contato() {
-  return this.formulario.controls.contato;
-}
-
-get localidade() {
-  return this.formulario.controls.localidade;
-}
-
-constructor() {
-  // Observa quando o usuário altera o CEP
-  this.localidade.controls.cep.valueChanges.subscribe(() => {
-
-    // Limpa o endereço anterior
-    this.localidade.patchValue({
-      rua: '',
-      cidade: '',
-      estado: '',
-      cepEncontrado: false
-    });
-
+    this.exibirToast('Não foi possível salvar o cadastro. Tente novamente.', 'erro');
+    }
   });
 }
-  private route = inject(ActivatedRoute);  
-  ngOnInit() {
-  const etapaUrl = this.route.snapshot.queryParamMap.get('etapa');
-  if (etapaUrl) {
-    this.etapa = Number(etapaUrl);
-  }
 }
-}
-
