@@ -41,19 +41,12 @@ export class EtapaEndereco {
   erroCep = signal('');
   // Método responsável por buscar o CEP.
   buscarCep() {
-    //Assim, quando uma nova consulta começar, a mensagem anterior será limpa.
     this.erroCep.set('');
 
     // Pega o CEP digitado.
     const cep = this.formulario.get('cep')?.value || '';
 
-    // Remove o hífen e deixa somente os números.
     const cepLimpo = cep.replace(/\D/g, '');
-
-    // Evita consultar novamente um CEP já encontrado.
-    if (cepLimpo === this.cepConsultado && this.formulario.get('cepEncontrado')?.value === true) {
-      return;
-    }
 
     // Limpa o endereço anterior.
     this.formulario.patchValue({
@@ -80,8 +73,7 @@ export class EtapaEndereco {
         const cepAtual = (
           this.formulario.get('cep')?.value || '' ).replace(/\D/g, '');
 
-        // Se o usuário mudou o CEP, ignora a resposta antiga.
-        if (cepAtual !== cepLimpo) {
+          if (cepAtual !== cepLimpo) {
           return;
         }
 
@@ -92,7 +84,7 @@ export class EtapaEndereco {
         }
 
         // Guarda o endereço no formulário.
-        this.formulario.patchValue({
+        this.formulario.patchValue({ //patchValue atualizar alguns campos de um formulário de uma vez.
           logradouro: dados.logradouro,
           bairro: dados.bairro,
           cidade: dados.localidade,

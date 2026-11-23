@@ -76,7 +76,7 @@ export class LoginAdotante {
       });
     });
   }
-  validarIdade(control: AbstractControl) {
+  validarIdade(control: AbstractControl) { // AbstractControl validador reutilizável, método que recebe "qualquer controle"). ⁠
      if (!control.value) {
        return null;
      }
@@ -84,7 +84,11 @@ export class LoginAdotante {
      const limite = new Date();
      limite.setFullYear(limite.getFullYear() - 18);
 
-     return nascimento > limite ? { menorIdade: true } : null;
+     if (nascimento > limite) {
+    return { menorIdade: true };
+  } else {
+    return null;
+  }
    }
 
   exibirToast(mensagem: string, tipo: 'sucesso' | 'erro') {
@@ -201,7 +205,6 @@ export class LoginAdotante {
     },
 
     error: () => {
-      // O envio falhou. Libera o botão para a pessoa tentar novamente.
       this.salvandoCadastro = false;
       this.exibirToast('Não foi possível salvar o cadastro. Tente novamente.', 'erro');
     }

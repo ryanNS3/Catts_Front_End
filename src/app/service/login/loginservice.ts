@@ -18,18 +18,14 @@ export class LoginService {
   emailGoogle = '';
   nomeGoogle = '';
 
-  // Sem barra no final e com /api
   private apiUrl = 'https://catts-api-hhegcygvgbcrgkas.brazilsouth-01.azurewebsites.net/api';
 
   salvarSessao(token: string, tipo: AuthResponse['tipo']) {
-  // Guarda o token do Catts para usar nas próximas requisições
   localStorage.setItem('token', token);
 
-  // Guarda o tipo da conta que acabou de entrar: ADOTANTE ou ONG.
   if (tipo) {
     localStorage.setItem('tipo', tipo);
   } else {
-    // Se o backend não informou o tipo, limpa o que poderia ter ficado de outra conta.
     localStorage.removeItem('tipo');
   }
 }

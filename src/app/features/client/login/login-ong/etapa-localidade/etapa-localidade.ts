@@ -16,9 +16,7 @@ import { ViaCep } from '../../../../../service/via-cep/via-cep'; // Confira o ca
 export class EtapaLocalidade {
 
   private viaCep = inject(ViaCep);
-
   @Input() formulario!: FormGroup;
-
   @Output() voltar = new EventEmitter<void>();
 
   buscando = signal(false);
@@ -26,8 +24,8 @@ export class EtapaLocalidade {
   
   buscarCep() {
     const cep = this.formulario.get('cep')?.value?.replace(/\D/g, '');
-    // Limpa o endereço anterior
-      this.formulario.patchValue({
+    
+      this.formulario.patchValue({ // atualizar os campos que você escolher no formulário.
         rua: '',
         cidade: '',
         estado: '',

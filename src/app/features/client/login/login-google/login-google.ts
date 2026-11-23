@@ -62,17 +62,16 @@ export class LoginGoogle implements AfterViewInit {
         this.authService.emailGoogle = resposta.email;
         this.authService.nomeGoogle = resposta.nome;
 
-        this.zone.run(() => {
+        this.zone.run(() => { // o Angular volta a acompanhar o código que abre a próxima tela.
         // Primeiro acesso: a pessoa ainda precisa completar o cadastro.
            if (resposta.precisaCompletarCadastro) {
            if (this.rascunho) {
         // Veio do modal Adotar. Leva o pedido para o cadastro de adotante.
            this.router.navigate(['/login'], {
            state: { rascunhoAdocao: this.rascunho },
-           replaceUrl: true
+           replaceUrl: true //faz a tela de cadastro ocupar o lugar da tela de login Google no histórico do navegador.
       });
     } else {
-      // Veio da navbar. Pode escolher entre adotante e ONG.
       this.router.navigate(['/escolher-perfil']);
     }
     return;
@@ -83,9 +82,10 @@ export class LoginGoogle implements AfterViewInit {
     return;
   }
 
-  // Mantém o jeito que você já usa para guardar a sessão.
+
   localStorage.setItem('token', resposta.token);
-  if (resposta.tipo) localStorage.setItem('tipo', resposta.tipo);
+  if (resposta.tipo) 
+    localStorage.setItem('tipo', resposta.tipo);
    if (resposta.tipo === 'ONG') {
     this.router.navigate(['/admin']);
     return;

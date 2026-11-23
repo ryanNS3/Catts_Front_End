@@ -11,10 +11,6 @@ import { CampoTexto } from "../../../../../shared/components/campo-texto/campo-t
   templateUrl: "./etapa-dados-pessoais.html",
 })
 export class EtapaDadosPessoais {
-
-  // Input recebe dados do componente pai.
-// Output permite enviar eventos ao componente pai.
-
  // Recebe o formulário enviado pelo LoginAdotante.
   @Input() formulario!: FormGroup;
 

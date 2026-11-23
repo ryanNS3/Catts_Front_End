@@ -85,7 +85,7 @@ export class LoginOng {
     return this.formulario.controls.localidade;
   }
 
-  constructor() {
+  constructor() { //subscribe
     this.localidade.controls.cep.valueChanges.subscribe(() => {
       this.localidade.patchValue({
         rua: '',
@@ -155,7 +155,7 @@ export class LoginOng {
     }
   
 
-   salvarCadastro(): void {
+   salvarCadastro(): void { 
     const dadosInstituicao = this.dadosInstituicao.getRawValue();
     const contato = this.contato.getRawValue();
     const localidade = this.localidade.getRawValue();
@@ -181,7 +181,7 @@ export class LoginOng {
 
 this.salvandoCadastro = true;
 
-this.ongService.cadastrarOng(dados).subscribe({
+this.ongService.cadastrarOng(dados).subscribe({ //subscribe
   next: () => {
     this.salvandoCadastro = false;
     this.cadastroSalvo = true;
