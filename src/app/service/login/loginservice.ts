@@ -8,10 +8,12 @@ export class LoginService { // -Este é o seu AuthService
   private http = inject(HttpClient);
   googleToken = '';
 
-  private apiUrl = 'http://localhost:3000'; // porta do seu backend
+  private apiUrl = 'https://catts-api-hhegcygvgbcrgkas.brazilsouth-01.azurewebsites.net/'; // porta do seu backend
 
   // Manda o token do Google para o backend
   loginComGoogle(credential: string) {
+    this.googleToken = credential;
+    
     return this.http.post<{ token: string; cadastrado: boolean }>(
       this.apiUrl + '/auth/google',
       { credential: credential }

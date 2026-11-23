@@ -36,7 +36,7 @@ etapa = 1
   inicializarGoogle() {
     if (typeof google !== 'undefined' && google.accounts) {
       google.accounts.id.initialize({
-        client_id: '158654072886-prqsffc413vlfrbr1dtfs7aqmpmssnnt.apps.googleusercontent.com',
+        client_id: '536768273785-e5ce7thpb92hviduvivj0nbc8f8b6pe8.apps.googleusercontent.com',
 
         callback: (resposta: any) => {
           this.entrarComGoogle(resposta.credential);
