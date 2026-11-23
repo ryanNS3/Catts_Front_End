@@ -132,3 +132,10 @@
     font-size: 12px;
   }
 }
+
+/* Responsividade para notebooks e monitores */
+@media screen and (min-width: 640px) and (hover: hover) and (pointer: fine) {
+  .cabeca-menu {
+    width: min(803px, calc(100% - 48px));
+  }
+}

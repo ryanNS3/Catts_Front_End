@@ -22,3 +22,14 @@
   border-radius: 16px;
   background: var(--linear-principal, linear-gradient(268deg, hsl(208deg 93.1321% 68.2749%) 7.93%, hsl(208deg 90.8992% 46.0337%) 96.39%));
 }
+
+/* Responsividade para notebooks e monitores */
+@media screen and (min-width: 640px) and (hover: hover) and (pointer: fine) {
+  .botao-adotar {
+    min-height: clamp(46px, 7vh, 64px);
+    height: auto;
+    padding-block: 8px;
+  }
+
+  .botao-adotar { height: var(--altura-botao-cadastro, auto); }
+}

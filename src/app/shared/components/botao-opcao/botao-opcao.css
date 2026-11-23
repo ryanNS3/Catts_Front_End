@@ -23,3 +23,13 @@
   border-color: var(--Azul-500, #2494F6);
   color: var(--Azul-400, #54ACF8);
 }
+
+/* Responsividade para notebooks e monitores */
+@media screen and (min-width: 640px) and (hover: hover) and (pointer: fine) {
+  .opcao {
+    min-height: 40px;
+    height: auto;
+    padding-block: 4px;
+    overflow-wrap: anywhere;
+  }
+}

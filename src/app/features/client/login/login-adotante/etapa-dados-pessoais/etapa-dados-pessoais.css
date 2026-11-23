@@ -34,3 +34,16 @@ app-step-slide {
   display: block;
   margin-top: 40px;
 }
+
+/* Responsividade para notebooks e monitores */
+@media screen and (min-width: 640px) and (hover: hover) and (pointer: fine) {
+  app-step-slide,
+  .dados-pessoais-h1 {
+    margin-top: clamp(20px, 4vh, 40px);
+  }
+
+  app-step-slide { display: block; margin: 33px 0 40px; }
+  .dados-pessoais-h1 { margin: 0; font: 600 32px/40px Inter, sans-serif; }
+  .sub-1 { margin: 3px 0 25px; font: 600 14px/18px Inter, sans-serif; color: #434343; }
+  .campos { gap: 24px; }
+}

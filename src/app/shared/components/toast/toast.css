@@ -55,3 +55,11 @@
   color: #b42318;
   border-color: #f5b5b5;
 }
+
+/* Responsividade para notebooks e monitores */
+@media screen and (min-width: 640px) and (hover: hover) and (pointer: fine) {
+  :host(.toast-do-modal) .toast p {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}

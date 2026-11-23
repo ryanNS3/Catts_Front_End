@@ -89,3 +89,23 @@
   white-space: nowrap;
   color: var(--cor-texto);
 }
+
+/* Responsividade para notebooks e monitores */
+@media screen and (min-width: 640px) and (hover: hover) and (pointer: fine) {
+  .etapa-principal {
+    min-height: 52px;
+    height: auto;
+    padding-block: 6px;
+  }
+
+  .etapa-principal > div {
+    gap: clamp(4px, 0.7vw, 9px);
+  }
+
+  .nome-etapas {
+    white-space: normal;
+    line-height: 1.25;
+  }
+
+  .etapa-principal { margin-top: 0; }
+}

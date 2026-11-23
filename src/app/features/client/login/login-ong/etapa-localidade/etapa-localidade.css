@@ -117,3 +117,21 @@ app-campo-texto {
 .aviso.erro {
   color: #d93025;
 }
+
+/* Responsividade para notebooks e monitores */
+@media screen and (min-width: 640px) and (hover: hover) and (pointer: fine) {
+  :host {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .aviso {
+    position: static;
+    overflow-wrap: anywhere;
+  }
+
+  app-step-slide-ong { display: block; margin: 0 0 40px; }
+  app-botao-voltar { display: block; margin: 0 0 33px; }
+  .titulo { margin: 0; font: 600 32px/40px Inter, sans-serif; }
+  .subtitulo { margin: 3px 0 25px; font: 600 14px/18px Inter, sans-serif; color: #434343; }
+}

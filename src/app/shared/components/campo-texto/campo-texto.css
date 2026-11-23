@@ -92,3 +92,15 @@ textarea.text-form-on {
 .text-form-on[readonly]:focus-visible {
   outline: 2px solid var(--Azul-500, #2494F6);
 }
+
+/* Responsividade para notebooks e monitores */
+@media screen and (min-width: 640px) and (hover: hover) and (pointer: fine) {
+  :host,
+  .text-form-on {
+    min-width: 0;
+  }
+
+  .mensagem-erro {
+    overflow-wrap: anywhere;
+  }
+}

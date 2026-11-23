@@ -22,8 +22,6 @@ export class ViaCep {
 
   // Recebe o HttpClient para realizar a consulta.
   constructor(private http: HttpClient) {}
-
-  // Consulta o endereço utilizando o CEP informado.
   buscarCep(cep: string) {
 
     // Remove hífens e outros caracteres que não sejam números.

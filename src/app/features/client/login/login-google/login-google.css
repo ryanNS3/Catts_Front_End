@@ -45,3 +45,39 @@
   max-width: 300px;
   margin-top: 64px;
 }
+
+/* Responsividade para notebooks e monitores */
+@media screen and (min-width: 640px) and (hover: hover) and (pointer: fine) {
+  main.container {
+    display: grid;
+    grid-template-columns: minmax(0, 711fr) minmax(min(355px, 52%), 569fr);
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+    min-height: 100vh;
+    height: auto;
+    margin: 0;
+    border: 1px solid #151616;
+    border-radius: 24px;
+    overflow: clip;
+    background: #fff;
+  }
+
+  .formulario {
+    box-sizing: border-box;
+    min-width: 0;
+    width: min(416px, calc(100% - 48px));
+    margin: 0 auto;
+    position: relative;
+    left: 3px;
+    padding: clamp(40px, 10.76vh, 99px) 0 32px;
+    --altura-botao-cadastro: 64px;
+    --espaco-seta: 15px;
+  }
+
+
+  .titulo { margin-top: clamp(28px, 4.9vh, 45px); }
+  .sign-in { margin: 0; font: 600 32px/40px Inter, sans-serif; }
+  .sub-0 { margin: 3px 0 0; font: 600 14px/18px Inter, sans-serif; }
+  .google-button { margin-top: clamp(32px, 6.8vh, 63px); max-width: 100%; }
+}

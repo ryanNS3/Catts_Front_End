@@ -66,3 +66,75 @@
   font-size: 16px;
   max-width: 250px;
 }
+
+/* Responsividade para notebooks e monitores */
+@media screen and (min-width: 640px) and (hover: hover) and (pointer: fine) {
+  :host {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    align-self: stretch;
+    overflow: clip;
+    background-color: #0068b3;
+  }
+
+  .login {
+    position: sticky;
+    inset: auto;
+    top: 0;
+    width: 100%;
+    height: calc(100vh - 2px);
+    overflow: hidden;
+    background-color: #0068b3;
+  }
+
+  .gato-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .informacoes-gato {
+    position: absolute;
+    inset: auto auto 9.67% 7.6%;
+    width: calc(100% - 15.2%);
+    max-height: 75%;
+    overflow: auto;
+    color: #fff;
+    overflow-wrap: anywhere;
+  }
+
+  .informacoes-gato span, .informacoes-gato h2, .informacoes-gato p {
+    position: static;
+    margin: 0;
+  }
+
+  .informacoes-gato span {
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    min-height: 35px;
+    max-width: 100%;
+    padding: 4px 15px;
+    border: 1px solid white;
+    border-radius: 16px;
+    font: 700 12px/16px Inter, sans-serif;
+    background: rgb(255 255 255 / 22%);
+    backdrop-filter: blur(2px);
+  }
+
+  .informacoes-gato h2 {
+    max-width: 360px;
+    font: 400 clamp(32px, 3.75vw, 48px)/1.4 "Amatic SC", cursive;
+  }
+
+  .informacoes-gato .observacao-gato {
+    width: min(282px, 100%);
+    max-width: none;
+    margin-top: 14px;
+    color: #e8e8e8;
+    font: 500 16px/19px Montserrat, sans-serif;
+  }
+}

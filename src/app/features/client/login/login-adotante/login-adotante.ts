@@ -38,7 +38,7 @@ export class LoginAdotante {
   // Etapa 1: dados pessoais
   dadosPessoais = new FormGroup({
     contato: new FormControl('', Validators.required),
-    cpf: new FormControl('', [Validators.required, Validators.pattern(/^\d{11}$/)]),
+    cpf: new FormControl('', [Validators.required]),
     nascimento: new FormControl('', [Validators.required, this.validarIdade])
   });
 

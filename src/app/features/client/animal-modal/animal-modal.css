@@ -219,3 +219,20 @@
     height: 16px;
 }
 
+
+/* Responsividade para notebooks e monitores */
+@media screen and (min-width: 800px) and (any-hover: hover) and (any-pointer: fine) {
+  .modal-conteudo {
+    grid-template-rows: minmax(0, 1fr);
+  }
+
+  .modal-detalhes {
+    min-height: 0;
+    overflow-y: auto;
+    padding-inline: clamp(20px, 3vw, 46px);
+  }
+
+  .modal-detalhes app-botao-azul {
+    margin-bottom: 0;
+  }
+}

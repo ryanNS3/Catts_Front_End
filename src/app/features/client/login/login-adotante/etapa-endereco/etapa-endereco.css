@@ -162,3 +162,22 @@ app-step-slide{
   font-weight: 500;
 }
 
+/* Responsividade para notebooks e monitores */
+@media screen and (min-width: 640px) and (hover: hover) and (pointer: fine) {
+  .tipo-residencia {
+    height: auto;
+  }
+
+  .opcoes-residencia {
+    flex-wrap: wrap;
+    gap: clamp(8px, 1.4vw, 16px);
+  }
+
+  app-step-slide {
+    margin-top: clamp(20px, 4vh, 40px);
+  }
+
+  app-step-slide { display: block; margin: 33px 0 40px; }
+  .endereco-h1 { margin: 0; font: 600 32px/40px Inter, sans-serif; }
+  .sub-2 { margin: 3px 0 25px; font: 600 14px/18px Inter, sans-serif; color: #434343; }
+}
