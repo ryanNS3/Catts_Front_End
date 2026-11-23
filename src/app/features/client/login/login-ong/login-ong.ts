@@ -158,7 +158,7 @@ export class LoginOng {
     }
   
 
-  private salvarCadastro(): void {
+   salvarCadastro(): void {
     const dadosInstituicao = this.dadosInstituicao.getRawValue();
     const contato = this.contato.getRawValue();
     const localidade = this.localidade.getRawValue();

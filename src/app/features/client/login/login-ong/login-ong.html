@@ -29,8 +29,9 @@
 
     @if (etapa === 3) {
       <app-etapa-localidade [formulario]="localidade" (voltar)="voltar()" />
+      
+      <app-botao-azul class="botao-azul3" [texto]="salvandoCadastro ? 'Enviando...' : 'Finalizar'" (acaoBotao)="continuar()" />
 
-      <app-botao-azul class="botao-azul3" texto="Continuar" (acaoBotao)="salvarCadastro()"></app-botao-azul>
 
     }
 
